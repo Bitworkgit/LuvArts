@@ -31,7 +31,8 @@ php install.php
 ## Desenvolvimento
 
 Regras e dicas:
-* Todo o template não implantado deve ser amarzenado em uma pasta ao lado de src
+* Todo o template não implantado deve ser amarzenado em uma pasta ao lado de src chamada templates
 * As paginas do projeto implantadas ficam em src/resources/views
 * O js fica em src/resources/js
 * O local de trabalho com css deve ser escolhido pelo Front-End podendo ser em src/resources/sass ou src/public
+
