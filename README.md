@@ -42,4 +42,3 @@ Regras e dicas:
 * Thiago P. Bonfogo 103750
 * Mateus Meira 103849 
 * Bruno César  102473
-* alteração
