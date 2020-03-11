@@ -24,7 +24,7 @@ php install.php
 
 ## Modo de uso
 
-* Ligar Apache e Mysql no xampp
+* Ligar Apache e Mysql no Xampp
 * ir dentro da pasta src e rodar o comando "php artisan serve"
 * Abrir a url que aparecer no terminal
 
