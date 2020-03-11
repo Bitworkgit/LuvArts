@@ -40,3 +40,4 @@ Regras e dicas:
 * Bruna Timoteo  73389
 * Higor Freitas 104481
 * Thiago P. Bonfogo 103750
+* Bruno César  102473
