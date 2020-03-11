@@ -35,10 +35,3 @@ Regras e dicas:
 * As paginas do projeto implantadas ficam em src/resources/views
 * O js fica em src/resources/js
 * O local de trabalho com css deve ser escolhido pelo Front-End podendo ser em src/resources/sass ou src/public
-
-## Creditos
-* Thiago 
-* Bruno
-* Mateus 
-* Higor 
-* Bruna
