@@ -39,3 +39,4 @@ Regras e dicas:
 ## Créditos
 * Bruna Timoteo  73389
 * Higor Freitas 104481
+* Thiago Piassi Bonfogo 103750
