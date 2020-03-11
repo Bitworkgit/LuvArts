@@ -38,4 +38,4 @@ Regras e dicas:
 
 ## Créditos
 
-U MIRANHA U MIRANHA SUA MAE EHUMA PERANHA
+Higor Freitas 104481
