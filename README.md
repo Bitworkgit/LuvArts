@@ -37,5 +37,5 @@ Regras e dicas:
 * O local de trabalho com css deve ser escolhido pelo Front-End podendo ser em src/resources/sass ou src/public
 
 ## Créditos
-*Bruna Timoteo  73389
-*Higor Freitas 104481
+* Bruna Timoteo  73389
+* Higor Freitas 104481
