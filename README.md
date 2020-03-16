@@ -28,6 +28,17 @@ php install.php
 * ir dentro da pasta src e rodar o comando "php artisan serve"
 * Abrir a url que aparecer no terminal
 
+## Atualizando sua Versão do projeto
+rodar os seguintes comando dentro da pasta src:
+
+```sh
+git pull
+```
+
+```sh
+php update.php
+```
+
 ## Desenvolvimento
 
 Regras e dicas:
