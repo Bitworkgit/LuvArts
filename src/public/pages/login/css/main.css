@@ -94,15 +94,15 @@ textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
-input::-webkit-input-placeholder { color: #4b2354;}
-input:-moz-placeholder { color: #4b2354;}
-input::-moz-placeholder { color: #4b2354;}
-input:-ms-input-placeholder { color: #4b2354;}
+input::-webkit-input-placeholder { color: #234256;}
+input:-moz-placeholder { color: #234256;}
+input::-moz-placeholder { color: #234256;}
+input:-ms-input-placeholder { color: #234256;}
 
-textarea::-webkit-input-placeholder { color: #4b2354;}
-textarea:-moz-placeholder { color: #4b2354;}
-textarea::-moz-placeholder { color: #4b2354;}
-textarea:-ms-input-placeholder { color: #4b2354;}
+textarea::-webkit-input-placeholder { color: #234256;}
+textarea:-moz-placeholder { color: #234256;}
+textarea::-moz-placeholder { color: #234256;}
+textarea:-ms-input-placeholder { color: #234256;}
 
 /*---------------------------------------------*/
 button {
@@ -134,11 +134,11 @@ iframe {
   font-family: SourceSansPro-Regular;
   font-size: 16px;
   line-height: 1.4;
-  color: #4b2354;
+  color: #234256;
 }
 
 .hov1:hover {
-  color: #4b2354;
+  color: #234256;
   text-decoration: underline;
 }
 
@@ -175,7 +175,7 @@ iframe {
   top: 0;
   left: 0;
  
-  background: -webkit-linear-gradient(left, #7fddcc, #004085);
+  background: -webkit-linear-gradient(left, #7fddcc70, #00408585);
   background: -o-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
   background: -moz-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
   background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
@@ -207,7 +207,7 @@ iframe {
   display: block;
   font-family: SourceSansPro-Bold;
   font-size: 30px;
-  color: #4b2354;
+  color: #234256;
   line-height: 1.2;
   text-align: center;
 }
@@ -225,7 +225,7 @@ iframe {
 .input100 {
   font-family: SourceSansPro-Bold;
   font-size: 16px;
-  color: #4b2354;
+  color: #234256;
   line-height: 1.2;
 
   display: block;
@@ -314,7 +314,7 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background-color: #4b2354;
+  background-color: #234256;
   box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
   -moz-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
   -webkit-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
