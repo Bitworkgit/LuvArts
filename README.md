@@ -39,6 +39,20 @@ git pull
 php update.php
 ```
 
+## Como publicar suas alterações
+
+```sh
+git add .
+```
+
+```sh
+git commit -m "descrição da alteração feita"
+```
+
+```sh
+git push origin master
+```
+
 ## Desenvolvimento
 
 Regras e dicas:
