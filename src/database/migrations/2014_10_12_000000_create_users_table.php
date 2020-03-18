@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string("cep",8)->nullable();
             $table->string("telefone",50)->nullable();
             $table->string("celular",50)->nullable();
-            $table->integer("excuido");
+            $table->integer("excluido");
             $table->integer("administrador");
             $table->integer("bloqueado");
             $table->string('email')->unique();

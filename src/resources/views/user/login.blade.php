@@ -56,7 +56,7 @@
 				</div>
 
 				<div class="text-center">
-					<a href="#" class="txt2 hov1">
+				<a href="{{ route("user.register") }}" class="txt2 hov1">
 						Cadastrar-se
 					</a>
 				</div>

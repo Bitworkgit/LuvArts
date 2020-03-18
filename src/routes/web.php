@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get("/login", function(){
-    return view("user/login/login");
-});
+    return view("user/login");
+})->name("user.register");
+
+Route::get("/register", function(){
+    return view("user/register");
+})->name("user.register");
