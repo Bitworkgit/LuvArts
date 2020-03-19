@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,14 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function logar(Request $requisicao){
+        $campos = $requisicao->only('email','senha');
+        if(Auth::attempt($campos)){
+            redirect()->route('home');
+        } else { 
+            return redirect()->route('user.login')->with('error','Dados de login não encontrados!');
+        }
     }
 }
