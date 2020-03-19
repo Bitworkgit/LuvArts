@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login</title>
+	<title>Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,17 +23,35 @@
 					Sign Up
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="username or email">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Preencha o NickName">
+					<input class="input100" type="text" name="NickName" placeholder="Nome / Nick">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Preencha o Sobrenome">
+					<input class="input100" type="text" name="LastName" placeholder="Sobrenome (Opcional)">
+					<span class="focus-input100"></span>
+				</div>
+				
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Preencha o email">
+					<input class="input100" type="text" name="Email" placeholder="email">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="container-login100-form-btn">
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Preencha a Senha">
+					<input class="input100" type="password" name="pass" placeholder="Senha">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="form-check">
+    				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+    				<label class="form-check-label" for="exampleCheck1">Aceito os  <a href = "http://www.google.com">Termos de Uso </a> e a <a href = "http://www.bing.com">Politica de Privacidade</a>  </label>
+					
+
+ 		 		</div>
+				  <br>
+				<div class="container-login100-form-btn" >
 					<button class="login100-form-btn">
 						Sign Up
 					</button>
