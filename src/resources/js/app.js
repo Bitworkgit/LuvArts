@@ -5,5 +5,5 @@ require('./bootstrap');
 // import 'perfect-scrollbar';
 // import 'daterangepicker';
 // import 'countdowntime';
-//import 'animsition';
+import 'animsition';
 

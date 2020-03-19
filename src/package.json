@@ -19,6 +19,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
-        "animsition": "^4.0.2"
+        "animsition": "^4.0.2",
+        "countdowntime": "0.0.3"
     }
 }
