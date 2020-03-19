@@ -53,20 +53,6 @@
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
 					<input class="input100" type="password" name="senha" placeholder="Sua Senha">
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Confirm password">
-					<input class="input100" type="password" name="senha_confirmation" placeholder="Confirme sua Senha">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Preencha o email">
-					<input class="input100" type="text" name="Email" placeholder="email">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Preencha a Senha">
-					<input class="input100" type="password" name="pass" placeholder="Senha">
 					<span class="focus-input100"></span>
 				</div>
 				
