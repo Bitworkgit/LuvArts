@@ -20,6 +20,12 @@
     },
     "dependencies": {
         "animsition": "^4.0.2",
-        "countdowntime": "0.0.3"
+        "bootstrap": "^4.4.1",
+        "countdowntime": "0.0.3",
+        "daterangepicker": "^3.0.5",
+        "izitoast": "^1.4.0",
+        "perfect-scrollbar": "^1.5.0",
+        "popper.js": "^1.16.0",
+        "select2": "^4.0.13"
     }
 }
