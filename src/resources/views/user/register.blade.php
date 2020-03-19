@@ -31,7 +31,6 @@
 				<span class="login100-form-title p-b-37">
 					Cadastro
 				</span>
-
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter name">
 					<input class="input100" type="text" name="nome" placeholder="Digite seu Nome ou Nick">
 					<span class="focus-input100"></span>
@@ -54,12 +53,34 @@
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
 					<input class="input100" type="password" name="senha" placeholder="Sua Senha">
-					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Confirm password">
 					<input class="input100" type="password" name="senha_confirmation" placeholder="Confirme sua Senha">
 					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Preencha o email">
+					<input class="input100" type="text" name="Email" placeholder="email">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Preencha a Senha">
+					<input class="input100" type="password" name="pass" placeholder="Senha">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="form-check">
+    				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+    				<label class="form-check-label" for="exampleCheck1">Aceito os  <a href = "http://www.google.com">Termos de Uso </a> e a <a href = "http://www.bing.com">Politica de Privacidade</a>  </label>
+				</div>
+
+ 		 		</div>
+				  <br>
+				<div class="container-login100-form-btn" >
+					<button class="login100-form-btn">
+						Sign Up
+					</button>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Sex">
