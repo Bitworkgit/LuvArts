@@ -69,20 +69,7 @@
 					<input class="input100" type="password" name="pass" placeholder="Senha">
 					<span class="focus-input100"></span>
 				</div>
-
-				<div class="form-check">
-    				<input type="checkbox" class="form-check-input" id="exampleCheck1">
-    				<label class="form-check-label" for="exampleCheck1">Aceito os  <a href = "http://www.google.com">Termos de Uso </a> e a <a href = "http://www.bing.com">Politica de Privacidade</a>  </label>
-				</div>
-
- 		 		</div>
-				  <br>
-				<div class="container-login100-form-btn" >
-					<button class="login100-form-btn">
-						Sign Up
-					</button>
-				</div>
-
+				
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Sex">
 					<select class="input100 selectf">
 						<option value="" disabled selected>Selecione seu Sexo</option>
@@ -102,6 +89,11 @@
 					<span class="focus-input100"></span>
 				</div>
 
+				<div class="form-check">
+    				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+    				<label class="form-check-label" for="exampleCheck1">Aceito os  <a href = "http://www.google.com">Termos de Uso </a> e a <a href = "http://www.bing.com">Politica de Privacidade</a>  </label>
+				</div>
+				<br/>
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn">
 						Cadastrar-se
