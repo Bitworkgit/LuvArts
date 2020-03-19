@@ -74,21 +74,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $sobrenome = $data['sobrenome'];
-        if(empty($sobrenome)){
-            $sobrenome = "";
-        }
-        else {
-            $sobrenome =  " $sobrenome";
-        }
+        $cpf = $data['cpf'];
+        $cpf = str_replace(".","",$cpf);
+        $cpf = str_replace("-","",$cpf);
+        $cep = str_replace("-","",$data['cep']);
 
         return User::create([
-            'name' => $data['nome'].$sobrenome,
+            'nome' => $data['nome'].$sobrenome,
             'email' => $data['email'],
             'senha' => Hash::make($data['senha']),
-            'cpf' => $data['cpf'],
+            'cpf' => $cpf,
             'sexo' => intval($data['sexo']),
-            'data_de_nascimento' => strtotime($data['data']),
-            'cep' => $data['cep'],
+            'data_de_nascimento' => $data['data'],
+            'cep' => str_replace('.','',$cep),
             'excluido' => 0,
             "administrador" => 0,
             "bloqueado" => 0

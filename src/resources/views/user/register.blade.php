@@ -70,8 +70,8 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Digite sua data de nascimento">
-					<input class="input100" type="text" id="date" name="data" placeholder="Digite sua data de nascimento">
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Escolha sua data de nascimento">
+					<input class="input100" type="date" id="date" name="data" placeholder="Escolha sua data de nascimento">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -100,7 +100,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
 	<script>
 		$('#cpf').mask('999.999.999-99', {reverse: true});
-		$('#date').mask('99/99/9999');
 		$("#cep").mask("99.999-999");
 	</script>
 	<script src="{{ asset("js/app.js") }}"></script>
