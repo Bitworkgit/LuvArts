@@ -36,7 +36,7 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Digite seu Sobrenome">
+				<div class="wrap-input100 m-b-20">
 					<input class="input100" type="text" name="sobrenome" placeholder="Digite seu Sobrenome">
 					<span class="focus-input100"></span>
 				</div>
@@ -107,7 +107,7 @@
 	@if($errors->any())
 		@foreach ($errors->all() as $error)
 			<script>
-				iziToast.error({title: 'Error',	message: '{{ $error }}',});
+				iziToast.error({title: 'Erro',	message: '{{ $error }}',});
 			</script>
 		@endforeach    
 	@endif

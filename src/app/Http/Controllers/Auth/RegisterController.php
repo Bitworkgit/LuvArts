@@ -53,7 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nome' => ['required', 'string', 'max:100'],
-            'sobrenome' => ['string','max:200'],
+            'sobrenome' => ['max:200'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
             'senha' => ['required', 'string', 'min:8'],
             'senha_confirmation' => ['required','string','same:senha'],
@@ -73,6 +73,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(!isset($data['sobrenome'])){
+            $data['sobrenome'] = "";
+        }
+
         $sobrenome = $data['sobrenome'];
         $cpf = $data['cpf'];
         $cpf = str_replace(".","",$cpf);
