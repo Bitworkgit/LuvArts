@@ -31,33 +31,38 @@
 				<span class="login100-form-title p-b-37">
 					Cadastro
 				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter name">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Digite seu Nome ou Nick">
 					<input class="input100" type="text" name="nome" placeholder="Digite seu Nome ou Nick">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter sobrenome">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Digite seu Sobrenome">
 					<input class="input100" type="text" name="sobrenome" placeholder="Digite seu Sobrenome">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter E-mail">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="exemple@gmail.com">
 					<input class="input100" type="text" name="email" placeholder="exemple@gmail.com">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Cpf">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Digite seu cpf">
 					<input class="input100" id="cpf" type="text" name="cpf" placeholder="Digite seu cpf">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="senha" placeholder="Sua Senha">
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Digite Sua Senha">
+					<input class="input100" type="password" name="senha" placeholder="Digite Sua Senha">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Confirme Sua Senha">
+					<input class="input100" type="password" name="senha_confirmation" placeholder="Confirme Sua Senha">
 					<span class="focus-input100"></span>
 				</div>
 				
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Sex">
-					<select class="input100 selectf">
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Selecione um Sexo">
+					<select class="input100 selectf" name="sexo">
 						<option value="" disabled selected>Selecione seu Sexo</option>
 						<option value="1">Masculino</option>
 						<option value="0">Feminino</option>
@@ -65,18 +70,18 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter Date">
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Digite sua data de nascimento">
 					<input class="input100" type="text" id="date" name="data" placeholder="Digite sua data de nascimento">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter Cep">
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Digite seu cep">
 					<input class="input100" type="text" id="cep" name="cep" placeholder="Digite seu cep">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="form-check">
-    				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+    				<input type="checkbox" name="termos"  class="form-check-input" id="exampleCheck1">
     				<label class="form-check-label" for="exampleCheck1">Aceito os  <a href = "http://www.google.com">Termos de Uso </a> e a <a href = "http://www.bing.com">Politica de Privacidade</a>  </label>
 				</div>
 				<br/>

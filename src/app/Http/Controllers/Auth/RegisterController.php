@@ -55,11 +55,13 @@ class RegisterController extends Controller
             'nome' => ['required', 'string', 'max:100'],
             'sobrenome' => ['string','max:200'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
-            'senha' => ['required', 'string', 'min:8', 'confirmed'],
+            'senha' => ['required', 'string', 'min:8'],
+            'senha_confirmation' => ['required','string','same:senha'],
             'cpf' => ['required','string','unique:usuarios'],
             'sexo' => ['required','min:1','max:1'],
             'data' => ['required'],
-            'cep' => ['required']
+            'cep' => ['required'],
+            "termos" => ["required"]
         ]);
     }
 
@@ -80,7 +82,7 @@ class RegisterController extends Controller
         }
 
         return User::create([
-            'name' => $data['nome'] + $sobrenome,
+            'name' => $data['nome'].$sobrenome,
             'email' => $data['email'],
             'senha' => Hash::make($data['senha']),
             'cpf' => $data['cpf'],
@@ -94,7 +96,7 @@ class RegisterController extends Controller
     }
 
     protected function salvar(Request $requisicao){
-        $dados = $requisicao->only(['nome',"sobrenome",'email','senha','cpf','sexo','data','cep']);
+        $dados = $requisicao->only(['nome',"sobrenome",'email','senha','senha_confirmation','cpf','sexo','data','cep','termos']);
         $validator = $this->validator($dados);
 
         if($validator->fails()):
