@@ -1,13 +1,10 @@
-@import "node_modules/bootstrap/scss/bootstrap";
-@import "node_modules/select2/dist/css/select2";
-@import "node_modules/perfect-scrollbar/css/perfect-scrollbar";
-@import "node_modules/daterangepicker/daterangepicker";
-@import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
-@import "node_modules/animsition/dist/css/animsition";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Variables
+@import 'variables';
 
-//---------------------------//
-//        Frameworks         //
-//---------------------------//
-//        Bootstrap          //
-//---------------------------//
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~izitoast/dist/css/iziToast.css'

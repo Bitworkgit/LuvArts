@@ -24,3 +24,6 @@ Route::get("/login", function(){
 Route::get("/register", function(){
     return view("user/register");
 })->name("user.register");
+
+
+Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");

@@ -33,7 +33,12 @@
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter name">
-					<input class="input100" type="text" name="nome" placeholder="Seu Nome">
+					<input class="input100" type="text" name="nome" placeholder="Digite seu Nome ou Nick">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter sobrenome">
+					<input class="input100" type="text" name="sobrenome" placeholder="Digite seu Sobrenome">
 					<span class="focus-input100"></span>
 				</div>
 
