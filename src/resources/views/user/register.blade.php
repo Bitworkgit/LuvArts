@@ -46,18 +46,13 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Digite seu cpf">
-					<input class="input100" id="cpf" type="text" name="cpf" placeholder="Digite seu cpf">
-					<span class="focus-input100"></span>
-				</div>
-
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Digite Sua Senha">
 					<input class="input100" type="password" name="password" placeholder="Digite Sua Senha">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Confirme Sua Senha">
-					<input class="input100" type="password" name="senha_confirmation" placeholder="Confirme Sua Senha">
+					<input class="input100" type="password" name="cofirmação_de_senha" placeholder="Confirme Sua Senha">
 					<span class="focus-input100"></span>
 				</div>
 				
@@ -72,11 +67,6 @@
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Escolha sua data de nascimento">
 					<input class="input100" type="date" id="date" name="data" placeholder="Escolha sua data de nascimento">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Digite seu cep">
-					<input class="input100" type="text" id="cep" name="cep" placeholder="Digite seu cep">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -97,11 +87,6 @@
 	<div id="dropDownSelect1"></div>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
-	<script>
-		$('#cpf').mask('999.999.999-99', {reverse: true});
-		$("#cep").mask("99.999-999");
-	</script>
 	<script src="{{ asset("js/app.js") }}"></script>
 	<script src="{{ asset("/pages/login/js/main.js")}}"></script>
 	@if($errors->any())
