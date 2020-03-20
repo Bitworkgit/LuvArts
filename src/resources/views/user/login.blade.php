@@ -30,7 +30,7 @@
 				</div>
 
 				<div class="wrap-input100 m-b-25">
-					<input class="input100" type="password" name="senha" placeholder="...............">
+					<input class="input100" type="password" name="password" placeholder="...............">
 					<span class="focus-input100"></span>
 				</div>
 

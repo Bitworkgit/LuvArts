@@ -19,8 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('nome',100);
             $table->integer("sexo");
             $table->dateTime("data_de_nascimento");
-            $table->string("cidade",200);
-            $table->string("uf",2);
             $table->string("endereco",200)->nullable();
             $table->string("endereco_numero",200)->nullable();
             $table->string("complemento",200)->nullable();
@@ -32,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->integer("administrador");
             $table->integer("bloqueado");
             $table->string('email')->unique();
-            $table->string('senha');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

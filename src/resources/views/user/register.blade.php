@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Digite Sua Senha">
-					<input class="input100" type="password" name="senha" placeholder="Digite Sua Senha">
+					<input class="input100" type="password" name="password" placeholder="Digite Sua Senha">
 					<span class="focus-input100"></span>
 				</div>
 

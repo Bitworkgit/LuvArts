@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 })->name("home");
 
@@ -25,6 +25,6 @@ Route::get("/register", function(){
     return view("user/register");
 })->name("user.register");
 
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");

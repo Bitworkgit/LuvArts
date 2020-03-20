@@ -41,11 +41,16 @@ class LoginController extends Controller
     }
 
     protected function logar(Request $requisicao){
-        $campos = $requisicao->only('email','senha');
+        $campos = $requisicao->only('email','password');
         if(Auth::attempt($campos)){
-            redirect()->route('home');
+            return redirect()->route('home');
         } else { 
             return redirect()->route('user.login')->with('error','Dados de login não encontrados!');
         }
+    }
+
+    protected function logout(Request $request){
+        Auth::logout();
+        return redirect()->route("user.login");
     }
 }
