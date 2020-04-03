@@ -1,0 +1,42 @@
+.navbar {
+    background-color: rgba(18,20,37,0.89);
+    float: right;
+    list-style: none;
+}
+.navbar li a {
+    color: antiquewhite;
+    text-decoration: none;
+    padding: 5px 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+.pad2{
+	padding-top: 47px;
+}
+
+.pad{
+	padding-top: 150px;
+	background-color:antiquewhite;
+	background-image: url("capa.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-right: 100px;
+	margin-bottom: 40px;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+.background-la {
+    background-color: #2a2d3d!important;
+	padding-bottom: 1px;
+}
+
+div.relative {
+  position: relative;  
+  top: 20px;
+  background-color: transparent;
+}
+.img-fluid {
+    margin-left: auto!important;
+	border:8px inset antiquewhite;
+}

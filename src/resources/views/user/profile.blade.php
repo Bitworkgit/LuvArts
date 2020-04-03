@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<script src="{{ asset("css/app.css") }}"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
    
-	<script src="{{ asset("js/app.js") }}"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
     <title>Perfil</title>
 
 
@@ -52,7 +52,7 @@
         
         <div class="pad">
             <div class="text-right relative">
-                <img src="B.jpg" class="img-fluid rounded-circle d-block" alt="avatar">
+                <img src="{{ asset('images/empty-avatar.png') }}" width="180" class="img-fluid rounded-circle d-block" alt="avatar">
             </div>
         </div>
         <div class="container">
