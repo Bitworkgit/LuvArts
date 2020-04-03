@@ -30,6 +30,9 @@ Route::get("/register", function(){
     return view("user/register");
 })->name("user.register");
 
+
+
+Route::get("/profile/{user_id}",['uses' =>'ProfileController@index', 'as'=>'profile.index']);
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
