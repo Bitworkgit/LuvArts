@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string("foto_capa")->nullable()->default("images/empty-background.jpg");
             $table->integer("sexo");
             $table->dateTime("data_de_nascimento");
-            $table->string("endereco",200)->nullable();
+            $table->integer("endereco")->nullable();
             $table->string("site")->nullable()->default(".......");
             $table->string("estado",200)->nullable();
             $table->string("cidade",200)->nullable();

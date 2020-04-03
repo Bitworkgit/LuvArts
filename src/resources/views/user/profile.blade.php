@@ -22,7 +22,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top ">
         <div class="container">
-            <a href="index.html"><img src="Src/Images/NAV.png" width="110" class="nav-link"></a>
+            <a href="index.html"><img src="{{ asset('images/NAV.png')}}" width="110" class="nav-link"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -118,6 +118,27 @@
                                         <input class="form-control" type="url" value="{{ $user->site }}">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Celular</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="{{ $user->celular }}" placeholder="(00) 0000-0000">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Cpf</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="{{ $user->cpf }}" placeholder="CPF">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Biografia</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control">{{ $user->biografia }}</textarea>
+                                    </div>
+                                </div>
+
 								<br>
 								<hr width:60%="">
                                 <div class="form-group row">
@@ -125,28 +146,31 @@
                                     <div class="col-lg-9">
 										<input class="form-control" type="text" value="" placeholder="CEP">  
 										<br>
-										<input class="form-control" type="text" value="" placeholder="number">
+										<input class="form-control" type="text" value="{{ $user->endereco }}" placeholder="Endereço">
+										<br>
+                                        <input class="form-control" type="text" value="{{ $user->complemento }}" placeholder="Complemento">
                                     </div>
                                </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-6">
-                                        <input class="form-control" type="text" value="" placeholder="Rua">
+                                        <input class="form-control" type="text" value="{{$user->rua}}" placeholder="Rua">
                                     </div>
-
+                                    <div class="col-lg-3">
+                                        <input class="form-control" type="text" value="{{ $user->bairro }}" placeholder="Bairro">
+                                    </div>
                                     
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-6">
-                                        <input class="form-control" type="text" value="" placeholder="City">
+                                        <input class="form-control" type="text" value="{{ $user->cidade }}" placeholder="Cidade">
                                     </div>
 										<br>
                                     <div class="col-lg-3">
-                                        <input class="form-control" type="text" value="" placeholder="UF">
+                                        <input class="form-control" type="text" value="{{ $user->estado }}" placeholder="UF">
                                     </div>
                                 </div>
- 
 								<br>
 								<hr width:60%="">
 
@@ -157,14 +181,13 @@
                   </div>
                 </div>
 				<div class="form-group">
-                  <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa (tamanho ideal 851x310)</label>
+                  <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa (tamanho ideal 1920×1080)</label>
                   <div class="col-md-4">
                     <input id="uploadArt" name="uploadArt" class="input-file" type="file">
                   </div>
                 </div>
 				<br>
 
-                                <button id="colecao" name="colecao" class="btn btn-default">cancelar</button>
                                 <button id="colecao" name="colecao" class="btn btn-primary">Finalizar edição</button>
 
 
