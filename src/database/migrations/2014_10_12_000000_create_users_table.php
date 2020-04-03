@@ -16,13 +16,15 @@ class CreateUsersTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string("cpf",11)->nullable();
+            $table->string("biografia")->nullable()->default(".......");
             $table->string('nome',100);
-            $table->string("foto_perfil")->nullable();
-            $table->string("foto_capa")->nullable();
+            $table->float('capital', 7, 2)->nullable()->default(0.00);
+            $table->string("foto_perfil")->nullable()->default("images/empty-avatar.png");
+            $table->string("foto_capa")->nullable()->default("images/empty-background.jpg");
             $table->integer("sexo");
             $table->dateTime("data_de_nascimento");
             $table->string("endereco",200)->nullable();
-            $table->string("site")->nullable();
+            $table->string("site")->nullable()->default(".......");
             $table->string("estado",200)->nullable();
             $table->string("cidade",200)->nullable();
             $table->string("rua",200)->nullable();

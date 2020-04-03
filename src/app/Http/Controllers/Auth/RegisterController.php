@@ -78,7 +78,7 @@ class RegisterController extends Controller
         $sobrenome = $data['sobrenome'];
 
         return User::create([
-            'nome' => $data['nome'].$sobrenome,
+            'nome' => $data['nome']." ".$sobrenome,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'sexo' => intval($data['sexo']),

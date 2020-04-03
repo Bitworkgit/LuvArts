@@ -10,7 +10,11 @@
    
 	<script src="{{ asset('js/app.js') }}"></script>
     <title>Perfil</title>
-
+    <style>
+        .pad {
+            background-image: url("{{ asset($user->foto_capa)}}");
+        }
+    </style>
 
 </head>
 
@@ -52,62 +56,42 @@
         
         <div class="pad">
             <div class="text-right relative">
-                <img src="{{ asset('images/empty-avatar.png') }}" width="180" class="img-fluid rounded-circle d-block" alt="avatar">
+                <img src="{{ asset($user->foto_perfil) }}" width="180" class="img-fluid rounded-circle d-block" alt="avatar">
             </div>
         </div>
         <div class="container">
             
             <div class="row my-2">
                 <div class="col-lg-8 order-lg-2">
-				                <h4 class="mt-2">Name example</h4>
+				                <h4 class="mt-2">{{ $user->nome }}</h4>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
 						
-                            <a href="" data-target="#profile" data-toggle="tab" class="nav-link active show">Profile</a>
+                            <a href="" data-target="#profile" data-toggle="tab" class="nav-link active show">Perfil</a>
                         </li>
                         <!--new item-->
                         </li>
                         <li class="nav-item">
-                            <a href="" data-target="#edit" data-toggle="tab" class="nav-link ">Edit</a>
+                            <a href="" data-target="#edit" data-toggle="tab" class="nav-link ">Editar</a>
                         </li>
                     </ul>
                     <div class="tab-content py-4">
                         <div class="tab-pane active show" id="profile">
                             <div class="row">
-
-
                                 <div class="col-md-12">
-                                    <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Exemplo
-                                        Nome</h5>
-                                    <table class="table table-sm table-hover table-striped">
-                                        <tbody>
-                                            <tr>
-                                                <td> loreml loreml loreml loreml loreml &nbsp; </td>
-                                            </tr>
-                                            <tr>
-                                                <td> loreml loreml loreml loreml loreml loreml loreml </td>
-                                            </tr>
-                                            <tr>
-                                                <td> loreml&nbsp; loreml loreml loreml loreml <br></td>
-                                            </tr>
-                                            <tr>
-                                                <td> loreml&nbsp; loreml loreml loreml loreml loreml loreml <br></td>
-                                            </tr>
-                                            <tr>
-                                                <td> loreml&nbsp; loreml loreml loreml loreml <br></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <h6>Biografia</h6>
+                                    <p>
+                                        {{ $user->biografia }}
+                                    </p>
+                                    <h6>Website</h6>
+                                    <p>
+                                        {{ $user->site }}
+                                    </p>
                                 </div>
+
                                 <div class="col-md-12">
-                                    <h6>About</h6>
-                                    <p>
-                                        Web Designer, UI/UX Engineer
-                                    </p>
-                                    <h6>Hobbies</h6>
-                                    <p>
-                                        Indie music, skiing and hiking. I love the great outdoors.
-                                    </p>
+                                    <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Coleções</h5>
+
                                 </div>
                             </div>
                             <!--/row-->
@@ -118,26 +102,20 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="Jane">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Sobrenome</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="Bishop">
+                                        <input class="form-control" type="text" value="{{ $user->nome }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="email" value="email@gmail.com">
+                                        <input class="form-control" type="email" value="{{ $user->email }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Website</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="url" value="">
+                                        <input class="form-control" type="url" value="{{ $user->site }}">
                                     </div>
                                 </div>
 								<br>
@@ -203,8 +181,8 @@
                             <div class="tooltip__text px--10 py--5" style="width: 240px;">A minimum of $50 needs to be
                                 accumulated on your account to request a payment.</div>
                         </div>
-                        <p class="text">Amount to withdraw:</p>
-                        <h3 class="card-heading  heading-3 mt--15">$ 5.94</h3><button id="colecao" name="colecao"
+                        <p class="text">Seu capital</p>
+                        <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3><button id="colecao" name="colecao"
                             class="btn btn-primary">Solicitar Pagamento</button>
                     </div>
 
