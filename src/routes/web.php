@@ -33,3 +33,9 @@ Route::get("/register", function(){
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
+
+/*
+ * Rota para Registro de Produtos
+ */
+
+ Route::resource('/cadastro-produtos','Produtos\ProdutosController');
