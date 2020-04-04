@@ -36,3 +36,4 @@ Route::get("/profile/{user_id}",['uses' =>'ProfileController@index', 'as'=>'prof
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
+Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atualizar");

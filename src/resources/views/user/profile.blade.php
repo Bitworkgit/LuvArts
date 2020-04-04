@@ -98,44 +98,39 @@
                         </div>
                        
                         <div class="tab-pane " id="edit">
-                            <form role="form">
+                            <form role="form" action="{{ route('profile.atualizar') }}" method="post">
+                                @csrf
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="{{ $user->nome }}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="email" value="{{ $user->email }}">
+                                        <input class="form-control" name="nome" type="text" value="{{ $user->nome }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Website</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="url" value="{{ $user->site }}">
+                                        <input class="form-control" name="website" type="text" value="{{ $user->site }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Celular</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="{{ $user->celular }}" placeholder="(00) 0000-0000">
+                                        <input class="form-control" type="text" name="celular" value="{{ $user->celular }}" placeholder="(00) 0000-0000">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Cpf</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="{{ $user->cpf }}" placeholder="CPF">
+                                        <input class="form-control" name="cpf" type="text" value="{{ $user->cpf }}" placeholder="CPF">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Biografia</label>
                                     <div class="col-lg-9">
-                                        <textarea class="form-control">{{ $user->biografia }}</textarea>
+                                        <textarea name="biografia" class="form-control">{{ $user->biografia }}</textarea>
                                     </div>
                                 </div>
 
@@ -144,31 +139,31 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Endereço</label>
                                     <div class="col-lg-9">
-										<input class="form-control" type="text" value="" placeholder="CEP">  
+										<input class="form-control" name="cep" type="text" value="" placeholder="CEP">  
 										<br>
-										<input class="form-control" type="text" value="{{ $user->endereco }}" placeholder="Endereço">
+										<input class="form-control" name="endereço" type="text" value="{{ $user->endereco }}" placeholder="Endereço">
 										<br>
-                                        <input class="form-control" type="text" value="{{ $user->complemento }}" placeholder="Complemento">
+                                        <input class="form-control" name="complemento" type="text" value="{{ $user->complemento }}" placeholder="Complemento">
                                     </div>
                                </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-6">
-                                        <input class="form-control" type="text" value="{{$user->rua}}" placeholder="Rua">
+                                        <input class="form-control" name="rua" type="text" value="{{$user->rua}}" placeholder="Rua">
                                     </div>
                                     <div class="col-lg-3">
-                                        <input class="form-control" type="text" value="{{ $user->bairro }}" placeholder="Bairro">
+                                        <input class="form-control" name="bairro" type="text" value="{{ $user->bairro }}" placeholder="Bairro">
                                     </div>
                                     
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-6">
-                                        <input class="form-control" type="text" value="{{ $user->cidade }}" placeholder="Cidade">
+                                        <input class="form-control" name="cidade" type="text" value="{{ $user->cidade }}" placeholder="Cidade">
                                     </div>
 										<br>
                                     <div class="col-lg-3">
-                                        <input class="form-control" type="text" value="{{ $user->estado }}" placeholder="UF">
+                                        <input class="form-control" name="estado" type="text" value="{{ $user->estado }}" placeholder="UF">
                                     </div>
                                 </div>
 								<br>
@@ -177,13 +172,13 @@
 <div class="form-group">
                   <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil</label>
                   <div class="col-md-4">
-                    <input id="uploadArt" name="uploadArt" class="input-file" type="file">
+                    <input id="uploadArt" name="foto_perfil" class="input-file" type="file">
                   </div>
                 </div>
 				<div class="form-group">
                   <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa (tamanho ideal 1920×1080)</label>
                   <div class="col-md-4">
-                    <input id="uploadArt" name="uploadArt" class="input-file" type="file">
+                    <input id="uploadArt" name="foto_capa" class="input-file" type="file">
                   </div>
                 </div>
 				<br>
@@ -217,6 +212,19 @@
         </div>
 		</div
     </div>
+    @if(session('error'))
+		<script>
+			iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
+		</script>
+	@endif
+
+    @if($errors->any())
+		@foreach ($errors->all() as $error)
+			<script>
+				iziToast.error({title: 'Erro',	message: '{{ $error }}',});
+			</script>
+		@endforeach    
+	@endif
 </body>
 
 <footer class="py-5 background-la">
