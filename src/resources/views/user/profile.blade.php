@@ -147,7 +147,7 @@
                                     <div class="col-lg-9">
 										<input class="form-control" name="cep" type="text" value='{{ $user->cep }}' placeholder="CEP">  
 										<br>
-										<input class="form-control" name="endereço" type="text" value="{{ $user->endereco }}" placeholder="Endereço">
+										<input class="form-control" name="endereço" type="text" value="{{ $user->endereco }}" placeholder="Nº da Residência">
 										<br>
                                         <input class="form-control" name="complemento" type="text" value="{{ $user->complemento }}" placeholder="Complemento">
                                     </div>
