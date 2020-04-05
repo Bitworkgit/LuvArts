@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string("cpf",14)->nullable();
             $table->longText("biografia")->nullable()->default(".......");
-            $table->string('nome',100);
+            $table->string('nome',146);
             $table->float('capital', 7, 2)->nullable()->default(0.00);
             $table->string("foto_perfil")->nullable()->default("images/empty-avatar.png");
             $table->string("foto_capa")->nullable()->default("images/empty-background.jpg");
@@ -25,13 +25,13 @@ class CreateUsersTable extends Migration
             $table->dateTime("data_de_nascimento");
             $table->integer("endereco")->nullable();
             $table->string("site")->nullable()->default(".......");
-            $table->string("estado",200)->nullable();
-            $table->string("cidade",200)->nullable();
-            $table->string("rua",200)->nullable();
+            $table->string("estado",19)->nullable();
+            $table->string("cidade",30)->nullable();
+            $table->string("rua",60)->nullable();
             $table->string("cep",9)->nullable();
-            $table->string("complemento",200)->nullable();
-            $table->string("bairro",200)->nullable();
-            $table->string("celular",50)->nullable();
+            $table->string("complemento",100)->nullable();
+            $table->string("bairro",60)->nullable();
+            $table->string("celular",14)->nullable();
             $table->integer("excluido");
             $table->integer("administrador");
             $table->integer("bloqueado");

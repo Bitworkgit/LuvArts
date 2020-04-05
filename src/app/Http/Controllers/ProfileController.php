@@ -24,19 +24,19 @@ class ProfileController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nome' => 'required|string|max:100',
+            'nome' => 'required|string|max:146',
             'website' => 'required|string',
-            'celular' => 'nullable|string|max:50',
+            'celular' => 'nullable|string|max:14',
             'cpf' => 'nullable|string|max:14',
             'biografia' => 'required|string',
             'endereço' =>  'nullable|integer',
-            'cep' => 'nullable|string|min:9|max:9',
-            'complemento' => 'nullable|string|max:200',
-            'rua' => 'nullable|string|max:200',
-            'cidade' => 'nullable|string|max:200',
-            'bairro' => 'nullable|string|max:200',
-            'estado' => 'nullable|string|max:200',
-            'foto_perfil' => 'nullable|file|mimes:jpeg,png,jpg',
+            'cep' => 'nullable|string|max:9',
+            'complemento' => 'nullable|string|max:100',
+            'rua' => 'nullable|string|max:60',
+            'cidade' => 'nullable|string|max:30',
+            'bairro' => 'nullable|string|max:60',
+            'estado' => 'nullable|string|max:19',
+            'foto_perfil' => 'nullable|file|mimes:jpeg,png,jpg|dimensions:min_width=200,max_width=890,min_height=200,max_height=890',
             'foto_capa' => 'nullable|file|mimes:jpeg,png,jpg'
         ]);
     }

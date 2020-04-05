@@ -28,7 +28,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top ">
         <div class="container">
-            <a href="index.html"><img src="{{ asset('images/NAV.png')}}" width="110" height="50" class="nav-link"></a>
+            <a href="route('home')"><img src="{{ asset('images/NAV.png')}}" width="110" class="nav-link"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -176,14 +176,14 @@
 								<hr width:60%="">
 
 <div class="form-group">
-                  <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil</label>
+                  <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil (tamanho médio ideal 800x800)</label>
                 <div class="col-md-4">
-                    <input id="foto_capa" type="file" name="foto_perfil" class="input-file">
+                    <input id="foto_perfil" type="file" name="foto_perfil" class="input-file">
                   </div>
                 </div>
 				
                 <div class="form-group">
-                  <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa (tamanho ideal 1920×1080)</label>
+                  <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa</label>
                   <div class="col-md-4">
                     <input id="foto_capa" type="file" name="foto_capa" class="input-file">
                   </div>
