@@ -19,7 +19,7 @@
 	background-color:antiquewhite;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+    background-size: cover;
 	padding-right: 100px;
 	margin-bottom: 40px;
 	margin-left: 15%;
@@ -35,7 +35,21 @@ div.relative {
   top: 20px;
   background-color: transparent;
 }
-.img-fluid {
-    margin-left: auto!important;
-	border:8px inset antiquewhite;
+.image-border {
+    border:3px inset rgb(204, 220, 230);
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+
+/* .image-border img {
+    width: 100%;
+    height: auto;
+} */
+
+img {
+    position: absolute; width: 100%; height: 100%; top: 0; left: 0; object-fit: cover;
 }

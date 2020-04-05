@@ -9726,6 +9726,43 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./node_modules/jquery-form/dist/jquery.form.min.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/jquery-form/dist/jquery.form.min.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery Form Plugin
+ * version: 4.2.2
+ * Requires jQuery v1.7.2 or later
+ * Project repository: https://github.com/jquery-form/form
+
+ * Copyright 2017 Kevin Morris
+ * Copyright 2006 M. Alsup
+
+ * Dual licensed under the LGPL-2.1+ or MIT licenses
+ * https://github.com/jquery-form/form#license
+
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ */
+!function(e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}(function(e){"use strict";function t(t){var r=t.data;t.isDefaultPrevented()||(t.preventDefault(),e(t.target).closest("form").ajaxSubmit(r))}function r(t){var r=t.target,a=e(r);if(!a.is("[type=submit],[type=image]")){var n=a.closest("[type=submit]");if(0===n.length)return;r=n[0]}var i=r.form;if(i.clk=r,"image"===r.type)if(void 0!==t.offsetX)i.clk_x=t.offsetX,i.clk_y=t.offsetY;else if("function"==typeof e.fn.offset){var o=a.offset();i.clk_x=t.pageX-o.left,i.clk_y=t.pageY-o.top}else i.clk_x=t.pageX-r.offsetLeft,i.clk_y=t.pageY-r.offsetTop;setTimeout(function(){i.clk=i.clk_x=i.clk_y=null},100)}function a(){if(e.fn.ajaxSubmit.debug){var t="[jquery.form] "+Array.prototype.join.call(arguments,"");window.console&&window.console.log?window.console.log(t):window.opera&&window.opera.postError&&window.opera.postError(t)}}var n=/\r?\n/g,i={};i.fileapi=void 0!==e('<input type="file">').get(0).files,i.formdata=void 0!==window.FormData;var o=!!e.fn.prop;e.fn.attr2=function(){if(!o)return this.attr.apply(this,arguments);var e=this.prop.apply(this,arguments);return e&&e.jquery||"string"==typeof e?e:this.attr.apply(this,arguments)},e.fn.ajaxSubmit=function(t,r,n,s){function u(r){var a,n,i=e.param(r,t.traditional).split("&"),o=i.length,s=[];for(a=0;a<o;a++)i[a]=i[a].replace(/\+/g," "),n=i[a].split("="),s.push([decodeURIComponent(n[0]),decodeURIComponent(n[1])]);return s}function c(r){function n(e){var t=null;try{e.contentWindow&&(t=e.contentWindow.document)}catch(e){a("cannot get iframe.contentWindow document: "+e)}if(t)return t;try{t=e.contentDocument?e.contentDocument:e.document}catch(r){a("cannot get iframe.contentDocument: "+r),t=e.document}return t}function i(){function t(){try{var e=n(v).readyState;a("state = "+e),e&&"uninitialized"===e.toLowerCase()&&setTimeout(t,50)}catch(e){a("Server abort: ",e," (",e.name,")"),s(L),j&&clearTimeout(j),j=void 0}}var r=p.attr2("target"),i=p.attr2("action"),o=p.attr("enctype")||p.attr("encoding")||"multipart/form-data";w.setAttribute("target",m),l&&!/post/i.test(l)||w.setAttribute("method","POST"),i!==f.url&&w.setAttribute("action",f.url),f.skipEncodingOverride||l&&!/post/i.test(l)||p.attr({encoding:"multipart/form-data",enctype:"multipart/form-data"}),f.timeout&&(j=setTimeout(function(){T=!0,s(A)},f.timeout));var u=[];try{if(f.extraData)for(var c in f.extraData)f.extraData.hasOwnProperty(c)&&(e.isPlainObject(f.extraData[c])&&f.extraData[c].hasOwnProperty("name")&&f.extraData[c].hasOwnProperty("value")?u.push(e('<input type="hidden" name="'+f.extraData[c].name+'">',k).val(f.extraData[c].value).appendTo(w)[0]):u.push(e('<input type="hidden" name="'+c+'">',k).val(f.extraData[c]).appendTo(w)[0]));f.iframeTarget||h.appendTo(D),v.attachEvent?v.attachEvent("onload",s):v.addEventListener("load",s,!1),setTimeout(t,15);try{w.submit()}catch(e){document.createElement("form").submit.apply(w)}}finally{w.setAttribute("action",i),w.setAttribute("enctype",o),r?w.setAttribute("target",r):p.removeAttr("target"),e(u).remove()}}function s(t){if(!x.aborted&&!X){if((O=n(v))||(a("cannot access response document"),t=L),t===A&&x)return x.abort("timeout"),void S.reject(x,"timeout");if(t===L&&x)return x.abort("server abort"),void S.reject(x,"error","server abort");if(O&&O.location.href!==f.iframeSrc||T){v.detachEvent?v.detachEvent("onload",s):v.removeEventListener("load",s,!1);var r,i="success";try{if(T)throw"timeout";var o="xml"===f.dataType||O.XMLDocument||e.isXMLDoc(O);if(a("isXml="+o),!o&&window.opera&&(null===O.body||!O.body.innerHTML)&&--C)return a("requeing onLoad callback, DOM not available"),void setTimeout(s,250);var u=O.body?O.body:O.documentElement;x.responseText=u?u.innerHTML:null,x.responseXML=O.XMLDocument?O.XMLDocument:O,o&&(f.dataType="xml"),x.getResponseHeader=function(e){return{"content-type":f.dataType}[e.toLowerCase()]},u&&(x.status=Number(u.getAttribute("status"))||x.status,x.statusText=u.getAttribute("statusText")||x.statusText);var c=(f.dataType||"").toLowerCase(),l=/(json|script|text)/.test(c);if(l||f.textarea){var p=O.getElementsByTagName("textarea")[0];if(p)x.responseText=p.value,x.status=Number(p.getAttribute("status"))||x.status,x.statusText=p.getAttribute("statusText")||x.statusText;else if(l){var m=O.getElementsByTagName("pre")[0],g=O.getElementsByTagName("body")[0];m?x.responseText=m.textContent?m.textContent:m.innerText:g&&(x.responseText=g.textContent?g.textContent:g.innerText)}}else"xml"===c&&!x.responseXML&&x.responseText&&(x.responseXML=q(x.responseText));try{M=N(x,c,f)}catch(e){i="parsererror",x.error=r=e||i}}catch(e){a("error caught: ",e),i="error",x.error=r=e||i}x.aborted&&(a("upload aborted"),i=null),x.status&&(i=x.status>=200&&x.status<300||304===x.status?"success":"error"),"success"===i?(f.success&&f.success.call(f.context,M,"success",x),S.resolve(x.responseText,"success",x),d&&e.event.trigger("ajaxSuccess",[x,f])):i&&(void 0===r&&(r=x.statusText),f.error&&f.error.call(f.context,x,i,r),S.reject(x,"error",r),d&&e.event.trigger("ajaxError",[x,f,r])),d&&e.event.trigger("ajaxComplete",[x,f]),d&&!--e.active&&e.event.trigger("ajaxStop"),f.complete&&f.complete.call(f.context,x,i),X=!0,f.timeout&&clearTimeout(j),setTimeout(function(){f.iframeTarget?h.attr("src",f.iframeSrc):h.remove(),x.responseXML=null},100)}}}var u,c,f,d,m,h,v,x,y,b,T,j,w=p[0],S=e.Deferred();if(S.abort=function(e){x.abort(e)},r)for(c=0;c<g.length;c++)u=e(g[c]),o?u.prop("disabled",!1):u.removeAttr("disabled");(f=e.extend(!0,{},e.ajaxSettings,t)).context=f.context||f,m="jqFormIO"+(new Date).getTime();var k=w.ownerDocument,D=p.closest("body");if(f.iframeTarget?(b=(h=e(f.iframeTarget,k)).attr2("name"))?m=b:h.attr2("name",m):(h=e('<iframe name="'+m+'" src="'+f.iframeSrc+'" />',k)).css({position:"absolute",top:"-1000px",left:"-1000px"}),v=h[0],x={aborted:0,responseText:null,responseXML:null,status:0,statusText:"n/a",getAllResponseHeaders:function(){},getResponseHeader:function(){},setRequestHeader:function(){},abort:function(t){var r="timeout"===t?"timeout":"aborted";a("aborting upload... "+r),this.aborted=1;try{v.contentWindow.document.execCommand&&v.contentWindow.document.execCommand("Stop")}catch(e){}h.attr("src",f.iframeSrc),x.error=r,f.error&&f.error.call(f.context,x,r,t),d&&e.event.trigger("ajaxError",[x,f,r]),f.complete&&f.complete.call(f.context,x,r)}},(d=f.global)&&0==e.active++&&e.event.trigger("ajaxStart"),d&&e.event.trigger("ajaxSend",[x,f]),f.beforeSend&&!1===f.beforeSend.call(f.context,x,f))return f.global&&e.active--,S.reject(),S;if(x.aborted)return S.reject(),S;(y=w.clk)&&(b=y.name)&&!y.disabled&&(f.extraData=f.extraData||{},f.extraData[b]=y.value,"image"===y.type&&(f.extraData[b+".x"]=w.clk_x,f.extraData[b+".y"]=w.clk_y));var A=1,L=2,F=e("meta[name=csrf-token]").attr("content"),E=e("meta[name=csrf-param]").attr("content");E&&F&&(f.extraData=f.extraData||{},f.extraData[E]=F),f.forceSync?i():setTimeout(i,10);var M,O,X,C=50,q=e.parseXML||function(e,t){return window.ActiveXObject?((t=new ActiveXObject("Microsoft.XMLDOM")).async="false",t.loadXML(e)):t=(new DOMParser).parseFromString(e,"text/xml"),t&&t.documentElement&&"parsererror"!==t.documentElement.nodeName?t:null},_=e.parseJSON||function(e){return window.eval("("+e+")")},N=function(t,r,a){var n=t.getResponseHeader("content-type")||"",i=("xml"===r||!r)&&n.indexOf("xml")>=0,o=i?t.responseXML:t.responseText;return i&&"parsererror"===o.documentElement.nodeName&&e.error&&e.error("parsererror"),a&&a.dataFilter&&(o=a.dataFilter(o,r)),"string"==typeof o&&(("json"===r||!r)&&n.indexOf("json")>=0?o=_(o):("script"===r||!r)&&n.indexOf("javascript")>=0&&e.globalEval(o)),o};return S}if(!this.length)return a("ajaxSubmit: skipping submit process - no element selected"),this;var l,f,d,p=this;"function"==typeof t?t={success:t}:"string"==typeof t||!1===t&&arguments.length>0?(t={url:t,data:r,dataType:n},"function"==typeof s&&(t.success=s)):void 0===t&&(t={}),l=t.method||t.type||this.attr2("method"),(d=(d="string"==typeof(f=t.url||this.attr2("action"))?e.trim(f):"")||window.location.href||"")&&(d=(d.match(/^([^#]+)/)||[])[1]),t=e.extend(!0,{url:d,success:e.ajaxSettings.success,type:l||e.ajaxSettings.type,iframeSrc:/^https/i.test(window.location.href||"")?"javascript:false":"about:blank"},t);var m={};if(this.trigger("form-pre-serialize",[this,t,m]),m.veto)return a("ajaxSubmit: submit vetoed via form-pre-serialize trigger"),this;if(t.beforeSerialize&&!1===t.beforeSerialize(this,t))return a("ajaxSubmit: submit aborted via beforeSerialize callback"),this;var h=t.traditional;void 0===h&&(h=e.ajaxSettings.traditional);var v,g=[],x=this.formToArray(t.semantic,g,t.filtering);if(t.data){var y=e.isFunction(t.data)?t.data(x):t.data;t.extraData=y,v=e.param(y,h)}if(t.beforeSubmit&&!1===t.beforeSubmit(x,this,t))return a("ajaxSubmit: submit aborted via beforeSubmit callback"),this;if(this.trigger("form-submit-validate",[x,this,t,m]),m.veto)return a("ajaxSubmit: submit vetoed via form-submit-validate trigger"),this;var b=e.param(x,h);v&&(b=b?b+"&"+v:v),"GET"===t.type.toUpperCase()?(t.url+=(t.url.indexOf("?")>=0?"&":"?")+b,t.data=null):t.data=b;var T=[];if(t.resetForm&&T.push(function(){p.resetForm()}),t.clearForm&&T.push(function(){p.clearForm(t.includeHidden)}),!t.dataType&&t.target){var j=t.success||function(){};T.push(function(r,a,n){var i=arguments,o=t.replaceTarget?"replaceWith":"html";e(t.target)[o](r).each(function(){j.apply(this,i)})})}else t.success&&(e.isArray(t.success)?e.merge(T,t.success):T.push(t.success));if(t.success=function(e,r,a){for(var n=t.context||this,i=0,o=T.length;i<o;i++)T[i].apply(n,[e,r,a||p,p])},t.error){var w=t.error;t.error=function(e,r,a){var n=t.context||this;w.apply(n,[e,r,a,p])}}if(t.complete){var S=t.complete;t.complete=function(e,r){var a=t.context||this;S.apply(a,[e,r,p])}}var k=e("input[type=file]:enabled",this).filter(function(){return""!==e(this).val()}).length>0,D="multipart/form-data",A=p.attr("enctype")===D||p.attr("encoding")===D,L=i.fileapi&&i.formdata;a("fileAPI :"+L);var F,E=(k||A)&&!L;!1!==t.iframe&&(t.iframe||E)?t.closeKeepAlive?e.get(t.closeKeepAlive,function(){F=c(x)}):F=c(x):F=(k||A)&&L?function(r){for(var a=new FormData,n=0;n<r.length;n++)a.append(r[n].name,r[n].value);if(t.extraData){var i=u(t.extraData);for(n=0;n<i.length;n++)i[n]&&a.append(i[n][0],i[n][1])}t.data=null;var o=e.extend(!0,{},e.ajaxSettings,t,{contentType:!1,processData:!1,cache:!1,type:l||"POST"});t.uploadProgress&&(o.xhr=function(){var r=e.ajaxSettings.xhr();return r.upload&&r.upload.addEventListener("progress",function(e){var r=0,a=e.loaded||e.position,n=e.total;e.lengthComputable&&(r=Math.ceil(a/n*100)),t.uploadProgress(e,a,n,r)},!1),r}),o.data=null;var s=o.beforeSend;return o.beforeSend=function(e,r){t.formData?r.data=t.formData:r.data=a,s&&s.call(this,e,r)},e.ajax(o)}(x):e.ajax(t),p.removeData("jqxhr").data("jqxhr",F);for(var M=0;M<g.length;M++)g[M]=null;return this.trigger("form-submit-notify",[this,t]),this},e.fn.ajaxForm=function(n,i,o,s){if(("string"==typeof n||!1===n&&arguments.length>0)&&(n={url:n,data:i,dataType:o},"function"==typeof s&&(n.success=s)),n=n||{},n.delegation=n.delegation&&e.isFunction(e.fn.on),!n.delegation&&0===this.length){var u={s:this.selector,c:this.context};return!e.isReady&&u.s?(a("DOM not ready, queuing ajaxForm"),e(function(){e(u.s,u.c).ajaxForm(n)}),this):(a("terminating; zero elements found by selector"+(e.isReady?"":" (DOM not ready)")),this)}return n.delegation?(e(document).off("submit.form-plugin",this.selector,t).off("click.form-plugin",this.selector,r).on("submit.form-plugin",this.selector,n,t).on("click.form-plugin",this.selector,n,r),this):this.ajaxFormUnbind().on("submit.form-plugin",n,t).on("click.form-plugin",n,r)},e.fn.ajaxFormUnbind=function(){return this.off("submit.form-plugin click.form-plugin")},e.fn.formToArray=function(t,r,a){var n=[];if(0===this.length)return n;var o,s=this[0],u=this.attr("id"),c=t||void 0===s.elements?s.getElementsByTagName("*"):s.elements;if(c&&(c=e.makeArray(c)),u&&(t||/(Edge|Trident)\//.test(navigator.userAgent))&&(o=e(':input[form="'+u+'"]').get()).length&&(c=(c||[]).concat(o)),!c||!c.length)return n;e.isFunction(a)&&(c=e.map(c,a));var l,f,d,p,m,h,v;for(l=0,h=c.length;l<h;l++)if(m=c[l],(d=m.name)&&!m.disabled)if(t&&s.clk&&"image"===m.type)s.clk===m&&(n.push({name:d,value:e(m).val(),type:m.type}),n.push({name:d+".x",value:s.clk_x},{name:d+".y",value:s.clk_y}));else if((p=e.fieldValue(m,!0))&&p.constructor===Array)for(r&&r.push(m),f=0,v=p.length;f<v;f++)n.push({name:d,value:p[f]});else if(i.fileapi&&"file"===m.type){r&&r.push(m);var g=m.files;if(g.length)for(f=0;f<g.length;f++)n.push({name:d,value:g[f],type:m.type});else n.push({name:d,value:"",type:m.type})}else null!==p&&void 0!==p&&(r&&r.push(m),n.push({name:d,value:p,type:m.type,required:m.required}));if(!t&&s.clk){var x=e(s.clk),y=x[0];(d=y.name)&&!y.disabled&&"image"===y.type&&(n.push({name:d,value:x.val()}),n.push({name:d+".x",value:s.clk_x},{name:d+".y",value:s.clk_y}))}return n},e.fn.formSerialize=function(t){return e.param(this.formToArray(t))},e.fn.fieldSerialize=function(t){var r=[];return this.each(function(){var a=this.name;if(a){var n=e.fieldValue(this,t);if(n&&n.constructor===Array)for(var i=0,o=n.length;i<o;i++)r.push({name:a,value:n[i]});else null!==n&&void 0!==n&&r.push({name:this.name,value:n})}}),e.param(r)},e.fn.fieldValue=function(t){for(var r=[],a=0,n=this.length;a<n;a++){var i=this[a],o=e.fieldValue(i,t);null===o||void 0===o||o.constructor===Array&&!o.length||(o.constructor===Array?e.merge(r,o):r.push(o))}return r},e.fieldValue=function(t,r){var a=t.name,i=t.type,o=t.tagName.toLowerCase();if(void 0===r&&(r=!0),r&&(!a||t.disabled||"reset"===i||"button"===i||("checkbox"===i||"radio"===i)&&!t.checked||("submit"===i||"image"===i)&&t.form&&t.form.clk!==t||"select"===o&&-1===t.selectedIndex))return null;if("select"===o){var s=t.selectedIndex;if(s<0)return null;for(var u=[],c=t.options,l="select-one"===i,f=l?s+1:c.length,d=l?s:0;d<f;d++){var p=c[d];if(p.selected&&!p.disabled){var m=p.value;if(m||(m=p.attributes&&p.attributes.value&&!p.attributes.value.specified?p.text:p.value),l)return m;u.push(m)}}return u}return e(t).val().replace(n,"\r\n")},e.fn.clearForm=function(t){return this.each(function(){e("input,select,textarea",this).clearFields(t)})},e.fn.clearFields=e.fn.clearInputs=function(t){var r=/^(?:color|date|datetime|email|month|number|password|range|search|tel|text|time|url|week)$/i;return this.each(function(){var a=this.type,n=this.tagName.toLowerCase();r.test(a)||"textarea"===n?this.value="":"checkbox"===a||"radio"===a?this.checked=!1:"select"===n?this.selectedIndex=-1:"file"===a?/MSIE/.test(navigator.userAgent)?e(this).replaceWith(e(this).clone(!0)):e(this).val(""):t&&(!0===t&&/hidden/.test(a)||"string"==typeof t&&e(this).is(t))&&(this.value="")})},e.fn.resetForm=function(){return this.each(function(){var t=e(this),r=this.tagName.toLowerCase();switch(r){case"input":this.checked=this.defaultChecked;case"textarea":return this.value=this.defaultValue,!0;case"option":case"optgroup":var a=t.parents("select");return a.length&&a[0].multiple?"option"===r?this.selected=this.defaultSelected:t.find("option").resetForm():a.resetForm(),!0;case"select":return t.find("option").each(function(e){if(this.selected=this.defaultSelected,this.defaultSelected&&!t[0].multiple)return t[0].selectedIndex=e,!1}),!0;case"label":var n=e(t.attr("for")),i=t.find("input,select,textarea");return n[0]&&i.unshift(n[0]),i.resetForm(),!0;case"form":return("function"==typeof this.reset||"object"==typeof this.reset&&!this.reset.nodeType)&&this.reset(),!0;default:return t.find("form,input,label,select,textarea").resetForm(),!0}})},e.fn.enable=function(e){return void 0===e&&(e=!0),this.each(function(){this.disabled=!e})},e.fn.selected=function(t){return void 0===t&&(t=!0),this.each(function(){var r=this.type;if("checkbox"===r||"radio"===r)this.checked=t;else if("option"===this.tagName.toLowerCase()){var a=e(this).parent("select");t&&a[0]&&"select-one"===a[0].type&&a.find("option").selected(!1),this.selected=t}})},e.fn.ajaxSubmit.debug=!1});
+//# sourceMappingURL=jquery.form.min.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -59236,6 +59273,944 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/progressbar.js/src/circle.js":
+/*!***************************************************!*\
+  !*** ./node_modules/progressbar.js/src/circle.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Circle shaped progress bar
+
+var Shape = __webpack_require__(/*! ./shape */ "./node_modules/progressbar.js/src/shape.js");
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/progressbar.js/src/utils.js");
+
+var Circle = function Circle(container, options) {
+    // Use two arcs to form a circle
+    // See this answer http://stackoverflow.com/a/10477334/1446092
+    this._pathTemplate =
+        'M 50,50 m 0,-{radius}' +
+        ' a {radius},{radius} 0 1 1 0,{2radius}' +
+        ' a {radius},{radius} 0 1 1 0,-{2radius}';
+
+    this.containerAspectRatio = 1;
+
+    Shape.apply(this, arguments);
+};
+
+Circle.prototype = new Shape();
+Circle.prototype.constructor = Circle;
+
+Circle.prototype._pathString = function _pathString(opts) {
+    var widthOfWider = opts.strokeWidth;
+    if (opts.trailWidth && opts.trailWidth > opts.strokeWidth) {
+        widthOfWider = opts.trailWidth;
+    }
+
+    var r = 50 - widthOfWider / 2;
+
+    return utils.render(this._pathTemplate, {
+        radius: r,
+        '2radius': r * 2
+    });
+};
+
+Circle.prototype._trailString = function _trailString(opts) {
+    return this._pathString(opts);
+};
+
+module.exports = Circle;
+
+
+/***/ }),
+
+/***/ "./node_modules/progressbar.js/src/line.js":
+/*!*************************************************!*\
+  !*** ./node_modules/progressbar.js/src/line.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Line shaped progress bar
+
+var Shape = __webpack_require__(/*! ./shape */ "./node_modules/progressbar.js/src/shape.js");
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/progressbar.js/src/utils.js");
+
+var Line = function Line(container, options) {
+    this._pathTemplate = 'M 0,{center} L 100,{center}';
+    Shape.apply(this, arguments);
+};
+
+Line.prototype = new Shape();
+Line.prototype.constructor = Line;
+
+Line.prototype._initializeSvg = function _initializeSvg(svg, opts) {
+    svg.setAttribute('viewBox', '0 0 100 ' + opts.strokeWidth);
+    svg.setAttribute('preserveAspectRatio', 'none');
+};
+
+Line.prototype._pathString = function _pathString(opts) {
+    return utils.render(this._pathTemplate, {
+        center: opts.strokeWidth / 2
+    });
+};
+
+Line.prototype._trailString = function _trailString(opts) {
+    return this._pathString(opts);
+};
+
+module.exports = Line;
+
+
+/***/ }),
+
+/***/ "./node_modules/progressbar.js/src/main.js":
+/*!*************************************************!*\
+  !*** ./node_modules/progressbar.js/src/main.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+    // Higher level API, different shaped progress bars
+    Line: __webpack_require__(/*! ./line */ "./node_modules/progressbar.js/src/line.js"),
+    Circle: __webpack_require__(/*! ./circle */ "./node_modules/progressbar.js/src/circle.js"),
+    SemiCircle: __webpack_require__(/*! ./semicircle */ "./node_modules/progressbar.js/src/semicircle.js"),
+    Square: __webpack_require__(/*! ./square */ "./node_modules/progressbar.js/src/square.js"),
+
+    // Lower level API to use any SVG path
+    Path: __webpack_require__(/*! ./path */ "./node_modules/progressbar.js/src/path.js"),
+
+    // Base-class for creating new custom shapes
+    // to be in line with the API of built-in shapes
+    // Undocumented.
+    Shape: __webpack_require__(/*! ./shape */ "./node_modules/progressbar.js/src/shape.js"),
+
+    // Internal utils, undocumented.
+    utils: __webpack_require__(/*! ./utils */ "./node_modules/progressbar.js/src/utils.js")
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/progressbar.js/src/path.js":
+/*!*************************************************!*\
+  !*** ./node_modules/progressbar.js/src/path.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Lower level API to animate any kind of svg path
+
+var shifty = __webpack_require__(/*! shifty */ "./node_modules/shifty/dist/shifty.js");
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/progressbar.js/src/utils.js");
+
+var Tweenable = shifty.Tweenable;
+
+var EASING_ALIASES = {
+    easeIn: 'easeInCubic',
+    easeOut: 'easeOutCubic',
+    easeInOut: 'easeInOutCubic'
+};
+
+var Path = function Path(path, opts) {
+    // Throw a better error if not initialized with `new` keyword
+    if (!(this instanceof Path)) {
+        throw new Error('Constructor was called without new keyword');
+    }
+
+    // Default parameters for animation
+    opts = utils.extend({
+        delay: 0,
+        duration: 800,
+        easing: 'linear',
+        from: {},
+        to: {},
+        step: function() {}
+    }, opts);
+
+    var element;
+    if (utils.isString(path)) {
+        element = document.querySelector(path);
+    } else {
+        element = path;
+    }
+
+    // Reveal .path as public attribute
+    this.path = element;
+    this._opts = opts;
+    this._tweenable = null;
+
+    // Set up the starting positions
+    var length = this.path.getTotalLength();
+    this.path.style.strokeDasharray = length + ' ' + length;
+    this.set(0);
+};
+
+Path.prototype.value = function value() {
+    var offset = this._getComputedDashOffset();
+    var length = this.path.getTotalLength();
+
+    var progress = 1 - offset / length;
+    // Round number to prevent returning very small number like 1e-30, which
+    // is practically 0
+    return parseFloat(progress.toFixed(6), 10);
+};
+
+Path.prototype.set = function set(progress) {
+    this.stop();
+
+    this.path.style.strokeDashoffset = this._progressToOffset(progress);
+
+    var step = this._opts.step;
+    if (utils.isFunction(step)) {
+        var easing = this._easing(this._opts.easing);
+        var values = this._calculateTo(progress, easing);
+        var reference = this._opts.shape || this;
+        step(values, reference, this._opts.attachment);
+    }
+};
+
+Path.prototype.stop = function stop() {
+    this._stopTween();
+    this.path.style.strokeDashoffset = this._getComputedDashOffset();
+};
+
+// Method introduced here:
+// http://jakearchibald.com/2013/animated-line-drawing-svg/
+Path.prototype.animate = function animate(progress, opts, cb) {
+    opts = opts || {};
+
+    if (utils.isFunction(opts)) {
+        cb = opts;
+        opts = {};
+    }
+
+    var passedOpts = utils.extend({}, opts);
+
+    // Copy default opts to new object so defaults are not modified
+    var defaultOpts = utils.extend({}, this._opts);
+    opts = utils.extend(defaultOpts, opts);
+
+    var shiftyEasing = this._easing(opts.easing);
+    var values = this._resolveFromAndTo(progress, shiftyEasing, passedOpts);
+
+    this.stop();
+
+    // Trigger a layout so styles are calculated & the browser
+    // picks up the starting position before animating
+    this.path.getBoundingClientRect();
+
+    var offset = this._getComputedDashOffset();
+    var newOffset = this._progressToOffset(progress);
+
+    var self = this;
+    this._tweenable = new Tweenable();
+    this._tweenable.tween({
+        from: utils.extend({ offset: offset }, values.from),
+        to: utils.extend({ offset: newOffset }, values.to),
+        duration: opts.duration,
+        delay: opts.delay,
+        easing: shiftyEasing,
+        step: function(state) {
+            self.path.style.strokeDashoffset = state.offset;
+            var reference = opts.shape || self;
+            opts.step(state, reference, opts.attachment);
+        }
+    }).then(function(state) {
+        if (utils.isFunction(cb)) {
+            cb();
+        }
+    });
+};
+
+Path.prototype._getComputedDashOffset = function _getComputedDashOffset() {
+    var computedStyle = window.getComputedStyle(this.path, null);
+    return parseFloat(computedStyle.getPropertyValue('stroke-dashoffset'), 10);
+};
+
+Path.prototype._progressToOffset = function _progressToOffset(progress) {
+    var length = this.path.getTotalLength();
+    return length - progress * length;
+};
+
+// Resolves from and to values for animation.
+Path.prototype._resolveFromAndTo = function _resolveFromAndTo(progress, easing, opts) {
+    if (opts.from && opts.to) {
+        return {
+            from: opts.from,
+            to: opts.to
+        };
+    }
+
+    return {
+        from: this._calculateFrom(easing),
+        to: this._calculateTo(progress, easing)
+    };
+};
+
+// Calculate `from` values from options passed at initialization
+Path.prototype._calculateFrom = function _calculateFrom(easing) {
+    return shifty.interpolate(this._opts.from, this._opts.to, this.value(), easing);
+};
+
+// Calculate `to` values from options passed at initialization
+Path.prototype._calculateTo = function _calculateTo(progress, easing) {
+    return shifty.interpolate(this._opts.from, this._opts.to, progress, easing);
+};
+
+Path.prototype._stopTween = function _stopTween() {
+    if (this._tweenable !== null) {
+        this._tweenable.stop();
+        this._tweenable = null;
+    }
+};
+
+Path.prototype._easing = function _easing(easing) {
+    if (EASING_ALIASES.hasOwnProperty(easing)) {
+        return EASING_ALIASES[easing];
+    }
+
+    return easing;
+};
+
+module.exports = Path;
+
+
+/***/ }),
+
+/***/ "./node_modules/progressbar.js/src/semicircle.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/progressbar.js/src/semicircle.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Semi-SemiCircle shaped progress bar
+
+var Shape = __webpack_require__(/*! ./shape */ "./node_modules/progressbar.js/src/shape.js");
+var Circle = __webpack_require__(/*! ./circle */ "./node_modules/progressbar.js/src/circle.js");
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/progressbar.js/src/utils.js");
+
+var SemiCircle = function SemiCircle(container, options) {
+    // Use one arc to form a SemiCircle
+    // See this answer http://stackoverflow.com/a/10477334/1446092
+    this._pathTemplate =
+        'M 50,50 m -{radius},0' +
+        ' a {radius},{radius} 0 1 1 {2radius},0';
+
+    this.containerAspectRatio = 2;
+
+    Shape.apply(this, arguments);
+};
+
+SemiCircle.prototype = new Shape();
+SemiCircle.prototype.constructor = SemiCircle;
+
+SemiCircle.prototype._initializeSvg = function _initializeSvg(svg, opts) {
+    svg.setAttribute('viewBox', '0 0 100 50');
+};
+
+SemiCircle.prototype._initializeTextContainer = function _initializeTextContainer(
+    opts,
+    container,
+    textContainer
+) {
+    if (opts.text.style) {
+        // Reset top style
+        textContainer.style.top = 'auto';
+        textContainer.style.bottom = '0';
+
+        if (opts.text.alignToBottom) {
+            utils.setStyle(textContainer, 'transform', 'translate(-50%, 0)');
+        } else {
+            utils.setStyle(textContainer, 'transform', 'translate(-50%, 50%)');
+        }
+    }
+};
+
+// Share functionality with Circle, just have different path
+SemiCircle.prototype._pathString = Circle.prototype._pathString;
+SemiCircle.prototype._trailString = Circle.prototype._trailString;
+
+module.exports = SemiCircle;
+
+
+/***/ }),
+
+/***/ "./node_modules/progressbar.js/src/shape.js":
+/*!**************************************************!*\
+  !*** ./node_modules/progressbar.js/src/shape.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Base object for different progress bar shapes
+
+var Path = __webpack_require__(/*! ./path */ "./node_modules/progressbar.js/src/path.js");
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/progressbar.js/src/utils.js");
+
+var DESTROYED_ERROR = 'Object is destroyed';
+
+var Shape = function Shape(container, opts) {
+    // Throw a better error if progress bars are not initialized with `new`
+    // keyword
+    if (!(this instanceof Shape)) {
+        throw new Error('Constructor was called without new keyword');
+    }
+
+    // Prevent calling constructor without parameters so inheritance
+    // works correctly. To understand, this is how Shape is inherited:
+    //
+    //   Line.prototype = new Shape();
+    //
+    // We just want to set the prototype for Line.
+    if (arguments.length === 0) {
+        return;
+    }
+
+    // Default parameters for progress bar creation
+    this._opts = utils.extend({
+        color: '#555',
+        strokeWidth: 1.0,
+        trailColor: null,
+        trailWidth: null,
+        fill: null,
+        text: {
+            style: {
+                color: null,
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                padding: 0,
+                margin: 0,
+                transform: {
+                    prefix: true,
+                    value: 'translate(-50%, -50%)'
+                }
+            },
+            autoStyleContainer: true,
+            alignToBottom: true,
+            value: null,
+            className: 'progressbar-text'
+        },
+        svgStyle: {
+            display: 'block',
+            width: '100%'
+        },
+        warnings: false
+    }, opts, true);  // Use recursive extend
+
+    // If user specifies e.g. svgStyle or text style, the whole object
+    // should replace the defaults to make working with styles easier
+    if (utils.isObject(opts) && opts.svgStyle !== undefined) {
+        this._opts.svgStyle = opts.svgStyle;
+    }
+    if (utils.isObject(opts) && utils.isObject(opts.text) && opts.text.style !== undefined) {
+        this._opts.text.style = opts.text.style;
+    }
+
+    var svgView = this._createSvgView(this._opts);
+
+    var element;
+    if (utils.isString(container)) {
+        element = document.querySelector(container);
+    } else {
+        element = container;
+    }
+
+    if (!element) {
+        throw new Error('Container does not exist: ' + container);
+    }
+
+    this._container = element;
+    this._container.appendChild(svgView.svg);
+    if (this._opts.warnings) {
+        this._warnContainerAspectRatio(this._container);
+    }
+
+    if (this._opts.svgStyle) {
+        utils.setStyles(svgView.svg, this._opts.svgStyle);
+    }
+
+    // Expose public attributes before Path initialization
+    this.svg = svgView.svg;
+    this.path = svgView.path;
+    this.trail = svgView.trail;
+    this.text = null;
+
+    var newOpts = utils.extend({
+        attachment: undefined,
+        shape: this
+    }, this._opts);
+    this._progressPath = new Path(svgView.path, newOpts);
+
+    if (utils.isObject(this._opts.text) && this._opts.text.value !== null) {
+        this.setText(this._opts.text.value);
+    }
+};
+
+Shape.prototype.animate = function animate(progress, opts, cb) {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    this._progressPath.animate(progress, opts, cb);
+};
+
+Shape.prototype.stop = function stop() {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    // Don't crash if stop is called inside step function
+    if (this._progressPath === undefined) {
+        return;
+    }
+
+    this._progressPath.stop();
+};
+
+Shape.prototype.pause = function pause() {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    if (this._progressPath === undefined) {
+        return;
+    }
+
+    if (!this._progressPath._tweenable) {
+        // It seems that we can't pause this
+        return;
+    }
+
+    this._progressPath._tweenable.pause();
+};
+
+Shape.prototype.resume = function resume() {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    if (this._progressPath === undefined) {
+        return;
+    }
+
+    if (!this._progressPath._tweenable) {
+        // It seems that we can't resume this
+        return;
+    }
+
+    this._progressPath._tweenable.resume();
+};
+
+Shape.prototype.destroy = function destroy() {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    this.stop();
+    this.svg.parentNode.removeChild(this.svg);
+    this.svg = null;
+    this.path = null;
+    this.trail = null;
+    this._progressPath = null;
+
+    if (this.text !== null) {
+        this.text.parentNode.removeChild(this.text);
+        this.text = null;
+    }
+};
+
+Shape.prototype.set = function set(progress) {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    this._progressPath.set(progress);
+};
+
+Shape.prototype.value = function value() {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    if (this._progressPath === undefined) {
+        return 0;
+    }
+
+    return this._progressPath.value();
+};
+
+Shape.prototype.setText = function setText(newText) {
+    if (this._progressPath === null) {
+        throw new Error(DESTROYED_ERROR);
+    }
+
+    if (this.text === null) {
+        // Create new text node
+        this.text = this._createTextContainer(this._opts, this._container);
+        this._container.appendChild(this.text);
+    }
+
+    // Remove previous text and add new
+    if (utils.isObject(newText)) {
+        utils.removeChildren(this.text);
+        this.text.appendChild(newText);
+    } else {
+        this.text.innerHTML = newText;
+    }
+};
+
+Shape.prototype._createSvgView = function _createSvgView(opts) {
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    this._initializeSvg(svg, opts);
+
+    var trailPath = null;
+    // Each option listed in the if condition are 'triggers' for creating
+    // the trail path
+    if (opts.trailColor || opts.trailWidth) {
+        trailPath = this._createTrail(opts);
+        svg.appendChild(trailPath);
+    }
+
+    var path = this._createPath(opts);
+    svg.appendChild(path);
+
+    return {
+        svg: svg,
+        path: path,
+        trail: trailPath
+    };
+};
+
+Shape.prototype._initializeSvg = function _initializeSvg(svg, opts) {
+    svg.setAttribute('viewBox', '0 0 100 100');
+};
+
+Shape.prototype._createPath = function _createPath(opts) {
+    var pathString = this._pathString(opts);
+    return this._createPathElement(pathString, opts);
+};
+
+Shape.prototype._createTrail = function _createTrail(opts) {
+    // Create path string with original passed options
+    var pathString = this._trailString(opts);
+
+    // Prevent modifying original
+    var newOpts = utils.extend({}, opts);
+
+    // Defaults for parameters which modify trail path
+    if (!newOpts.trailColor) {
+        newOpts.trailColor = '#eee';
+    }
+    if (!newOpts.trailWidth) {
+        newOpts.trailWidth = newOpts.strokeWidth;
+    }
+
+    newOpts.color = newOpts.trailColor;
+    newOpts.strokeWidth = newOpts.trailWidth;
+
+    // When trail path is set, fill must be set for it instead of the
+    // actual path to prevent trail stroke from clipping
+    newOpts.fill = null;
+
+    return this._createPathElement(pathString, newOpts);
+};
+
+Shape.prototype._createPathElement = function _createPathElement(pathString, opts) {
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', pathString);
+    path.setAttribute('stroke', opts.color);
+    path.setAttribute('stroke-width', opts.strokeWidth);
+
+    if (opts.fill) {
+        path.setAttribute('fill', opts.fill);
+    } else {
+        path.setAttribute('fill-opacity', '0');
+    }
+
+    return path;
+};
+
+Shape.prototype._createTextContainer = function _createTextContainer(opts, container) {
+    var textContainer = document.createElement('div');
+    textContainer.className = opts.text.className;
+
+    var textStyle = opts.text.style;
+    if (textStyle) {
+        if (opts.text.autoStyleContainer) {
+            container.style.position = 'relative';
+        }
+
+        utils.setStyles(textContainer, textStyle);
+        // Default text color to progress bar's color
+        if (!textStyle.color) {
+            textContainer.style.color = opts.color;
+        }
+    }
+
+    this._initializeTextContainer(opts, container, textContainer);
+    return textContainer;
+};
+
+// Give custom shapes possibility to modify text element
+Shape.prototype._initializeTextContainer = function(opts, container, element) {
+    // By default, no-op
+    // Custom shapes should respect API options, such as text.style
+};
+
+Shape.prototype._pathString = function _pathString(opts) {
+    throw new Error('Override this function for each progress bar');
+};
+
+Shape.prototype._trailString = function _trailString(opts) {
+    throw new Error('Override this function for each progress bar');
+};
+
+Shape.prototype._warnContainerAspectRatio = function _warnContainerAspectRatio(container) {
+    if (!this.containerAspectRatio) {
+        return;
+    }
+
+    var computedStyle = window.getComputedStyle(container, null);
+    var width = parseFloat(computedStyle.getPropertyValue('width'), 10);
+    var height = parseFloat(computedStyle.getPropertyValue('height'), 10);
+    if (!utils.floatEquals(this.containerAspectRatio, width / height)) {
+        console.warn(
+            'Incorrect aspect ratio of container',
+            '#' + container.id,
+            'detected:',
+            computedStyle.getPropertyValue('width') + '(width)',
+            '/',
+            computedStyle.getPropertyValue('height') + '(height)',
+            '=',
+            width / height
+        );
+
+        console.warn(
+            'Aspect ratio of should be',
+            this.containerAspectRatio
+        );
+    }
+};
+
+module.exports = Shape;
+
+
+/***/ }),
+
+/***/ "./node_modules/progressbar.js/src/square.js":
+/*!***************************************************!*\
+  !*** ./node_modules/progressbar.js/src/square.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Square shaped progress bar
+// Note: Square is not core part of API anymore. It's left here
+//       for reference. square is not included to the progressbar
+//       build anymore
+
+var Shape = __webpack_require__(/*! ./shape */ "./node_modules/progressbar.js/src/shape.js");
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/progressbar.js/src/utils.js");
+
+var Square = function Square(container, options) {
+    this._pathTemplate =
+        'M 0,{halfOfStrokeWidth}' +
+        ' L {width},{halfOfStrokeWidth}' +
+        ' L {width},{width}' +
+        ' L {halfOfStrokeWidth},{width}' +
+        ' L {halfOfStrokeWidth},{strokeWidth}';
+
+    this._trailTemplate =
+        'M {startMargin},{halfOfStrokeWidth}' +
+        ' L {width},{halfOfStrokeWidth}' +
+        ' L {width},{width}' +
+        ' L {halfOfStrokeWidth},{width}' +
+        ' L {halfOfStrokeWidth},{halfOfStrokeWidth}';
+
+    Shape.apply(this, arguments);
+};
+
+Square.prototype = new Shape();
+Square.prototype.constructor = Square;
+
+Square.prototype._pathString = function _pathString(opts) {
+    var w = 100 - opts.strokeWidth / 2;
+
+    return utils.render(this._pathTemplate, {
+        width: w,
+        strokeWidth: opts.strokeWidth,
+        halfOfStrokeWidth: opts.strokeWidth / 2
+    });
+};
+
+Square.prototype._trailString = function _trailString(opts) {
+    var w = 100 - opts.strokeWidth / 2;
+
+    return utils.render(this._trailTemplate, {
+        width: w,
+        strokeWidth: opts.strokeWidth,
+        halfOfStrokeWidth: opts.strokeWidth / 2,
+        startMargin: opts.strokeWidth / 2 - opts.trailWidth / 2
+    });
+};
+
+module.exports = Square;
+
+
+/***/ }),
+
+/***/ "./node_modules/progressbar.js/src/utils.js":
+/*!**************************************************!*\
+  !*** ./node_modules/progressbar.js/src/utils.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Utility functions
+
+var PREFIXES = 'Webkit Moz O ms'.split(' ');
+var FLOAT_COMPARISON_EPSILON = 0.001;
+
+// Copy all attributes from source object to destination object.
+// destination object is mutated.
+function extend(destination, source, recursive) {
+    destination = destination || {};
+    source = source || {};
+    recursive = recursive || false;
+
+    for (var attrName in source) {
+        if (source.hasOwnProperty(attrName)) {
+            var destVal = destination[attrName];
+            var sourceVal = source[attrName];
+            if (recursive && isObject(destVal) && isObject(sourceVal)) {
+                destination[attrName] = extend(destVal, sourceVal, recursive);
+            } else {
+                destination[attrName] = sourceVal;
+            }
+        }
+    }
+
+    return destination;
+}
+
+// Renders templates with given variables. Variables must be surrounded with
+// braces without any spaces, e.g. {variable}
+// All instances of variable placeholders will be replaced with given content
+// Example:
+// render('Hello, {message}!', {message: 'world'})
+function render(template, vars) {
+    var rendered = template;
+
+    for (var key in vars) {
+        if (vars.hasOwnProperty(key)) {
+            var val = vars[key];
+            var regExpString = '\\{' + key + '\\}';
+            var regExp = new RegExp(regExpString, 'g');
+
+            rendered = rendered.replace(regExp, val);
+        }
+    }
+
+    return rendered;
+}
+
+function setStyle(element, style, value) {
+    var elStyle = element.style;  // cache for performance
+
+    for (var i = 0; i < PREFIXES.length; ++i) {
+        var prefix = PREFIXES[i];
+        elStyle[prefix + capitalize(style)] = value;
+    }
+
+    elStyle[style] = value;
+}
+
+function setStyles(element, styles) {
+    forEachObject(styles, function(styleValue, styleName) {
+        // Allow disabling some individual styles by setting them
+        // to null or undefined
+        if (styleValue === null || styleValue === undefined) {
+            return;
+        }
+
+        // If style's value is {prefix: true, value: '50%'},
+        // Set also browser prefixed styles
+        if (isObject(styleValue) && styleValue.prefix === true) {
+            setStyle(element, styleName, styleValue.value);
+        } else {
+            element.style[styleName] = styleValue;
+        }
+    });
+}
+
+function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function isString(obj) {
+    return typeof obj === 'string' || obj instanceof String;
+}
+
+function isFunction(obj) {
+    return typeof obj === 'function';
+}
+
+function isArray(obj) {
+    return Object.prototype.toString.call(obj) === '[object Array]';
+}
+
+// Returns true if `obj` is object as in {a: 1, b: 2}, not if it's function or
+// array
+function isObject(obj) {
+    if (isArray(obj)) {
+        return false;
+    }
+
+    var type = typeof obj;
+    return type === 'object' && !!obj;
+}
+
+function forEachObject(object, callback) {
+    for (var key in object) {
+        if (object.hasOwnProperty(key)) {
+            var val = object[key];
+            callback(val, key);
+        }
+    }
+}
+
+function floatEquals(a, b) {
+    return Math.abs(a - b) < FLOAT_COMPARISON_EPSILON;
+}
+
+// https://coderwall.com/p/nygghw/don-t-use-innerhtml-to-empty-dom-elements
+function removeChildren(el) {
+    while (el.firstChild) {
+        el.removeChild(el.firstChild);
+    }
+}
+
+module.exports = {
+    extend: extend,
+    render: render,
+    setStyle: setStyle,
+    setStyles: setStyles,
+    capitalize: capitalize,
+    isString: isString,
+    isFunction: isFunction,
+    isObject: isObject,
+    forEachObject: forEachObject,
+    floatEquals: floatEquals,
+    removeChildren: removeChildren
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/select2/dist/js/select2.js":
 /*!*************************************************!*\
   !*** ./node_modules/select2/dist/js/select2.js ***!
@@ -65337,6 +66312,33 @@ S2.define('jquery.select2',[
 
 /***/ }),
 
+/***/ "./node_modules/shifty/dist/shifty.js":
+/*!********************************************!*\
+  !*** ./node_modules/shifty/dist/shifty.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*! Shifty 2.8.3 - https://github.com/jeremyckahn/shifty */
+!function(t,n){ true?module.exports=n():undefined}(window,(function(){return function(t){var n={};function e(r){if(n[r])return n[r].exports;var i=n[r]={i:r,l:!1,exports:{}};return t[r].call(i.exports,i,i.exports,e),i.l=!0,i.exports}return e.m=t,e.c=n,e.d=function(t,n,r){e.o(t,n)||Object.defineProperty(t,n,{enumerable:!0,get:r})},e.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},e.t=function(t,n){if(1&n&&(t=e(t)),8&n)return t;if(4&n&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(e.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&n&&"string"!=typeof t)for(var i in t)e.d(r,i,function(n){return t[n]}.bind(null,i));return r},e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,"a",n),n},e.o=function(t,n){return Object.prototype.hasOwnProperty.call(t,n)},e.p="",e(e.s=3)}([function(t,n,e){"use strict";(function(t){e.d(n,"e",(function(){return v})),e.d(n,"c",(function(){return _})),e.d(n,"b",(function(){return m})),e.d(n,"a",(function(){return b})),e.d(n,"d",(function(){return w}));var r=e(1);function i(t,n){for(var e=0;e<n.length;e++){var r=n[e];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function u(t){return(u="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function o(t,n){var e=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);n&&(r=r.filter((function(n){return Object.getOwnPropertyDescriptor(t,n).enumerable}))),e.push.apply(e,r)}return e}function a(t){for(var n=1;n<arguments.length;n++){var e=null!=arguments[n]?arguments[n]:{};n%2?o(Object(e),!0).forEach((function(n){c(t,n,e[n])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(e)):o(Object(e)).forEach((function(n){Object.defineProperty(t,n,Object.getOwnPropertyDescriptor(e,n))}))}return t}function c(t,n,e){return n in t?Object.defineProperty(t,n,{value:e,enumerable:!0,configurable:!0,writable:!0}):t[n]=e,t}var f="undefined"!=typeof window?window:t,s=f.requestAnimationFrame||f.webkitRequestAnimationFrame||f.oRequestAnimationFrame||f.msRequestAnimationFrame||f.mozCancelRequestAnimationFrame&&f.mozRequestAnimationFrame||setTimeout,l=function(){},h=null,p=null,d=a({},r),v=function(t,n,e,r,i,u,o){var a=t<u?0:(t-u)/i;for(var c in n){var f=o[c],s=f.call?f:d[f],l=e[c];n[c]=l+(r[c]-l)*s(a)}return n},y=function(t,n){var e=t._attachment,r=t._currentState,i=t._delay,u=t._easing,o=t._originalState,a=t._duration,c=t._step,f=t._targetState,s=t._timestamp,l=s+i+a,h=n>l?l:n,p=a-(l-h);h>=l?(c(f,e,p),t.stop(!0)):(t._applyFilter("beforeTween"),h<s+i?(h=1,a=1,s=1):s+=i,v(h,r,o,f,a,s,u),t._applyFilter("afterTween"),c(r,e,p))},_=function(){for(var t=b.now(),n=h;n;){var e=n._next;y(n,t),n=e}},m=function(t){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"linear",e={},r=u(n);if("string"===r||"function"===r)for(var i in t)e[i]=n;else for(var o in t)e[o]=n[o]||"linear";return e},g=function(t){if(t===h)(h=t._next)?h._previous=null:p=null;else if(t===p)(p=t._previous)?p._next=null:h=null;else{var n=t._previous,e=t._next;n._next=e,e._previous=n}t._previous=t._next=null},b=function(){function t(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:void 0;!function(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}(this,t),this._currentState=n,this._configured=!1,this._filters=[],this._timestamp=null,this._next=null,this._previous=null,e&&this.setConfig(e)}var n,e,r;return n=t,(e=[{key:"_applyFilter",value:function(t){var n=!0,e=!1,r=void 0;try{for(var i,u=this._filters[Symbol.iterator]();!(n=(i=u.next()).done);n=!0){var o=i.value[t];o&&o(this)}}catch(t){e=!0,r=t}finally{try{n||null==u.return||u.return()}finally{if(e)throw r}}}},{key:"tween",value:function(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:void 0,e=this._attachment,r=this._configured;return!n&&r||this.setConfig(n),this._pausedAtTime=null,this._timestamp=t.now(),this._start(this.get(),e),this.resume()}},{key:"setConfig",value:function(){var n=this,e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},r=e.attachment,i=e.delay,u=void 0===i?0:i,o=e.duration,c=void 0===o?500:o,f=e.easing,s=e.from,h=e.promise,p=void 0===h?Promise:h,d=e.start,v=void 0===d?l:d,y=e.step,_=void 0===y?l:y,g=e.to;this._configured=!0,this._attachment=r,this._isPlaying=!1,this._pausedAtTime=null,this._scheduleId=null,this._delay=u,this._start=v,this._step=_,this._duration=c,this._currentState=a({},s||this.get()),this._originalState=this.get(),this._targetState=a({},g||this.get());var b=this._currentState;this._targetState=a({},b,{},this._targetState),this._easing=m(b,f);var w=t.filters;for(var O in this._filters.length=0,w)w[O].doesApply(this)&&this._filters.push(w[O]);return this._applyFilter("tweenCreated"),this._promise=new p((function(t,e){n._resolve=t,n._reject=e})),this._promise.catch(l),this}},{key:"get",value:function(){return a({},this._currentState)}},{key:"set",value:function(t){this._currentState=t}},{key:"pause",value:function(){if(this._isPlaying)return this._pausedAtTime=t.now(),this._isPlaying=!1,g(this),this}},{key:"resume",value:function(){if(null===this._timestamp)return this.tween();if(this._isPlaying)return this._promise;var n=t.now();return this._pausedAtTime&&(this._timestamp+=n-this._pausedAtTime,this._pausedAtTime=null),this._isPlaying=!0,null===h?(h=this,p=this,function t(){h&&(s.call(f,t,1e3/60),_())}()):(this._previous=p,p._next=this,p=this),this._promise}},{key:"seek",value:function(n){n=Math.max(n,0);var e=t.now();return this._timestamp+n===0?this:(this._timestamp=e-n,this._isPlaying||y(this,e),this)}},{key:"stop",value:function(){var t=arguments.length>0&&void 0!==arguments[0]&&arguments[0],n=this._attachment,e=this._currentState,r=this._easing,i=this._originalState,u=this._targetState;if(this._isPlaying)return this._isPlaying=!1,g(this),t?(this._applyFilter("beforeTween"),v(1,e,i,u,1,0,r),this._applyFilter("afterTween"),this._applyFilter("afterTweenEnd"),this._resolve(e,n)):this._reject(e,n),this}},{key:"isPlaying",value:function(){return this._isPlaying}},{key:"setScheduleFunction",value:function(n){t.setScheduleFunction(n)}},{key:"dispose",value:function(){for(var t in this)delete this[t]}}])&&i(n.prototype,e),r&&i(n,r),t}();function w(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=new b,e=n.tween(t);return e.tweenable=n,e}b.setScheduleFunction=function(t){return s=t},b.formulas=d,b.filters={},b.now=Date.now||function(){return+new Date}}).call(this,e(2))},function(t,n,e){"use strict";e.r(n),e.d(n,"linear",(function(){return r})),e.d(n,"easeInQuad",(function(){return i})),e.d(n,"easeOutQuad",(function(){return u})),e.d(n,"easeInOutQuad",(function(){return o})),e.d(n,"easeInCubic",(function(){return a})),e.d(n,"easeOutCubic",(function(){return c})),e.d(n,"easeInOutCubic",(function(){return f})),e.d(n,"easeInQuart",(function(){return s})),e.d(n,"easeOutQuart",(function(){return l})),e.d(n,"easeInOutQuart",(function(){return h})),e.d(n,"easeInQuint",(function(){return p})),e.d(n,"easeOutQuint",(function(){return d})),e.d(n,"easeInOutQuint",(function(){return v})),e.d(n,"easeInSine",(function(){return y})),e.d(n,"easeOutSine",(function(){return _})),e.d(n,"easeInOutSine",(function(){return m})),e.d(n,"easeInExpo",(function(){return g})),e.d(n,"easeOutExpo",(function(){return b})),e.d(n,"easeInOutExpo",(function(){return w})),e.d(n,"easeInCirc",(function(){return O})),e.d(n,"easeOutCirc",(function(){return S})),e.d(n,"easeInOutCirc",(function(){return j})),e.d(n,"easeOutBounce",(function(){return M})),e.d(n,"easeInBack",(function(){return k})),e.d(n,"easeOutBack",(function(){return P})),e.d(n,"easeInOutBack",(function(){return x})),e.d(n,"elastic",(function(){return T})),e.d(n,"swingFromTo",(function(){return E})),e.d(n,"swingFrom",(function(){return F})),e.d(n,"swingTo",(function(){return A})),e.d(n,"bounce",(function(){return I})),e.d(n,"bouncePast",(function(){return C})),e.d(n,"easeFromTo",(function(){return D})),e.d(n,"easeFrom",(function(){return q})),e.d(n,"easeTo",(function(){return Q}));
+/*!
+ * All equations are adapted from Thomas Fuchs'
+ * [Scripty2](https://github.com/madrobby/scripty2/blob/master/src/effects/transitions/penner.js).
+ *
+ * Based on Easing Equations (c) 2003 [Robert
+ * Penner](http://www.robertpenner.com/), all rights reserved. This work is
+ * [subject to terms](http://www.robertpenner.com/easing_terms_of_use.html).
+ */
+/*!
+ *  TERMS OF USE - EASING EQUATIONS
+ *  Open source under the BSD License.
+ *  Easing Equations (c) 2003 Robert Penner, all rights reserved.
+ */
+var r=function(t){return t},i=function(t){return Math.pow(t,2)},u=function(t){return-(Math.pow(t-1,2)-1)},o=function(t){return(t/=.5)<1?.5*Math.pow(t,2):-.5*((t-=2)*t-2)},a=function(t){return Math.pow(t,3)},c=function(t){return Math.pow(t-1,3)+1},f=function(t){return(t/=.5)<1?.5*Math.pow(t,3):.5*(Math.pow(t-2,3)+2)},s=function(t){return Math.pow(t,4)},l=function(t){return-(Math.pow(t-1,4)-1)},h=function(t){return(t/=.5)<1?.5*Math.pow(t,4):-.5*((t-=2)*Math.pow(t,3)-2)},p=function(t){return Math.pow(t,5)},d=function(t){return Math.pow(t-1,5)+1},v=function(t){return(t/=.5)<1?.5*Math.pow(t,5):.5*(Math.pow(t-2,5)+2)},y=function(t){return 1-Math.cos(t*(Math.PI/2))},_=function(t){return Math.sin(t*(Math.PI/2))},m=function(t){return-.5*(Math.cos(Math.PI*t)-1)},g=function(t){return 0===t?0:Math.pow(2,10*(t-1))},b=function(t){return 1===t?1:1-Math.pow(2,-10*t)},w=function(t){return 0===t?0:1===t?1:(t/=.5)<1?.5*Math.pow(2,10*(t-1)):.5*(2-Math.pow(2,-10*--t))},O=function(t){return-(Math.sqrt(1-t*t)-1)},S=function(t){return Math.sqrt(1-Math.pow(t-1,2))},j=function(t){return(t/=.5)<1?-.5*(Math.sqrt(1-t*t)-1):.5*(Math.sqrt(1-(t-=2)*t)+1)},M=function(t){return t<1/2.75?7.5625*t*t:t<2/2.75?7.5625*(t-=1.5/2.75)*t+.75:t<2.5/2.75?7.5625*(t-=2.25/2.75)*t+.9375:7.5625*(t-=2.625/2.75)*t+.984375},k=function(t){var n=1.70158;return t*t*((n+1)*t-n)},P=function(t){var n=1.70158;return(t-=1)*t*((n+1)*t+n)+1},x=function(t){var n=1.70158;return(t/=.5)<1?t*t*((1+(n*=1.525))*t-n)*.5:.5*((t-=2)*t*((1+(n*=1.525))*t+n)+2)},T=function(t){return-1*Math.pow(4,-8*t)*Math.sin((6*t-1)*(2*Math.PI)/2)+1},E=function(t){var n=1.70158;return(t/=.5)<1?t*t*((1+(n*=1.525))*t-n)*.5:.5*((t-=2)*t*((1+(n*=1.525))*t+n)+2)},F=function(t){var n=1.70158;return t*t*((n+1)*t-n)},A=function(t){var n=1.70158;return(t-=1)*t*((n+1)*t+n)+1},I=function(t){return t<1/2.75?7.5625*t*t:t<2/2.75?7.5625*(t-=1.5/2.75)*t+.75:t<2.5/2.75?7.5625*(t-=2.25/2.75)*t+.9375:7.5625*(t-=2.625/2.75)*t+.984375},C=function(t){return t<1/2.75?7.5625*t*t:t<2/2.75?2-(7.5625*(t-=1.5/2.75)*t+.75):t<2.5/2.75?2-(7.5625*(t-=2.25/2.75)*t+.9375):2-(7.5625*(t-=2.625/2.75)*t+.984375)},D=function(t){return(t/=.5)<1?.5*Math.pow(t,4):-.5*((t-=2)*Math.pow(t,3)-2)},q=function(t){return Math.pow(t,4)},Q=function(t){return Math.pow(t,.25)}},function(t,n){var e;e=function(){return this}();try{e=e||new Function("return this")()}catch(t){"object"==typeof window&&(e=window)}t.exports=e},function(t,n,e){"use strict";e.r(n);var r={};e.r(r),e.d(r,"doesApply",(function(){return x})),e.d(r,"tweenCreated",(function(){return T})),e.d(r,"beforeTween",(function(){return E})),e.d(r,"afterTween",(function(){return F}));var i,u,o=e(0),a=/(\d|-|\.)/,c=/([^\-0-9.]+)/g,f=/[0-9.-]+/g,s=(i=f.source,u=/,\s*/.source,new RegExp("rgb\\(".concat(i).concat(u).concat(i).concat(u).concat(i,"\\)"),"g")),l=/^.*\(/,h=/#([0-9]|[a-f]){3,6}/gi,p=function(t,n){return t.map((function(t,e){return"_".concat(n,"_").concat(e)}))};function d(t){return parseInt(t,16)}var v=function(t){return"rgb(".concat((n=t,3===(n=n.replace(/#/,"")).length&&(n=(n=n.split(""))[0]+n[0]+n[1]+n[1]+n[2]+n[2]),[d(n.substr(0,2)),d(n.substr(2,2)),d(n.substr(4,2))]).join(","),")");var n},y=function(t,n,e){var r=n.match(t),i=n.replace(t,"VAL");return r&&r.forEach((function(t){return i=i.replace("VAL",e(t))})),i},_=function(t){for(var n in t){var e=t[n];"string"==typeof e&&e.match(h)&&(t[n]=y(h,e,v))}},m=function(t){var n=t.match(f).map(Math.floor),e=t.match(l)[0];return"".concat(e).concat(n.join(","),")")},g=function(t){return t.match(f)},b=function(t){var n,e,r={};for(var i in t){var u=t[i];"string"==typeof u&&(r[i]={formatString:(n=u,e=void 0,e=n.match(c),e?(1===e.length||n.charAt(0).match(a))&&e.unshift(""):e=["",""],e.join("VAL")),chunkNames:p(g(u),i)})}return r},w=function(t,n){var e=function(e){g(t[e]).forEach((function(r,i){return t[n[e].chunkNames[i]]=+r})),delete t[e]};for(var r in n)e(r)},O=function(t,n){var e={};return n.forEach((function(n){e[n]=t[n],delete t[n]})),e},S=function(t,n){return n.map((function(n){return t[n]}))},j=function(t,n){return n.forEach((function(n){return t=t.replace("VAL",+n.toFixed(4))})),t},M=function(t,n){for(var e in n){var r=n[e],i=r.chunkNames,u=r.formatString,o=j(u,S(O(t,i),i));t[e]=y(s,o,m)}},k=function(t,n){var e=function(e){var r=n[e].chunkNames,i=t[e];if("string"==typeof i){var u=i.split(" "),o=u[u.length-1];r.forEach((function(n,e){return t[n]=u[e]||o}))}else r.forEach((function(n){return t[n]=i}));delete t[e]};for(var r in n)e(r)},P=function(t,n){for(var e in n){var r=n[e].chunkNames,i=t[r[0]];t[e]="string"==typeof i?r.map((function(n){var e=t[n];return delete t[n],e})).join(" "):i}},x=function(t){var n=t._currentState;return Object.keys(n).some((function(t){return"string"==typeof n[t]}))};function T(t){var n=t._currentState;[n,t._originalState,t._targetState].forEach(_),t._tokenData=b(n)}function E(t){var n=t._currentState,e=t._originalState,r=t._targetState,i=t._easing,u=t._tokenData;k(i,u),[n,e,r].forEach((function(t){return w(t,u)}))}function F(t){var n=t._currentState,e=t._originalState,r=t._targetState,i=t._easing,u=t._tokenData;[n,e,r].forEach((function(t){return M(t,u)})),P(i,u)}function A(t,n){var e=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);n&&(r=r.filter((function(n){return Object.getOwnPropertyDescriptor(t,n).enumerable}))),e.push.apply(e,r)}return e}function I(t){for(var n=1;n<arguments.length;n++){var e=null!=arguments[n]?arguments[n]:{};n%2?A(Object(e),!0).forEach((function(n){C(t,n,e[n])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(e)):A(Object(e)).forEach((function(n){Object.defineProperty(t,n,Object.getOwnPropertyDescriptor(e,n))}))}return t}function C(t,n,e){return n in t?Object.defineProperty(t,n,{value:e,enumerable:!0,configurable:!0,writable:!0}):t[n]=e,t}var D=new o.a,q=o.a.filters,Q=function(t,n,e,r){var i=arguments.length>4&&void 0!==arguments[4]?arguments[4]:0,u=I({},t),a=Object(o.b)(t,r);for(var c in D._filters.length=0,D.set({}),D._currentState=u,D._originalState=t,D._targetState=n,D._easing=a,q)q[c].doesApply(D)&&D._filters.push(q[c]);D._applyFilter("tweenCreated"),D._applyFilter("beforeTween");var f=Object(o.e)(e,u,t,n,1,i,a);return D._applyFilter("afterTween"),f};function B(t){return function(t){if(Array.isArray(t)){for(var n=0,e=new Array(t.length);n<t.length;n++)e[n]=t[n];return e}}(t)||function(t){if(Symbol.iterator in Object(t)||"[object Arguments]"===Object.prototype.toString.call(t))return Array.from(t)}(t)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance")}()}function N(t,n){for(var e=0;e<n.length;e++){var r=n[e];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function R(t,n){var e=n.get(t);if(!e)throw new TypeError("attempted to get private field on non-instance");return e.get?e.get.call(t):e.value}var z=function(){function t(){!function(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}(this,t),L.set(this,{writable:!0,value:[]});for(var n=arguments.length,e=new Array(n),r=0;r<n;r++)e[r]=arguments[r];e.forEach(this.add.bind(this))}var n,e,r;return n=t,(e=[{key:"add",value:function(t){return R(this,L).push(t),t}},{key:"remove",value:function(t){var n=R(this,L).indexOf(t);return~n&&R(this,L).splice(n,1),t}},{key:"empty",value:function(){return this.tweenables.map(this.remove.bind(this))}},{key:"isPlaying",value:function(){return R(this,L).some((function(t){return t.isPlaying()}))}},{key:"play",value:function(){return R(this,L).forEach((function(t){return t.tween()})),this}},{key:"pause",value:function(){return R(this,L).forEach((function(t){return t.pause()})),this}},{key:"resume",value:function(){return R(this,L).forEach((function(t){return t.resume()})),this}},{key:"stop",value:function(t){return R(this,L).forEach((function(n){return n.stop(t)})),this}},{key:"tweenables",get:function(){return B(R(this,L))}},{key:"promises",get:function(){return R(this,L).map((function(t){return t._promise}))}}])&&N(n.prototype,e),r&&N(n,r),t}(),L=new WeakMap;function V(t,n,e,r,i,u){var o,a,c=0,f=0,s=0,l=0,h=0,p=0,d=function(t){return((c*t+f)*t+s)*t},v=function(t){return(3*c*t+2*f)*t+s},y=function(t){return t>=0?t:0-t};return c=1-(s=3*n)-(f=3*(r-n)-s),l=1-(p=3*e)-(h=3*(i-e)-p),o=t,a=function(t){return 1/(200*t)}(u),function(t){return((l*t+h)*t+p)*t}(function(t,n){var e,r,i,u,o,a;for(i=t,a=0;a<8;a++){if(u=d(i)-t,y(u)<n)return i;if(o=v(i),y(o)<1e-6)break;i-=u/o}if((i=t)<(e=0))return e;if(i>(r=1))return r;for(;e<r;){if(u=d(i),y(u-t)<n)return i;t>u?e=i:r=i,i=.5*(r-e)+e}return i}(o,a))}var W=function(t,n,e,r,i){var u=function(t,n,e,r){return function(i){return V(i,t,n,e,r,1)}}(n,e,r,i);return u.displayName=t,u.x1=n,u.y1=e,u.x2=r,u.y2=i,o.a.formulas[t]=u},G=function(t){return delete o.a.formulas[t]};e.d(n,"processTweens",(function(){return o.c})),e.d(n,"Tweenable",(function(){return o.a})),e.d(n,"tween",(function(){return o.d})),e.d(n,"interpolate",(function(){return Q})),e.d(n,"Scene",(function(){return z})),e.d(n,"setBezierFunction",(function(){return W})),e.d(n,"unsetBezierFunction",(function(){return G})),o.a.filters.token=r}])}));
+//# sourceMappingURL=shifty.js.map
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -65449,9 +66451,13 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+  __webpack_require__(/*! jquery-form */ "./node_modules/jquery-form/dist/jquery.form.min.js");
+
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.iziToast = __webpack_require__(/*! izitoast */ "./node_modules/izitoast/dist/js/iziToast.js");
+  window.progressBar = __webpack_require__(/*! progressbar.js */ "./node_modules/progressbar.js/src/main.js");
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}

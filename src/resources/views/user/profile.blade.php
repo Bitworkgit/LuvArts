@@ -11,8 +11,14 @@
 	<script src="{{ asset('js/app.js') }}"></script>
     <title>Perfil</title>
     <style>
+        .upload {
+            margin: 20px;
+            width: 400px;
+            height: 8px;
+            position: relative;
+        }
         .pad {
-            background-image: url("{{ asset($user->foto_capa)}}");
+            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : Storage::url($user->foto_capa))}}");
         }
     </style>
 
@@ -22,7 +28,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top ">
         <div class="container">
-            <a href="index.html"><img src="{{ asset('images/NAV.png')}}" width="110" class="nav-link"></a>
+            <a href="index.html"><img src="{{ asset('images/NAV.png')}}" width="110" height="50" class="nav-link"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,8 +61,8 @@
 	
         
         <div class="pad">
-            <div class="text-right relative">
-                <img src="{{ asset($user->foto_perfil) }}" width="180" class="img-fluid rounded-circle d-block" alt="avatar">
+            <div class="text-right relative image-border"">
+                <img src="{{($user->foto_perfil == 'images/empty-avatar.png' ? asset($user->foto_perfil) : Storage::url($user->foto_perfil))}}" alt="avatar">
             </div>
         </div>
         <div class="container">
@@ -139,7 +145,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Endereço</label>
                                     <div class="col-lg-9">
-										<input class="form-control" name="cep" type="text" value="" placeholder="CEP">  
+										<input class="form-control" name="cep" type="text" value='{{ $user->cep }}' placeholder="CEP">  
 										<br>
 										<input class="form-control" name="endereço" type="text" value="{{ $user->endereco }}" placeholder="Endereço">
 										<br>
@@ -171,21 +177,20 @@
 
 <div class="form-group">
                   <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil</label>
-                  <div class="col-md-4">
-                    <input id="uploadArt" name="foto_perfil" class="input-file" type="file">
+                <div class="col-md-4">
+                    <input id="foto_capa" type="file" name="foto_perfil" class="input-file">
                   </div>
                 </div>
-				<div class="form-group">
+				
+                <div class="form-group">
                   <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa (tamanho ideal 1920×1080)</label>
                   <div class="col-md-4">
-                    <input id="uploadArt" name="foto_capa" class="input-file" type="file">
+                    <input id="foto_capa" type="file" name="foto_capa" class="input-file">
                   </div>
                 </div>
+                <div class="upload"></div>
 				<br>
-
                                 <button id="colecao" name="colecao" class="btn btn-primary">Finalizar edição</button>
-
-
                             </form>
                         </div>
                     </div>
@@ -210,21 +215,56 @@
 
             </div>
         </div>
-		</div
+		</div>
     </div>
-    @if(session('error'))
-		<script>
-			iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
-		</script>
-	@endif
 
-    @if($errors->any())
-		@foreach ($errors->all() as $error)
-			<script>
-				iziToast.error({title: 'Erro',	message: '{{ $error }}',});
-			</script>
-		@endforeach    
-	@endif
+    <script>
+        var bar = new progressBar.Line('.upload', {
+            strokeWidth: 4,
+            easing: 'easeInOut',
+            duration: 1400,
+            color: '#FFEA82',
+            trailColor: '#eee',
+            trailWidth: 1,
+            svgStyle: {width: '100%', height: '100%'},
+            text: {
+            style: {
+                color: 'black',
+                position: 'absolute',
+                right: '0',
+                top: '30px',
+                padding: 0,
+                margin: 0,
+                transform: null
+            },
+                autoStyleContainer: false
+            },
+            from: {color: '#1803ff'},
+            to: {color: '##4bc4b0'},
+            step: (state, bar) => {
+                bar.setText(Math.round(bar.value() * 100) + ' %');
+                bar.path.setAttribute('stroke', state.color);
+            }
+        });
+        
+        $('form').ajaxForm({
+            success: function (data) {
+                if(data['sucesso']){
+                    iziToast.success({title: ':)', message: data['sucesso']});
+                    window.location.reload(false);
+                }
+                else {
+                    for(var a in data['erro']){
+                        iziToast.error({title: ':(', message: data['erro'][a]}); 
+                    }
+                }
+            },
+            uploadProgress: function(event, position, total, percentComplete) {
+                bar.animate(percentComplete * 0.01);
+            }
+        })
+    </script>
+
 </body>
 
 <footer class="py-5 background-la">

@@ -7,10 +7,11 @@ window._ = require('lodash');
  */
 
 try {
-    window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    require("jquery-form");
+    window.Popper = require('popper.js').default;
     window.iziToast = require("izitoast");
-
+    window.progressBar = require("progressbar.js");
     require('bootstrap');
 } catch (e) {}
 
