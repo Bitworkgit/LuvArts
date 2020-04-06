@@ -20,17 +20,9 @@ class ProdutosController extends Controller
     public function index()
     {
         $dado = [
-            'colecao'  =>Colecao::all(),
-            'categoria'=>Categoria::all()
+            'colecao'   =>Colecao::all(),
+            'categoria' =>Categoria::all()
         ];
-
-        //$dado = Colecao::all();
-
-        //print_r($dado);
-
-        //foreach($dado as $item){
-            //echo $item->nome_colecao_col;
-        //}
         
         return view('produtos.produtos', $dado);
     }
@@ -53,6 +45,9 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
+        $pro = new Produto;
+        $col = new Colecao;
+
         /*
          * Para mudar o nome dos campos do formulario na exibição dos erros,
          * cria-se um novo array vazio depois da validação, e outro array com 
@@ -76,23 +71,12 @@ class ProdutosController extends Controller
             'uploadArt' => '"Suba sua arte"'
         ]);
       
-        //echo $_SERVER['DOCUMENT_ROOT'];
-        //exit;
-        
         /* Se ocorrer erro de validação, redireciona para o index com os erros e os campos ja preenchidos */
         if($valida->fails()){
             return redirect()->route('cadastro-produtos.index')->withErrors($valida)->withInput();
         }
 
-        if(!empty($request->input('colecaoNome'))){
-            $nomeColecao = $request->input('colecaoNome');
-        }elseif($request->input('colecao') <> 0){
-            $idColecao = $request->input('colecao');
-        }else{
-            return redirect()->route('cadastro-produtos.index')->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
-        }
-
-
+        /* Upload de arquivo */
         if(isset($_FILES['uploadArt'])){
             if(count($_FILES['uploadArt']['tmp_name']) > 0){
                 for ($i=0; $i < count($_FILES['uploadArt']['tmp_name']); $i++) { 
@@ -100,36 +84,35 @@ class ProdutosController extends Controller
                     if(($tpArquivo[1] <> 'jpg') && ($tpArquivo[1] <> 'jpeg') && ($tpArquivo[1] <> 'png')){
                         return redirect()->route('cadastro-produtos.index')->with('error', 'Tipo do arquivo inválido, verifique se é arquivo "jpg, jpeg ou png')->withInput();
                     }
+                    /* 
+                     * Pega o diretório que está defino no arquivo app>config>filesystems.php
+                     * definir no default como o ultimo parametro public
+                     */
                     $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';                    
                     $nomeArquivo = md5($_FILES['uploadArt']['name'][$i] . time() . rand(0,999)) . '.' . $tpArquivo[1];
                     move_uploaded_file($_FILES['uploadArt']['tmp_name'][$i], $diretorio . $nomeArquivo);
                 }
             }
+        }      
+
+        $pro->nome_pro      = $request->input('Pnome');
+        $pro->cod_categoria = $request->input('categoria');
+        $pro->descricao_pro = $request->input('Descricao');
+        $pro->preco_pro     = $request->input('preco');
+        $pro->ende_foto_pro = $nomeArquivo;
+
+        if(!empty($request->input('colecaoNome'))){
+            $col->nome_colecao_col = $request->input('colecaoNome');
+            $col->save();
+            $pro->cod_colecoes = Colecao::max('id');
+        }elseif($request->input('colecao') <> 0){
+            $pro->cod_colecoes = $request->input('colecao');
+        }else{
+            return redirect()->route('cadastro-produtos.index')->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
         }
-        
-        //ho $request->file('uploadArt')->getClientOriginalName();
 
-        
-        //'C:/Projeto/trabalhoPa/LuvArts/src/public/pasta/
-      
+        $pro->save();
 
-        exit;
-
-        
-
-       
-        
-        $nome = $request->input('Pnome');
-        $cate = $request->input('categoria');
-        $desc = $request->input('Descricao');
-        $prec = $request->input('Preco');
-
-
-
-
-        
-
-        //echo $nome . ' - ' . $desc . ' - ' . $prec . ' - ' . $cate . ' - ' . $nomeColecao . ' - ' . $idColecao;
     }
 
     /**
