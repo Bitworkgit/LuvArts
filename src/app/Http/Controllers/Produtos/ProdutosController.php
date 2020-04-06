@@ -60,7 +60,7 @@ class ProdutosController extends Controller
             'Descricao' => 'required|string|max:100',
             'preco'     => 'required',
             'categoria' => 'required',
-            'uploadArt' => 'required'
+            'imagem'      => 'required|mimes:jpeg,jpg,png'
         ],[
 
         ],[
@@ -68,38 +68,26 @@ class ProdutosController extends Controller
             'Descricao' => '"Descrição"',
             'preco'     => '"Preço"',
             'categoria' => '"Categoria"',
-            'uploadArt' => '"Suba sua arte"'
+            'imagem'    => '"Suba sua arte"'
         ]);
       
         /* Se ocorrer erro de validação, redireciona para o index com os erros e os campos ja preenchidos */
         if($valida->fails()){
             return redirect()->route('cadastro-produtos.index')->withErrors($valida)->withInput();
         }
-
-        /* Upload de arquivo */
-        if(isset($_FILES['uploadArt'])){
-            if(count($_FILES['uploadArt']['tmp_name']) > 0){
-                for ($i=0; $i < count($_FILES['uploadArt']['tmp_name']); $i++) { 
-                    $tpArquivo = explode("/", $_FILES['uploadArt']['type'][$i]);
-                    if(($tpArquivo[1] <> 'jpg') && ($tpArquivo[1] <> 'jpeg') && ($tpArquivo[1] <> 'png')){
-                        return redirect()->route('cadastro-produtos.index')->with('error', 'Tipo do arquivo inválido, verifique se é arquivo "jpg, jpeg ou png')->withInput();
-                    }
-                    /* 
-                     * Pega o diretório que está defino no arquivo app>config>filesystems.php
-                     * definir no default como o ultimo parametro public
-                     */
-                    $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';                    
-                    $nomeArquivo = md5($_FILES['uploadArt']['name'][$i] . time() . rand(0,999)) . '.' . $tpArquivo[1];
-                    move_uploaded_file($_FILES['uploadArt']['tmp_name'][$i], $diretorio . $nomeArquivo);
-                }
-            }
-        }      
+        
+        if($request->hasFile('imagem')){
+            $img = $request->file('imagem')->store('public');
+            $img = explode('/', $img);
+            echo $img[1]; 
+        }
+        exit;
 
         $pro->nome_pro      = $request->input('Pnome');
         $pro->cod_categoria = $request->input('categoria');
         $pro->descricao_pro = $request->input('Descricao');
         $pro->preco_pro     = $request->input('preco');
-        $pro->ende_foto_pro = $nomeArquivo;
+        //$pro->ende_foto_pro = $nomeArquivo;
 
         if(!empty($request->input('colecaoNome'))){
             $col->nome_colecao_col = $request->input('colecaoNome');

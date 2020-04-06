@@ -58,7 +58,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="uploadArt">Suba sua arte</label>
                   <div class="col-md-4">
-                    <input type="file" name="uploadArt[]" multiple>
+                    <input type="file" name="imagem" multiple>
                   </div>
                 </div>
               </div>
