@@ -19,7 +19,7 @@ class CreateProdutosTable extends Migration
             $table->string('descricao_pro', 100);
             $table->decimal('preco_pro', 8,2);
             //$table->integer('cod_usuario_pro');
-            $table->string('ende_foto_pro', 37);
+            //$table->string('ende_foto_pro', 37);
             $table->unsignedInteger('cod_colecoes');
             $table->unsignedInteger('cod_categoria');
 

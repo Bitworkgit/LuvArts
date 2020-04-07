@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Produto;
 use App\Model\Categoria;
 use App\Model\Colecao;
+use App\Model\Imagem;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -47,6 +48,7 @@ class ProdutosController extends Controller
     {
         $pro = new Produto;
         $col = new Colecao;
+        $ima = new Imagem;
 
         /*
          * Para mudar o nome dos campos do formulario na exibição dos erros,
@@ -60,7 +62,8 @@ class ProdutosController extends Controller
             'Descricao' => 'required|string|max:100',
             'preco'     => 'required',
             'categoria' => 'required',
-            'imagem'      => 'required|mimes:jpeg,jpg,png'
+            //'imagem'    => 'required',
+            //'imagem'    => 'image|mimes:jpeg,jpg,png'
         ],[
 
         ],[
@@ -76,13 +79,6 @@ class ProdutosController extends Controller
             return redirect()->route('cadastro-produtos.index')->withErrors($valida)->withInput();
         }
         
-        if($request->hasFile('imagem')){
-            $img = $request->file('imagem')->store('public');
-            $img = explode('/', $img);
-            echo $img[1]; 
-        }
-        exit;
-
         $pro->nome_pro      = $request->input('Pnome');
         $pro->cod_categoria = $request->input('categoria');
         $pro->descricao_pro = $request->input('Descricao');
@@ -101,6 +97,24 @@ class ProdutosController extends Controller
 
         $pro->save();
 
+        if($request->hasFile('imagem')){
+            
+            foreach($request->file('imagem') as $image){
+                echo "Passei aqui jovem";
+                //$img = $request->file('imagem')->store('public');
+                $img = $request->file('imagem');
+                //explode('/', $img);
+                echo '<pre>';
+                print_r($img) . '<br>';
+                echo '</pre>';
+            }
+            exit;
+            $img = $request->file('imagem');
+            $img = explode('/', $img);
+            print_r($img);
+            echo "PAssei aqui e nao passe la";
+            //$ima->dir_imagem =            
+        }
     }
 
     /**
