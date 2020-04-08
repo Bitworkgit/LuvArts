@@ -4,12 +4,9 @@
 <head>
   <title>Cadastro de Produtos</title>
   <meta name="viewport" content="width=device-width, initial-scale = 1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{asset('pages/produtos/css/main.css')}}">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="{{ asset("js/app.js") }}"></script>
-
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -58,7 +55,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="uploadArt">Suba sua arte</label>
                   <div class="col-md-4">
-                    <input type="file" name="imagem[]" multiple>
+                    <input type="file" name="imagem">
                   </div>
                 </div>
               </div>
@@ -75,8 +72,7 @@
 
                 <!-- Select Multiple -->
                 <div class="form-group">
-                  <label class="col-md-4 control-label" for="categoria">Selecione a categoria em que sua arte se
-                    enquadra!</label>
+                  <label class="col-md-4 control-label" for="categoria">Selecione a categoria em que sua arte se enquadra!</label>
                   <div class="col-md-6">
                     <select id="categoria" name="categoria" class="form-control" multiple="multiple" selected="{{old('categoria')}}">
                       @foreach ($categoria as $item)
@@ -94,64 +90,64 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Descricao">Descrição</label>
                   <div class="col-md-4">
-                       <textarea class="form-control" id="Descricao" name="Descricao">De um significado para sua obra!</textarea>
+                       <textarea class="form-control" id="Descricao" name="Descricao">@if($item->descricao_pro == old('Descricao'))De um significado para sua obra!@else{{ old('Descricao') }} @endif </textarea>
                   </div>
                 </div>
 
                 <!-- Multiple Radios (inline) -->
               <div class="form-group">
-                  <label class="col-md-4 control-label" for="Tcolecao">Tem uma Coleção pra Colocar sua Obra?</label>
+                  <label class="col-md-4 control-label" for="Tcolecao">Tem uma coleção para colocar sua obra?</label>
                   <div class="col-md-4">
 
-@if(session('error'))
-  <br>
-  @component('component.alert')
-      {{session('error')}}
-  @endcomponent
-  <br>
-@endif
+                @if(session('error'))
+                  <script>
+                    iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
+                  </script>
+                @endif
 
-<input type="radio" name="thing" value="valuable" data-id="teste1">Sim <br>
-<input type="radio" name="thing" value="valuable" data-id="teste2">Não
-<hr>
+                <input type="radio" name="thing" value="valuable" data-id="teste1">Sim <br>
+                <input type="radio" name="thing" value="valuable" data-id="teste2">Não
+                <hr>
 
-<script> $(':radio').change(function (event) {
-  var id = $(this).data('id');
-  $('#' + id).addClass('none').siblings().removeClass('none');
-});
-</script>
+                <script> $(':radio').change(function (event) {
+                  var id = $(this).data('id');
+                  $('#' + id).addClass('none').siblings().removeClass('none');
+                });
+                </script>
 
-<div id="teste1" class="none">
-    <label for="colecaoNome">Crie uma Coleção</label>
-       <div class="col-md-6">
-            <input id="colecaoNome" name="colecaoNome" type="text" value="{{old('colecaoNome')}}" placeholder="exemplo!" class="form-control input-md">
-       </div>
-</div>
+                <div id="teste1" class="none">
+                    <label for="colecaoNome">Crie uma Coleção</label>
+                      <div class="col-md-6">
+                            <input id="colecaoNome" name="colecaoNome" type="text" value="{{old('colecaoNome')}}" placeholder="exemplo!" class="form-control input-md">
+                      </div>
+                      <br>
+                </div>
 
-<div id="teste2" class="none">
-  <label for="colecao">Selecione sua Coleção</label>
-    <div class="col-md-6">
-      <select id="colecao" name="colecao" class="form-control input-md">
-        <option value="0" selected >Selecione uma opção</option>
-        @foreach ($colecao as $item)
-            @if($item->id == old('colecao'))
-              <option value="{{$item->id}}" selected>{{$item->nome_colecao_col}}</option>
-            @else
-              <option value="{{$item->id}}">{{$item->nome_colecao_col}}</option>
-            @endif
-        @endforeach
-     </select>
-    </div>
-</div>
+                <div id="teste2" class="none">
+                  <label for="colecao">Selecione sua Coleção</label>
+                    <div class="col-md-6">
+                      <select id="colecao" name="colecao" class="form-control input-md">
+                        <option value="0" selected >Selecione uma opção</option>
+                        @foreach ($colecao as $item)
+                            @if($item->id == old('colecao'))
+                              <option value="{{$item->id}}" selected>{{$item->nome_colecao_col}}</option>
+                            @else
+                              <option value="{{$item->id}}">{{$item->nome_colecao_col}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    <br>
+                    </div>
+                </div>
           </div>
-          <br>
- <!-- Select Basic -->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="Preco">Preço</label>
-                  <div class="col-md-6">
+                       
+              <label class="col-md-4 control-label" for="Preco">Preço </label>
+              <div class="col-md-4 control-label">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">R$</span>
                       <input type="number" name="preco" class="form-control input-md" step="0.010" value="{{old('preco')}}">
                   </div>
-                </div>
+              </div>
 
                 <!-- Button -->
                 <div class="form-group">
@@ -178,6 +174,11 @@
   <!-- /.container -->
 </footer>
 
+@if(session('success'))
+  <script>
+    iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
+  </script>
+@endif
 
 @if($errors->any())
   @foreach ($errors->all() as $error)

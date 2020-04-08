@@ -12,7 +12,11 @@ class Colecao extends Model
         'nome_colecao_col'
     ];
 
-    public function colecao(){
+    public function produto(){
         $this->hasMany('App\Model\Produto');
+    }
+
+    public function usuario(){
+        $this->belongsTo('App\User');
     }
 }

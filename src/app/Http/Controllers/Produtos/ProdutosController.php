@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Model\Produto;
 use App\Model\Categoria;
 use App\Model\Colecao;
-use App\Model\Imagem;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -18,13 +17,20 @@ class ProdutosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct(){
+        $this->middleware('auth');
+     }
+
+    public function index(Request $request)
     {
+        $user = $request->user();
+
         $dado = [
-            'colecao'   =>Colecao::all(),
-            'categoria' =>Categoria::all()
+            'colecao'   => Colecao::where('user_id', $user['id'])->get(),
+            'categoria' => Categoria::all()
         ];
-        
+
         return view('produtos.produtos', $dado);
     }
 
@@ -48,7 +54,7 @@ class ProdutosController extends Controller
     {
         $pro = new Produto;
         $col = new Colecao;
-        $ima = new Imagem;
+        $user = $request->user();
 
         /*
          * Para mudar o nome dos campos do formulario na exibição dos erros,
@@ -62,8 +68,7 @@ class ProdutosController extends Controller
             'Descricao' => 'required|string|max:100',
             'preco'     => 'required',
             'categoria' => 'required',
-            //'imagem'    => 'required',
-            //'imagem'    => 'image|mimes:jpeg,jpg,png'
+            'imagem'    => 'required|image|mimes:jpeg,jpg,png'
         ],[
 
         ],[
@@ -73,8 +78,7 @@ class ProdutosController extends Controller
             'categoria' => '"Categoria"',
             'imagem'    => '"Suba sua arte"'
         ]);
-      
-        /* Se ocorrer erro de validação, redireciona para o index com os erros e os campos ja preenchidos */
+
         if($valida->fails()){
             return redirect()->route('cadastro-produtos.index')->withErrors($valida)->withInput();
         }
@@ -83,10 +87,10 @@ class ProdutosController extends Controller
         $pro->cod_categoria = $request->input('categoria');
         $pro->descricao_pro = $request->input('Descricao');
         $pro->preco_pro     = $request->input('preco');
-        //$pro->ende_foto_pro = $nomeArquivo;
 
         if(!empty($request->input('colecaoNome'))){
             $col->nome_colecao_col = $request->input('colecaoNome');
+            $col->user_id = $user['id'];
             $col->save();
             $pro->cod_colecoes = Colecao::max('id');
         }elseif($request->input('colecao') <> 0){
@@ -95,26 +99,21 @@ class ProdutosController extends Controller
             return redirect()->route('cadastro-produtos.index')->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
         }
 
+        if($request->hasFile('imagem')){
+            /* ---- Para add somente o hash da imagem no banco ----
+            $img = $request->file('imagem')->store('public');
+            $img = explode('/', $img);
+            $pro->ende_foto_pro = $img[1];
+            */
+
+            $pro->ende_foto_pro = $request->file('imagem')->store('public');
+        }
+
+        $pro->user_id = $user['id'];
+        
         $pro->save();
 
-        if($request->hasFile('imagem')){
-            
-            foreach($request->file('imagem') as $image){
-                echo "Passei aqui jovem";
-                //$img = $request->file('imagem')->store('public');
-                $img = $request->file('imagem');
-                //explode('/', $img);
-                echo '<pre>';
-                print_r($img) . '<br>';
-                echo '</pre>';
-            }
-            exit;
-            $img = $request->file('imagem');
-            $img = explode('/', $img);
-            print_r($img);
-            echo "PAssei aqui e nao passe la";
-            //$ima->dir_imagem =            
-        }
+        return redirect()->route('cadastro-produtos.index')->with('success', 'Produto cadastrado com sucesso');
     }
 
     /**

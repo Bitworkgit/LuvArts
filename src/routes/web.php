@@ -34,8 +34,16 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name(
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
 
-/*
+/* 
  * Rota para Registro de Produtos
  */
 
  Route::resource('/cadastro-produtos','Produtos\ProdutosController');
+
+ /* 
+  * Caso não exista a rota, joga para a pagina de 404 
+  */
+
+ Route::fallback(function(){
+     return view('404/404');
+ });

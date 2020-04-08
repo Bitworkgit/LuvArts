@@ -22,11 +22,11 @@ class Produto extends Model
         return $this->belongsTo('App\Model\Colecoes', 'cod_colecoes');
     }
 
-    public function vategoria(){
+    public function categoria(){
         return $this->belongsTo('App\Model\Categoria', 'cod_categoria');
     }
 
-    public function imagem(){
-        return $this->hasMany('App\Model\Imagem');
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

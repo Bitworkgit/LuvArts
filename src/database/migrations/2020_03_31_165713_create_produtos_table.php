@@ -16,18 +16,19 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome_pro', 100);
-            $table->string('descricao_pro', 100);
+            $table->longText('descricao_pro');
             $table->decimal('preco_pro', 8,2);
-            //$table->integer('cod_usuario_pro');
-            //$table->string('ende_foto_pro', 37);
-            $table->unsignedInteger('cod_colecoes');
-            $table->unsignedInteger('cod_categoria');
+            $table->string('ende_foto_pro', 80);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedInteger('cod_colecoes')->nullable();
+            $table->unsignedInteger('cod_categoria')->nullable();
 
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
 
-            $table->foreign('cod_categoria')->references('id')->on('categorias')->nullable();
-            $table->foreign('cod_colecoes')->references('id')->on('colecoes')->nullable();
+            $table->foreign('user_id')->references('id')->on('usuarios');
+            $table->foreign('cod_categoria')->references('id')->on('categorias');
+            $table->foreign('cod_colecoes')->references('id')->on('colecoes');
 
             $table->timestamps();
         });
