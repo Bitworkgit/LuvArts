@@ -7,7 +7,8 @@
         "npm install",
         "npm run dev",
         "php artisan migrate",
-        "php artisan storage:link"
+        "php artisan storage:link",
+        "php artisan db:seed"
     ];
 
     foreach($comandos as $comando){
@@ -15,4 +16,5 @@
     }
 
     echo "Projeto instalado com sucesso!";
+    system("php artisan serve");
 ?>
