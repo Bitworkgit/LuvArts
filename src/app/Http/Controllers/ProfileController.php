@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Model\Colecao;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class ProfileController extends Controller
@@ -13,11 +14,12 @@ class ProfileController extends Controller
 
     protected function index($user_id){
         $user = User::find($user_id);
+        $colecoes = Colecao::where('user_id',$user_id)->get();
         if(empty($user)){
             return redirect()->route("home");
         }
         else {
-            return view("user/profile",compact('user'));
+            return view("user/profile",compact('user','colecoes'));
         }
     }
 

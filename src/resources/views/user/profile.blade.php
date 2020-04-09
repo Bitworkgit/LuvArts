@@ -97,7 +97,11 @@
 
                                 <div class="col-md-12">
                                     <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Coleções</h5>
-
+                                    @if(!empty($colecoes))
+                                        @foreach ($colecoes as $item)
+                                            <a href="#">{{ $item->nome_colecao_col }}</a><br>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                             <!--/row-->
