@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Model\Colecao;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Gate;
 
 class ProfileController extends Controller
 {
@@ -15,13 +16,15 @@ class ProfileController extends Controller
     protected function index($user_id){
         $user = User::find($user_id);
         $colecoes = Colecao::where('user_id',$user_id)->get();
+        $see = Gate::allows('ver-dados');
+
         if(empty($user)){
             return redirect()->route("home");
         }
         else {
-            return view("user/profile",compact('user','colecoes'));
+            return view("user/profile",compact('user','colecoes', 'see'));
         }
-    }
+    }  
 
     protected function validator(array $data)
     {

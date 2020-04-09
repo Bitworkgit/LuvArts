@@ -68,7 +68,7 @@
         <div class="container">
             
             <div class="row my-2">
-                <div class="col-lg-8 order-lg-2">
+                <div class="col-lg-7 order-lg-2">
 				                <h4 class="mt-2">{{ $user->nome }}</h4>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -77,9 +77,13 @@
                         </li>
                         <!--new item-->
                         </li>
-                        <li class="nav-item">
-                            <a href="" data-target="#edit" data-toggle="tab" class="nav-link ">Editar</a>
-                        </li>
+
+                        @if($see)
+                            <li class="nav-item">
+                                <a href="" data-target="#edit" data-toggle="tab" class="nav-link ">Editar</a>
+                            </li>
+                        @endif
+                        
                     </ul>
                     <div class="tab-content py-4">
                         <div class="tab-pane active show" id="profile">
@@ -179,25 +183,25 @@
 								<br>
 								<hr width:60%="">
 
-<div class="form-group">
-                  <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil (tamanho médio ideal 800x800)</label>
-                <div class="col-md-4">
-                    <input id="foto_perfil" type="file" name="foto_perfil" class="input-file">
-                  </div>
-                </div>
-				
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa</label>
-                  <div class="col-md-4">
-                    <input id="foto_capa" type="file" name="foto_capa" class="input-file">
-                  </div>
-                </div>
-                <div class="upload"></div>
-				<br>
-                                <button id="colecao" name="colecao" class="btn btn-primary">Finalizar edição</button>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil (tamanho médio ideal 800x800)</label>
+                                    <div class="col-md-4">
+                                            <input id="foto_perfil" type="file" name="foto_perfil" class="input-file">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                <label class="col-md-4 control-label" for="uploadCapa">Suba sua imagem de capa</label>
+                                <div class="col-md-4">
+                                    <input id="foto_capa" type="file" name="foto_capa" class="input-file">
+                                </div>
+                                </div>
+                                <div class="upload"></div>
+                                <br>
+                                    <button id="colecao" name="colecao" class="btn btn-primary">Finalizar edição</button>
                             </form>
+                         </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="col-lg-4 order-lg-1 text-center">
@@ -208,9 +212,12 @@
                             <div class="tooltip__text px--10 py--5" style="width: 240px;">A minimum of $50 needs to be
                                 accumulated on your account to request a payment.</div>
                         </div>
-                        <p class="text">Seu capital</p>
-                        <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3><button id="colecao" name="colecao"
-                            class="btn btn-primary">Solicitar Pagamento</button>
+
+                        @if($see)
+                            <p class="text">Seu capital</p>
+                            <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3><button id="colecao" name="colecao"
+                                class="btn btn-primary">Solicitar Pagamento</button>
+                        @endif
                     </div>
 
 

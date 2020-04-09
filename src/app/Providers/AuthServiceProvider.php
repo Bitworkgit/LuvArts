@@ -25,6 +25,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('ver-dados', function($user){
+            $idCriador = \Request::url();
+            $idCriador = explode('/', $idCriador);
+            $idCriador = $idCriador[4];
+
+            if($user->id == $idCriador)
+                return true;
+            else 
+                return false;
+        });
     }
 }
