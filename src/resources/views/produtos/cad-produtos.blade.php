@@ -11,7 +11,6 @@
 
 <body>
   <nav class="navbar navbar-expand-lg fixed-top ">
- 
     <div class="container">
       <a href="index.html"><img src="{{ asset('pages/produtos/images/NAV.png') }}" width="110" class="nav-link"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -45,12 +44,11 @@
 
 
       <div class="box">
-        <form enctype="multipart/form-data" class="form-Center" method="POST" action="{{route('cadastro-produtos.store')}}">
+        <form enctype="multipart/form-data" class="form-Center" method="POST" action="{{route('item.store')}}">
             @csrf
           <fieldset>
-
-            <!-- Form Name -->
-              <div class="col-lg-5">
+            <div class="row">
+              <div class="col-lg-7">
                 <!-- File Button -->
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="uploadArt">Suba sua arte</label>
@@ -59,7 +57,7 @@
                   </div>
                 </div>
               </div>
-            <div class="row">
+            
               <div class="col-lg-7">
                 <!-- Text input-->
                 <div class="form-group">
@@ -171,7 +169,6 @@
   <div class="container">
     <p class="m-0 text-center text-white">Copyright © Luv Art's 2019</p>
   </div>
-  <!-- /.container -->
 </footer>
 
 @if(session('success'))

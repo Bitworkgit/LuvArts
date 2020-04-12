@@ -18,20 +18,12 @@ class ProdutosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct(){
-        $this->middleware('auth');
-     }
-
     public function index(Request $request)
     {
+        $prod = Produto::all();
         $user = $request->user();
 
-        $dado = [
-            'colecao'   => Colecao::where('user_id', $user['id'])->get(),
-            'categoria' => Categoria::all()
-        ];
-
-        return view('produtos.produtos', $dado);
+        return view('produtos.lista-produtos', compact('prod'));
     }
 
     /**
@@ -39,9 +31,18 @@ class ProdutosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        
+        $this->middleware('auth');
+
+        $user = $request->user();
+
+        $dado = [
+            'colecao'   => Colecao::where('user_id', $user['id'])->get(),
+            'categoria' => Categoria::all()
+        ];
+
+        return view('produtos.cad-produtos', $dado);
     }
 
     /**
@@ -80,7 +81,7 @@ class ProdutosController extends Controller
         ]);
 
         if($valida->fails()){
-            return redirect()->route('cadastro-produtos.index')->withErrors($valida)->withInput();
+            return redirect()->route('item.index')->withErrors($valida)->withInput();
         }
         
         $pro->nome_pro      = $request->input('Pnome');
@@ -96,7 +97,7 @@ class ProdutosController extends Controller
         }elseif($request->input('colecao') <> 0){
             $pro->cod_colecoes = $request->input('colecao');
         }else{
-            return redirect()->route('cadastro-produtos.index')->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
+            return redirect()->route('item.index')->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
         }
 
         if($request->hasFile('imagem')){
@@ -113,7 +114,7 @@ class ProdutosController extends Controller
         
         $pro->save();
 
-        return redirect()->route('cadastro-produtos.index')->with('success', 'Produto cadastrado com sucesso');
+        return redirect()->route('item.create')->with('success', 'Produto cadastrado com sucesso');
     }
 
     /**
@@ -159,5 +160,13 @@ class ProdutosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function listaDadosUser($cod_colecoes){
+       /* Pega os produtos pelo id da coleção */
+        $prod = Produto::where('cod_colecoes', $cod_colecoes)->get();
+        $text = " por coleção";
+
+        return view('produtos.lista-produtos', compact('prod', 'text'));
     }
 }

@@ -58,8 +58,7 @@
     <div>
 	<div class="pad2">
 	<br>
-	
-        
+            
         <div class="pad">
             <div class="text-right relative image-border"">
                 <img src="{{($user->foto_perfil == 'images/empty-avatar.png' ? asset($user->foto_perfil) : Storage::url($user->foto_perfil))}}" alt="avatar">
@@ -103,7 +102,7 @@
                                     <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Coleções</h5>
                                     @if(!empty($colecoes))
                                         @foreach ($colecoes as $item)
-                                            <a href="#">{{ $item->nome_colecao_col }}</a><br>
+                                            <a href="{{route('item-perfil.listaDados', $item->id)}}">{{ $item->nome_colecao_col }}</a><br>
                                         @endforeach
                                     @endif
                                 </div>
@@ -207,16 +206,19 @@
                 <div class="col-lg-4 order-lg-1 text-center">
                     <div class="my-overview__request-payment">
                         <div class="tooltip tooltip--top-right">
-                            <div class="tooltip__icon"><object class="icon-18"
-                                    data="/img/product/faq_details/questiomark.svg" type=""></object></div>
+                            <div class="tooltip__icon">
+                               <!-- <object class="icon-18" data="/img/product/faq_details/questiomark.svg" type=""></object>-->
+                            </div>
                             <div class="tooltip__text px--10 py--5" style="width: 240px;">A minimum of $50 needs to be
                                 accumulated on your account to request a payment.</div>
                         </div>
 
                         @if($see)
                             <p class="text">Seu capital</p>
-                            <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3><button id="colecao" name="colecao"
-                                class="btn btn-primary">Solicitar Pagamento</button>
+                            <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3>
+                            <button id="colecao" name="colecao" class="btn btn-primary">Solicitar Pagamento</button>
+                            <br><br>
+                            <a href="{{route('item.create')}}">Cadastrar arte</a>
                         @endif
                     </div>
 

@@ -38,16 +38,13 @@ Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salva
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
 Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atualizar");
 
-/* 
- * Rota para Registro de Produtos
- */
+/*  Rota para Registro de Produtos */
+  Route::resource('/item','Produtos\ProdutosController');
+ 
+ /* Rota para mostrar os itens de cada Usuario por coleção */
+ Route::get('/item-perfil/{cod_colecao}', 'Produtos\ProdutosController@listaDadosUser')->name('item-perfil.listaDados');
 
- Route::resource('/cadastro-produtos','Produtos\ProdutosController');
-
- /* 
-  * Caso não exista a rota, joga para a pagina de 404 
-  */
-
+ /* Caso não exista a rota, joga para a pagina de 404 */
  Route::fallback(function(){
      return view('404/404');
  });
