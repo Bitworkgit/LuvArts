@@ -39,15 +39,15 @@ Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
 Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atualizar");
 
 /*  Rota para Registro de Produtos */
-  Route::resource('/item','Produtos\ProdutosController');
+Route::resource('/item','Produtos\ProdutosController');
  
  /* Rota para mostrar os itens de cada Usuario por coleção e todos os itens de cada usuario */
- Route::prefix('item-perfil')->group(function(){
+Route::prefix('item-perfil')->group(function(){
     Route::get('/colecao/{cod_colecao}', 'Produtos\ProdutosController@listaArteColecao')->name('item-perfil.listaArte');
     Route::get('/usuario/{id}', 'Produtos\ProdutosController@listaArteUsuario')->name('item-perfil.listaArteUsu');
- });
+});
 
  /* Caso não exista a rota, joga para a pagina de 404 */
- Route::fallback(function(){
+Route::fallback(function(){
      return view('404/404'); 
- });
+});
