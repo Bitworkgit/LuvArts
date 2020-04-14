@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
    
 	<script src="{{ asset('js/app.js') }}"></script>
-    <title>Perfil</title>
+    <title>Perfil - {{ $user->nome }}</title>
     <style>
         .upload {
             margin: 20px;
@@ -100,10 +100,16 @@
 
                                 <div class="col-md-12">
                                     <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Coleções</h5>
+                                    <table class="table table-striped">
+                                    <tbody>
                                     @if(!empty($colecoes))
-                                        @foreach ($colecoes as $item)
-                                            <a href="{{route('item-perfil.listaDados', $item->id)}}">{{ $item->nome_colecao_col }}</a><br>
+                                        @foreach ($colecoes as $item) 
+                                            <tr>
+                                                <td><a href="{{route('item-perfil.listaArte', $item->id)}}">{{ $item->nome_colecao_col }}</a></td>
+                                            </tr>                                                            
                                         @endforeach
+                                    </tbody>
+                                    </table>
                                     @endif
                                 </div>
                             </div>
@@ -209,22 +215,24 @@
                             <div class="tooltip__icon">
                                <!-- <object class="icon-18" data="/img/product/faq_details/questiomark.svg" type=""></object>-->
                             </div>
-                            <div class="tooltip__text px--10 py--5" style="width: 240px;">A minimum of $50 needs to be
-                                accumulated on your account to request a payment.</div>
+                            <!--<div class="tooltip__text px--10 py--5" style="width: 240px;">A minimum of $50 needs to be
+                                accumulated on your account to request a payment.</div>-->
                         </div>
 
                         @if($see)
-                            <p class="text">Seu capital</p>
+                            <h4>Seu capital</h4>
                             <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3>
-                            <button id="colecao" name="colecao" class="btn btn-primary">Solicitar Pagamento</button>
+                            <button id="colecao" name="colecao" class="btn btn-success">Solicitar Pagamento</button>
                             <br><br>
-                            <a href="{{route('item.create')}}">Cadastrar arte</a>
+                            <a href="{{route('item.create')}}" class="btn btn-secondary">Cadastrar arte</a><br>
                         @endif
+                        <br>
+                        <a href="{{route('item-perfil.listaArteUsu', $user->id)}}" class="btn btn-secondary">Listar todas as artes</a>
+                        <br>
+                        <br>
                     </div>
-
-
-
                 </div>
+               
 
             </div>
         </div>

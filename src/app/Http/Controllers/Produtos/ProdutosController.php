@@ -162,11 +162,20 @@ class ProdutosController extends Controller
         //
     }
 
-    public function listaDadosUser($cod_colecoes){
+    public function listaArteColecao($cod_colecoes){
        /* Pega os produtos pelo id da coleção */
         $prod = Produto::where('cod_colecoes', $cod_colecoes)->get();
         $text = " por coleção";
 
         return view('produtos.lista-produtos', compact('prod', 'text'));
+    }
+
+    public function listaArteUsuario($id){
+        /* Pega os produtos pelo id do usuario */
+        $prod = Produto::where('user_id', $id)->get();
+        $text = " por usuário";
+
+        return view('produtos.lista-produtos', compact('prod', 'text'));
+
     }
 }

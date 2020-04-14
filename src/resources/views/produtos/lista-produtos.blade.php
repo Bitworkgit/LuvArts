@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="{{ asset("js/app.js") }}"></script>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <title>Artes</title>
+        <title>Artes {{$text}}</title>
     </head>
 
   <body>
@@ -70,16 +70,21 @@
                     </font></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <button type="button" class="btn btn-sm btn-primary">
                             <font style="vertical-align: inherit;">
                                  <font style="vertical-align: inherit;">Visualizar</font>
                             </font>
                         </button>
                         <button type="button" class="btn btn-sm btn-outline-secondary">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Editar</font>
-                            </font>
-                        </button>
+                          <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;">Editar</font>
+                          </font>
+                      </button>
+                      <button type="button" class="btn btn-sm btn-outline-danger">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Excluir</font>
+                        </font>
+                    </button>
                     </div>
                   </div>
                 </div>
