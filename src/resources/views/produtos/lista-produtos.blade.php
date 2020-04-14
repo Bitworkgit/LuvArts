@@ -8,7 +8,7 @@
     </head>
 
   <body>
-
+ 
     <header>
         <nav class="navbar navbar-expand-lg fixed-top ">
             <div class="container">
@@ -56,7 +56,7 @@
 
           <div class="row">
 
-
+          <center><h1>{{$semDados ?? ''}}</h1></center>
         
         @foreach ($prod as $item)
             <div class="col-md-4">
@@ -69,23 +69,27 @@
                         <font style="vertical-align: inherit;">{{$item->descricao_pro}}</font>
                     </font></p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-primary">
-                            <font style="vertical-align: inherit;">
-                                 <font style="vertical-align: inherit;">Visualizar</font>
-                            </font>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                          <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Editar</font>
-                          </font>
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-danger">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Excluir</font>
-                        </font>
-                    </button>
-                    </div>
+                    <form action="{{route('item.destroy', $item['id'])}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-primary">
+                              <font style="vertical-align: inherit;">
+                                  <font style="vertical-align: inherit;">Visualizar</font>
+                              </font>
+                          </button>
+                            <a href="{{route('item.edit', $item['id'])}}" type="button" class="btn btn-sm btn-outline-secondary">
+                              <font style="vertical-align: inherit;">
+                                  <font style="vertical-align: inherit;">Editar</font>
+                              </font>
+                           </a>
+                          <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Deseja realmente excluir a arte?');">
+                              <font style="vertical-align: inherit;">
+                                  <font style="vertical-align: inherit;">Excluir</font>
+                              </font>
+                          </button>
+                        </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -97,6 +101,12 @@
       </div>
 
     </main>
+
+    @if(session('success'))
+      <script>
+        iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
+      </script>
+    @endif
 
     <footer class="text-muted">
       <div class="container">

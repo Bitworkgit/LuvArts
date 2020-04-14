@@ -8,6 +8,7 @@ use App\Model\Produto;
 use App\Model\Categoria;
 use App\Model\Colecao;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProdutosController extends Controller
@@ -33,7 +34,8 @@ class ProdutosController extends Controller
      */
     public function create(Request $request)
     {
-        $this->middleware('auth');
+        if(!Auth::check())
+            return redirect()->route('user.login');
 
         $user = $request->user();
 
@@ -81,7 +83,7 @@ class ProdutosController extends Controller
         ]);
 
         if($valida->fails()){
-            return redirect()->route('item.index')->withErrors($valida)->withInput();
+            return redirect()->route('item.create')->withErrors($valida)->withInput();
         }
         
         $pro->nome_pro      = $request->input('Pnome');
@@ -97,7 +99,7 @@ class ProdutosController extends Controller
         }elseif($request->input('colecao') <> 0){
             $pro->cod_colecoes = $request->input('colecao');
         }else{
-            return redirect()->route('item.index')->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
+            return redirect()->route('item.create')->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
         }
 
         if($request->hasFile('imagem')){
@@ -114,7 +116,7 @@ class ProdutosController extends Controller
         
         $pro->save();
 
-        return redirect()->route('item.create')->with('success', 'Produto cadastrado com sucesso');
+        return redirect()->route('item.create')->with('success', 'Arte cadastrada com sucesso');
     }
 
     /**
@@ -134,9 +136,18 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        if(!Auth::check())
+            return redirect()->route('user.login');
+
+        $user      = $request->user();
+        $atu       = Produto::find($id);
+        $colecao   = Colecao::where('user_id', $user['id'])->get();
+        $categoria = Categoria::all();
+
+        return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
+
     }
 
     /**
@@ -148,7 +159,63 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pro = Produto::find($id);
+        $col = new Colecao;
+        $user = $request->user();
+
+        $valida = Validator::make($request->all(),[
+            'Pnome'     => 'required|string|max:100',
+            'Descricao' => 'required|string|max:100',
+            'preco'     => 'required',
+            'categoria' => 'required',
+            'imagem'    => 'image|mimes:jpeg,jpg,png'
+        ],[
+
+        ],[
+            'Pnome'     => '"Nome da Obra"',
+            'Descricao' => '"Descrição"',
+            'preco'     => '"Preço"',
+            'categoria' => '"Categoria"',
+            'imagem'    => '"Altere sua arte"'
+        ]);
+
+        if($valida->fails()){
+            return redirect()->route('item.edit', $id)->withErrors($valida)->withInput();
+        }
+        
+        $pro->nome_pro      = $request->input('Pnome');
+        $pro->cod_categoria = $request->input('categoria');
+        $pro->descricao_pro = $request->input('Descricao');
+        $pro->preco_pro     = $request->input('preco');
+
+        if(!empty($request->input('colecaoNome'))){
+            $col->nome_colecao_col = $request->input('colecaoNome');
+            $col->user_id = $user['id'];
+            $col->save();
+            $pro->cod_colecoes = Colecao::max('id');
+        }elseif($request->input('colecao') <> 0){
+            $pro->cod_colecoes = $request->input('colecao');
+        }else{
+            return redirect()->route('item.edit', $id)->with('error', 'Coleção inválida, selecione ou crie sua coleção')->withInput();
+        }
+
+        if($request->hasFile('imagem')){
+            /* ---- Para add somente o hash da imagem no banco ----
+            $img = $request->file('imagem')->store('public');
+            $img = explode('/', $img);
+            $pro->ende_foto_pro = $img[1];
+            */
+            \Storage::delete($pro->ende_foto_pro);
+            $pro->ende_foto_pro = $request->file('imagem')->store('public');
+        }
+
+        $pro->user_id = $user['id'];
+        
+        $pro->save();
+
+        return redirect()->route('item.edit', $id)->with('success', 'Arte alterada com sucesso');
+
+
     }
 
     /**
@@ -157,9 +224,14 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $user = $request->user();
+        $pro = Produto::find($id);
+
+        \Storage::delete($pro->ende_foto_pro);
+        $pro->delete();
+        return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
     }
 
     public function listaArteColecao($cod_colecoes){
@@ -174,8 +246,12 @@ class ProdutosController extends Controller
         /* Pega os produtos pelo id do usuario */
         $prod = Produto::where('user_id', $id)->get();
         $text = " por usuário";
+        $semDados = "Ops, este usuário não possui artes!";
 
-        return view('produtos.lista-produtos', compact('prod', 'text'));
+        if($prod->count() == 0)
+            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados'));
+        else
+            return view('produtos.lista-produtos', compact('prod', 'text'));
 
     }
 }
