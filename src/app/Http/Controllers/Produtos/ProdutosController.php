@@ -9,6 +9,7 @@ use App\Model\Categoria;
 use App\Model\Colecao;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 
 class ProdutosController extends Controller
@@ -55,8 +56,8 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        $pro = new Produto;
-        $col = new Colecao;
+        $pro  = new Produto;
+        $col  = new Colecao;
         $user = $request->user();
 
         /*
@@ -103,12 +104,6 @@ class ProdutosController extends Controller
         }
 
         if($request->hasFile('imagem')){
-            /* ---- Para add somente o hash da imagem no banco ----
-            $img = $request->file('imagem')->store('public');
-            $img = explode('/', $img);
-            $pro->ende_foto_pro = $img[1];
-            */
-
             $pro->ende_foto_pro = $request->file('imagem')->store('public');
         }
 
@@ -159,8 +154,8 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pro = Produto::find($id);
-        $col = new Colecao;
+        $pro  = Produto::find($id);
+        $col  = new Colecao;
         $user = $request->user();
 
         $valida = Validator::make($request->all(),[
@@ -200,11 +195,6 @@ class ProdutosController extends Controller
         }
 
         if($request->hasFile('imagem')){
-            /* ---- Para add somente o hash da imagem no banco ----
-            $img = $request->file('imagem')->store('public');
-            $img = explode('/', $img);
-            $pro->ende_foto_pro = $img[1];
-            */
             \Storage::delete($pro->ende_foto_pro);
             $pro->ende_foto_pro = $request->file('imagem')->store('public');
         }
@@ -214,8 +204,6 @@ class ProdutosController extends Controller
         $pro->save();
 
         return redirect()->route('item.edit', $id)->with('success', 'Arte alterada com sucesso');
-
-
     }
 
     /**
@@ -227,31 +215,48 @@ class ProdutosController extends Controller
     public function destroy(Request $request, $id)
     {
         $user = $request->user();
-        $pro = Produto::find($id);
+        $pro  = Produto::find($id);
 
         \Storage::delete($pro->ende_foto_pro);
         $pro->delete();
         return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
     }
 
-    public function listaArteColecao($cod_colecoes){
+    public function listaArteColecao(Request $request, $cod_colecoes){
        /* Pega os produtos pelo id da coleção */
-        $prod = Produto::where('cod_colecoes', $cod_colecoes)->get();
-        $text = " por coleção";
+        $prod     = Produto::where('cod_colecoes', $cod_colecoes)->get();
+        $text     = " por coleção";
+        $semDados = "Ops, esta coleção não possui artes!";
+        $user     = $request->user();
 
-        return view('produtos.lista-produtos', compact('prod', 'text'));
+        /* Se não achar produtos retorna para a view com a mensagem */
+        if($prod->count() == 0 )
+            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados'));
+
+        /*
+         * Se o usuario não estiver logado ou o id do usuario logado for diferente do user_id do produto
+         * atribui falso a variavel para mandar a view se pode ou não ver os botões de edição e exclusão
+         */
+        if(empty($user['id']) || $user['id'] <> $prod[0]->user_id)
+            $seeArtsCol = false;
+        else 
+            $seeArtsCol = true;
+
+        return view('produtos.lista-produtos', compact('prod', 'text', 'seeArtsCol'));
     }
 
     public function listaArteUsuario($id){
         /* Pega os produtos pelo id do usuario */
-        $prod = Produto::where('user_id', $id)->get();
-        $text = " por usuário";
+        $prod     = Produto::where('user_id', $id)->get();
+        $text     = " por usuário";
         $semDados = "Ops, este usuário não possui artes!";
+        $seeArts  = Gate::allows('ver-dados-edit');
 
+        /* Se não achar produtos retorna para a view com a mensagem */
         if($prod->count() == 0)
             return view('produtos.lista-produtos', compact('prod', 'text', 'semDados'));
         else
-            return view('produtos.lista-produtos', compact('prod', 'text'));
+            return view('produtos.lista-produtos', compact('prod', 'text', 'seeArts'));
 
     }
 }

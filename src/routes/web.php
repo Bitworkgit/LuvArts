@@ -38,7 +38,7 @@ Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salva
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
 Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atualizar");
 
-/*  Rota para Registro de Produtos */
+/*  Rota para Registro, Alteração e Exclusão de Produtos */
 Route::resource('/item','Produtos\ProdutosController');
  
  /* Rota para mostrar os itens de cada Usuario por coleção e todos os itens de cada usuario */

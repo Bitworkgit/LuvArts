@@ -56,7 +56,7 @@
 
           <div class="row">
 
-          <center><h1>{{$semDados ?? ''}}</h1></center>
+          <h1>{{$semDados ?? ''}}</h1>
         
         @foreach ($prod as $item)
             <div class="col-md-4">
@@ -78,16 +78,20 @@
                                   <font style="vertical-align: inherit;">Visualizar</font>
                               </font>
                           </button>
+
+                          @if($seeArts ?? false or $seeArtsCol ?? false)
                             <a href="{{route('item.edit', $item['id'])}}" type="button" class="btn btn-sm btn-outline-secondary">
                               <font style="vertical-align: inherit;">
                                   <font style="vertical-align: inherit;">Editar</font>
                               </font>
                            </a>
-                          <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Deseja realmente excluir a arte?');">
+                          
+                           <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Deseja realmente excluir a arte?');">
                               <font style="vertical-align: inherit;">
                                   <font style="vertical-align: inherit;">Excluir</font>
                               </font>
-                          </button>
+                           </button>
+                          @endif
                         </div>
                     </form>
                   </div>
