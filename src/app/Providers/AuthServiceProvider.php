@@ -25,12 +25,27 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        /* 
+         * Verifica se o usuario conectado é diferente do visitante no perfil do usuario
+         */
         Gate::define('ver-dados', function($user){
             $idCriador = \Request::url();
             $idCriador = explode('/', $idCriador);
-            $idCriador = $idCriador[4];
 
-            if($user->id == $idCriador)
+            if($user->id == $idCriador[4])
+                return true;
+            else 
+                return false;
+        });
+
+        /* 
+         * Verifica se o usuario conectado é diferente do visitante na lista de artes
+         */
+        Gate::define('ver-dados-edit', function($user){
+            $idCriador = \Request::url();
+            $idCriador = explode('/', $idCriador);
+
+            if($user->id == $idCriador[5])
                 return true;
             else 
                 return false;
