@@ -93,6 +93,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="{{ route('profile.index',['user_id' => 1]) }}">Usuário</a>
+                    <a href="{{ route('user.sair') }}">Logout</a>
                 </div>
             </div>
         </div>

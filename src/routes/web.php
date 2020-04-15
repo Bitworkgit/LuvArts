@@ -31,12 +31,16 @@ Route::get("/register", function(){
 })->name("user.register");
 
 
-
 Route::get("/profile/{user_id}",['uses' =>'ProfileController@index', 'as'=>'profile.index']);
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
 Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atualizar");
+
+/* Rota para deletar coleção */
+Route::get("/colecao/delete/{id}",['uses' =>'Produtos\ProdutosController@excluirColecao', 'as'=>'produtos.excluirColecao']);
+Route::post("/colecao/edit/{id}",['uses' =>'Produtos\ProdutosController@editarColecao', 'as'=>'produtos.editarColecao']);
+
 
 /*  Rota para Registro, Alteração e Exclusão de Produtos */
 Route::resource('/item','Produtos\ProdutosController');

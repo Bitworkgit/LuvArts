@@ -261,4 +261,17 @@ class ProdutosController extends Controller
             return view('produtos.lista-produtos', compact('prod', 'text', 'seeArts'));
 
     }
+
+    public function excluirColecao($id){
+        $colecao = Colecao::find($id);
+        $colecao->delete();
+        return back()->with('success','Coleção excluida !');
+    }
+
+    public function editarColecao(Request $req ,$id){
+        $colecao = Colecao::find($id);
+        $colecao->nome_colecao_col = $req->only('nome')['nome'];
+        $colecao->save();
+        return view("home");
+    }
 }

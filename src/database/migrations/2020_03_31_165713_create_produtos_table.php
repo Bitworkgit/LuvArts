@@ -26,10 +26,9 @@ class CreateProdutosTable extends Migration
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
 
-            $table->foreign('user_id')->references('id')->on('usuarios');
-            $table->foreign('cod_categoria')->references('id')->on('categorias');
-            $table->foreign('cod_colecoes')->references('id')->on('colecoes');
-
+            $table->foreign('user_id')->references('id')->on('usuarios')->onDelete('cascade');            ;
+            $table->foreign('cod_categoria')->references('id')->on('categorias')->onDelete('cascade');            ;
+            $table->foreign('cod_colecoes')->references('id')->on('colecoes')->onDelete('cascade');
             $table->timestamps();
         });
     }
