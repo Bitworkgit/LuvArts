@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="{{ asset("js/app.js") }}"></script>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
         <title>Artes {{$text}}</title>
     </head>
 
@@ -40,11 +41,11 @@
     </header>
 
     <main role="main">
-
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">
                 <font style="vertical-align: inherit;">
+                    <br>
                     <font style="vertical-align: inherit;">Artes{{$text ?? ""}}</font>
                 </font>
             </h1>
