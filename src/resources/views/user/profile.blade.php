@@ -11,6 +11,9 @@
 	<script src="{{ asset('js/app.js') }}"></script>
     <title>Perfil - {{ $user->nome }}</title>
     <style>
+        .bt {
+            width: 50%;
+        }
         .upload {
             margin: 20px;
             width: 400px;
@@ -222,12 +225,12 @@
                         @if($see)
                             <h4>Seu capital</h4>
                             <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3>
-                            <button id="colecao" name="colecao" class="btn btn-success">Solicitar Pagamento</button>
+                            <button id="colecao" name="colecao" class="btn btn-primary bt">Solicitar Pagamento</button>
                             <br><br>
-                            <a href="{{route('item.create')}}" class="btn btn-secondary">Cadastrar arte</a><br>
+                            <a href="{{route('item.create')}}" class="btn btn-primary bt">Cadastrar arte</a><br>
                         @endif
                         <br>
-                        <a href="{{route('item-perfil.listaArteUsu', $user->id)}}" class="btn btn-secondary">Listar todas as artes</a>
+                        <a href="{{route('item-perfil.listaArteUsu', $user->id)}}" class="btn btn-primary bt">Listar todas as artes</a>
                         <br>
                         <br>
                     </div>
