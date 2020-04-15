@@ -141,8 +141,10 @@ class ProdutosController extends Controller
         $colecao   = Colecao::where('user_id', $user['id'])->get();
         $categoria = Categoria::all();
 
-        return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
+        if($user['id'] <> $atu->user_id)
+            return redirect()->route('profile.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
 
+        return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
     }
 
     /**
@@ -249,7 +251,7 @@ class ProdutosController extends Controller
         /* Pega os produtos pelo id do usuario */
         $prod     = Produto::where('user_id', $id)->get();
         $text     = " por usuário";
-        $semDados = "Ops, este usuário não possui artes!";
+        $semDados = 'Ops, este usuário não possui artes!';
         $seeArts  = Gate::allows('ver-dados-edit');
 
         /* Se não achar produtos retorna para a view com a mensagem */

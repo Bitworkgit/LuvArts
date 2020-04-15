@@ -57,7 +57,7 @@
 
           <div class="row">
 
-          <h1>{{$semDados ?? ''}}</h1>
+          <h1>{{$semDados ?? ''}} <br><br><br><br><br><br><br><br> </h1>
         
         @foreach ($prod as $item)
             <div class="col-md-4">
@@ -113,10 +113,8 @@
       </script>
     @endif
 
-    <footer class="text-muted">
+    <footer class="py-5 background-la">
       <div class="container">
-        <p class="float-right">
-          <a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">De volta ao topo</font></font></a>
-        </p>
+        <p class="m-0 text-center text-white">Copyright © Luv Art's 2019</p>
       </div>
     </footer>

@@ -289,6 +289,12 @@
         })
     </script>
 
+@if(session('error'))
+    <script>
+        iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
+    </script>
+@endif
+
 </body>
 
 <footer class="py-5 background-la">
