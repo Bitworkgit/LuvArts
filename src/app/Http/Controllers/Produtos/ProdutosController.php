@@ -272,6 +272,6 @@ class ProdutosController extends Controller
         $colecao = Colecao::find($id);
         $colecao->nome_colecao_col = $req->only('nome')['nome'];
         $colecao->save();
-        return view("welcome");
+        return back()->with('success','Coleção atualizada !');
     }
 }
