@@ -6,6 +6,11 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
         <title>Artes {{$text}}</title>
+        <style>
+          .product_view .modal-dialog{max-width: 800px; width: 100%;}
+          .pre-cost{text-decoration: line-through; color: #a5a5a5;}
+          .space-ten{padding: 10px 0;}
+        </style>
     </head>
 
   <body>
@@ -99,12 +104,10 @@
                 </div>
               </div>
             </div>
-        @endforeach
-            
+        @endforeach 
           </div>
         </div>
       </div>
-
     </main>
 
     @if(session('success'))
