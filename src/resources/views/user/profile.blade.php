@@ -165,9 +165,10 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Cpf</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" name="cpf" type="text" value="{{ $user->cpf }}" placeholder="CPF">
+                                        <input id="CPF" class="form-control" name="cpf" type="text" value="{{ $user->cpf }}" placeholder="CPF">
                                     </div>
                                 </div>
+                                
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Biografia</label>
@@ -345,6 +346,7 @@
         </div>
     @endforeach
 @endif
+
 </body>
 
 <footer class="py-5 background-la">
