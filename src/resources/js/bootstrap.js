@@ -13,6 +13,7 @@ try {
     window.iziToast = require("izitoast");
     window.progressBar = require("progressbar.js");
     require('bootstrap');
+    require("jquery-mask-plugin");
 } catch (e) {}
 
 /**

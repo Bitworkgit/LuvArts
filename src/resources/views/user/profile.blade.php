@@ -7,8 +7,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
-   
-	<script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+
     <title>Perfil - {{ $user->nome }}</title>
     <style>
         .trash-color {color: red;}
@@ -158,7 +159,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Celular</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" name="celular" value="{{ $user->celular }}" placeholder="(00) 0000-0000">
+                                        <input class="form-control" id="CEL" type="text" name="celular" value="{{ $user->celular }}" placeholder="(00) 0000-0000">
                                     </div>
                                 </div>
 
@@ -346,6 +347,10 @@
         </div>
     @endforeach
 @endif
+
+
+<script> $("#CPF").mask('000.000.000-00', {reverse: true}); </script>
+<script> $("#CEL").mask('(00)0000-0000'); </script>
 
 </body>
 
