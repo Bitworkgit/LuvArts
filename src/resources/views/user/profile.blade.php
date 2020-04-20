@@ -183,7 +183,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Endereço</label>
                                     <div class="col-lg-9">
-										<input class="form-control" name="cep" type="text" value='{{ $user->cep }}' placeholder="CEP">  
+										<input id="CEP" class="form-control" name="cep" type="text" value='{{ $user->cep }}' placeholder="CEP">  
 										<br>
 										<input class="form-control" name="endereço" type="text" value="{{ $user->endereco }}" placeholder="Nº da Residência">
 										<br>
@@ -351,6 +351,7 @@
 
 <script> $("#CPF").mask('000.000.000-00', {reverse: true}); </script>
 <script> $("#CEL").mask('(00)0000-0000'); </script>
+<script> $("#CEP").mask('00000-000'); </script>
 
 </body>
 
