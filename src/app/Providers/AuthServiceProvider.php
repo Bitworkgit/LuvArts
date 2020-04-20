@@ -50,5 +50,15 @@ class AuthServiceProvider extends ServiceProvider
             else 
                 return false;
         });
+
+        /* 
+         * Verifica se o usuario é administrador
+         */
+        Gate::define('admin', function($user){
+            if($user->administrador == 1)
+                return true;
+            else 
+                return false;
+        });
     }
 }

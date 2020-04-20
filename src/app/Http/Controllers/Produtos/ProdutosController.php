@@ -265,13 +265,13 @@ class ProdutosController extends Controller
     public function excluirColecao($id){
         $colecao = Colecao::find($id);
         $colecao->delete();
-        return back()->with('success','Coleção excluida !');
+        return back()->with('success','Coleção excluida!');
     }
 
     public function editarColecao(Request $req ,$id){
         $colecao = Colecao::find($id);
         $colecao->nome_colecao_col = $req->only('nome')['nome'];
         $colecao->save();
-        return back()->with('success','Coleção atualizada !');
+        return back()->with('success','Coleção atualizada!');
     }
 }
