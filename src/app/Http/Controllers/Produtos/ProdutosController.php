@@ -44,7 +44,6 @@ class ProdutosController extends Controller
         $dado = [
             'colecao'   => Colecao::where('user_id', $user['id'])->get(),
             'categoria' => Categoria::all(),
-            'user'      => $user
         ];
        
         return view('produtos.cad-produtos', $dado);
@@ -146,7 +145,7 @@ class ProdutosController extends Controller
         if($user['id'] <> $atu->user_id)
             return redirect()->route('profile.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
 
-        return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria', 'user'));
+        return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
     }
 
     /**
@@ -246,7 +245,7 @@ class ProdutosController extends Controller
         else 
             $seeArtsCol = true;
 
-        return view('produtos.lista-produtos', compact('prod', 'text', 'seeArtsCol', 'user'));
+        return view('produtos.lista-produtos', compact('prod', 'text', 'seeArtsCol'));
     }
 
     public function listaArteUsuario(Request $request, $id){
@@ -255,13 +254,12 @@ class ProdutosController extends Controller
         $text     = " por usuário";
         $semDados = 'Ops, este usuário não possui artes!';
         $seeArts  = Gate::allows('ver-dados-edit');
-        $user     = $request->user();
 
         /* Se não achar produtos retorna para a view com a mensagem */
         if($prod->count() == 0)
-            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados', 'user'));
+            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados'));
         else
-            return view('produtos.lista-produtos', compact('prod', 'text', 'seeArts', 'user'));
+            return view('produtos.lista-produtos', compact('prod', 'text', 'seeArts'));
 
     }
 

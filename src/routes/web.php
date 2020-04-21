@@ -32,7 +32,10 @@ Route::get("/register", function(){
 
 
 Route::get("/profile/{user_id}",['uses' =>'ProfileController@index', 'as'=>'profile.index']);
+
+/* Existe duas rotas de logout GET e POST pois o ADMIN LTE usa o metodo POST para fazer logout */
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
 Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atualizar");
@@ -40,7 +43,6 @@ Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atua
 /* Rota para deletar coleção */
 Route::get("/colecao/delete/{id}",['uses' =>'Produtos\ProdutosController@excluirColecao', 'as'=>'produtos.excluirColecao']);
 Route::post("/colecao/edit/{id}",['uses' =>'Produtos\ProdutosController@editarColecao', 'as'=>'produtos.editarColecao']);
-
 
 /*  Rota para Registro, Alteração e Exclusão de Produtos */
 Route::resource('/item','Produtos\ProdutosController');

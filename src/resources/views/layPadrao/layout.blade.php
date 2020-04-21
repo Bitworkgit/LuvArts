@@ -28,13 +28,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Quem somos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="{{route('user.register')}}">Cadastre-se</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('profile.index', $user->id)}}">Perfil</a>
+            <a class="nav-link" href=" {{session()->has('loged') ? route('profile.index', session('loged')) : route('home') }} ">Perfil</a>
           </li>
         </ul>
       </div>

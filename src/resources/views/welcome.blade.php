@@ -91,15 +91,9 @@
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
+                    <a href="{{ route('user.login') }}">Login</a>
                     <a href="{{ route('profile.index',['user_id' => 1]) }}">Usuário</a>
-                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fa fa-fw fa-power-off"></i> LOGOUT
-                    </a>
-                        <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;">
-                            <input type="hidden" name="_token" value="CqqpMmDa7Mllwwpl7xFZI9vAjs0ki0rkDG4GixWP">
-                        </form>
-                    </a>
+                    <a href="{{ route('user.sair') }}">Logout</a>
                 </div>
             </div>
         </div>
