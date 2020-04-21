@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function index(Request $request){     
         if(!Gate::allows('admin'))
-            return redirect()->route('user.login');
+            return redirect()->route('home');
 
         $user = $request->user();
 

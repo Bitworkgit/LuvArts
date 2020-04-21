@@ -25,7 +25,8 @@ class ProdutosController extends Controller
         $prod = Produto::all();
         $user = $request->user();
 
-        return view('produtos.lista-produtos', compact('prod'));
+        //return view('produtos.lista-produtos', compact('prod'));
+        return view('layPadrao.layout', compact('prod'));
     }
 
     /**
@@ -42,9 +43,10 @@ class ProdutosController extends Controller
 
         $dado = [
             'colecao'   => Colecao::where('user_id', $user['id'])->get(),
-            'categoria' => Categoria::all()
+            'categoria' => Categoria::all(),
+            'user'      => $user
         ];
-
+       
         return view('produtos.cad-produtos', $dado);
     }
 
@@ -69,7 +71,7 @@ class ProdutosController extends Controller
          */
        $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
-            'Descricao' => 'required|string|max:100',
+            'Descricao' => 'required|string',
             'preco'     => 'required',
             'categoria' => 'required',
             'imagem'    => 'required|image|mimes:jpeg,jpg,png'
@@ -144,7 +146,7 @@ class ProdutosController extends Controller
         if($user['id'] <> $atu->user_id)
             return redirect()->route('profile.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
 
-        return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
+        return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria', 'user'));
     }
 
     /**
@@ -162,7 +164,7 @@ class ProdutosController extends Controller
 
         $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
-            'Descricao' => 'required|string|max:100',
+            'Descricao' => 'required|string',
             'preco'     => 'required',
             'categoria' => 'required',
             'imagem'    => 'image|mimes:jpeg,jpg,png'
@@ -244,21 +246,22 @@ class ProdutosController extends Controller
         else 
             $seeArtsCol = true;
 
-        return view('produtos.lista-produtos', compact('prod', 'text', 'seeArtsCol'));
+        return view('produtos.lista-produtos', compact('prod', 'text', 'seeArtsCol', 'user'));
     }
 
-    public function listaArteUsuario($id){
+    public function listaArteUsuario(Request $request, $id){
         /* Pega os produtos pelo id do usuario */
         $prod     = Produto::where('user_id', $id)->get();
         $text     = " por usuário";
         $semDados = 'Ops, este usuário não possui artes!';
         $seeArts  = Gate::allows('ver-dados-edit');
+        $user     = $request->user();
 
         /* Se não achar produtos retorna para a view com a mensagem */
         if($prod->count() == 0)
-            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados'));
+            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados', 'user'));
         else
-            return view('produtos.lista-produtos', compact('prod', 'text', 'seeArts'));
+            return view('produtos.lista-produtos', compact('prod', 'text', 'seeArts', 'user'));
 
     }
 

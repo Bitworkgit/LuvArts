@@ -44,9 +44,9 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/#63-logo
     |
     */
-
+ 
     'logo' => '<b>Luv</b>Arts',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'images/logo.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
+    'usermenu_enabled' => false,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -225,11 +225,27 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],*/
-        ['header' => 'account_settings'],
+        ['header' => 'Configurações de usuários'],
         [
             'text' => 'Gerenciar usuários',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        ['header' => 'Capital'],
+        [
+            'text' => 'Total capital LuvArts',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-dollar-sign',
+        ],
+        [
+            'text' => 'Total capital usuários',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-hand-holding-usd',
+        ],
+        [
+            'text' => 'Total capital doações',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-money-check-alt',
         ],
         /*[
             'text' => 'change_password',
