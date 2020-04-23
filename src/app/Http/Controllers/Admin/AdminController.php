@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -19,5 +20,14 @@ class AdminController extends Controller
         $user = $request->user();
 
         return view ('admin.index', compact('user'));
+    }
+
+    public function users(Request $request){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+        
+        $user = User::paginate(15);
+
+        return view('admin.users', compact('user'));
     }
 }

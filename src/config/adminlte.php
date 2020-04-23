@@ -228,7 +228,7 @@ return [
         ['header' => 'Configurações de usuários'],
         [
             'text' => 'Gerenciar usuários',
-            'url'  => 'admin/settings',
+            'url'  => 'dashboard-admin/users',
             'icon' => 'fas fa-fw fa-user',
         ],
         ['header' => 'Capital'],

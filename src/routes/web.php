@@ -56,6 +56,7 @@ Route::prefix('item-perfil')->group(function(){
  /* Rotas do ADMINISTRADOR */
 Route::prefix('dashboard-admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
+    Route::get('/users', 'Admin\AdminController@users')->name('admin.users');
 });
 
  /* Caso não exista a rota, joga para a pagina de 404 */
