@@ -57,6 +57,7 @@ Route::prefix('item-perfil')->group(function(){
 Route::prefix('dashboard-admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
     Route::get('/users', 'Admin\AdminController@users')->name('admin.users');
+    Route::get('/users/blocked', 'Admin\AdminController@blockedUsers')->name('admin.blockedUsers');
 });
 
  /* Caso não exista a rota, joga para a pagina de 404 */

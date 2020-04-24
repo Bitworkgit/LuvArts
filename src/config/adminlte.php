@@ -231,6 +231,11 @@ return [
             'url'  => 'dashboard-admin/users',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'Usuários bloqueados',
+            'url' => 'dashboard-admin/users/blocked',
+            'icon' => 'fas fa-user-times',
+        ],
         ['header' => 'Capital'],
         [
             'text' => 'Total capital LuvArts',

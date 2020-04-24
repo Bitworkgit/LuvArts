@@ -30,4 +30,13 @@ class AdminController extends Controller
 
         return view('admin.users', compact('user'));
     }
+
+    public function blockedUsers(Request $request){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+        
+        $user = User::where('bloqueado',1)->paginate(15);
+
+        return view('admin.blocked-users', compact('user'));
+    }
 }
