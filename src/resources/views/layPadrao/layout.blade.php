@@ -30,12 +30,17 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Quem somos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('user.register')}}">Cadastre-se</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=" {{session()->has('loged') ? route('profile.index', session('loged')) : route('home') }} ">Perfil</a>
-          </li>
+          @if(!session()->has('loged'))
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('user.register')}}">Cadastre-se</a>
+            </li>
+          @endif
+          
+          @if(session()->has('loged'))
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('profile.index', session('loged'))}}">Perfil</a>
+            </li>
+          @endif
         </ul>
       </div>
     </div>
