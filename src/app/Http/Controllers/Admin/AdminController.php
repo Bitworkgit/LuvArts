@@ -26,7 +26,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = User::paginate(15);
+        $user = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
 
         return view('admin.users', compact('user'));
     }
@@ -38,5 +38,21 @@ class AdminController extends Controller
         $user = User::where('bloqueado',1)->paginate(15);
 
         return view('admin.blocked-users', compact('user'));
+    }
+
+    public function blockUsers($id){
+        $user = User::find($id);
+        $user->bloqueado = 1;
+        $user->save();
+
+        return redirect()->route('admin.users')->with('success', 'Usuário bloqueado com sucesso!');
+    }
+
+    public function deleteUsers($id){
+        $user = User::find($id);
+        $user->excluido = 1;
+        $user->save();
+
+        return redirect()->route('admin.users')->with('success', 'Usuário excluido com sucesso!');
     }
 }
