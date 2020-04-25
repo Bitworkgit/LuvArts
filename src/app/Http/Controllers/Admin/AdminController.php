@@ -35,7 +35,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = User::where('bloqueado',1)->paginate(15);
+        $user = User::where('bloqueado',1)->where('excluido',0)->paginate(15);
 
         return view('admin.blocked-users', compact('user'));
     }
@@ -54,5 +54,13 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->route('admin.users')->with('success', 'Usuário excluido com sucesso!');
+    }
+
+    public function unlockUsers($id){
+        $user = User::find($id);
+        $user->bloqueado = 0;
+        $user->save();
+
+        return redirect()->route('admin.blockedUsers')->with('success', 'Usuário desbloqueado com sucesso!');
     }
 }

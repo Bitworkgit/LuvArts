@@ -4,6 +4,16 @@
 
 @section('content_header')
     <center><h1>Gerenciador de Usuários</h1></center> <br><br>
+
+    <script src="{{ asset("js/app.js") }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    @if(session('success'))
+        <script>
+            iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
+        </script>
+    @endif
+
     @if(count($user))
         <table class="table">
             <thead class="thead-dark">
@@ -23,6 +33,8 @@
                     <td>{{$item->nome}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->produto->count()}}</td>
+                    <td><a href="{{route('admin.deleteUsers', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a></td>
+                    <td><a href="{{route('admin.unlockUsers', $item->id)}}" class="btn btn-success btn-sm">Desbloquear</a></td>
                 </tr>
                 @endforeach
             </tbody>
