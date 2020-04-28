@@ -142,7 +142,7 @@ class ProdutosController extends Controller
         $colecao   = Colecao::where('user_id', $user['id'])->get();
         $categoria = Categoria::all();
 
-        if($user['id'] <> $atu->user_id)
+        if($user['id'] <> $atu->user_id && $user['administrador'] <> 1)
             return redirect()->route('profile.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
 
         return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
@@ -222,7 +222,11 @@ class ProdutosController extends Controller
 
         \Storage::delete($pro->ende_foto_pro);
         $pro->delete();
-        return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
+        
+        if($user['administrador'] == 1)
+            return redirect()->route('admin.users')->with('success', 'Arte excluida com sucesso');
+        else
+            return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
     }
 
     public function listaArteColecao(Request $request, $cod_colecoes){

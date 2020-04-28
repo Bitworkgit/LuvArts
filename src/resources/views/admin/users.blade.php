@@ -41,7 +41,7 @@
                     <td>{{$item->email}}</td>
                     <td>{{$item->produto->count()}}</td>
                     <td><a href="{{route('admin.blockUsers', $item->id)}}" class="btn btn-warning btn-sm">Bloquear</a>&nbsp
-                    <a href="" class="btn btn-primary btn-sm">Artes</a>&nbsp
+                    <a href="{{route('admin.list-arts', $item->id)}}" class="btn btn-primary btn-sm">Artes</a>&nbsp
                     <a href="{{route('admin.deleteUsers', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a></td>
                 </tr>
             @endforeach

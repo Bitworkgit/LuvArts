@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\User;
+use App\Model\Produto;
 
 class AdminController extends Controller
 {
@@ -62,5 +63,12 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->route('admin.blockedUsers')->with('success', 'Usuário desbloqueado com sucesso!');
+    }
+
+    public function listArts($id){
+        $user = Produto::where('user_id', $id)->get();
+
+        return view('admin.list-arts', compact('user'));
+
     }
 }
