@@ -33,21 +33,21 @@
       <div class="col-md-8">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link menu" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link menu" href="#">Início <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link menu" href="#">Link</a>
+            <a class="nav-link menu" href="#">Sobre nós</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              Usuário
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Entrar</a>
+              <a class="dropdown-item" href="#">Cadastrar-se</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Sair</a>
             </div>
           </li>
           <li class="nav-item">
