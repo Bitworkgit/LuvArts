@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design for Bootstrap</title>
-  <!-- MDB icon -->
+  <title>LuvArt's</title>
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-  <!-- Google Fonts Roboto -->
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
+  <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
+  <style>
+    .menu {
+      font-size: 15px;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,7 +22,7 @@
     z-index:  99999;
     padding: 10px;
     position: absolute;
-"><img src="img\NAV.png" width="140" class="nav-img  "></a>
+"><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
   <nav class="navbar navbar-expand-lg navbar-dark ">
     <a class="navbar-brand" href="#"><img src="img\" width="110" class="nav-link nav-img "></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -29,13 +33,13 @@
       <div class="col-md-8">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link menu" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link menu" href="#">Link</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Dropdown
             </a>
@@ -53,7 +57,7 @@
       </div>
       <div class="col-md-4">
         <div class="Navcont">
-          <input type="text" placeholder="Search...">
+          <input type="text" placeholder="Pesquisar...">
           <div class="navsearch"></div>
         </div>
       </div>
@@ -258,6 +262,7 @@
     </div>
 
     <script src="{{ asset("js/app.js") }}"></script>
+
 </body>
 
 </html>
