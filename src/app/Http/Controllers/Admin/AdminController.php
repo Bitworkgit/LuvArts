@@ -28,8 +28,9 @@ class AdminController extends Controller
             return redirect()->route('home');
         
         $user = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $i = 1;
 
-        return view('admin.users', compact('user'));
+        return view('admin.users', compact('user', 'i'));
     }
 
     public function blockedUsers(Request $request){
@@ -69,6 +70,22 @@ class AdminController extends Controller
         $user = Produto::where('user_id', $id)->get();
 
         return view('admin.list-arts', compact('user'));
+    }
 
+    public function admin(Request $request){
+        echo $request->input('admin');exit;
+        $admin = User::find($id);
+        $user  = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $i = 1;
+
+
+        if($admin->administrador == 1){
+            echo "entrei aqui";exit;
+            $admin->adimistrador = 0;
+            return view('admin.users', compact('user', 'i'));
+        }
+
+        $admin->administrador = 1;
+        //return redirect()->route('admin.users', compact('user', 'i'));
     }
 }

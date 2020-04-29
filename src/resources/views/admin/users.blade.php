@@ -42,12 +42,46 @@
                     <td>{{$item->produto->count()}}</td>
                     <td><a href="{{route('admin.blockUsers', $item->id)}}" class="btn btn-warning btn-sm">Bloquear</a>&nbsp
                     <a href="{{route('admin.list-arts', $item->id)}}" class="btn btn-primary btn-sm">Artes</a>&nbsp
-                    <a href="{{route('admin.deleteUsers', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a></td>
+                    <a href="{{route('admin.deleteUsers', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
+                    <form action="{{route('admin.admin')}}" method="POST">
+                        @csrf
+                        
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="defaultCheck1{{$i}}" value="{{$item->id}}" @if($item->administrador == 1 ) checked @endif  onClick="this.form.submit()">
+                            <label class="form-check-label" for="defaultCheck1{{$i}}">
+                              <b>Administrador</b>
+                            </label>
+                        </div>
+
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio{{$i}}" value="{{$item->id}}" @if($item->administrador == 1 ) checked @endif  onClick="this.form.submit()">
+                            <label class="form-check-label" for="inlineRadio{{$i}}">Sim</label>
+                        </div>
+                          {{$i+=1}}
+                          
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio{{$i}}" value="{{$item->id}}" @if($item->administrador == 1 ) checked @endif  onClick="this.form.submit()">
+                            <label class="form-check-label" for="inlineRadio{{$i}}">Não</label>
+                        </div>
+                       
+                        {{--<div>
+                            <br>
+                            <b>Administrador</b><br>
+                            <input type="radio" id="admim1" name="admin" value="{{$item->id}}" @if($item->administrador == 1 ) checked @endif  onClick="this.form.submit()"><label for="admin1">&nbspSim</label>&nbsp&nbsp&nbsp
+                            <input type="radio" id="admin2" name="admin" value="{{$item->id}}" @if($item->administrador == 1 ) checked @endif  onClick="this.form.submit()"><label for="admin2">&nbspNão</label>
+                        </div>--}}
+                    </form>
+                    
+                    </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     @endif
+
+
 
     <br>
     <div class="container">
