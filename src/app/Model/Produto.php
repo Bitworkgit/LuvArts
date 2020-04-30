@@ -30,9 +30,4 @@ class Produto extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
-
-    public function mediaVendas(){
-        return DB::select('SELECT AVG(vendas) "Media" FROM produtos');
-    }
-    
 }
