@@ -43,6 +43,9 @@ class AdminController extends Controller
     }
 
     public function blockUsers($id){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+
         $user = User::find($id);
         $user->bloqueado = 1;
         $user->save();
@@ -51,6 +54,9 @@ class AdminController extends Controller
     }
 
     public function deleteUsers($id){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+
         $user = User::find($id);
         $user->excluido = 1;
         $user->save();
@@ -59,6 +65,9 @@ class AdminController extends Controller
     }
 
     public function unlockUsers($id){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+
         $user = User::find($id);
         $user->bloqueado = 0;
         $user->save();
@@ -67,25 +76,50 @@ class AdminController extends Controller
     }
 
     public function listArts($id){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+
         $user = Produto::where('user_id', $id)->get();
 
         return view('admin.list-arts', compact('user'));
     }
 
-    public function admin(Request $request){
-        echo $request->input('admin');exit;
+    public function admin(Request $request, $id){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+
+        $value = $request->input('admin');
         $admin = User::find($id);
         $user  = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
-        $i = 1;
+        $i     = 0;
 
-
-        if($admin->administrador == 1){
-            echo "entrei aqui";exit;
-            $admin->adimistrador = 0;
-            return view('admin.users', compact('user', 'i'));
+        if($value == 1){
+            $admin->administrador = 1;
+            $admin->save();
+            return back()->with('success', 'Agora este usuário é um administrador!');
         }
+            
+        $admin->administrador = 0;
+        $admin->save();
+        return back()->with('success', 'Agora este usuário não é mais um administrador!');
+    }
 
-        $admin->administrador = 1;
-        //return redirect()->route('admin.users', compact('user', 'i'));
+    public function del(){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+        
+        $user  = User::where('excluido', 1)->paginate(15);
+
+        return view('admin.del', compact('user'));
+    }
+
+    public function listaAdm(){
+        if(!Gate::allows('admin'))
+            return redirect()->route('home');
+        
+        $user  = User::where('administrador', 1)->paginate(15);
+        $i     = 0;
+
+        return view('admin.listaAdm', compact('user', 'i'));
     }
 }

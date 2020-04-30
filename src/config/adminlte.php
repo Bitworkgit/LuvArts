@@ -234,7 +234,17 @@ return [
         [
             'text' => 'Usuários bloqueados',
             'url' => 'dashboard-admin/users/blocked',
+            'icon' => 'fas fa-user-lock',
+        ],
+        [
+            'text' => 'Usuários excluidos',
+            'url' => 'dashboard-admin/users/del',
             'icon' => 'fas fa-user-times',
+        ],
+        [
+            'text' => 'Lista administradores',
+            'url' => 'dashboard-admin/users/lista-adm',
+            'icon' => 'fas fa-crown',
         ],
         ['header' => 'Capital'],
         [
