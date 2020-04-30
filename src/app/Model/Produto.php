@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Produto extends Model
 {
@@ -29,4 +30,9 @@ class Produto extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function mediaVendas(){
+        return DB::select('SELECT AVG(vendas) "Media" FROM produtos');
+    }
+    
 }
