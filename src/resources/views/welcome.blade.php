@@ -70,7 +70,7 @@
 
   <div class="row">
     <div class="col-md-12 ">
-      <p align="center" class="titulo">Top semanal</p>
+      <p align="center" class="titulo">Top Mais Vendidos</p>
     </div>
   </div>
 
