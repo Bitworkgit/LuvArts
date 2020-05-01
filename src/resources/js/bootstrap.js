@@ -13,6 +13,7 @@ try {
     window.iziToast = require("izitoast");
     window.progressBar = require("progressbar.js");
     require('bootstrap');
+    requireFromUrl('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js');
     require("jquery-mask-plugin");
 } catch (e) {}
 
