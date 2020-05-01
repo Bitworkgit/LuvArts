@@ -12,30 +12,31 @@ class ProdutoSeeder extends Seeder
      */
     public function run()
     {
-        $imagens = [
-            "images/ph1.png",
-            "images/ph2.png",
-            "images/ph3.png",
-            "images/ph4.png",
-            "images/ph5.png",
-            "images/ph6.png",
-            "images/ph7.png",
-            "images/ph8.png",
-            "images/ph9.png",
-            "images/ph10.png",
-            "images/ph11.png",
-            "images/ph12.png",
+        $dados = [
+            ["images/ph1.png",30],
+            ["images/ph2.png",20],
+            ["images/ph3.png",10],
+            ["images/ph4.png",0],
+            ["images/ph5.png",0],
+            ["images/ph6.png",0],
+            ["images/ph7.png",0],
+            ["images/ph8.png",0],
+            ["images/ph9.png",0],
+            ["images/ph10.png",0],
+            ["images/ph11.png",0],
+            ["images/ph12.png",0],
         ];
 
-        foreach($imagens as $imagem){
+        foreach($dados as $dado){
             Produto::create([
                 "nome_pro" => "Produto de amostra",
                 "descricao_pro" => "......",
                 "preco_pro" => 10.50,
-                "ende_foto_pro" => $imagem,
+                "ende_foto_pro" => $dado[0],
                 "user_id" => 1,
                 "cod_categoria" => 1,
-                "cod_colecoes" => 1
+                "cod_colecoes" => 1,
+                "vendas" => $dado[1]
             ]);
         }
     }
