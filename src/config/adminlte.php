@@ -246,21 +246,16 @@ return [
             'url' => 'dashboard-admin/users/lista-adm',
             'icon' => 'fas fa-crown',
         ],
-        ['header' => 'Capital'],
+        ['header' => 'Estatísticas'],
         [
             'text' => 'Total capital LuvArts',
             'url'  => 'dashboard-admin/luvarts/capital',
             'icon' => 'fas fa-fw fa-dollar-sign',
         ],
         [
-            'text' => 'Total capital usuários',
+            'text' => 'Estatísiticas gerais',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-hand-holding-usd',
-        ],
-        [
-            'text' => 'Total capital doações',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-money-check-alt',
         ],
         /*[
             'text' => 'change_password',
