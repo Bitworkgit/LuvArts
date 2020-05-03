@@ -12,6 +12,7 @@ try {
     require('bootstrap');
     requireFromUrl('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js');
     require("jquery-mask-plugin");
+    require('izitoast');
 
 } catch (e) {}
 

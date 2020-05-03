@@ -15,6 +15,7 @@ class CreateSaldoEquipesTable extends Migration
     {
         Schema::create('saldo_equipes', function (Blueprint $table) {
             $table->id();
+            $table->integer("ano");
             $table->float('capital', 7, 2)->default(0.00);
             $table->timestamps();
         });
