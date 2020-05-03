@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\User;
 use App\Model\Produto;
+use App\Model\SaldoEquipe;
 
 class AdminController extends Controller
 {
@@ -121,5 +122,29 @@ class AdminController extends Controller
         $i     = 0;
 
         return view('admin.listaAdm', compact('user', 'i'));
+    }
+
+    public function capitalLuvArts(){
+        
+        $dados = SaldoEquipe::orderBy('ano','ASC')->get();
+        $dadosDivisao = User::where('administrador',1)->get();
+
+        $capital = $dados->last()->capital;
+        $crescimento = 100/$dados->first()->capital*$dados->last()->capital-100;
+
+        $grafico[] = ['Data','Capital'];
+        $divisao[] = ['Pessoa','Capital'];
+
+        foreach ($dados as $key => $value) {
+            $grafico[++$key] = [(string)$value->ano, $value->capital];
+        }
+
+        foreach ($dadosDivisao as $key => $value) {
+            $divisao[++$key] = [$value->nome, $dados->last()->capital/count($dadosDivisao)];
+        }
+
+        return view('admin.luvArts-capital',compact('capital','crescimento'))
+                                ->with('dados',json_encode($grafico))
+                                ->with('dadosDivisao',json_encode($divisao));
     }
 }

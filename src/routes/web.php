@@ -65,6 +65,8 @@ Route::prefix('dashboard-admin')->group(function(){
     Route::get('/users/admin/{id}', 'Admin\AdminController@admin')->name('admin.admin');
     Route::get('/users/del', 'Admin\AdminController@del')->name('admin.del');
     Route::get('/users/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
+    Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
+
 });
 
  /* Caso não exista a rota, joga para a pagina de 404 */

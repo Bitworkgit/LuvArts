@@ -249,7 +249,7 @@ return [
         ['header' => 'Capital'],
         [
             'text' => 'Total capital LuvArts',
-            'url'  => 'admin/settings',
+            'url'  => 'dashboard-admin/luvarts/capital',
             'icon' => 'fas fa-fw fa-dollar-sign',
         ],
         [
