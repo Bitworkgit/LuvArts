@@ -3,26 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Produto;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('home');
+        $maisComprados = Produto::where('vendas','>',0)
+                                       ->orderBy('vendas','desc')
+                                       ->take(3)
+                                       ->get();
+        
+        $alternativas = Produto::where('vendas','<',$maisComprados->last()->vendas)
+                                        ->inRandomOrder()
+                                        ->limit(9)
+                                        ->get();
+
+        return view('welcome',compact('maisComprados','alternativas'));
     }
 }

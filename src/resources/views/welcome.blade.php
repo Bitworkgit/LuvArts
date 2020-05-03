@@ -77,13 +77,13 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg" alt="First slide">
+        <img class="d-block w-100" src="{{$maisComprados[0]->user_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(46).jpg" alt="Second slide">
+        <img class="d-block w-100" src="{{$maisComprados[1]->user_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(47).jpg" alt="Third slide">
+        <img class="d-block w-100" src="{{$maisComprados[2]->user_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -129,12 +129,11 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="card mb-2">
-                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
-                    alt="Card image cap">
+                  <img class="card-img-top" src="{{$alternativas[0]->user_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap">
                   <div class="card-body">
-                    <h4 class="card-title">NOME ARTE</h4>
-                    <p class="card-text">DESCRIÇAO ARTE</p>
-                    <p class="card-text"><b>R$ 0,00</b></p>
+                    <h4 class="card-title">{{ $alternativas[0]->nome_pro }}</h4>
+                    <p class="card-text">{{ $alternativas[0]->descricao_pro }}</p>
+                    <p class="card-text"><b>R$ {{ $alternativas[0]->preco_pro }}</b></p>
                     <a class="btn btn-primary">Comprar</a>
                   </div>
                 </div>
@@ -142,12 +141,12 @@
   
               <div class="col-md-4 clearfix d-none d-md-block">
                 <div class="card mb-2">
-                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+                  <img class="card-img-top" src="{{$alternativas[1]->user_id == 1 ? asset($alternativas[1]->ende_foto_pro) : Storage::url($alternativas[1]->ende_foto_pro)}}"
                     alt="Card image cap">
                   <div class="card-body">
-                    <h4 class="card-title">NOME ARTE</h4>
-                    <p class="card-text">DESCRIÇAO ARTE.</p>
-                    <p class="card-text"><b>R$ 0,00</b></p>
+                    <h4 class="card-title">{{ $alternativas[1]->nome_pro }}</h4>
+                    <p class="card-text">{{ $alternativas[1]->descricao_pro }}.</p>
+                    <p class="card-text"><b>R$ {{ $alternativas[1]->preco_pro }}</b></p>
                     <a class="btn btn-primary">Comprar</a>
                   </div>
                 </div>
@@ -155,12 +154,12 @@
   
               <div class="col-md-4 clearfix d-none d-md-block">
                 <div class="card mb-2">
-                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+                  <img class="card-img-top" src="{{$alternativas[2]->user_id == 1 ? asset($alternativas[2]->ende_foto_pro) : Storage::url($alternativas[2]->ende_foto_pro)}}"
                     alt="Card image cap">
                   <div class="card-body">
-                    <h4 class="card-title">NOME ARTE</h4>
-                    <p class="card-text">DESCRIÇAO ARTE.</p>
-                    <p class="card-text"><b>R$ 0,00</b></p>
+                    <h4 class="card-title">{{ $alternativas[2]->nome_pro }}</h4>
+                    <p class="card-text">{{ $alternativas[2]->descricao_pro }}.</p>
+                    <p class="card-text"><b>R$ {{ $alternativas[2]->preco_pro }}</b></p>
                     <a class="btn btn-primary">Comprar</a>
                   </div>
                 </div>
@@ -180,12 +179,12 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                <img class="card-img-top" src="{{$alternativas[3]->user_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}"
                   alt="Card image cap">
                 <div class="card-body">
-                  <h4 class="card-title">NOME ARTE</h4>
-                  <p class="card-text">DESCRIÇAO ARTE</p>
-                  <p class="card-text"><b>R$ 0,00</b></p>
+                  <h4 class="card-title">{{ $alternativas[3]->nome_pro }}</h4>
+                  <p class="card-text">{{ $alternativas[3]->descricao_pro }}</p>
+                  <p class="card-text"><b>R$ {{ $alternativas[3]->preco_pro }}</b></p>
                   <a class="btn btn-primary">Comprar</a>
                 </div>
               </div>
@@ -193,12 +192,12 @@
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+                <img class="card-img-top" src="{{$alternativas[4]->user_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}"
                   alt="Card image cap">
                 <div class="card-body">
-                  <h4 class="card-title">NOME ARTE</h4>
-                  <p class="card-text">DESCRIÇAO ARTE</p>
-                  <p class="card-text"><b>R$ 0,00</b></p>
+                  <h4 class="card-title">{{ $alternativas[4]->nome_pro }}</h4>
+                  <p class="card-text">{{ $alternativas[4]->descricao_pro }}</p>
+                  <p class="card-text"><b>R$ {{ $alternativas[4]->preco_pro }}</b></p>
                   <a class="btn btn-primary">Comprar</a>
                 </div>
               </div>
@@ -206,12 +205,12 @@
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+                <img class="card-img-top" src="{{$alternativas[5]->user_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}"
                   alt="Card image cap">
                 <div class="card-body">
-                  <h4 class="card-title">NOME ARTE</h4>
-                  <p class="card-text">DESCRIÇAO ARTE.</p>
-                  <p class="card-text"><b>R$ 0,00</b></p>
+                  <h4 class="card-title">{{ $alternativas[5]->nome_pro }}</h4>
+                  <p class="card-text">{{ $alternativas[5]->descricao_pro }}.</p>
+                  <p class="card-text"><b>R$ {{ $alternativas[5]->preco_pro }}</b></p>
                   <a class="btn btn-primary">Comprar</a>
                 </div>
               </div>
@@ -227,12 +226,12 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
+                <img class="card-img-top" src="{{$alternativas[6]->user_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}"
                   alt="Card image cap">
                 <div class="card-body">
-                  <h4 class="card-title">NOME ARTEe</h4>
-                  <p class="card-text">DESCRIÇAO ARTE</p>
-                  <p class="card-text"><b>R$ 0,00</b></p>
+                  <h4 class="card-title">{{ $alternativas[6]->nome_pro }}e</h4>
+                  <p class="card-text">{{ $alternativas[6]->descricao_pro }}</p>
+                  <p class="card-text"><b>R$ {{ $alternativas[6]->preco_pro }}</b></p>
                   <a class="btn btn-primary">Comprar</a>
                 </div>
               </div>
@@ -240,12 +239,12 @@
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
+                <img class="card-img-top" src="{{$alternativas[7]->user_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}"
                   alt="Card image cap">
                 <div class="card-body">
-                  <h4 class="card-title">NOME ARTE</h4>
-                  <p class="card-text">DESCRIÇAO ARTE</p>
-                  <p class="card-text"><b>R$ 0,00</b></p>
+                  <h4 class="card-title">{{ $alternativas[7]->nome_pro }}</h4>
+                  <p class="card-text">{{ $alternativas[7]->descricao_pro }}</p>
+                  <p class="card-text"><b>R$ {{ $alternativas[7]->preco_pro }}</b></p>
                   <a class="btn btn-primary">Comprar</a>
                 </div>
               </div>
@@ -253,12 +252,12 @@
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
+                <img class="card-img-top" src="{{$alternativas[8]->user_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}"
                   alt="Card image cap">
                 <div class="card-body">
-                  <h4 class="card-title">NOME ARTE</h4>
-                  <p class="card-text">DESCRIÇAO ARTE</p>
-                  <p class="card-text"><b>R$ 0,00</b></p>
+                  <h4 class="card-title">{{ $alternativas[8]->nome_pro }}</h4>
+                  <p class="card-text">{{ $alternativas[8]->descricao_pro }}</p>
+                  <p class="card-text"><b>R$ {{ $alternativas[8]->preco_pro }}</b></p>
                   <a class="btn btn-primary">Comprar</a>
                 </div>
               </div>
