@@ -28,17 +28,6 @@ class UsuarioSeeder extends Seeder
         ]);
         //-------------------------------ADM
         User::create([
-            'nome' => "Alex Figueiro",
-            'email' => "admin@gmail.com",
-            'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
-            'sexo' => 1,
-            'data_de_nascimento' => Carbon::parse('2000-01-01'),
-            'excluido' => 0,
-            "administrador" => 1,
-            "bloqueado" => 0
-        ]);
-
-        User::create([
             'nome' => "Thiago Piassi Bonfogo",
             'email' => "thiagopiassi@gmail.com",
             'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
