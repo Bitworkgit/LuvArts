@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
             UsuarioSeeder::class,
             CategoriasTableSeeder::class,
             ColecaoSeeder::class,
-            ProdutoSeeder::class
+            ProdutoSeeder::class,
+            CategoriasTableSeeder::class,
+            SaldoEquipeSeeder::class
         ]);
     }
 }

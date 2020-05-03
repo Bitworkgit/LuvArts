@@ -43,6 +43,11 @@ class LoginController extends Controller
     protected function logar(Request $requisicao){
         $campos = $requisicao->only('email','password');
         if(Auth::attempt($campos)){
+            $user = $requisicao->user();
+
+            /* Sessão para gravar o id do usuario logado, para ter acesso de qualquer lugar da aplicação */
+            session(['loged' => $user->id]);
+
             return redirect()->route('home');
         } else { 
             return redirect()->route('user.login')->with('error','Dados de login não encontrados!');
@@ -50,7 +55,11 @@ class LoginController extends Controller
     }
 
     protected function logout(Request $request){
+        /* Deleta a sessão da aplicação quando o usuario faz logout */
+        session()->forget('loged');
+
         Auth::logout();
+
         return redirect()->route("user.login");
     }
 }

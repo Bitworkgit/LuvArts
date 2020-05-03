@@ -25,7 +25,8 @@ class ProdutosController extends Controller
         $prod = Produto::all();
         $user = $request->user();
 
-        return view('produtos.lista-produtos', compact('prod'));
+        //return view('produtos.lista-produtos', compact('prod'));
+        return view('layPadrao.layout', compact('prod'));
     }
 
     /**
@@ -42,9 +43,9 @@ class ProdutosController extends Controller
 
         $dado = [
             'colecao'   => Colecao::where('user_id', $user['id'])->get(),
-            'categoria' => Categoria::all()
+            'categoria' => Categoria::all(),
         ];
-
+       
         return view('produtos.cad-produtos', $dado);
     }
 
@@ -69,7 +70,7 @@ class ProdutosController extends Controller
          */
        $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
-            'Descricao' => 'required|string|max:100',
+            'Descricao' => 'required|string',
             'preco'     => 'required',
             'categoria' => 'required',
             'imagem'    => 'required|image|mimes:jpeg,jpg,png'
@@ -141,7 +142,7 @@ class ProdutosController extends Controller
         $colecao   = Colecao::where('user_id', $user['id'])->get();
         $categoria = Categoria::all();
 
-        if($user['id'] <> $atu->user_id)
+        if($user['id'] <> $atu->user_id && $user['administrador'] <> 1)
             return redirect()->route('profile.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
 
         return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
@@ -162,7 +163,7 @@ class ProdutosController extends Controller
 
         $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
-            'Descricao' => 'required|string|max:100',
+            'Descricao' => 'required|string',
             'preco'     => 'required',
             'categoria' => 'required',
             'imagem'    => 'image|mimes:jpeg,jpg,png'
@@ -221,7 +222,11 @@ class ProdutosController extends Controller
 
         \Storage::delete($pro->ende_foto_pro);
         $pro->delete();
-        return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
+        
+        if($user['administrador'] == 1)
+            return redirect()->route('admin.users')->with('success', 'Arte excluida com sucesso');
+        else
+            return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
     }
 
     public function listaArteColecao(Request $request, $cod_colecoes){
@@ -247,7 +252,7 @@ class ProdutosController extends Controller
         return view('produtos.lista-produtos', compact('prod', 'text', 'seeArtsCol'));
     }
 
-    public function listaArteUsuario($id){
+    public function listaArteUsuario(Request $request, $id){
         /* Pega os produtos pelo id do usuario */
         $prod     = Produto::where('user_id', $id)->get();
         $text     = " por usuário";
@@ -265,13 +270,13 @@ class ProdutosController extends Controller
     public function excluirColecao($id){
         $colecao = Colecao::find($id);
         $colecao->delete();
-        return back()->with('success','Coleção excluida !');
+        return back()->with('success','Coleção excluida!');
     }
 
     public function editarColecao(Request $req ,$id){
         $colecao = Colecao::find($id);
         $colecao->nome_colecao_col = $req->only('nome')['nome'];
         $colecao->save();
-        return back()->with('success','Coleção atualizada !');
+        return back()->with('success','Coleção atualizada!');
     }
 }

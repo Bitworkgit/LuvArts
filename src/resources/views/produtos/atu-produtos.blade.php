@@ -1,47 +1,11 @@
-<!DOCTYPE html>
-<html>
+@extends('layPadrao.layout')
 
-<head>
-  <title>Alteração de Produtos</title>
-  <meta name="viewport" content="width=device-width, initial-scale = 1">
-  <link rel="stylesheet" href="{{asset('pages/produtos/css/main.css')}}">
-  <script src="{{ asset("js/app.js") }}"></script>
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
+@section('title', 'Alteração de Artes')
 
-<body>
-  <nav class="navbar navbar-expand-lg fixed-top ">
-    <div class="container">
-      <a href="index.html"><img src="{{ asset('pages/produtos/images/NAV.png') }}" width="110" class="nav-link"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+@section('conteudo')
+      
    <div class="bg" style="background-image: url('{{asset('pages/produtos/images/bg-01.jpg')}}');">
     <div class="container">
-
-
 
       <div class="box">
         <form enctype="multipart/form-data" class="form-Center" method="POST" action="{{route('item.update', $atu->id)}}">
@@ -159,26 +123,18 @@
 
   </div>
 
-<footer class="py-5 background-la">
-  <div class="container">
-    <p class="m-0 text-center text-white">Copyright © Luv Art's 2019</p>
-  </div>
-</footer>
+    @if(session('success'))
+      <script>
+        iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
+      </script>
+    @endif
 
-@if(session('success'))
-  <script>
-    iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
-  </script>
-@endif
+    @if($errors->any())
+      @foreach ($errors->all() as $error)
+        <script>
+          iziToast.error({title: 'Erro', message: '{{$error}}'});
+        </script>
+      @endforeach
+    @endif
 
-@if($errors->any())
-  @foreach ($errors->all() as $error)
-    <script>
-      iziToast.error({title: 'Erro', message: '{{$error}}'});
-    </script>
-  @endforeach
-@endif
-</body>
-</html>
-
-
+@endsection

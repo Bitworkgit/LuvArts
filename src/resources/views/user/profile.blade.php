@@ -1,16 +1,8 @@
-<!doctype html>
-<html lang="pt-br">
+@extends('layPadrao.layout')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
-
-    <script src="{{ asset('js/app.js') }}"></script>
-
-    <title>Perfil - {{ $user->nome }}</title>
+@section('title', 'Perfil - ' . $user->nome)
+        
+@section('conteudo')
     <style>
         .trash-color {color: red;}
         .bt {
@@ -27,39 +19,6 @@
         }
     </style>
 
-</head>
-
-
-<body>
-    <nav class="navbar navbar-expand-lg fixed-top ">
-        <div class="container">
-            <a href="route('home')"><img src="{{ asset('images/NAV.png')}}" width="110" class="nav-link"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- END NAVBAR-->
     <div>
 	<div class="pad2">
 	<br>
@@ -73,7 +32,7 @@
             
             <div class="row my-2">
                 <div class="col-lg-7 order-lg-2">
-				                <h4 class="mt-2">{{ $user->nome }}</h4>
+                    <h4 class="mt-2">{{ $user->nome }}</h4>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
 						
@@ -249,9 +208,13 @@
                             <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3>
                             <button id="colecao" name="colecao" class="btn btn-primary bt">Solicitar Pagamento</button>
                             <br><br>
-                            <a href="{{route('item.create')}}" class="btn btn-primary bt">Cadastrar arte</a><br>
+                            <a href="{{route('item.create')}}" class="btn btn-primary bt">Cadastrar arte</a><br><br>
                         @endif
-                        <br>
+
+                        @if($see && $verAdm)
+                            <a href="{{route('admin.index')}}" class="btn btn-primary bt">Painel de controle</a><br><br>
+                        @endif
+
                         <a href="{{route('item-perfil.listaArteUsu', $user->id)}}" class="btn btn-primary bt">Listar todas as artes</a>
                         <br>
                         <br>
@@ -311,43 +274,45 @@
         })
     </script>
 
-@if(session('error'))
-    <script>
-        iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
-    </script>
-@endif
+        @if(session('error'))
+            <script>
+                iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
+            </script>
+        @endif
 
-@if(session('success'))
-    <script>
-        iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
-    </script>
-@endif
+        @if(session('success'))
+            <script>
+                iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
+            </script>
+        @endif
 
-@if(!empty($colecoes))
-    @foreach($colecoes as $item)
-        <div class="modal fade" id="{{ str_replace(' ','_',$item->nome_colecao_col) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form method="post" action="{{ route('produtos.editarColecao',['id' => $item->id]) }}">
-                @csrf
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edição de coleção</h5>
+        @if(!empty($colecoes))
+            @foreach($colecoes as $item)
+                <div class="modal fade" id="{{ str_replace(' ','_',$item->nome_colecao_col) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form method="post" action="{{ route('produtos.editarColecao',['id' => $item->id]) }}">
+                        @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edição de coleção</h5>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" name="nome" value="{{ $item->nome_colecao_col }}" style="width:100%;">
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" value="Atualizar">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <input type="text" class="form-control" name="nome" value="{{ $item->nome_colecao_col }}" style="width:100%;">
                     </div>
-                    <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary" value="Atualizar">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </form>
                 </div>
-            </div>
-            </div>
-        </div>
-    @endforeach
-@endif
+            @endforeach
+        @endif
 
+        <script> $("#CPF").mask('000.000.000-00', {reverse: true}); </script>
+        <script> $("#CEL").mask('(00)00000-0000'); </script>
 
 <script> $("#CPF").mask('000.000.000-00', {reverse: true}); </script>
 <script> $("#CEL").mask('(00)0000-0000'); </script>
@@ -360,5 +325,5 @@
         <p class="m-0 text-center text-white">Copyright © Luv Art's 2019</p>
     </div>
 </footer>
+@endsection
 
-</html>

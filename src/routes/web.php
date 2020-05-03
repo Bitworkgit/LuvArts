@@ -24,6 +24,9 @@ Route::get("/register", function(){
 
 
 Route::get("/profile/{user_id}",['uses' =>'ProfileController@index', 'as'=>'profile.index']);
+
+/* Existe duas rotas de logout GET e POST pois o ADMIN LTE usa o metodo POST para fazer logout */
+Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
@@ -32,7 +35,6 @@ Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atua
 /* Rota para deletar coleção */
 Route::get("/colecao/delete/{id}",['uses' =>'Produtos\ProdutosController@excluirColecao', 'as'=>'produtos.excluirColecao']);
 Route::post("/colecao/edit/{id}",['uses' =>'Produtos\ProdutosController@editarColecao', 'as'=>'produtos.editarColecao']);
-
 
 /*  Rota para Registro, Alteração e Exclusão de Produtos */
 Route::resource('/item','Produtos\ProdutosController');
@@ -43,7 +45,25 @@ Route::prefix('item-perfil')->group(function(){
     Route::get('/usuario/{id}', 'Produtos\ProdutosController@listaArteUsuario')->name('item-perfil.listaArteUsu');
 });
 
+ /* Rotas do ADMINISTRADOR */
+Route::prefix('dashboard-admin')->group(function(){
+    Route::get('/', 'Admin\AdminController@index')->name('admin.index');
+    Route::get('/users', 'Admin\AdminController@users')->name('admin.users');
+    Route::get('/users/blocked', 'Admin\AdminController@blockedUsers')->name('admin.blockedUsers');
+    Route::get('/users/block/{id}', 'Admin\AdminController@blockUsers')->name('admin.blockUsers');
+    Route::get('/users/delete/{id}', 'Admin\AdminController@deleteUsers')->name('admin.deleteUsers');
+    Route::get('/users/unlock/{id}', 'Admin\AdminController@unlockUsers')->name('admin.unlockUsers');
+    Route::get('/users/arts/{id}', 'Admin\AdminController@listArts')->name('admin.list-arts');
+    Route::get('/users/admin/{id}', 'Admin\AdminController@admin')->name('admin.admin');
+    Route::get('/users/del', 'Admin\AdminController@del')->name('admin.del');
+    Route::get('/users/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
+    Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
+
+});
+
  /* Caso não exista a rota, joga para a pagina de 404 */
 Route::fallback(function(){
      return view('404/404'); 
 });
+
+

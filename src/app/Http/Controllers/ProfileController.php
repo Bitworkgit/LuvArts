@@ -17,12 +17,13 @@ class ProfileController extends Controller
         $user = User::find($user_id);
         $colecoes = Colecao::where('user_id',$user_id)->get();
         $see = Gate::allows('ver-dados');
+        $verAdm = Gate::allows('admin');
 
         if(empty($user)){
             return redirect()->route("home");
         }
         else {
-            return view("user/profile",compact('user','colecoes', 'see'));
+            return view("user/profile",compact('user','colecoes', 'see', 'verAdm'));
         }
     }  
 

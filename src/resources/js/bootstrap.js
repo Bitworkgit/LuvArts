@@ -7,14 +7,12 @@ window._ = require('lodash');
  */
 
 try {
-    window.$ = window.jQuery = require('jquery');
-    require("jquery-form");
     window.Popper = require('popper.js').default;
-    window.iziToast = require("izitoast");
-    window.progressBar = require("progressbar.js");
+    window.$ = window.jQuery = require('jquery');
     require('bootstrap');
     requireFromUrl('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js');
     require("jquery-mask-plugin");
+
 } catch (e) {}
 
 /**
