@@ -25,12 +25,14 @@ class ProdutoSeeder extends Seeder
             ["images/ph10.png",0],
             ["images/ph11.png",0],
             ["images/ph12.png",0],
+            ["images/ph13.png",0],
             ["images/ph14.png",0],
             ["images/ph15.png",0],
             ["images/ph16.png",0],
             ["images/ph17.png",0],
             ["images/ph18.png",0],
-            ["images/ph19.png",0]
+            ["images/ph19.png",0],
+            ["images/ph20.png",0],
         ];
 
         foreach($dados as $dado){
