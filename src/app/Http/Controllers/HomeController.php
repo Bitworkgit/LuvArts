@@ -16,7 +16,7 @@ class HomeController extends Controller
         
         $alternativas = Produto::where('vendas','<',$maisComprados->last()->vendas)
                                         ->inRandomOrder()
-                                        ->limit(9)
+                                        ->limit(12)
                                         ->get();
 
         return view('welcome',compact('maisComprados','alternativas'));
