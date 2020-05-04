@@ -18,19 +18,39 @@
 @endsection
 
 @section('content')
-<div class="col-lg-2 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-yellow">
+  <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+    <div class="col-lg-2 col-xs-10">
+      <div class="small-box bg-yellow">
         <center>
-            <div style="width: 50%;">
-                <h3 style="display: inline;">1000</h3>
+          <div style="width: 50%;">
+              <h3 style="display: inline; color: white;">1000</h3>
+              <div class="icon">
                 <ion-icon name="person-add" size="large" style="display: inline;"></ion-icon>
-                <p>Quantidade de usuários</p>
-            </div>
+              </div>
+              <p style="color: white;">Quantidade de usuários</p>
+          </div>
         </center>
-      <a href="#" class="small-box-footer">
-        More info <i class="fa fa-arrow-circle-right"></i>
-      </a>
+      </div>
+    </div>
+  </a>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Estatísticas de usuários cadastrados</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Total de usuários: {{$users->count()}}</p> <hr>
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+      </div>
     </div>
   </div>
+</div>
 @endsection

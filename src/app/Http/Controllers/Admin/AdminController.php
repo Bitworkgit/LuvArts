@@ -149,6 +149,9 @@ class AdminController extends Controller
     }
 
     public function estatisticas(){
-        return view('admin.estatisticas');
+        $users = User::all();
+        $ultim = User::orderBy('id','DESC')->limit(10)->get();
+
+        return view('admin.estatisticas', compact('users', 'ultim'));
     }
 }
