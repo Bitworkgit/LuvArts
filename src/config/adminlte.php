@@ -254,7 +254,7 @@ return [
         ],
         [
             'text' => 'Estatísiticas gerais',
-            'url'  => 'admin/settings',
+            'url'  => 'dashboard-admin/luvarts/estatisticas',
             'icon' => 'fas fa-fw fa-hand-holding-usd',
         ],
         /*[

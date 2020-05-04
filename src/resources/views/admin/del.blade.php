@@ -4,14 +4,14 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @endsection
 
-@section('title', 'Gerenciador de Usuários')
+@section('title', 'Usuários excluidos')
 
 @section('content_header')
-    <center><h1>Gerenciador de Usuários</h1></center> <br><br>
+    <center><h1>Usuários excluidos</h1></center> <br><br>
     
     @if(!count($user))
         <br>
-        <center><h1>Não há usuários a listar</h1></center>
+        <center><h1>Não há usuários excluidos</h1></center>
     @else
         <table class="table">
             <thead class="thead-dark">

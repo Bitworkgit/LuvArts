@@ -147,4 +147,8 @@ class AdminController extends Controller
                                 ->with('dados',json_encode($grafico))
                                 ->with('dadosDivisao',json_encode($divisao));
     }
+
+    public function estatisticas(){
+        return view('admin.estatisticas');
+    }
 }

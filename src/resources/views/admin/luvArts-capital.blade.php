@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Gerenciador de Usuários')
+@section('title', 'Total capital LuvArts')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('pages/admin/equipeCapital.css') }}">

@@ -58,6 +58,7 @@ Route::prefix('dashboard-admin')->group(function(){
     Route::get('/users/del', 'Admin\AdminController@del')->name('admin.del');
     Route::get('/users/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
     Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
+    Route::get('/luvarts/estatisticas', 'Admin\AdminController@estatisticas')->name('admin.estatisticas');
 
 });
 

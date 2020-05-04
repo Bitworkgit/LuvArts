@@ -14,10 +14,10 @@
     @endif
 @endsection
 
-@section('title', 'Gerenciador de Usuários')
+@section('title', 'Lista administradores')
 
 @section('content_header')
-    <center><h1>Gerenciador de Usuários</h1></center> <br><br>
+    <center><h1>Lista administradores</h1></center> <br><br>
     
     @if(!count($user))
         <br>
