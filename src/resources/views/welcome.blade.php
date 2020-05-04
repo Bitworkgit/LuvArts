@@ -59,7 +59,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="Navcont">
           <input type="text" placeholder="Pesquisar...">
           <div class="navsearch"></div>
@@ -104,7 +104,6 @@
 
     <!--Carousel Wrapper-->
     <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
       <!--Controls-->
       <div class="controls-top">
         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
@@ -127,41 +126,44 @@
         <div class="carousel-item active">
 
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-2">
                 <div class="card mb-2">
                   <img class="card-img-top" src="{{$alternativas[0]->user_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">{{ $alternativas[0]->nome_pro }}</h4>
-                    <p class="card-text">{{ $alternativas[0]->descricao_pro }}</p>
-                    <p class="card-text"><b>R$ {{ $alternativas[0]->preco_pro }}</b></p>
-                    <a class="btn btn-primary">Comprar</a>
-                  </div>
                 </div>
               </div>
   
-              <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="col-md-2 clearfix d-none d-md-block">
                 <div class="card mb-2">
                   <img class="card-img-top" src="{{$alternativas[1]->user_id == 1 ? asset($alternativas[1]->ende_foto_pro) : Storage::url($alternativas[1]->ende_foto_pro)}}"
                     alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">{{ $alternativas[1]->nome_pro }}</h4>
-                    <p class="card-text">{{ $alternativas[1]->descricao_pro }}.</p>
-                    <p class="card-text"><b>R$ {{ $alternativas[1]->preco_pro }}</b></p>
-                    <a class="btn btn-primary">Comprar</a>
-                  </div>
                 </div>
               </div>
   
-              <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="col-md-2 clearfix d-none d-md-block">
                 <div class="card mb-2">
                   <img class="card-img-top" src="{{$alternativas[2]->user_id == 1 ? asset($alternativas[2]->ende_foto_pro) : Storage::url($alternativas[2]->ende_foto_pro)}}"
                     alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">{{ $alternativas[2]->nome_pro }}</h4>
-                    <p class="card-text">{{ $alternativas[2]->descricao_pro }}.</p>
-                    <p class="card-text"><b>R$ {{ $alternativas[2]->preco_pro }}</b></p>
-                    <a class="btn btn-primary">Comprar</a>
-                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="{{$alternativas[3]->user_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}"
+                    alt="Card image cap">
+                </div>
+              </div>
+
+              <div class="col-md-2 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="{{$alternativas[4]->user_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}"
+                    alt="Card image cap">
+                </div>
+              </div>
+  
+              <div class="col-md-2 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="{{$alternativas[5]->user_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}"
+                    alt="Card image cap">
                 </div>
               </div>
             </div>
@@ -177,96 +179,52 @@
         <div class="carousel-item">
 
           <div class="row">
-            <div class="col-md-4">
+  
+            <div class="col-md-2">
               <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[3]->user_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}"
+                <img class="card-img-top" src="{{$alternativas[6]->user_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}"
                   alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">{{ $alternativas[3]->nome_pro }}</h4>
-                  <p class="card-text">{{ $alternativas[3]->descricao_pro }}</p>
-                  <p class="card-text"><b>R$ {{ $alternativas[3]->preco_pro }}</b></p>
-                  <a class="btn btn-primary">Comprar</a>
-                </div>
               </div>
             </div>
 
-            <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="col-md-2">
               <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[4]->user_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}"
+                <img class="card-img-top" src="{{$alternativas[7]->user_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}"
                   alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">{{ $alternativas[4]->nome_pro }}</h4>
-                  <p class="card-text">{{ $alternativas[4]->descricao_pro }}</p>
-                  <p class="card-text"><b>R$ {{ $alternativas[4]->preco_pro }}</b></p>
-                  <a class="btn btn-primary">Comprar</a>
-                </div>
               </div>
             </div>
 
-            <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="col-md-2 clearfix d-none d-md-block">
               <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[5]->user_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}"
+                <img class="card-img-top" src="{{$alternativas[8]->user_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}"
                   alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">{{ $alternativas[5]->nome_pro }}</h4>
-                  <p class="card-text">{{ $alternativas[5]->descricao_pro }}.</p>
-                  <p class="card-text"><b>R$ {{ $alternativas[5]->preco_pro }}</b></p>
-                  <a class="btn btn-primary">Comprar</a>
-                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="{{$alternativas[9]->user_id == 1 ? asset($alternativas[9]->ende_foto_pro) : Storage::url($alternativas[9]->ende_foto_pro)}}"
+                  alt="Card image cap">
+              </div>
+            </div>
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="{{$alternativas[10]->user_id == 1 ? asset($alternativas[10]->ende_foto_pro) : Storage::url($alternativas[10]->ende_foto_pro)}}"
+                  alt="Card image cap">
+              </div>
+            </div>
+
+            <div class="col-md-2 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="{{$alternativas[11]->user_id == 1 ? asset($alternativas[11]->ende_foto_pro) : Storage::url($alternativas[11]->ende_foto_pro)}}"
+                  alt="Card image cap">
               </div>
             </div>
           </div>
 
         </div>
         <!--/.Second slide-->
-
-        <!--Third slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[6]->user_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">{{ $alternativas[6]->nome_pro }}e</h4>
-                  <p class="card-text">{{ $alternativas[6]->descricao_pro }}</p>
-                  <p class="card-text"><b>R$ {{ $alternativas[6]->preco_pro }}</b></p>
-                  <a class="btn btn-primary">Comprar</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[7]->user_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">{{ $alternativas[7]->nome_pro }}</h4>
-                  <p class="card-text">{{ $alternativas[7]->descricao_pro }}</p>
-                  <p class="card-text"><b>R$ {{ $alternativas[7]->preco_pro }}</b></p>
-                  <a class="btn btn-primary">Comprar</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[8]->user_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">{{ $alternativas[8]->nome_pro }}</h4>
-                  <p class="card-text">{{ $alternativas[8]->descricao_pro }}</p>
-                  <p class="card-text"><b>R$ {{ $alternativas[8]->preco_pro }}</b></p>
-                  <a class="btn btn-primary">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Third slide-->
-
       </div>
     </div>
       <!--/.Slides-->
