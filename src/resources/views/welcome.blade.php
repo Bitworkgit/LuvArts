@@ -148,6 +148,26 @@
   <div class="mb-3 pics animation all 1">
     <a href="#"><img class="img-fluid" src="{{$alternativas[5]->user_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
+ <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[6]->user_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[7]->user_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+<!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[8]->user_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+<!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[9]->user_id == 1 ? asset($alternativas[9]->ende_foto_pro) : Storage::url($alternativas[9]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+<!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[10]->user_id == 1 ? asset($alternativas[10]->ende_foto_pro) : Storage::url($alternativas[10]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
 
 
 </div>
