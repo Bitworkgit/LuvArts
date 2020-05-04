@@ -70,7 +70,7 @@ class ProdutosController extends Controller
          */
        $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
-            'Descricao' => 'required|string',
+            'Descricao' => 'required|string|max:250',
             'preco'     => 'required',
             'categoria' => 'required',
             'imagem'    => 'required|image|mimes:jpeg,jpg,png'
