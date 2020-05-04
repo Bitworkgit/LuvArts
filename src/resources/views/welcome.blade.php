@@ -10,10 +10,13 @@
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
   <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
   <style>
+  
     .menu {
       font-size: 15px;
     }
+	
   </style>
+  
 </head>
 
 <body>
@@ -59,7 +62,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="Navcont">
           <input type="text" placeholder="Pesquisar...">
           <div class="navsearch"></div>
@@ -74,17 +77,23 @@
     </div>
   </div>
 
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleControls" class="carousel slide bgpi" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="{{$maisComprados[0]->user_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide">
+	  <div class="text-center">
+        <img class="mx-auto d-block" style="max-height: 700px;  " src="{{$maisComprados[0]->user_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide">
       </div>
+	  </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{$maisComprados[1]->user_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
+	  <div class="text-center">
+        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[1]->user_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
       </div>
+	  </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{$maisComprados[2]->user_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
+	  <div class="text-center">
+        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[2]->user_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
       </div>
+	  </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -95,142 +104,66 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="container my-4 ">
+
 
     <p align="center" class="titulo">Você tambem pode gostar destas artes!</p>
+<!--------------------------------------------------------------------------------------------------->
 
 
-    <hr class="my-4">
 
-    <!--Carousel Wrapper-->
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-      <!--Controls-->
-      <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-      </div>
-      <!--/.Controls-->
+<!-- Grid row -->
+<div class="gallery" id="gallery">
 
-      <!--Indicators-->
-      <ol class="carousel-indicators">
-        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-        <li data-target="#multi-item-example" data-slide-to="1"></li>
-        <li data-target="#multi-item-example" data-slide-to="2"></li>
-      </ol>
-      <!--/.Indicators-->
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 2">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[0]->user_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap"></a></a>
+  </div>
+  <!-- Grid column -->
 
-      <!--Slides-->
-      <div class="carousel-inner" role="listbox">
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[1]->user_id == 1 ? asset($alternativas[1]->ende_foto_pro) : Storage::url($alternativas[1]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
 
-        <!--First slide-->
-        <div class="carousel-item active">
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[2]->user_id == 1 ? asset($alternativas[2]->ende_foto_pro) : Storage::url($alternativas[2]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
 
-            <div class="row">
-              <div class="col-md-2">
-                <div class="card mb-2">
-                  <img class="card-img-top" src="{{$alternativas[0]->user_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap">
-                </div>
-              </div>
-  
-              <div class="col-md-2 clearfix d-none d-md-block">
-                <div class="card mb-2">
-                  <img class="card-img-top" src="{{$alternativas[1]->user_id == 1 ? asset($alternativas[1]->ende_foto_pro) : Storage::url($alternativas[1]->ende_foto_pro)}}"
-                    alt="Card image cap">
-                </div>
-              </div>
-  
-              <div class="col-md-2 clearfix d-none d-md-block">
-                <div class="card mb-2">
-                  <img class="card-img-top" src="{{$alternativas[2]->user_id == 1 ? asset($alternativas[2]->ende_foto_pro) : Storage::url($alternativas[2]->ende_foto_pro)}}"
-                    alt="Card image cap">
-                </div>
-              </div>
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 2">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[3]->user_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
 
-              <div class="col-md-2">
-                <div class="card mb-2">
-                  <img class="card-img-top" src="{{$alternativas[3]->user_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}"
-                    alt="Card image cap">
-                </div>
-              </div>
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 2">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[4]->user_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
 
-              <div class="col-md-2 clearfix d-none d-md-block">
-                <div class="card mb-2">
-                  <img class="card-img-top" src="{{$alternativas[4]->user_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}"
-                    alt="Card image cap">
-                </div>
-              </div>
-  
-              <div class="col-md-2 clearfix d-none d-md-block">
-                <div class="card mb-2">
-                  <img class="card-img-top" src="{{$alternativas[5]->user_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}"
-                    alt="Card image cap">
-                </div>
-              </div>
-            </div>
-  
-          </div>
-          
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="#"><img class="img-fluid" src="{{$alternativas[5]->user_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
 
 
-        
-        <!--/.First slide-->
-
-        <!--Second slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-  
-            <div class="col-md-2">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[6]->user_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}"
-                  alt="Card image cap">
-              </div>
-            </div>
-
-            <div class="col-md-2">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[7]->user_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}"
-                  alt="Card image cap">
-              </div>
-            </div>
-
-            <div class="col-md-2 clearfix d-none d-md-block">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[8]->user_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}"
-                  alt="Card image cap">
-              </div>
-            </div>
-
-            <div class="col-md-2 clearfix d-none d-md-block">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[9]->user_id == 1 ? asset($alternativas[9]->ende_foto_pro) : Storage::url($alternativas[9]->ende_foto_pro)}}"
-                  alt="Card image cap">
-              </div>
-            </div>
-
-            <div class="col-md-2 clearfix d-none d-md-block">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[10]->user_id == 1 ? asset($alternativas[10]->ende_foto_pro) : Storage::url($alternativas[10]->ende_foto_pro)}}"
-                  alt="Card image cap">
-              </div>
-            </div>
-
-            <div class="col-md-2 clearfix d-none d-md-block">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$alternativas[11]->user_id == 1 ? asset($alternativas[11]->ende_foto_pro) : Storage::url($alternativas[11]->ende_foto_pro)}}"
-                  alt="Card image cap">
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Second slide-->
-      </div>
-    </div>
-      <!--/.Slides-->
-
-    </div>
-
+</div>
+<!-- Grid row -->
+<script>$(function() {
+var selectedClass = "";
+$(".filter").click(function(){
+selectedClass = $(this).attr("data-rel");
+$("#gallery").fadeTo(100, 0.1);
+$("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
+setTimeout(function() {
+$("."+selectedClass).fadeIn().addClass('animation');
+$("#gallery").fadeTo(300, 1);
+}, 300);
+});
+}); </script>
     <script src="{{ asset("js/app.js") }}"></script>
 
 </body>

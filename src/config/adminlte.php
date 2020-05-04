@@ -15,7 +15,7 @@ return [
     */
 
     'title' => 'AdminLTE 3',
-    'title_prefix' => 'Administrador - ',
+    'title_prefix' => '',
     'title_postfix' => '',
 
     /*
@@ -44,9 +44,9 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/#63-logo
     |
     */
- 
-    'logo' => '<b>Luv</b>Arts',
-    'logo_img' => 'images/logo.jpg',
+
+    'logo' => '<b>Admin</b>LTE',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => false,
+    'usermenu_enabled' => true,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -103,8 +103,8 @@ return [
     'classes_body' => '',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_header' => 'container-fluid',
-    'classes_content' => 'container-fluid',
+    'classes_content_header' => '',
+    'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
@@ -208,61 +208,35 @@ return [
     */
 
     'menu' => [
-        /*[
+        [
             'text' => 'search',
-            'search' => false,
-            'topnav' => false,
-        ],*/
+            'search' => true,
+            'topnav' => true,
+        ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        /*[
+        [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],*/
-        ['header' => 'Configurações de usuários'],
+        ],
+        ['header' => 'account_settings'],
         [
-            'text' => 'Gerenciar usuários',
-            'url'  => 'dashboard-admin/users',
+            'text' => 'profile',
+            'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Usuários bloqueados',
-            'url' => 'dashboard-admin/users/blocked',
-            'icon' => 'fas fa-user-lock',
-        ],
-        [
-            'text' => 'Usuários excluidos',
-            'url' => 'dashboard-admin/users/del',
-            'icon' => 'fas fa-user-times',
-        ],
-        [
-            'text' => 'Lista administradores',
-            'url' => 'dashboard-admin/users/lista-adm',
-            'icon' => 'fas fa-crown',
-        ],
-        ['header' => 'Estatísticas'],
-        [
-            'text' => 'Total capital LuvArts',
-            'url'  => 'dashboard-admin/luvarts/capital',
-            'icon' => 'fas fa-fw fa-dollar-sign',
-        ],
-        [
-            'text' => 'Estatísiticas gerais',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-hand-holding-usd',
-        ],
-        /*[
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],*/
-        /*[
+        ],
+        [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -311,8 +285,8 @@ return [
         ],
         [
             'text'       => 'information',
-            'icon_color' => 'aqua',
-        ],*/
+            'icon_color' => 'cyan',
+        ],
     ],
 
     /*
@@ -335,6 +309,7 @@ return [
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
+        JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
     ],
 
     /*
