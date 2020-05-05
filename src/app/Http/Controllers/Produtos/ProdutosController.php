@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Produto;
 use App\Model\Categoria;
 use App\Model\Colecao;
+use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -278,5 +279,19 @@ class ProdutosController extends Controller
         $colecao->nome_colecao_col = $req->only('nome')['nome'];
         $colecao->save();
         return back()->with('success','Coleção atualizada!');
+    }
+
+    public function comprarProduto($id){
+        $produto = Produto::find($id);
+
+        $alternativas = Produto::where('id','!=',$id)
+                                        ->inRandomOrder()
+                                        ->limit(20)
+                                        ->get();
+
+
+        $artista = User::find($produto->user_id);
+                                        
+        return view('produtos.comprar',compact('produto','alternativas','artista'));
     }
 }

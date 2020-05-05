@@ -9,10 +9,11 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    window.iziToast = require('izitoast');
     require('bootstrap');
     requireFromUrl('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js');
+    requireFromUrl('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js');
     require("jquery-mask-plugin");
-    require('izitoast');
 
 } catch (e) {}
 

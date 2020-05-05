@@ -61,6 +61,8 @@ Route::prefix('dashboard-admin')->group(function(){
 
 });
 
+Route::get('produto/comprar/{id}','Produtos\ProdutosController@comprarProduto')->name("produto.comprar");
+
  /* Caso não exista a rota, joga para a pagina de 404 */
 Route::fallback(function(){
      return view('404/404'); 

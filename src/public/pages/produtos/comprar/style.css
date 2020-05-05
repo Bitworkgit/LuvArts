@@ -1,0 +1,263 @@
+.gallery {
+-webkit-column-count: 4;
+-moz-column-count: 4;
+column-count: 4;
+-webkit-column-width: 33%;
+-moz-column-width: 33%;
+column-width: 33%; }
+.gallery .pics {
+-webkit-transition: all 350ms ease;
+transition: all 350ms ease; }
+.gallery .animation {
+-webkit-transform: scale(1);
+-ms-transform: scale(1);
+transform: scale(1); }
+
+@media (max-width: 450px) {
+.gallery {
+-webkit-column-count: 1;
+-moz-column-count: 1;
+column-count: 1;
+-webkit-column-width: 100%;
+-moz-column-width: 100%;
+column-width: 100%;
+}
+}
+@media screen and (max-width:400px){
+ 
+  body .nav-img{display:none;}
+  header a.menu-mobile {display:block;}
+}
+
+.navbar{
+	background-color: rgba(18,20,37,0.89);
+}
+.Navcont {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100px;
+}
+.Navcont .navsearch {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: lightblue;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.Navcont .navsearch:hover {
+  cursor: pointer;
+}
+.Navcont .navsearch::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all .5s;
+}
+.Navcont .navsearch::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all .5s;
+}
+.Navcont input {
+  font-family: 'Inconsolata', monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: #313448;
+  color: white;
+  text-shadow: 0 0 10px black;
+  padding: 0 60px 0 8px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 #003f88, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+.Navcont input:hover {
+  cursor: pointer;
+}
+.Navcont input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+.Navcont input:focus ~ .navsearch {
+  right: -250px;
+  background: rgba(18,20,37);
+  z-index: 6;
+}
+.Navcont input:focus ~ .navsearch::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+.Navcont input:focus ~ .navsearch::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+.Navcont input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+.container
+{
+    margin-top: 100px;
+}
+
+.newarrival
+{
+    background: green;
+    width: 50px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.col-md-7 h2
+{
+    color: #555;
+}
+
+.stars
+{
+    height: 35px;
+}
+
+.preco
+{
+    color: #4b4e68;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+ input
+{
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width: 30px;
+}
+
+.cart 
+{
+    background: #FE980F;
+    color: #FFFFFF;
+    font-size: 15px;
+    margin-left: 20px; 
+}
+.product{
+	max-width:800px;
+	border-color: #6e7496;
+	border-style: outset;
+	border-radius: 16px
+	
+}
+.comprar{background-color: #50536d !important;}
+
+.titulo{
+	color: #7d82a9!important;
+	text-shadow: 1px 1px #000000;
+	font-family: 'Inconsolata', monospace;
+	font-weight: bolder;
+  font-size:30px;
+  padding-top: 40px;
+}
+.hide {
+  display:none;
+}
+input[type="checkbox"] {
+  display: none;
+}
+#btn-a:checked ~ .hide {
+  display: block
+}
+#btn-a:not(:checked) ~ .hide {
+  display: none;
+}
+#btn-b:checked ~ .hide {
+  display: block
+}
+  #btn-b:not(:checked) ~ .hide {
+  display: none;
+}
+.artist{
+	
+	margin-left:2px;
+	/**background-color: #50536d;**/
+	border-radius:10px;
+	
+}
+
+.profilepic{
+	margin-bottom:2px;
+	margin-top:2px;
+	margin-left:2px;
+	margin-right:2px;
+	width:50px;
+	border-style: outset;
+	border-color: #6e7496;
+}
+
+.textoCentro{
+	
+	text-align: center;
+	margin-top:auto;
+	margin-bottom:auto;
+	margin-left:5px;
+	
+}
+.prof{
+	/** color:white!important;*/
+	color: #50536d!important;
+    font-weight: bold;
+
+}    
