@@ -1,8 +1,15 @@
 @extends('layPadrao.layout')
 
 @section('title', 'Perfil - ' . $user->nome)
-        
+
 @section('conteudo')
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale = 1">
+        <link rel="stylesheet" href="{{asset('pages/produtos/css/main.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
+    </head>
+
     <style>
         .trash-color {color: red;}
         .bt {
@@ -226,6 +233,7 @@
         </div>
 		</div>
     </div>
+    <script src="{{ asset("js/app.js") }}"></script>
 
     <script>
         var bar = new progressBar.Line('.upload', {
