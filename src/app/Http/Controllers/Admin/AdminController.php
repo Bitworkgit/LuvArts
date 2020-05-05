@@ -60,6 +60,7 @@ class AdminController extends Controller
 
         $user = User::find($id);
         $user->excluido = 1;
+        $user->bloqueado = 0;
         $user->save();
 
         return redirect()->route('admin.users')->with('success', 'Usuário excluido com sucesso!');
@@ -150,8 +151,18 @@ class AdminController extends Controller
 
     public function estatisticas(){
         $users = User::all();
-        $ultim = User::orderBy('id','DESC')->limit(10)->get();
+        $block = User::where('bloqueado', 1)->get();
+        $exclu = User::where('excluido', 1)->get();
+        $dados = SaldoEquipe::orderBy('ano','ASC')->get();
+        $dados = $dados->last()->capital;
+        $ativo = User::where('excluido', 0)->where('bloqueado', 0)->get();
+        $liqui = $users->sum('capital'); 
+        $liqui = $liqui - $block->sum('capital') - $exclu->sum('capital');
+        $venda = Produto::all();
+        $top5  = Produto::orderBy('vendas', 'DESC')->limit(5)->get();
 
-        return view('admin.estatisticas', compact('users', 'ultim'));
+        //dd($top5);
+        
+        return view('admin.estatisticas', compact('users', 'block', 'exclu', 'dados', 'liqui', 'ativo', 'venda', 'top5'));
     }
 }
