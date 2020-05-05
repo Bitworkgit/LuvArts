@@ -3,45 +3,62 @@
 
 <head>
   <title> @yield('title') </title>
-
-  <meta name="viewport" content="width=device-width, initial-scale = 1">
-  <link rel="stylesheet" href="{{asset('pages/produtos/css/main.css')}}">
-  <script src="{{ asset("js/app.js") }}"></script>
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
+  <style>
+    .menu {
+      font-size: 15px;
+    }
+  </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top ">
-    <div class="container">
-      <a href="index.html"><img src="{{ asset('pages/produtos/images/NAV.png') }}" width="110" class="nav-link"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+  <a class="" href="{{ route('home') }}" style="
+    /* margin-top: 77px; */
+    z-index:  99999;
+    padding: 10px;
+    position: absolute;
+"><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+    <a class="navbar-brand" href="{{ route('home') }}"><img src="img\" width="110" class="nav-link nav-img "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="col-md-8">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-              <a class="nav-link" href="{{route('home')}}">Home
-              <span class="sr-only">(current)</span>
-            </a>
+            <a class="nav-link menu" href="{{ route('home') }}">Início <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Quem somos</a>
+            <a class="nav-link menu" href="#">Sobre nós</a>
           </li>
-          @if(!session()->has('loged'))
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('user.register')}}">Cadastre-se</a>
-            </li>
-          @endif
-          
-          @if(session()->has('loged'))
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('profile.index', session('loged'))}}">Perfil</a>
-            </li>
-          @endif
+          <li class="nav-item dropdown">
+            <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Usuário
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @if(!Auth::check())
+                <a class="dropdown-item" href="{{ route('user.login') }}">Entrar</a>
+                <a class="dropdown-item" href="{{ route('user.register') }}">Cadastrar-se</a>
+                <div class="dropdown-divider"></div>
+              @endif
+              @if(Auth::check())
+                <a class="dropdown-item" href="{{ route('user.sair') }}">Sair</a>
+              @endif
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><br></a>
+          </li>
         </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="Navcont">
+          <input type="text" placeholder="Pesquisar...">
+          <div class="navsearch"></div>
+        </div>
       </div>
     </div>
   </nav>
@@ -50,10 +67,5 @@
   @yield('conteudo')
 <!-- -->
 
-  <footer class="py-5 background-la">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright © Luv Art's 2019</p>
-    </div>
-  </footer>
 </body>
 </html>
