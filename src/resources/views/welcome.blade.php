@@ -48,12 +48,12 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               @if(!Auth::check())
-                <a class="dropdown-item" href="#">Entrar</a>
-                <a class="dropdown-item" href="#">Cadastrar-se</a>
+                <a class="dropdown-item" href="{{ route('user.login') }}">Entrar</a>
+                <a class="dropdown-item" href="{{ route('user.register') }}">Cadastrar-se</a>
                 <div class="dropdown-divider"></div>
               @endif
               @if(Auth::check())
-                <a class="dropdown-item" href="#">Sair</a>
+                <a class="dropdown-item" href="{{ route('user.sair') }}">Sair</a>
               @endif
             </div>
           </li>
