@@ -72,7 +72,3 @@ Route::fallback(function(){
 Route::get('menu', function(){
     return view("menu");
 });
-
-Route::get('pesquisa', function(){
-    return view('produtos.pesquisa');
-});
