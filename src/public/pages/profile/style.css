@@ -1,15 +1,4 @@
-.navbar {
-    background-color: rgba(18,20,37,0.89);
-    float: right;
-    list-style: none;
-}
-.navbar li a {
-    color: antiquewhite;
-    text-decoration: none;
-    padding: 5px 20px;
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
-}
+
 .pad2{
 	padding-top: 47px;
 }
