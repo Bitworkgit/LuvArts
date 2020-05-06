@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design for Bootstrap</title>
+  <title>Pesquisa</title>
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
 
 </head>
@@ -76,7 +76,7 @@
         <div class="row">
           <!-- BEGIN FILTERS -->
           <div class="col-md-3">
-            <h2 class="grid-title"><i class="fa fa-filter"></i> Filters</h2>
+            <h2 class="grid-title"><i class="fa fa-filter"></i> Flitros</h2>
             <hr>
             
             <!-- BEGIN FILTER BY CATEGORY -->
@@ -105,7 +105,7 @@
           <!-- END FILTERS -->
           <!-- BEGIN RESULT -->
           <div class="col-md-9">
-            <h2><i class="fa fa-file-o"></i> Result</h2>
+            <h2><i class="fa fa-file-o"></i> Resultado</h2>
             <hr>
             <!-- BEGIN SEARCH INPUT -->
             <div class="input-group">
@@ -126,23 +126,18 @@
               <div class="col-sm-6">
                 <div class="btn-group">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Order by <span class="caret"></span>
+                    Ordernar por<span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Name</a></li>
-                    <li><a href="#">Date</a></li>
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Rating</a></li>
+                    <li><a href="#">Menor preço</a></li>
+                    <li><a href="#">Maior preço</a></li>
                   </ul>
                 </div>
               </div>
               <!-- END ORDER RESULT -->
               
               <div class="col-md-6 text-right">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default active"><i class="fa fa-list"></i></button>
-                  <button type="button" class="btn btn-default"><i class="fa fa-th"></i></button>
-                </div>
+
               </div>
             </div>
             
@@ -153,65 +148,10 @@
                   <td class="number text-center">1</td>
                   <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
                   <td class="product"><strong>Product 1</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
                   <td class="price text-right">$350</td>
-                </tr>
-                <tr>
-                  <td class="number text-center">2</td>
-                  <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong>Product 2</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></td>
-                  <td class="price text-right">$1,050</td>
-                </tr>
-                <tr>
-                  <td class="number text-center">3</td>
-                  <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong>Product 3</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></span></td>
-                  <td class="price text-right">$550</td>
-                </tr>
-                <tr>
-                  <td class="number text-center">4</td>
-                  <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong>Product 4</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></span></td>
-                  <td class="price text-right">$330</td>
-                </tr>
-                <tr>
-                  <td class="number text-center">5</td>
-                  <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong>Product 5</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
-                  <td class="price text-right">$540</td>
-                </tr>
-                <tr>
-                  <td class="number text-center">6</td>
-                  <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong>Product 6</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-                  <td class="price text-right">$870</td>
-                </tr>
-                <tr>
-                  <td class="number text-center">7</td>
-                  <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong>Product 7</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></td>
-                  <td class="price text-right">$620</td>
-                </tr>
-                <tr>
-                  <td class="number text-center">8</td>
-                  <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong>Product 8</strong><br>This is the product description.</td>
-                  <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-                  <td class="price text-right">$1,550</td>
                 </tr>
               </tbody></table>
             </div>
-            <!-- END TABLE RESULT -->
-            
-            <!-- BEGIN PAGINATION -->
-            
-            <!-- END PAGINATION -->
           </div>
           <!-- END RESULT -->
         </div>
