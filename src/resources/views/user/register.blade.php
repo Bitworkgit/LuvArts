@@ -72,7 +72,7 @@
 
 				<div class="form-check">
     				<input type="checkbox" name="termos"  class="form-check-input" id="exampleCheck1">
-    				<label class="form-check-label" for="exampleCheck1">Aceito os  <a href = "http://www.google.com">Termos de Uso </a> e a <a href = "http://www.bing.com">Politica de Privacidade</a>  </label>
+    				<label class="form-check-label" for="exampleCheck1">Aceito os  <a href = "images/a.jpeg">Termos de Uso </a> e a <a href = "images/b.jpg">Politica de Privacidade</a>  </label>
 				</div>
 				<br/>
 				<div class="container-login100-form-btn">
