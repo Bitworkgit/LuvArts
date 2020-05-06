@@ -140,7 +140,7 @@
     position: absolute;
 "><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
   <nav class="navbar navbar-expand-lg navbar-dark ">
-    <a class="navbar-brand" href="{{ route('home') }}"><img src="img\" width="110" class="nav-link nav-img "></a>
+    <a class="navbar-brand" href="{{ route('home') }}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
