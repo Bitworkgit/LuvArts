@@ -1,9 +1,6 @@
 @extends('menu')
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
+@section('head')
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -11,7 +8,6 @@
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
   <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
-  @yield('header')
   <style>
   
     .menu {
@@ -19,13 +15,9 @@
     }
 	
   </style>
-  
-</head>
+@endsection
 
-<body>
- 
-  @yield('menu')
-
+@section('conteudo')
   <div class="row">
     <div class="col-md-12 ">
       <p align="center" class="titulo">Top Mais Vendidos</p>
@@ -140,7 +132,4 @@ $("#gallery").fadeTo(300, 1);
 });
 }); </script>
     <script src="{{ asset("js/app.js") }}"></script>
-
-</body>
-
-</html>
+@endsection
