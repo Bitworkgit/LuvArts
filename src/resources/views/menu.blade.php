@@ -143,7 +143,7 @@
 
     <a class="navbar-brand" href="{{ route('home') }}"><img src="http://127.0.0.1:8000/images/dark.png" height="10px" width="140" class="nav-img  "></a>
 
-    <a class="navbar-brand" href="{{ route('home') }}"><img src="img\" width="110" class="nav-link nav-img "></a>
+    
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
