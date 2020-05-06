@@ -165,9 +165,9 @@ class ProdutosController extends Controller
         $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
             'Descricao' => 'required|string',
-            'preco'     => 'required',
+            'preco'     => 'required|min:10',
             'categoria' => 'required',
-            'imagem'    => 'image|mimes:jpeg,jpg,png'
+            'imagem'    => 'image|mimes:jpeg,png,jpg|dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
         ],[
 
         ],[

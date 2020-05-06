@@ -67,5 +67,3 @@ Route::get('produto/comprar/{id}','Produtos\ProdutosController@comprarProduto')-
 Route::fallback(function(){
      return view('404/404'); 
 });
-
-
