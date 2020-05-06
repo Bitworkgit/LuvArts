@@ -6,19 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Material Design for Bootstrap</title>
-  <!-- MDB icon -->
-  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="css/mdb.min.css">
-  <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
+
 </head>
 
 <body>
@@ -91,7 +80,7 @@
             <hr>
             
             <!-- BEGIN FILTER BY CATEGORY -->
-            <h4>By category:</h4>
+            <h4>Por categoria:</h4>
             <div class="checkbox">
               <label><input type="checkbox" class="icheck"> Application</label>
             </div>
@@ -111,32 +100,7 @@
             
             <div class="padding"></div>
             
-            <!-- BEGIN FILTER BY DATE -->
-            <h4>By date:</h4>
-            From
-            <div class="input-group date form_date" data-date="2014-06-14T05:25:07Z" data-date-format="dd-mm-yyyy" data-link-field="dtp_input1">
-              <input type="text" class="form-control">
-              <span class="input-group-addon bg-blue"><i class="fa fa-th"></i></span>
-            </div>
-            <input type="hidden" id="dtp_input1" value="">
-            
-            To
-            <div class="input-group date form_date" data-date="2014-06-14T05:25:07Z" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2">
-              <input type="text" class="form-control">
-              <span class="input-group-addon bg-blue"><i class="fa fa-th"></i></span>
-            </div>
-            <input type="hidden" id="dtp_input2" value="">
-            <!-- END FILTER BY DATE -->
-            
             <div class="padding"></div>
-            
-            <!-- BEGIN FILTER BY PRICE -->
-            <h4>By price:</h4>
-            Between <div id="price1">$300</div> to <div id="price2">$800</div>
-            <div class="slider-primary">
-              <div class="slider slider-horizontal" style="width: 152px;"><div class="slider-track"><div class="slider-selection" style="left: 30%; width: 50%;"></div><div class="slider-handle round" style="left: 30%;"></div><div class="slider-handle round" style="left: 80%;"></div></div><div class="tooltip top hide" style="top: -30px; left: 50.1px;"><div class="tooltip-arrow"></div><div class="tooltip-inner">300 : 800</div></div><input type="text" class="slider" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="[300,800]" data-slider-tooltip="hide"></div>
-            </div>
-            <!-- END FILTER BY PRICE -->
           </div>
           <!-- END FILTERS -->
           <!-- BEGIN RESULT -->
