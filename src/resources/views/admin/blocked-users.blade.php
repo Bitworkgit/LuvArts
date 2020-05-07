@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Gerenciador de Usuários')
+@section('title', 'Usuários bloqueados')
 
 @section('content_header')
-    <center><h1>Gerenciador de Usuários</h1></center> <br><br>
+    <center><h1>Usuários bloqueados</h1></center> <br><br>
 
     <script src="{{ asset("js/app.js") }}"></script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
