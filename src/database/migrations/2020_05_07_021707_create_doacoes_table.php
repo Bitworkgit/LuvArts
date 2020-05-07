@@ -1,11 +1,12 @@
 <?php
 
+//total: R$ 238.000
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Model\SaldoEquipe;
 
-class CreateSaldoEquipesTable extends Migration
+class CreateDoacoesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +15,7 @@ class CreateSaldoEquipesTable extends Migration
      */
     public function up()
     {
-        Schema::create('saldo_equipes', function (Blueprint $table) {
+        Schema::create('doacoes', function (Blueprint $table) {
             $table->id();
             $table->integer("ano");
             $table->float('capital', 7, 2)->default(0.00);
@@ -29,6 +30,6 @@ class CreateSaldoEquipesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('saldo_equipes');
+        Schema::dropIfExists('doacoes');
     }
 }

@@ -13,10 +13,24 @@
       <div class="small-box bg-blue">
         <div class="inner">
           <h3>{{$users->count()}}</h3> 
-          <p>Totais usuários</p>
+          <p>Total de usuários</p>
         </div>
         <div class="icon">
           <i class="fas fa-user-plus"></i>
+        </div>
+        <a href="" class="small-box-footer" data-toggle="modal" data-target="#exampleModalCenter">Informações <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <h3>{{$users->count()}}</h3> 
+          <p>Capital para doação</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-credit-card"></i>
         </div>
         <a href="" class="small-box-footer" data-toggle="modal" data-target="#exampleModalCenter">Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
