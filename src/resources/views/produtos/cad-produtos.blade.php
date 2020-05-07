@@ -81,6 +81,7 @@
                       </div>
 
                       <hr>
+                      <script src="{{ asset("js/app.js") }}"></script>
 
                       <script> $(':radio').change(function (event) {
                         var id = $(this).data('id');
