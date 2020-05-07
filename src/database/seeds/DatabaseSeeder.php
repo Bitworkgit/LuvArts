@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             ProdutoSeeder::class,
             CategoriasTableSeeder::class,
             DoacaoSeeder::class,
-            SaldoEquipeSeeder::class
+            SaldoEquipeSeeder::class,
+            VendasSeeder::class
         ]);
     }
 }

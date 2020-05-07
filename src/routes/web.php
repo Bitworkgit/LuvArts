@@ -59,9 +59,8 @@ Route::prefix('dashboard-admin')->group(function(){
     Route::get('/users/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
     Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
     Route::get('/luvarts/estatisticas', 'Admin\AdminController@estatisticas')->name('admin.estatisticas');
-
+    Route::get('/increment/{id}', 'VendasController@incrementar')->name("vendas.incrementar");
 });
-
  /* Caso não exista a rota, joga para a pagina de 404 */
 Route::fallback(function(){
      return view('404/404'); 

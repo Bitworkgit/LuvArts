@@ -9,6 +9,7 @@ use App\User;
 use App\Model\Produto;
 use App\Model\SaldoEquipe;
 use App\Doacoes;
+use App\Venda;
 
 class AdminController extends Controller
 {
@@ -163,8 +164,9 @@ class AdminController extends Controller
         $top5  = Produto::orderBy('vendas', 'DESC')->limit(5)->get();
         $doacoes = Doacoes::all()->last();
         $doacoes = $doacoes['capital'];
+        $vendas = Venda::where('status','<',3)->paginate(7);
         //dd($top5);
         
-        return view('admin.estatisticas', compact('users', 'block', 'exclu', 'dados', 'liqui', 'ativo', 'venda', 'top5','doacoes'));
+        return view('admin.estatisticas', compact('users', 'block', 'exclu', 'dados', 'liqui', 'ativo', 'venda', 'top5','doacoes','vendas'));
     }
 }

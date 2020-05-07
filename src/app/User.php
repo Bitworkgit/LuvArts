@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function colecao(){
         return $this->hasMany("App\Model\Colecao");
     }
+
+    public function venda(){
+        $this->hasMany('App\Venda');
+    }
 }

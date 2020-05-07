@@ -30,4 +30,8 @@ class Produto extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function venda(){
+        return $this->hasMany('App\Venda');
+    }
 }

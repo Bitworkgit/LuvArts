@@ -1,5 +1,19 @@
 @extends('adminlte::page')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+@endsection
+
+@section('js')
+    <script src="{{ asset("js/app.js") }}"></script>
+
+    @if(session('success'))
+        <script>
+            iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
+        </script>
+    @endif
+@endsection
+
 @section('title', 'Estatísticas gerais')
 
 @section('content_header')
@@ -213,67 +227,37 @@
             <th>Item</th>
             <th>Status</th>
             <th>Vendedor</th>
+            <th>Comprador</th>
+            <th>Qtd</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-            <td>Refrigerador consul</td>
-            <td><span class="badge badge-success">Enviado</span></td>
-            <td>
-              <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-            <td>Smart TV</td>
-            <td><span class="badge badge-warning">Pendente</span></td>
-            <td>
-              <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-            <td>Fogão Dako</td>
-            <td><span class="badge badge-success">Enviado</span></td>
-            <td>
-              <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-            <td>Bicicleta aro 29</td>
-            <td><span class="badge badge-primary">Processando</span></td>
-            <td>
-              <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-            <td>video cassete</td>
-            <td><span class="badge badge-warning">Pendente</span></td>
-            <td>
-              <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-            </td>
-          </tr>
-          <tr>
-            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-            <td>iPhone 6 Plus</td>
-            <td><span class="badge badge-success">Enviado</span></td>
-            <td>
-              <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-            </td>
-          </tr>
+            @foreach($vendas as $venda)
+              <tr>
+                <td>{{ $venda->id }}</td>
+                <td><a href="#">{{ $venda->produto()->get()->first()->nome_pro }}</a></td>
+                @if($venda->status == 1)
+                  <td><a href="{{ route("vendas.incrementar",['id' => $venda->id]) }}"><span class="badge badge-warning">Pendente</span></a></td>
+                @else($venda->status == 2)
+                  <td><a href="{{ route("vendas.incrementar",['id' => $venda->id]) }}"><span class="badge badge-primary">Processando</span></a></td>
+                @endif
+                <td>
+                  <a href="{{ route('profile.index',['user_id' => $venda->vendedor_id]) }}">
+                    {{ $venda->user($venda->vendedor_id)->nome }}
+                  </a>
+                </td>
+                <td>
+                  <a href="{{ route('profile.index',['user_id' => $venda->comprador_id]) }}">
+                    {{ $venda->user($venda->comprador_id)->nome }}
+                  </a>
+                </td>
+                <td>{{ $venda->quantidade }}</td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
+        {{ $vendas->links() }}
       </div>
       <!-- /.table-responsive -->
-    </div>
-    <!-- /.box-body -->
-    <div class="box-footer clearfix" style="">
-      <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Ver todas as vendas</a>
-    </div>
-    <!-- /.box-footer -->
-  </div> 
   <br><br><br>
 @endsection
