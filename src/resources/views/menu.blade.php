@@ -48,7 +48,7 @@
                     <div class="dropdown-divider"></div>
                   @endif
                   @if(Auth::check())
-                    <a class="dropdown-item" href="http://127.0.0.1:8000/profile/6">Meu Perfil</a>
+                    <a class="dropdown-item" href="{{ route('profile.index',['user_id' => Auth::User()->id]) }}">Meu Perfil</a>
                     <a class="dropdown-item" href="{{ route('user.sair') }}">Sair</a>
                   @endif
                 </div>
