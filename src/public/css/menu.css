@@ -129,3 +129,9 @@
   max-height: 400px;
   overflow-x: hidden;
 }
+.cart{
+  
+  width: 800px;	
+  height: auto;
+  overflow-x: hidden;
+}
