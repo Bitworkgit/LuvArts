@@ -295,8 +295,13 @@ class ProdutosController extends Controller
         return view('produtos.comprar',compact('produto','alternativas','artista'));
     }
 
-    public function pesquisa($pesquisa){
-        $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->paginate(7);
+    public function pesquisa($pesquisa,$ordem = NULL){
+        if($ordem == NULL){
+            $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->paginate(7);
+        }
+        else {
+            $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->orderBy('preco_pro',$ordem)->paginate(7);
+        }
         $categorias = Categoria::all();
         return view('produtos.pesquisa', compact('produtos','pesquisa','categorias'));
     }

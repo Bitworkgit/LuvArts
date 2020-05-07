@@ -323,11 +323,14 @@
                             <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3>
                             <button id="colecao" name="colecao" class="btn btn-primary bt">Solicitar Pagamento</button>
                             <br><br>
-                            <a href="{{route('item.create')}}" class="btn btn-primary bt">Cadastrar arte</a><br><br>
                         @endif
 
                         @if($see && $verAdm)
                             <a href="{{route('admin.index')}}" class="btn btn-primary bt">Painel de controle</a><br><br>
+                        @endif
+
+                        @if($see)
+                            <a href="{{route('item.create')}}" class="btn btn-primary bt">Cadastrar arte</a><br><br>
                         @endif
 
                         <a href="{{route('item-perfil.listaArteUsu', $user->id)}}" class="btn btn-primary bt">Listar todas as artes</a>
