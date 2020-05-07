@@ -46,7 +46,7 @@
         <div class="icon">
           <i class="fa fa-credit-card"></i>
         </div>
-        <a href="" class="small-box-footer" data-toggle="modal" data-target="#exampleModalCenter">Informações <i class="fa fa-arrow-circle-right"></i></a>
+        <a class="small-box-footer"><br></a>
       </div>
     </div>
 
@@ -178,7 +178,7 @@
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Top 5 usuários com mais vendas</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Top 5 produtos com mais vendas</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
