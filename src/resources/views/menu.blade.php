@@ -215,15 +215,29 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-4">
-            <div class="Navcont">
-              <input type="text" placeholder="Pesquisar...">
-              <div class="navsearch"></div>
+
+
+
+          <form method="GET" action="{{ route('pesquisar') }}">
+            <div class="col-md-4">
+                <div class="Navcont">
+                <input type="text" id="pesquisa" placeholder="Pesquisar...">
+                <div class="navsearch"></div>
+                </div>
             </div>
-          </div>
+          </form>
         </div>
       </nav>
-	     
+      <script>
+          var entrada = document.getElementById('pesquisa');
+          entrada.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
+                window.open(url,"_blank");
+            }
+          });
+
+      </script>
 
 		 <style>
         .trash-color {color: red;}

@@ -144,7 +144,6 @@
             <!-- BEGIN TABLE RESULT -->
             <div class="table-responsive">
               @foreach($produtos as $produto)
-                @if($produto->categoria->nome_categoria == )
                   <table class="table table-hover">
                     <tbody>
                         <tr>
