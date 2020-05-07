@@ -117,7 +117,7 @@
               </span>
             </div>
             <!-- END SEARCH INPUT -->
-            
+            <?php echo $produtos; ?>
             <div class="padding"></div>
             
             <div class="row">
