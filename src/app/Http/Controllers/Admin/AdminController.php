@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use App\User;
 use App\Model\Produto;
 use App\Model\SaldoEquipe;
+use App\Doacoes;
 
 class AdminController extends Controller
 {
@@ -160,9 +161,10 @@ class AdminController extends Controller
         $liqui = $liqui - $block->sum('capital') - $exclu->sum('capital');
         $venda = Produto::all();
         $top5  = Produto::orderBy('vendas', 'DESC')->limit(5)->get();
-
+        $doacoes = Doacoes::all()->last();
+        $doacoes = $doacoes['capital'];
         //dd($top5);
         
-        return view('admin.estatisticas', compact('users', 'block', 'exclu', 'dados', 'liqui', 'ativo', 'venda', 'top5'));
+        return view('admin.estatisticas', compact('users', 'block', 'exclu', 'dados', 'liqui', 'ativo', 'venda', 'top5','doacoes'));
     }
 }

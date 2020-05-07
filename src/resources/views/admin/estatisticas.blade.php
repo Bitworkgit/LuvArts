@@ -26,7 +26,7 @@
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3>{{$users->count()}}</h3> 
+          <h3><sup style="font-size: 20px">R$</sup>{{number_format($doacoes, 2, ',', '.')}}</h3>
           <p>Capital para doação</p>
         </div>
         <div class="icon">

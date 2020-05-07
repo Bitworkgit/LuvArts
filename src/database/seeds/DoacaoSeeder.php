@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\Doacoes;
+use App\Doacoes;
 
 class DoacaoSeeder extends Seeder
 {
@@ -15,12 +15,12 @@ class DoacaoSeeder extends Seeder
         $capital = 0;
         for($a = 2000; $a < 2029; $a++){
             $capital += rand(1000,4000);
-            SaldoEquipe::create([
+            Doacoes::create([
                 "ano" => $a,
                 "capital" => $capital
             ]);
         }
-        SaldoEquipe::create([
+        Doacoes::create([
             "ano" => 2030,
             "capital" => 95200
         ]);
