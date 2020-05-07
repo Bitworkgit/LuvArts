@@ -7,13 +7,15 @@ window._ = require('lodash');
  */
 
 try {
-    window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    require("jquery-form");
+    require("jquery-mask-plugin");
+    window.Popper = require('popper.js').default;
+    window.iziToast = require("izitoast");
+    window.progressBar = require("progressbar.js");
     require('bootstrap');
     requireFromUrl('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js');
-    require("jquery-mask-plugin");
-    require('izitoast');
-
+    requireFromUrl('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js');
 } catch (e) {}
 
 /**
