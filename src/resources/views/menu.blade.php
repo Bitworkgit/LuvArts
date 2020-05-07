@@ -134,7 +134,7 @@
             position: relative;
         }
         .pad {
-            background-image: url("{{($user ?? ''->foto_capa == 'images/empty-background.jpg' ? asset($user ?? ''->foto_capa) : Storage::url($user ?? ''->foto_capa))}}");
+            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : Storage::url($user->foto_capa))}}");
         }
     </style>
 
@@ -144,20 +144,19 @@
             
         <div class="pad">
             <div class="text-right relative image-border"">
-                <img src="{{($user ?? ''->foto_perfil == 'images/empty-avatar.png' ? asset($user ?? ''->foto_perfil) : Storage::url($user ?? ''->foto_perfil))}}" alt="avatar">
+                <img src="{{($user->foto_perfil == 'images/empty-avatar.png' ? asset($user->foto_perfil) : Storage::url($user->foto_perfil))}}" alt="avatar">
             </div>
         </div>
         <div class="container">
             
             <div class="row my-2">
                 <div class="col-lg-7 order-lg-2">
-                    <h4 class="mt-2">{{ $user ?? ''->nome }}</h4>
+                    <h4 class="mt-2">{{ $user->nome }}</h4>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
 						
                             <a href="" data-target="#profile" data-toggle="tab" class="nav-link active show">Perfil</a>
                         </li>
-                        new item
                         </li>
 
                         @if($see)
@@ -173,11 +172,11 @@
                                 <div class="col-md-12">
                                     <h6>Biografia</h6>
                                     <p>
-                                        {{ $user ?? ''->biografia }}
+                                        {{ $user->biografia }}
                                     </p>
                                     <h6>Website</h6>
                                     <p>
-                                        {{ $user ?? ''->site }}
+                                        {{ $user->site }}
                                     </p>
                                 </div>
 
@@ -224,27 +223,27 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" name="nome" type="text" value="{{ $user ?? ''->nome }}">
+                                        <input class="form-control" name="nome" type="text" value="{{ $user->nome }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Website</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" name="website" type="text" value="{{ $user ?? ''->site }}">
+                                        <input class="form-control" name="website" type="text" value="{{ $user->site }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Celular</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" id="CEL" type="text" name="celular" value="{{ $user ?? ''->celular }}" placeholder="(00) 0000-0000">
+                                        <input class="form-control" id="CEL" type="text" name="celular" value="{{ $user->celular }}" placeholder="(00) 0000-0000">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Cpf</label>
                                     <div class="col-lg-9">
-                                        <input id="CPF" class="form-control" name="cpf" type="text" value="{{ $user ?? ''->cpf }}" placeholder="CPF">
+                                        <input id="CPF" class="form-control" name="cpf" type="text" value="{{ $user->cpf }}" placeholder="CPF">
                                     </div>
                                 </div>
                                 
@@ -252,7 +251,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Biografia</label>
                                     <div class="col-lg-9">
-                                        <textarea name="biografia" class="form-control">{{ $user ?? ''->biografia }}</textarea>
+                                        <textarea name="biografia" class="form-control">{{ $user->biografia }}</textarea>
                                     </div>
                                 </div>
 
@@ -261,31 +260,31 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Endereço</label>
                                     <div class="col-lg-9">
-										<input id="CEP" class="form-control" name="cep" type="text" value='{{ $user ?? ''->cep }}' placeholder="CEP">  
+										<input id="CEP" class="form-control" name="cep" type="text" value='{{ $user->cep }}' placeholder="CEP">  
 										<br>
-										<input class="form-control" name="endereço" type="text" value="{{ $user ?? ''->endereco }}" placeholder="Nº da Residência">
+										<input class="form-control" name="endereço" type="text" value="{{ $user->endereco }}" placeholder="Nº da Residência">
 										<br>
-                                        <input class="form-control" name="complemento" type="text" value="{{ $user ?? ''->complemento }}" placeholder="Complemento">
+                                        <input class="form-control" name="complemento" type="text" value="{{ $user->complemento }}" placeholder="Complemento">
                                     </div>
                                </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-6">
-                                        <input class="form-control" name="rua" type="text" value="{{$user ?? ''->rua}}" placeholder="Rua">
+                                        <input class="form-control" name="rua" type="text" value="{{$user->rua}}" placeholder="Rua">
                                     </div>
                                     <div class="col-lg-3">
-                                        <input class="form-control" name="bairro" type="text" value="{{ $user ?? ''->bairro }}" placeholder="Bairro">
+                                        <input class="form-control" name="bairro" type="text" value="{{ $user->bairro }}" placeholder="Bairro">
                                     </div>
                                     
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-6">
-                                        <input class="form-control" name="cidade" type="text" value="{{ $user ?? ''->cidade }}" placeholder="Cidade">
+                                        <input class="form-control" name="cidade" type="text" value="{{ $user->cidade }}" placeholder="Cidade">
                                     </div>
 										<br>
                                     <div class="col-lg-3">
-                                        <input class="form-control" name="estado" type="text" value="{{ $user ?? ''->estado }}" placeholder="UF">
+                                        <input class="form-control" name="estado" type="text" value="{{ $user->estado }}" placeholder="UF">
                                     </div>
                                 </div>
 								<br>
@@ -324,7 +323,7 @@
 
                         @if($see)
                             <h4>Seu capital</h4>
-                            <h3 class="card-heading  heading-3 mt--15">R$ {{$user ?? ''->capital}}</h3>
+                            <h3 class="card-heading  heading-3 mt--15">R$ {{$user->capital}}</h3>
                             <button id="colecao" name="colecao" class="btn btn-primary bt">Solicitar Pagamento</button>
                             <br><br>
                             <a href="{{route('item.create')}}" class="btn btn-primary bt">Cadastrar arte</a><br><br>
@@ -334,7 +333,7 @@
                             <a href="{{route('admin.index')}}" class="btn btn-primary bt">Painel de controle</a><br><br>
                         @endif
 
-                        <a href="{{route('item-perfil.listaArteUsu', $user ?? ''->id)}}" class="btn btn-primary bt">Listar todas as artes</a>
+                        <a href="{{route('item-perfil.listaArteUsu', $user->id)}}" class="btn btn-primary bt">Listar todas as artes</a>
                         <br>
                         <br>
                     </div>

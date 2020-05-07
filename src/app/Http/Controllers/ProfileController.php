@@ -23,7 +23,7 @@ class ProfileController extends Controller
             return redirect()->route("home");
         }
         else {
-            return view("user/profile",compact('user','colecoes', 'see', 'verAdm'));
+            return view('menu',compact('user','colecoes', 'see', 'verAdm'));
         }
     }  
 
