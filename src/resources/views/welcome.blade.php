@@ -63,7 +63,7 @@
 
   <!-- Grid column -->
   <div class="mb-3 pics animation all 2">
-    <a href="#"><img class="img-fluid" src="{{$alternativas[0]->user_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap"></a></a>
+    <a href="{{ route('produtos.comprar', ['id' => $alternativas[1]->id]) }}"><img class="img-fluid" src="{{$alternativas[0]->user_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap"></a></a>
   </div>
   <!-- Grid column -->
 

@@ -294,4 +294,9 @@ class ProdutosController extends Controller
                                         
         return view('produtos.comprar',compact('produto','alternativas','artista'));
     }
+
+    public function pesquisa($pesquisa){
+        $produtos = Produto::where('nome_pro','like','%'.$pesquisa);
+        return view('produtos.pesquisa', compact('produtos','pesquisa'));
+    }
 }

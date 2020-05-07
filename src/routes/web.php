@@ -39,7 +39,8 @@ Route::post("/colecao/edit/{id}",['uses' =>'Produtos\ProdutosController@editarCo
 
 /*  Rota para Registro, Alteração e Exclusão de Produtos */
 Route::resource('/item','Produtos\ProdutosController');
- 
+Route::get('/pesquisa/{pesquisa}', 'Produtos\ProdutosController@pesquisa')->name('pesquisar');
+
  /* Rota para mostrar os itens de cada Usuario por coleção e todos os itens de cada usuario */
 Route::prefix('item-perfil')->group(function(){
     Route::get('/colecao/{cod_colecao}', 'Produtos\ProdutosController@listaArteColecao')->name('item-perfil.listaArte');
