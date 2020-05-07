@@ -1,7 +1,6 @@
 <html>
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale = 1">
-
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">        
