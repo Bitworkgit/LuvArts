@@ -297,7 +297,6 @@ class ProdutosController extends Controller
 
     public function pesquisa(Request $request, $pesquisa, $ordem = NULL){
         $dado = $request->all();
-        
         if($ordem == NULL){
             $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->paginate(7);
         }
