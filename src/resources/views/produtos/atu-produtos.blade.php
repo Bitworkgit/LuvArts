@@ -122,8 +122,9 @@
     </div>
 
   </div>
+  <script src="{{ asset("js/app.js") }}"></script>
 
-    @if(session('success'))
+   @if(session('success'))
       <script>
         iziToast.success({title: 'Parabéns', message: '{{ session('success') }}'});
       </script>

@@ -68,6 +68,8 @@
         </div>
       </div>
     </main>
+    {{ $prod->links() }}
+
 
     @if(session('success'))
       <script>

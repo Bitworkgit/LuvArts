@@ -72,9 +72,9 @@ class ProdutosController extends Controller
        $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
             'Descricao' => 'required|string|max:250',
-            'preco'     => 'required',
+            'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => 'required|image|mimes:jpeg,jpg,png'
+            'imagem'    => 'required|image|mimes:jpeg,jpg,png||dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
         ],[
 
         ],[
@@ -165,7 +165,7 @@ class ProdutosController extends Controller
         $valida = Validator::make($request->all(),[
             'Pnome'     => 'required|string|max:100',
             'Descricao' => 'required|string',
-            'preco'     => 'required|min:10',
+            'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
             'imagem'    => 'image|mimes:jpeg,png,jpg|dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
         ],[
@@ -232,7 +232,7 @@ class ProdutosController extends Controller
 
     public function listaArteColecao(Request $request, $cod_colecoes){
        /* Pega os produtos pelo id da coleção */
-        $prod     = Produto::where('cod_colecoes', $cod_colecoes)->get();
+        $prod     = Produto::where('cod_colecoes', $cod_colecoes)->paginate(6);
         $text     = " por coleção";
         $semDados = "Ops, esta coleção não possui artes!";
         $user     = $request->user();
@@ -255,7 +255,7 @@ class ProdutosController extends Controller
 
     public function listaArteUsuario(Request $request, $id){
         /* Pega os produtos pelo id do usuario */
-        $prod     = Produto::where('user_id', $id)->get();
+        $prod     = Produto::where('user_id', $id)->paginate(6);
         $text     = " por usuário";
         $semDados = 'Ops, este usuário não possui artes!';
         $seeArts  = Gate::allows('ver-dados-edit');
