@@ -209,6 +209,8 @@
                                     @endif
                                     </tbody>
                                     </table>
+                                    <a href="{{route('item-perfil.listaArteUsu', $user->id)}}">Listar todas as artes</a>
+
                                 </div>
                             </div>
                             <!--/row-->
@@ -333,7 +335,6 @@
                             <a href="{{route('item.create')}}" class="btn btn-primary bt">Cadastrar arte</a><br><br>
                         @endif
 
-                        <a href="{{route('item-perfil.listaArteUsu', $user->id)}}" class="btn btn-primary bt">Listar todas as artes</a>
                         <br>
                         <br>
                     </div>

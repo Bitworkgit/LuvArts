@@ -101,9 +101,7 @@
             <div class="input-group">
               <input type="text" class="form-control" value="{{ $pesquisa }}">
               <span class="input-group-btn">
-                <button class="btn btn-primary" style="
-    width: 98%;
-" type="button"><i class="fa fa-search"></i></button>
+                <button class="btn btn-primary" style="width: 98%;" type="button"><i class="fa fa-search"></i></button>
               </span>
             </div>
             <!-- END SEARCH INPUT -->
@@ -117,8 +115,14 @@
                     Order by <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Menor preço</a></li>
-                    <li><a href="#">Maior preço</a></li>
+                    <li><a href="{{ route('pesquisar',[
+                      'pesquisa' => $pesquisa,
+                      'ordem' => 'asc'
+                      ])}}">Menor preço</a></li>
+                    <li><a href="{{ route('pesquisar',[
+                      'pesquisa' => $pesquisa,
+                      'ordem' => 'desc'
+                      ])}}">Maior preço</a></li>
                   </ul>
                 </div>
               </div>
@@ -133,7 +137,7 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <td class="image"><img style="max-height: 350px;" src="{{$produto->user_id == 1 ? asset($produto->ende_foto_pro) : Storage::url($produto->ende_foto_pro)}}" alt=""></td>
-                  <td class="product"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong><br>{{ $produto->descricao_pro }}</td>
+                  <td class="product"><a href="{{ route('produto.comprar',['id' => $produto->id]) }}"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong></a><br>{{ $produto->descricao_pro }}</td>
                   <td class="price text-right"><b style="color: black; font-size: 20px;">R$ {{number_format($produto->preco_pro, 2, ',', '.') }}</b></td>
                 </tr>
               </tbody></table>
