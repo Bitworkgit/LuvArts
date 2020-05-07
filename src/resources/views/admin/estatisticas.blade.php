@@ -235,7 +235,7 @@
             @foreach($vendas as $venda)
               <tr>
                 <td>{{ $venda->id }}</td>
-                <td><a href="#">{{ $venda->produto()->get()->first()->nome_pro }}</a></td>
+                <td><a href="{{ route("produto.comprar", ['id' => $venda->produto()->get()->first()->id]) }}">{{ $venda->produto()->get()->first()->nome_pro }}</a></td>
                 @if($venda->status == 1)
                   <td><a href="{{ route("vendas.incrementar",['id' => $venda->id]) }}"><span class="badge badge-warning">Pendente</span></a></td>
                 @else($venda->status == 2)
