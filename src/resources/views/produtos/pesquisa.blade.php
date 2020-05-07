@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design for Bootstrap</title>
+  <title>pesquisando por {{$pesquisa}}</title>
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
 
 </head>
@@ -81,21 +81,11 @@
             
             <!-- BEGIN FILTER BY CATEGORY -->
             <h4>Por categoria:</h4>
-            <div class="checkbox">
-              <label><input type="checkbox" class="icheck"> Application</label>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" class="icheck"> Design</label>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" class="icheck"> Desktop</label>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" class="icheck"> Management</label>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" class="icheck"> Mobile</label>
-            </div>
+            @foreach($categorias as $categoria)
+              <div class="checkbox">
+                <label><input type="checkbox" class="icheck"> {{$categoria->nome_categoria}}</label>
+              </div>
+            @endforeach
             <!-- END FILTER BY CATEGORY -->
             
             <div class="padding"></div>
@@ -117,7 +107,6 @@
               </span>
             </div>
             <!-- END SEARCH INPUT -->
-            <?php echo $produtos; ?>
             <div class="padding"></div>
             
             <div class="row">
@@ -143,12 +132,13 @@
               @foreach($produtos as $produto)
               <table class="table table-hover">
                 <tbody><tr>
-                  <td class="image"><img style="max-height: 350px;" src="https://via.placeholder.com/400x300" alt=""></td>
-                  <td class="product"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong><br>This is the product description.</td>
-                  <td class="price text-right"><b style="color: black; font-size: 20px;">$350</b></td>
+                  <td class="image"><img style="max-height: 350px;" src="{{$produto->user_id == 1 ? asset($produto->ende_foto_pro) : Storage::url($produto->ende_foto_pro)}}" alt=""></td>
+                  <td class="product"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong><br>{{ $produto->descricao_pro }}</td>
+                  <td class="price text-right"><b style="color: black; font-size: 20px;">R$ {{number_format($produto->preco_pro, 2, ',', '.') }}</b></td>
                 </tr>
               </tbody></table>
               @endforeach
+              {{$produtos->links()}}
             </div>
             <!-- END TABLE RESULT -->
             

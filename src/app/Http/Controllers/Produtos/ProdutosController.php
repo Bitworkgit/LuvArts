@@ -296,7 +296,8 @@ class ProdutosController extends Controller
     }
 
     public function pesquisa($pesquisa){
-        $produtos = Produto::where('nome_pro','like','%'.$pesquisa);
-        return view('produtos.pesquisa', compact('produtos','pesquisa'));
+        $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->paginate(7);
+        $categorias = Categoria::all();
+        return view('produtos.pesquisa', compact('produtos','pesquisa','categorias'));
     }
 }
