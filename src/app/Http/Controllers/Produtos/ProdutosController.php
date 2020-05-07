@@ -295,7 +295,9 @@ class ProdutosController extends Controller
         return view('produtos.comprar',compact('produto','alternativas','artista'));
     }
 
-    public function pesquisa($pesquisa,$ordem = NULL){
+    public function pesquisa(Request $request, $pesquisa, $ordem = NULL){
+        $dado = $request->all();
+        
         if($ordem == NULL){
             $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->paginate(7);
         }
@@ -303,6 +305,6 @@ class ProdutosController extends Controller
             $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->orderBy('preco_pro',$ordem)->paginate(7);
         }
         $categorias = Categoria::all();
-        return view('produtos.pesquisa', compact('produtos','pesquisa','categorias'));
+        return view('produtos.pesquisa', compact('produtos','pesquisa','categorias', 'dado'));
     }
 }
