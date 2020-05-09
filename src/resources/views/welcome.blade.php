@@ -45,7 +45,55 @@
                     </a>
                     <div class="dropdown-menu cart" aria-labelledby="navbarDropdown">
                     
-                  
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th></th>
+                            <th class="text-center"></th>
+                            <th class="text-center">Preço</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($carrinho as $item)
+                            <tr>
+                                <td class="col-sm-8 col-md-6">
+                                <div class="media">
+                                    <img class="media-object" src="{{$item->produto()->get()->first()->user_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
+                                    </div>
+                                </div></td>
+                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                </td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{$item->produto()->get()->first()->preco_pro}}</strong></td>
+                                <td class="col-sm-1 col-md-1">
+                                    <a style="color: black; text-decoration: none;" href="{{route('produto.removerDoCarrinho',['id' => $item->id])}}">
+                                        <button type="button" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                                Remover
+                                            
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
+                        </td>
+                            <td>
+                            <button type="button" class="btn btn-dark " style="background-color: #414251!important;">
+                                Comprar <span class="glyphicon glyphicon-play"></span>
+                            </button></td>
+                        </tr>
+                    </tbody>
+                </table>
     
 
 
@@ -80,7 +128,7 @@
                   @endif
                 </div>
               </li>
-			  <!-----------------------------------------------------------------------------------------------
+			  <!----------------------------------------------------------------------------------------------->
 			     <li class="nav-item dropdown">
                 <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
