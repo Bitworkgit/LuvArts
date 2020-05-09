@@ -36,7 +36,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="col-md-8">
             <ul class="navbar-nav mr-auto">
-			@if(Auth::check())
+      @if(Auth::check())
+                <?php $carrinho = App\Carrinho::where("comprador_id",Auth::User()->id); ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -129,7 +130,8 @@
                 </div>
               </li>
 			  <!----------------------------------------------------------------------------------------------->
-			     <li class="nav-item dropdown">
+              <?php $categorias = App\Model\Categoria::all(); ?>
+              <li class="nav-item dropdown">
                 <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   Categorias
@@ -161,6 +163,16 @@
           </form>
         </div>
       </nav>
+      <script>
+          var entrada = document.getElementById('pesquisa');
+          entrada.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
+                window.open(url,"_blank");
+            }
+          });
+
+      </script>
 
   <div class="row">
     <div class="col-md-12 ">
