@@ -17,7 +17,7 @@
   </style>
   </head>
 <body>
- <a class="" href="{{ route('home') }}" style="
+  <a class="" href="{{ route('home') }}" style="
         /* margin-top: 77px; */
         z-index:  99999;
         padding: 10px;
@@ -36,9 +36,30 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="col-md-8">
             <ul class="navbar-nav mr-auto">
+			@if(Auth::check())
+                <li class="nav-item dropdown">
+                    <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ asset('images/cart.png')}}" width="30" class="nav-img  ">
+                    
+                    </a>
+                    <div class="dropdown-menu cart" aria-labelledby="navbarDropdown">
+                    
+                  
+    
+
+
+                    
+                    </div>
+                </li>
+            @endif
+			
+			
+			
               <li class="nav-item active">
                 <a class="nav-link menu" href="{{ route('home') }}">Início <span class="sr-only">(current)</span></a>
               </li>
+			    
               <li class="nav-item">
                 <a class="nav-link menu" href="#">Sobre nós</a>
               </li>
@@ -54,75 +75,42 @@
                     <div class="dropdown-divider"></div>
                   @endif
                   @if(Auth::check())
-                    <a class="dropdown-item" href="http://127.0.0.1:8000/profile/6">Meu Perfil</a>
+                    <a class="dropdown-item" href="{{ route('profile.index',['user_id' => Auth::User()->id]) }}">Meu Perfil</a>
                     <a class="dropdown-item" href="{{ route('user.sair') }}">Sair</a>
                   @endif
                 </div>
               </li>
-			  <!----------------------------------------------------------------------------------------------->
+			  <!-----------------------------------------------------------------------------------------------
 			     <li class="nav-item dropdown">
                 <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   Categorias
                 </a>
                 <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                 
-                  
-                  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-				  <a class="dropdown-item" href="">Cadastrar-se</a>
-
-
-                  
+                    @foreach($categorias as $categoria)
+                        <a class="dropdown-item" href="{{ route('pesquisar.categoria', ['categoria_id' => $categoria->id]) }}">{{ $categoria->nome_categoria }}</a>
+                    @endforeach
                 </div>
               </li>
+			  
+			
 			  <!------------------------------------------------------------------------------------------------------->
               <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><br></a>
               </li>
             </ul>
           </div>
-          <div class="col-md-4">
-            <div class="Navcont">
-              <input type="text" placeholder="Pesquisar...">
-              <div class="navsearch"></div>
+
+
+
+          <form method="GET" action="{{ route('pesquisar') }}">
+            <div class="col-md-4">
+                <div class="Navcont">
+                <input type="text" id="pesquisa" placeholder="Pesquisar...">
+                <div class="navsearch"></div>
+                </div>
             </div>
-          </div>
+          </form>
         </div>
       </nav>
 
