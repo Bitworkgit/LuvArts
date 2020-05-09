@@ -59,4 +59,8 @@ class User extends Authenticatable
     public function venda(){
         $this->hasMany('App\Venda');
     }
+
+    public function carrinho(){
+        $this->belongsTo('App\Carrinho');
+    }
 }
