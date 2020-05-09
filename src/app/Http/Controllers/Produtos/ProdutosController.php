@@ -208,7 +208,7 @@ class ProdutosController extends Controller
         
         $pro->save();
 
-        return redirect()->route('item.edit', $id)->with('success', 'Arte alterada com sucesso');
+        return redirect()->route('profile.index',['user_id' => Auth::User()->id])->with('success', 'Arte alterada com sucesso');
     }
 
     /**
