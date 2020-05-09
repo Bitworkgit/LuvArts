@@ -184,18 +184,23 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
 	  <div class="text-center">
-        <img class="mx-auto d-block" style="max-height: 700px;  " src="{{$maisComprados[0]->user_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide">
+        <a href="{{ route('produto.comprar', ['id' => $maisComprados[0]->id]) }}">
+		<img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[0]->user_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide"></a>
       </div>
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
+	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[1]->id]) }}">
         <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[1]->user_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
-      </div>
+     </a>
+	 </div>
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
+	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
         <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[2]->user_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
-      </div>
+      </a>
+	  </div>
 	  </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
