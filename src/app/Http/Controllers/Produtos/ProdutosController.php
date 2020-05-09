@@ -11,6 +11,7 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Carrinho;
 
 
 class ProdutosController extends Controller
@@ -336,5 +337,19 @@ class ProdutosController extends Controller
 
         $categorias = Categoria::all();
         return view('produtos.pesquisa', compact('produtos','pesquisa','categorias','categoria_id'));
+    }
+
+    public function removerDoCarrinho($id){
+        $produto = Carrinho::find($id);
+        $produto->delete();
+        return back()->with('success',"Produto removido!");
+    }
+
+    public function adicionarAoCarrinho($produto_id,$comprador_id){
+        Carrinho::create([
+            "comprador_id" => $comprador_id,
+            "produto_id" => $produto_id
+        ]);
+        return redirect()->route('home')->with('success','Produto adicionado ao carrinho!');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Carrinho;
 use App\Model\Colecao;
 use App\Model\Categoria;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -20,11 +21,12 @@ class ProfileController extends Controller
         $see = Gate::allows('ver-dados');
         $verAdm = Gate::allows('admin');
         $categorias = Categoria::all();
+        $carrinho = Carrinho::where('comprador_id',$user_id)->get();
         if(empty($user)){
             return redirect()->route("home");
         }
         else {
-            return view('menu',compact('user','colecoes', 'see', 'verAdm','categorias'));
+            return view('menu',compact('user','colecoes', 'see', 'verAdm','categorias','carrinho'));
         }
     }  
 

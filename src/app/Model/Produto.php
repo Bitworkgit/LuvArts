@@ -36,6 +36,6 @@ class Produto extends Model
     }
 
     public function carrinho(){
-        return $this->belongsTo('App\Carrinho');
+        return $this->hasMany('App\Carrinho');
     }
 }

@@ -67,6 +67,8 @@ Route::prefix('dashboard-admin')->group(function(){
 });
 
 Route::get('produto/comprar/{id}','Produtos\ProdutosController@comprarProduto')->name("produto.comprar");
+Route::get('produto/remover/carrinho/{id}','Produtos\ProdutosController@removerDoCarrinho')->name("produto.removerDoCarrinho");
+Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produtos\ProdutosController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
 
  /* Caso não exista a rota, joga para a pagina de 404 */
 Route::fallback(function(){

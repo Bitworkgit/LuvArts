@@ -29,106 +29,71 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="col-md-8">
             <ul class="navbar-nav mr-auto">
-			
-			<li class="nav-item dropdown">
-                <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <img src="{{ asset('images/cart.png')}}" width="30" class="nav-img  ">
-				  
-                </a>
-                <div class="dropdown-menu cart" aria-labelledby="navbarDropdown">
-                 
-                   <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-sm-8 col-md-6">
-                        <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Product name</a></h4>
-                                <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
-                            </div>
-                        </div></td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+			@if(Auth::check())
+                <li class="nav-item dropdown">
+                    <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ asset('images/cart.png')}}" width="30" class="nav-img  ">
+                    
+                    </a>
+                    <div class="dropdown-menu cart" aria-labelledby="navbarDropdown">
+                    
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th></th>
+                            <th class="text-center"></th>
+                            <th class="text-center">Preço</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($carrinho as $item)
+                            <tr>
+                                <td class="col-sm-8 col-md-6">
+                                <div class="media">
+                                    <img class="media-object" src="{{$item->produto()->get()->first()->user_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
+                                    </div>
+                                </div></td>
+                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                </td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{$item->produto()->get()->first()->preco_pro}}</strong></td>
+                                <td class="col-sm-1 col-md-1">
+                                    <a style="color: black; text-decoration: none;" href="{{route('produto.removerDoCarrinho',['id' => $item->id])}}">
+                                        <button type="button" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                                Remover
+                                            
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
-                        <td class="col-sm-1 col-md-1">
-                        <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-6">
-                        <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Product name</a></h4>
-                                <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                <span>Status: </span><span class="text-warning"><strong>Leaves warehouse in 2 - 3 weeks</strong></span>
-                            </div>
-                        </div></td>
-                        <td class="col-md-1" style="text-align: center">
-                        <input type="email" class="form-control" id="exampleInputEmail1" value="2">
-                        </td>
-                        <td class="col-md-1 text-center"><strong>$4.99</strong></td>
-                        <td class="col-md-1 text-center"><strong>$9.98</strong></td>
-                        <td class="col-md-1">
-                        <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>
-                       </td>
-                        <td>
-                        <button type="button" class="btn btn-dark " style="background-color: #414251!important;">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
-                    </tr>
-                </tbody>
-            </table>
-   
+                            <td>
+                            <button type="button" class="btn btn-dark " style="background-color: #414251!important;">
+                                Comprar <span class="glyphicon glyphicon-play"></span>
+                            </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+    
 
 
-                  
-                </div>
-              </li>
+                    
+                    </div>
+                </li>
+            @endif
 			
 			
 			

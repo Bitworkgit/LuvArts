@@ -40,7 +40,7 @@ class ProdutoSeeder extends Seeder
             Produto::create([
                 "nome_pro" => "Produto de amostra",
                 "descricao_pro" => "......",
-                "preco_pro" => 10.50,
+                "preco_pro" => rand(12,100),
                 "ende_foto_pro" => $dado[0],
                 "user_id" => 1,
                 "cod_categoria" => rand(1,Categoria::all()->count()),

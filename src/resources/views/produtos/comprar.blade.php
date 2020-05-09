@@ -92,8 +92,15 @@
     <div class="textoCentro"><a class="prof" href="{{ route('profile.index',["user_id" => $artista->id]) }}">{{ $artista->nome }}</a></div>
 		</div>
         <label>Quantidade: </label>
-        <input type="text" value="1">
+        <input type="text" value="1"><br>
         <button type="button" class=" btn btn-default waves-effect waves-light comprar">Comprar</button>
+        @if(Auth::check())
+          <button type="button" class=" btn btn-default waves-effect waves-light comprar">
+            <a href="{{route('produto.adicionarAoCarrinho',['comprador_id' => Auth::User()->id, 'produto_id' => $produto->id])}}" style="color:white; text-decoration: none;">
+              Adicionar ao carrinho
+            </a>
+          </button>
+        @endif
       </div>
     </div>
 	<br>
