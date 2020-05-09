@@ -225,10 +225,7 @@ class ProdutosController extends Controller
         \Storage::delete($pro->ende_foto_pro);
         $pro->delete();
         
-        if($user['administrador'] == 1)
-            return redirect()->route('admin.users')->with('success', 'Arte excluida com sucesso');
-        else
-            return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
+        return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
     }
 
     public function listaArteColecao(Request $request, $cod_colecoes){
