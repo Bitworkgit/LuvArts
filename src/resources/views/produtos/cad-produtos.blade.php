@@ -15,7 +15,9 @@
               <div class="col-lg-7">
                 <!-- File Button -->
                 <div class="form-group">
-                  <label class="col-md-4 control-label" for="uploadArt">Suba sua arte</label>
+                  <label class="col-md-4 control-label" for="uploadArt">Suba sua arte </label>
+				  <br>
+				  <label>  Resoluçao indicada 2480x3508 ou 3508x2480</label>
                   <div class="col-md-4">
                     <input type="file" name="imagem">
                   </div>

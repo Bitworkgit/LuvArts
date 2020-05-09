@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset("/pages/produtos/comprar/style.css") }}">
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
   <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
   <style>
   
     .menu {
