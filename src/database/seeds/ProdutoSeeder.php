@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Model\Produto;
+use App\Model\Categoria;
 
 class ProdutoSeeder extends Seeder
 {
@@ -42,7 +43,7 @@ class ProdutoSeeder extends Seeder
                 "preco_pro" => 10.50,
                 "ende_foto_pro" => $dado[0],
                 "user_id" => 1,
-                "cod_categoria" => 1,
+                "cod_categoria" => rand(1,Categoria::all()->count()),
                 "cod_colecoes" => 1,
                 "vendas" => $dado[1]
             ]);

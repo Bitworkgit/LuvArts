@@ -84,18 +84,14 @@
 
             
 
-            <form action="{{route('pesquisar')}}" >
               @foreach($categorias as $categoria)
-                <div class="checkbox">
-                    <label><input type="checkbox" class="icheck" name="{{$categoria->nome_categoria}}" value="{{$categoria->id}}"> {{$categoria->nome_categoria}}</label>
-                </div>
+                    <label><a href="{{ route('pesquisar.categoria', [
+                      'categoria_id' => $categoria->id,
+                      'pesquisa' => $pesquisa,
+                      'ordem' => 'asc'
+                    ]) }}">{{$categoria->nome_categoria}}</a></label><br>
               @endforeach
-               <input type="submit" value="Filtrar">
-               <br><br>
-               <br><br>
-               <br><br>
-               <br><br>
-            </form>
+
             <!-- END FILTER BY CATEGORY -->
             
             <div class="padding"></div>
@@ -115,46 +111,69 @@
               </span>
             </div>
             <!-- END SEARCH INPUT -->
+            
             <div class="padding"></div>
             
             <div class="row">
               <!-- BEGIN ORDER RESULT -->
-              <div class="col-sm-6">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Order by <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ route('pesquisar',[
-                      'pesquisa' => $pesquisa,
-                      'ordem' => 'asc'
-                      ])}}">Menor preço</a></li>
-                    <li><a href="{{ route('pesquisar',[
-                      'pesquisa' => $pesquisa,
-                      'ordem' => 'desc'
-                      ])}}">Maior preço</a></li>
-                  </ul>
+              @if($produtos != "Nada encontrado...")
+                <div class="col-sm-6">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      Ordenar por <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      @if($pesquisa != " ")
+                        <li><a href="{{ route('pesquisar',[
+                          'pesquisa' => $pesquisa,
+                          'ordem' => 'asc'
+                          ])}}">Menor preço</a></li>
+                        <li><a href="{{ route('pesquisar',[
+                          'pesquisa' => $pesquisa,
+                          'ordem' => 'desc'
+                          ])}}">Maior preço</a></li>
+                      </ul>
+                    @else
+                      <li><a href="{{ route('pesquisar.categoria',[
+                        'categoria_id' => $categoria_id,
+                        'ordem' => 'asc',
+                        'pesquisa' => $pesquisa
+                        ])}}">Menor preço</a></li>
+                      <li><a href="{{ route('pesquisar.categoria',[
+                        'categoria_id' => $categoria_id,
+                        'ordem' => 'desc',
+                        'pesquisa' => $pesquisa
+                        ])}}">Maior preço</a></li>
+                    </ul>
+                    @endif
+                  </div>
                 </div>
-              </div>
-              <!-- END ORDER RESULT -->
-              
+                <!-- END ORDER RESULT -->
+              @endif
            
             </div>
-            
+            @if($produtos == "Nada encontrado...")
+              <br><br>
+              <center>
+                <h1>{{$produtos}}</h1>
+              </center>
+            @endif
             <!-- BEGIN TABLE RESULT -->
             <div class="table-responsive">
-              @foreach($produtos as $produto)
-                  <table class="table table-hover">
-                    <tbody>
-                        <tr>
-                          <td class="image"><img style="max-height: 350px;" src="{{$produto->user_id == 1 ? asset($produto->ende_foto_pro) : Storage::url($produto->ende_foto_pro)}}" alt=""></td>
-                          <td class="product"><a href="{{ route('produto.comprar',['id' => $produto->id]) }}"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong></a><br>{{ $produto->descricao_pro }}</td>
-                          <td class="price text-right"><b style="color: black; font-size: 20px;">R$ {{number_format($produto->preco_pro, 2, ',', '.') }}</b></td>
-                        </tr>
-                    </tbody>
-                  </table>
-              @endforeach
-              {{$produtos->links()}}
+              @if($produtos != "Nada encontrado...")
+                @foreach($produtos as $produto)
+                    <table class="table table-hover">
+                      <tbody>
+                          <tr>
+                            <td class="image"><img style="max-height: 350px;" src="{{$produto->user_id == 1 ? asset($produto->ende_foto_pro) : Storage::url($produto->ende_foto_pro)}}" alt=""></td>
+                            <td class="product"><a href="{{ route('produto.comprar',['id' => $produto->id]) }}"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong></a><br>{{ $produto->descricao_pro }}</td>
+                            <td class="price text-right"><b style="color: black; font-size: 20px;">R$ {{number_format($produto->preco_pro, 2, ',', '.') }}</b></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                @endforeach
+                {{$produtos->links()}}
+              @endif
             </div>
             <!-- END TABLE RESULT -->
             

@@ -41,6 +41,8 @@ Route::post("/colecao/edit/{id}",['uses' =>'Produtos\ProdutosController@editarCo
 Route::resource('/item','Produtos\ProdutosController');
 Route::get('/pesquisa/{pesquisa?}/{ordem?}', 'Produtos\ProdutosController@pesquisa')->name('pesquisar');
 
+Route::get('/categoria/{categoria_id}/{ordem?}/{pesquisa?}', 'Produtos\ProdutosController@categoria')->name('pesquisar.categoria');
+
  /* Rota para mostrar os itens de cada Usuario por coleção e todos os itens de cada usuario */
 Route::prefix('item-perfil')->group(function(){
     Route::get('/colecao/{cod_colecao}', 'Produtos\ProdutosController@listaArteColecao')->name('item-perfil.listaArte');

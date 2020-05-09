@@ -163,48 +163,9 @@
                   Categorias
                 </a>
                 <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                 
-                  
-                    <a class="dropdown-item" href="">Mangá</a>
-                    <a class="dropdown-item" href="">Blueprints</a> 
-                    <a class="dropdown-item" href="">Livros</a>
-                    <a class="dropdown-item" href="">Carros</a> 
-                    <a class="dropdown-item" href="">Desenhos animados</a>
-                    <a class="dropdown-item" href="">Celebridades</a> 
-                    <a class="dropdown-item" href="">Urbanas</a>
-                    <a class="dropdown-item" href="">Histórias em quadrinhos</a>
-                    <a class="dropdown-item" href="">Arte contemporânea</a>
-                    <a class="dropdown-item" href="">Fantasia </a>
-                    <a class="dropdown-item" href="">Moda </a>
-                    <a class="dropdown-item" href="">Floral </a>
-                    <a class="dropdown-item" href="">Comida e Cozinha</a>
-                    <a class="dropdown-item" href="">Engraçado </a>
-                    <a class="dropdown-item" href="">Jogos </a>
-                    <a class="dropdown-item" href="">Inspirador </a>
-                    <a class="dropdown-item" href="">Japonês </a>
-                    <a class="dropdown-item" href="">Ásia </a>
-                    <a class="dropdown-item" href="">Infantil </a>
-                    <a class="dropdown-item" href="">Paisagens </a>
-                    <a class="dropdown-item" href="">Espaço masculino</a>
-                    <a class="dropdown-item" href="">Mapas </a>
-                    <a class="dropdown-item" href="">Militares </a>
-                    <a class="dropdown-item" href="">Minimalista </a>
-                    <a class="dropdown-item" href="">Filmes </a>
-                    <a class="dropdown-item" href="">Música </a>
-                    <a class="dropdown-item" href="">Natureza </a>
-                    <a class="dropdown-item" href="">Pinturas </a>
-                    <a class="dropdown-item" href="">Aviões </a>
-                    <a class="dropdown-item" href="">Arte pop</a>
-                    <a class="dropdown-item" href="">Retro</a>
-                    <a class="dropdown-item" href="">Espaço</a>
-                    <a class="dropdown-item" href="">Esporte</a>
-                    <a class="dropdown-item" href="">Text Art</a>
-                    <a class="dropdown-item" href="">Viagem</a>
-                    <a class="dropdown-item" href="">Programas de TV</a>
-                    <a class="dropdown-item" href="">Estados Unidos</a>
-                    <a class="dropdown-item" href="">Cartazes vintage</a>
-                    <a class="dropdown-item" href="">Brasil</a>
-                  
+                    @foreach($categorias as $categoria)
+                        <a class="dropdown-item" href="{{ route('pesquisar.categoria', ['categoria_id' => $categoria->id]) }}">{{ $categoria->nome_categoria }}</a>
+                    @endforeach
                 </div>
               </li>
 			  

@@ -295,15 +295,46 @@ class ProdutosController extends Controller
         return view('produtos.comprar',compact('produto','alternativas','artista'));
     }
 
-    public function pesquisa(Request $request, $pesquisa, $ordem = NULL){
-        $dado = $request->all();
-        if($ordem == NULL){
-            $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->paginate(7);
+    public function pesquisa($pesquisa = "", $ordem = "DESC"){
+        $categorias = Categoria::all();
+        $status = 0;
+        if($pesquisa == "" || $pesquisa == NULL){
+            $status = 1;
         }
         else {
-            $produtos = Produto::where('nome_pro','like','%'.$pesquisa."%")->orderBy('preco_pro',$ordem)->paginate(7);
+            $produtos = Produto::where('nome_pro','like','%'.$pesquisa.'%')->orderBy('preco_pro',$ordem)->paginate(7);
         }
+
+        if(!isset($produtos) || count($produtos) == 0){
+            $status = 1;
+            $produtos = "Nada encontrado...";
+        }
+
+        if($status == 0){
+            return view('produtos.pesquisa', compact('produtos','pesquisa','categorias'));
+        } else {
+            return view('produtos.pesquisa', compact('produtos','pesquisa','categorias'));
+        }
+    }
+
+    public function categoria($categoria_id, $ordem = "DESC", $pesquisa = NULL){
+
+        if($pesquisa != NULL && $pesquisa != " "){
+            $produtos = Produto::where('cod_categoria',$categoria_id)
+                                ->where('nome_pro','like','%'.$pesquisa."%")
+                                ->orderBy('preco_pro',$ordem)
+                                ->paginate(7);
+        }
+        else {
+            $produtos = Produto::where('cod_categoria',$categoria_id)->orderBy('preco_pro',$ordem)->paginate(7);
+            $pesquisa = " ";
+        }
+
+        if(count($produtos) == 0){
+            $produtos = "Nada encontrado...";
+        }
+
         $categorias = Categoria::all();
-        return view('produtos.pesquisa', compact('produtos','pesquisa','categorias', 'dado'));
+        return view('produtos.pesquisa', compact('produtos','pesquisa','categorias','categoria_id'));
     }
 }

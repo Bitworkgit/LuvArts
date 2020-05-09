@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
             CategoriasTableSeeder::class,
             ColecaoSeeder::class,
             ProdutoSeeder::class,
-            CategoriasTableSeeder::class,
             DoacaoSeeder::class,
             SaldoEquipeSeeder::class,
             VendasSeeder::class

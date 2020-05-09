@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Model\Colecao;
+use App\Model\Categoria;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Gate;
 
@@ -18,12 +19,12 @@ class ProfileController extends Controller
         $colecoes = Colecao::where('user_id',$user_id)->get();
         $see = Gate::allows('ver-dados');
         $verAdm = Gate::allows('admin');
-
+        $categorias = Categoria::all();
         if(empty($user)){
             return redirect()->route("home");
         }
         else {
-            return view('menu',compact('user','colecoes', 'see', 'verAdm'));
+            return view('menu',compact('user','colecoes', 'see', 'verAdm','categorias'));
         }
     }  
 
