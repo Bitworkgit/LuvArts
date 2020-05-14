@@ -3,9 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Carrinho;
 use App\User;
-use App\Model\Produto;
 
-class CarrinhosSeeder extends Seeder
+class CarrinhoSeeder extends Seeder
 {
     /**
      * Run the database seeds.

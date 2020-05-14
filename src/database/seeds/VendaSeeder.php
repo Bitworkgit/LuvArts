@@ -5,7 +5,7 @@ use App\Venda;
 use App\User;
 use App\Model\Produto;
 
-class VendasSeeder extends Seeder
+class VendaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
