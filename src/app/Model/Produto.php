@@ -28,14 +28,14 @@ class Produto extends Model
     }
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Model\User');
     }
 
     public function venda(){
-        return $this->hasMany('App\Venda');
+        return $this->hasMany('App\Model\Venda');
     }
 
     public function carrinho(){
-        return $this->hasMany('App\Carrinho');
+        return $this->hasMany('App\Model\Carrinho');
     }
 }

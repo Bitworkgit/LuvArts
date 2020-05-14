@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Doacoes extends Model
+class Doacao extends Model
 {
     protected $table = "doacoes";
 }

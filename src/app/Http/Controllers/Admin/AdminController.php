@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use App\User;
+use App\Model\User;
 use App\Model\Produto;
 use App\Model\SaldoEquipe;
-use App\Doacoes;
-use App\Venda;
+use App\Model\Doacao;
+use App\Model\Venda;
 
 class AdminController extends Controller
 {
@@ -162,7 +162,7 @@ class AdminController extends Controller
         $liqui = $liqui - $block->sum('capital') - $exclu->sum('capital');
         $venda = Produto::all();
         $top5  = Produto::orderBy('vendas', 'DESC')->limit(5)->get();
-        $doacoes = Doacoes::all()->last();
+        $doacoes = Doacao::all()->last();
         $doacoes = $doacoes['capital'];
         $vendas = Venda::where('status','<',3)->paginate(7);
         //dd($top5);

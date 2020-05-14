@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Produtos;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Produto;
-use App\Model\Categoria;
-use App\Model\Colecao;
-use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use App\Carrinho;
+use App\Model\Carrinho;
+use App\Model\Produto;
+use App\Model\Categoria;
+use App\Model\Colecao;
+use App\Model\User;
 
 
 class ProdutosController extends Controller

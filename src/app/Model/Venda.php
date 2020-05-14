@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use App\Model\User;
 
 class Venda extends Model
 {

@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-use App\User;
-use App\Carrinho;
-use App\Model\Colecao;
-use App\Model\Categoria;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Gate;
+use App\Model\User;
+use App\Model\Carrinho;
+use App\Model\Colecao;
+use App\Model\Categoria;
 
 class ProfileController extends Controller
 {
