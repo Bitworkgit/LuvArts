@@ -4,7 +4,6 @@
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">        
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
     </head>
