@@ -16,7 +16,13 @@
     foreach($comandos as $comando){
         system($comando);
     }
+    
+    echo "Nota de segurança| nivel: alto | http-proxy DDos |\n";
+    echo "Tal vulnerabilidade afeta todas as versões do laravel,
+    porém não é um problema para nós visto que não usamos
+    proxy reverso.\n
+    para mais detalhes: https://npmjs.com/advisories/1486";
 
-    echo "Projeto instalado com sucesso!";
+    echo "instalação finalizada\n";
     system("php artisan serve");
 ?>
