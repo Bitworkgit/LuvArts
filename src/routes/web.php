@@ -25,7 +25,7 @@ Route::get("/register", function(){
 
 Route::get('/sobreNos', function(){
     return view('sobre');
-});
+})->name("sobre");
 
 Route::get("/profile/{user_id}",['uses' =>'ProfileController@index', 'as'=>'profile.index']);
 
