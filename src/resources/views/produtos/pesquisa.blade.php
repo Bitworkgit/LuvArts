@@ -166,7 +166,7 @@
     entrada.addEventListener("keyup", function(event) {
       if (event.keyCode === 13) {
           var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
-          window.open(url,"_blank");
+          window.location.href = url;
       }
     });
 
