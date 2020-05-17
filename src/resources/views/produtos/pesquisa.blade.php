@@ -220,10 +220,9 @@
             <hr>
             <!-- BEGIN SEARCH INPUT -->
             <div class="input-group">
-              <input type="text" class="form-control" value="{{ $pesquisa }}">
+ 
               <span class="input-group-btn">
-                <button class="btn btn-primary" style="width: 98%;" type="button"><i class="fa fa-search"></i></button>
-              </span>
+             </span>
             </div>
             <!-- END SEARCH INPUT -->
             
