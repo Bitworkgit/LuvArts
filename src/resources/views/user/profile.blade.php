@@ -84,7 +84,7 @@
                                                                 </svg>
                                                             </a>
                                                     </td>
-                                                    <td>
+                                                     <td>
                                                             <a  data-toggle="modal" data-target="#{{ str_replace(' ','_',$item->nome_colecao_col) }}">
                                                                 <svg class="bi bi-pencil-square" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
@@ -202,10 +202,9 @@
                     <div class="my-overview__request-payment">
                         <div class="tooltip tooltip--top-right">
                             <div class="tooltip__icon">
-                               <!-- <object class="icon-18" data="/img/product/faq_details/questiomark.svg" type=""></object>-->
+                             
                             </div>
-                            <!--<div class="tooltip__text px--10 py--5" style="width: 240px;">A minimum of $50 needs to be
-                                accumulated on your account to request a payment.</div>-->
+                          
                         </div>
 
                         @if($see)

@@ -361,10 +361,9 @@
                     <div class="my-overview__request-payment">
                         <div class="tooltip tooltip--top-right">
                             <div class="tooltip__icon">
-                                <object class="icon-18" data="/img/product/faq_details/questiomark.svg" type=""></object>
+                               
                             </div>
-                            <div class="tooltip__text px--10 py--5" style="width: 240px;">A minimum of $50 needs to be
-                                accumulated on your account to request a payment.</div>
+
                         </div>
 
                         @if($see)
