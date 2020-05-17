@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
     </head>
 
-    <body>
-      <a class="" href="{{ route('home') }}" style="
+   <body>
+  <a class="" href="{{ route('home') }}" style="
         /* margin-top: 77px; */
         z-index:  99999;
         padding: 10px;
@@ -28,7 +28,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="col-md-8">
             <ul class="navbar-nav mr-auto">
-			@if(Auth::check())
+      @if(Auth::check())
+                <?php $carrinho = App\Carrinho::where("comprador_id",Auth::User()->id)->get(); ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -92,7 +93,7 @@
                     
                     </div>
                 </li>
-            @endif
+      @endif
 			
 			
 			
@@ -101,7 +102,7 @@
               </li>
 			    
               <li class="nav-item">
-                <a class="nav-link menu" href="#">Sobre nós</a>
+                <a class="nav-link menu" href="{{ route('sobre') }}">Sobre nós</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -121,7 +122,8 @@
                 </div>
               </li>
 			  <!----------------------------------------------------------------------------------------------->
-			     <li class="nav-item dropdown">
+              <?php $categorias = App\Model\Categoria::all(); ?>
+              <li class="nav-item dropdown">
                 <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   Categorias
