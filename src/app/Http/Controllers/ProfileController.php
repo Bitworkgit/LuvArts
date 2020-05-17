@@ -45,7 +45,7 @@ class ProfileController extends Controller
             'cidade' => 'nullable|string|max:30',
             'bairro' => 'nullable|string|max:60',
             'estado' => 'nullable|string|max:19',
-            'foto_perfil' => 'nullable|file|mimes:jpeg,png,jpg|dimensions:min_width=200,max_width=890,min_height=200,max_height=890',
+            'foto_perfil' => 'nullable|file|mimes:jpeg,png,jpg|dimensions:min_width=200,max_width=400,min_height=200,max_height=400',
             'foto_capa' => 'nullable|file|mimes:jpeg,png,jpg'
         ]);
     }
