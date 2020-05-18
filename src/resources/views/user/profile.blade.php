@@ -77,7 +77,7 @@
                                                 <td><a href="{{route('item-perfil.listaArte', $item->id)}}">{{ $item->nome_colecao_col }}</a></td>
                                                 @if($see)
                                                     <td>
-                                                            <a href="{{ route('produtos.excluirColecao',["id" => $item->id]) }}">
+                                                            <a href="{{ route('produto.excluirColecao',["id" => $item->id]) }}">
                                                                 <svg class="bi bi-trash trash-color" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
                                                                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
@@ -105,7 +105,7 @@
                         </div>
                        
                         <div class="tab-pane " id="edit">
-                            <form role="form" action="{{ route('profile.atualizar') }}" method="post">
+                            <form role="form" action="{{ route('perfil.atualizar') }}" method="post">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Nome</label>
@@ -297,7 +297,7 @@
                 <div class="modal fade" id="{{ str_replace(' ','_',$item->nome_colecao_col) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <form method="post" action="{{ route('produtos.editarColecao',['id' => $item->id]) }}">
+                        <form method="post" action="{{ route('produto.editarColecao',['id' => $item->id]) }}">
                         @csrf
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Edição de coleção</h5>

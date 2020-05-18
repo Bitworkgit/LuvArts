@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Produtos;
+namespace App\Http\Controllers\Produto;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,7 @@ use App\Model\Colecao;
 use App\Model\User;
 
 
-class ProdutosController extends Controller
+class ProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -114,7 +114,7 @@ class ProdutosController extends Controller
         
         $pro->save();
 
-        return redirect()->route('profile.index',['user_id' => Auth::User()->id])->with('success', 'Arte cadastrada com sucesso');
+        return redirect()->route('perfil.index',['user_id' => Auth::User()->id])->with('success', 'Arte cadastrada com sucesso');
     }
 
     /**
@@ -145,7 +145,7 @@ class ProdutosController extends Controller
         $categoria = Categoria::all();
 
         if($user['id'] <> $atu->user_id && $user['administrador'] <> 1)
-            return redirect()->route('profile.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
+            return redirect()->route('perfil.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
 
         return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
     }
@@ -208,7 +208,7 @@ class ProdutosController extends Controller
         
         $pro->save();
 
-        return redirect()->route('profile.index',['user_id' => Auth::User()->id])->with('success', 'Arte alterada com sucesso');
+        return redirect()->route('perfil.index',['user_id' => Auth::User()->id])->with('success', 'Arte alterada com sucesso');
     }
 
     /**

@@ -128,7 +128,7 @@
                     <div class="dropdown-divider"></div>
                   @endif
                   @if(Auth::check())
-                    <a class="dropdown-item" href="{{ route('profile.index',['user_id' => Auth::User()->id]) }}">Meu Perfil</a>
+                    <a class="dropdown-item" href="{{ route('perfil.index',['user_id' => Auth::User()->id]) }}">Meu Perfil</a>
                     <a class="dropdown-item" href="{{ route('user.sair') }}">Sair</a>
                   @endif
                 </div>
@@ -199,7 +199,7 @@
   </div>
 
 		<div class="row artist">
-    <div class="textoCentro"><a class="prof" href="{{ route('profile.index',["user_id" => $artista->id]) }}">{{ $artista->nome }}</a></div>
+    <div class="textoCentro"><a class="prof" href="{{ route('perfil.index',["user_id" => $artista->id]) }}">{{ $artista->nome }}</a></div>
 		</div>
         <label>Quantidade: </label>
         <input type="text" value="1"><br>
