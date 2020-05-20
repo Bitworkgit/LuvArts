@@ -237,17 +237,17 @@
                 <td>{{ $venda->id }}</td>
                 <td><a href="{{ route("produto.comprar", ['id' => $venda->produto()->get()->first()->id]) }}">{{ $venda->produto()->get()->first()->nome_pro }}</a></td>
                 @if($venda->status == 1)
-                  <td><a href="{{ route("vendas.incrementar",['id' => $venda->id]) }}"><span class="badge badge-warning">Pendente</span></a></td>
+                  <td><a href="{{ route("venda.incrementar",['id' => $venda->id]) }}"><span class="badge badge-warning">Pendente</span></a></td>
                 @else($venda->status == 2)
-                  <td><a href="{{ route("vendas.incrementar",['id' => $venda->id]) }}"><span class="badge badge-primary">Processando</span></a></td>
+                  <td><a href="{{ route("venda.incrementar",['id' => $venda->id]) }}"><span class="badge badge-primary">Processando</span></a></td>
                 @endif
                 <td>
-                  <a href="{{ route('profile.index',['user_id' => $venda->vendedor_id]) }}">
+                  <a href="{{ route('perfil.index',['user_id' => $venda->vendedor_id]) }}">
                     {{ $venda->user($venda->vendedor_id)->nome }}
                   </a>
                 </td>
                 <td>
-                  <a href="{{ route('profile.index',['user_id' => $venda->comprador_id]) }}">
+                  <a href="{{ route('perfil.index',['user_id' => $venda->comprador_id]) }}">
                     {{ $venda->user($venda->comprador_id)->nome }}
                   </a>
                 </td>

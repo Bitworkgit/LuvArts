@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Venda;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Venda;
 
-class VendasController extends Controller
+class VendaController extends Controller
 {
     protected function incrementar($id){
         $venda = Venda::find($id);

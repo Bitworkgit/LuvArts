@@ -29,30 +29,35 @@ Route::get('/sobreNos', function(){
     return view('sobre');
 });
 
-Route::get("/profile/{user_id}",['uses' =>'ProfileController@index', 'as'=>'profile.index']);
+Route::get("/profile/{user_id}",['uses' =>'Perfil\PerfilController@index', 'as'=>'perfil.index']);
+Route::post("/profile/update",'Perfil\PerfilController@atualizar')->name("perfil.atualizar");
 
 /* Existe duas rotas de logout GET e POST pois o ADMIN LTE usa o metodo POST para fazer logout */
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
 Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
 Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
-Route::post("/profile/update",'ProfileController@atualizar')->name("profile.atualizar");
 
 /* Rota para deletar coleção */
-Route::get("/colecao/delete/{id}",['uses' =>'Produtos\ProdutosController@excluirColecao', 'as'=>'produtos.excluirColecao']);
-Route::post("/colecao/edit/{id}",['uses' =>'Produtos\ProdutosController@editarColecao', 'as'=>'produtos.editarColecao']);
+Route::get("/colecao/delete/{id}",['uses' =>'Produto\ProdutoController@excluirColecao', 'as'=>'produto.excluirColecao']);
+Route::post("/colecao/edit/{id}",['uses' =>'Produto\ProdutoController@editarColecao', 'as'=>'produto.editarColecao']);
 
 /*  Rota para Registro, Alteração e Exclusão de Produtos */
-Route::resource('/item','Produtos\ProdutosController');
-Route::get('/pesquisa/{pesquisa?}/{ordem?}', 'Produtos\ProdutosController@pesquisa')->name('pesquisar');
+Route::resource('/item','Produto\ProdutoController');
+Route::get('/pesquisa/{pesquisa?}/{ordem?}', 'Produto\ProdutoController@pesquisa')->name('pesquisar');
 
-Route::get('/categoria/{categoria_id}/{ordem?}/{pesquisa?}', 'Produtos\ProdutosController@categoria')->name('pesquisar.categoria');
+Route::get('/categoria/{categoria_id}/{ordem?}/{pesquisa?}', 'Produto\ProdutoController@categoria')->name('pesquisar.categoria');
 
  /* Rota para mostrar os itens de cada Usuario por coleção e todos os itens de cada usuario */
 Route::prefix('item-perfil')->group(function(){
-    Route::get('/colecao/{cod_colecao}', 'Produtos\ProdutosController@listaArteColecao')->name('item-perfil.listaArte');
-    Route::get('/usuario/{id}', 'Produtos\ProdutosController@listaArteUsuario')->name('item-perfil.listaArteUsu');
+    Route::get('/colecao/{cod_colecao}', 'Produto\ProdutoController@listaArteColecao')->name('item-perfil.listaArte');
+    Route::get('/usuario/{id}', 'Produto\ProdutoController@listaArteUsuario')->name('item-perfil.listaArteUsu');
 });
+
+Route::get('produto/comprar/{id}','Produto\ProdutoController@comprarProduto')->name("produto.comprar");
+Route::get('produto/remover/carrinho/{id}','Produto\ProdutoController@removerDoCarrinho')->name("produto.removerDoCarrinho");
+Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
+
 
  /* Rotas do ADMINISTRADOR */
 Route::prefix('dashboard-admin')->group(function(){
@@ -68,18 +73,15 @@ Route::prefix('dashboard-admin')->group(function(){
     Route::get('/users/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
     Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
     Route::get('/luvarts/estatisticas', 'Admin\AdminController@estatisticas')->name('admin.estatisticas');
-    Route::get('/increment/{id}', 'VendasController@incrementar')->name("vendas.incrementar");
+    Route::get('/increment/{id}', 'Venda\VendaController@incrementar')->name("venda.incrementar");
 });
 
-Route::get('produto/comprar/{id}','Produtos\ProdutosController@comprarProduto')->name("produto.comprar");
-Route::get('produto/remover/carrinho/{id}','Produtos\ProdutosController@removerDoCarrinho')->name("produto.removerDoCarrinho");
-Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produtos\ProdutosController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
-
- /* Caso não exista a rota, joga para a pagina de 404 */
-Route::fallback(function(){
-     return view('404/404'); 
-});
 
 Route::get('menu', function(){
     return view("menu");
+});
+
+ /* Caso não exista a rota, joga para a pagina de 404 */
+ Route::fallback(function(){
+    return view('404/404'); 
 });
