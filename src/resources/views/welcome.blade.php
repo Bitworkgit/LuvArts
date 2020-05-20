@@ -8,21 +8,12 @@
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
   <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
-  <style>
-  
-    .menu {
-      font-size: 15px;
-    }
-	
-  </style>
+
+
   </head>
 <body>
-  <a class="" href="{{ route('home') }}" style="
-        /* margin-top: 77px; */
-        z-index:  99999;
-        padding: 10px;
-        position: absolute;
-    "><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
+  <a class="imgp" href="{{ route('home') }}">
+  <img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
       <nav class="navbar navbar-expand-lg navbar-dark ">
 
         <a class="navbar-brand" href="{{ route('home') }}"><img src="http://127.0.0.1:8000/images/dark.png" height="10px" width="140" class="nav-img  "></a>
@@ -61,17 +52,17 @@
                             <tr>
                                 <td class="col-sm-8 col-md-6">
                                 <div class="media">
-                                    <img class="media-object" src="{{$item->produto()->get()->first()->user_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                                    <img class="media-object mobj" src="{{$item->produto()->get()->first()->user_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" >
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
                                     </div>
                                 </div></td>
-                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                <td class="col-sm-1 col-md-1" >
                                 </td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{$item->produto()->get()->first()->preco_pro}}</strong></td>
                                 <td class="col-sm-1 col-md-1">
-                                    <a style="color: black; text-decoration: none;" href="{{route('produto.removerDoCarrinho',['id' => $item->id])}}">
+                                    <a " href="{{route('produto.removerDoCarrinho',['id' => $item->id])}}">
                                         <button type="button" class="btn btn-danger">
                                             <span class="glyphicon glyphicon-remove"></span>
                                                 Remover
@@ -89,7 +80,7 @@
                             <td>
                         </td>
                             <td>
-                            <button type="button" class="btn btn-dark " style="background-color: #414251!important;">
+                            <button type="button" class="btn btn-dark buyb " >
                                 Comprar <span class="glyphicon glyphicon-play"></span>
                             </button></td>
                         </tr>
@@ -163,17 +154,8 @@
           </form>
         </div>
       </nav>
-      <script>
-          var entrada = document.getElementById('pesquisa');
-          entrada.addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
-                var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
-                window.location.href = url;
-            }
-          });
-
-      </script>
-
+   
+<script src="{{ asset("pages/home/2.js") }}"></script>
   <div class="row">
     <div class="col-md-12 ">
       <p align="center" class="titulo">Top Mais Vendidos</p>
@@ -185,20 +167,20 @@
       <div class="carousel-item active">
 	  <div class="text-center">
         <a href="{{ route('produto.comprar', ['id' => $maisComprados[0]->id]) }}">
-		<img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[0]->user_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide"></a>
+		<img class="mx-auto d-block carrouselP"  src="{{$maisComprados[0]->user_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide"></a>
       </div>
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
 	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[1]->id]) }}">
-        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[1]->user_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
+        <img class="mx-auto d-block carrouselP"  src="{{$maisComprados[1]->user_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
      </a>
 	 </div>
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
 	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
-        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[2]->user_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
+        <img class="mx-auto d-block carrouselP"  src="{{$maisComprados[2]->user_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
       </a>
 	  </div>
 	  </div>
@@ -280,18 +262,8 @@
 
 </div>
 <!-- Grid row -->
-<script>$(function() {
-var selectedClass = "";
-$(".filter").click(function(){
-selectedClass = $(this).attr("data-rel");
-$("#gallery").fadeTo(100, 0.1);
-$("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
-setTimeout(function() {
-$("."+selectedClass).fadeIn().addClass('animation');
-$("#gallery").fadeTo(300, 1);
-}, 300);
-});
-}); </script>
+
+	<script src="{{ asset("pages/home/1.js") }}"></script>
     <script src="{{ asset("js/app.js") }}"></script>
 	</body>
 </html>

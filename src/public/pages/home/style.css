@@ -1,3 +1,22 @@
+
+.imgp{
+	  /* margin-top: 77px; */
+        z-index:  99999;
+        padding: 10px;
+        position: absolute;
+}
+.mobj{
+	width: 72px; 
+	height: 72px;
+}
+.buyb{
+	background-color: #414251!important;
+}
+
+.carrouselP{
+	max-height: 700px;
+}
+
 .bgpi{
 background-color: #2f3141;
 }

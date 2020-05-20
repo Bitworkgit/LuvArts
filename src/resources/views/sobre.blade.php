@@ -10,21 +10,11 @@
     <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
   <link rel="stylesheet" href="{{ asset('pages/sobre/style.css') }}">
- <style>
-  
-    .menu {
-      font-size: 15px;
-    }
-	
-  </style>
+
   </head>
 <body>
-  <a class="" href="{{ route('home') }}" style="
-        /* margin-top: 77px; */
-        z-index:  99999;
-        padding: 10px;
-        position: absolute;
-    "><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
+  <a class="imgp" href="{{ route('home') }}">
+  <img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
       <nav class="navbar navbar-expand-lg navbar-dark ">
 
         <a class="navbar-brand" href="{{ route('home') }}"><img src="http://127.0.0.1:8000/images/dark.png" height="10px" width="140" class="nav-img  "></a>
@@ -63,17 +53,17 @@
                             <tr>
                                 <td class="col-sm-8 col-md-6">
                                 <div class="media">
-                                    <img class="media-object" src="{{$item->produto()->get()->first()->user_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                                    <img class="media-object mobj" src="{{$item->produto()->get()->first()->user_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" >
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
                                     </div>
                                 </div></td>
-                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                <td class="col-sm-1 col-md-1" >
                                 </td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{$item->produto()->get()->first()->preco_pro}}</strong></td>
                                 <td class="col-sm-1 col-md-1">
-                                    <a style="color: black; text-decoration: none;" href="{{route('produto.removerDoCarrinho',['id' => $item->id])}}">
+                                    <a " href="{{route('produto.removerDoCarrinho',['id' => $item->id])}}">
                                         <button type="button" class="btn btn-danger">
                                             <span class="glyphicon glyphicon-remove"></span>
                                                 Remover
@@ -91,7 +81,7 @@
                             <td>
                         </td>
                             <td>
-                            <button type="button" class="btn btn-dark " style="background-color: #414251!important;">
+                            <button type="button" class="btn btn-dark buyb " >
                                 Comprar <span class="glyphicon glyphicon-play"></span>
                             </button></td>
                         </tr>
@@ -195,7 +185,7 @@
 			<p> Buscamos tambem dar espaço para artistas amadores conquistarem seu espaço. acreditamos que todos merecém
  uma chance de mostrar seu potencial, por isso na página principal selecionamos 9 artes aleatorias para serem colocadas na pagina principal. Sempre que entrar sera uma diferente!</p>
 			<p> Contamos com seu apoio.</p>
-			<p>  </p><img src="{{ asset('images/NAV.png')}}" width="180"   ">
+			<p>  </p><img src="{{ asset('images/NAV.png')}}"   ">
 			
 		</div>
 		</div>
