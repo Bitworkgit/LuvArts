@@ -37,7 +37,7 @@
           <div class="col-md-8">
             <ul class="navbar-nav mr-auto">
       @if(Auth::check())
-                <?php $carrinho = App\Carrinho::where("comprador_id",Auth::User()->id)->get(); ?>
+                <?php $carrinho = App\Model\Carrinho::where("comprador_id",Auth::User()->id)->get(); ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -53,11 +53,11 @@
                             <th></th>
                             <th class="text-center"></th>
                             <th class="text-center">Preço</th>
-                            <th> </th>
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($carrinho as $item)
+                       @foreach($carrinho as $item)
                             <tr>
                                 <td class="col-sm-8 col-md-6">
                                 <div class="media">
@@ -83,9 +83,9 @@
                         @endforeach
                         
                         <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
                             <td>
                         </td>
                             <td>
@@ -171,7 +171,6 @@
                 window.open(url,"_blank");
             }
           });
-
       </script>
 
   <div class="row">
@@ -197,9 +196,9 @@
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
-	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
+	  {{--<a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
         <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[2]->user_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
-      </a>
+      </a>--}}
 	  </div>
 	  </div>
     </div>
