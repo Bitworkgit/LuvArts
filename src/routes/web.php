@@ -76,11 +76,6 @@ Route::prefix('dashboard-admin')->group(function(){
     Route::get('/increment/{id}', 'Venda\VendaController@incrementar')->name("venda.incrementar");
 });
 
-
-Route::get('menu', function(){
-    return usuario/perfil");
-});
-
  /* Caso não exista a rota, joga para a pagina de 404 */
  Route::fallback(function(){
     return view('404/404'); 
