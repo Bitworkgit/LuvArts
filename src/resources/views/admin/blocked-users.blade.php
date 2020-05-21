@@ -33,8 +33,8 @@
                     <td>{{$item->nome}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->produto->count()}}</td>
-                    <td><a href="{{route('admin.deleteUsers', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
-                        <a href="{{route('admin.unlockUsers', $item->id)}}" class="btn btn-success btn-sm">Desbloquear</a></td>
+                    <td><a href="{{route('admin.deletarUsuario', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
+                        <a href="{{route('admin.desbloquearUsuario', $item->id)}}" class="btn btn-success btn-sm">Desbloquear</a></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -1,6 +1,6 @@
 @extends('layPadrao.layout')
 
-@section('title', 'Artes' . $text)
+@section('title', 'Artes' . $texto)
     
 @section('conteudo')
         
@@ -10,7 +10,7 @@
           <h1 class="jumbotron-heading">
                 <font style="vertical-align: inherit;">
                     <br>
-                    <font style="vertical-align: inherit;">Artes{{$text ?? ""}}</font>
+                    <font style="vertical-align: inherit;">Artes{{$texto ?? ""}}</font>
                 </font>
             </h1>
         </div>

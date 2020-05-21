@@ -26,7 +26,7 @@ class AdminController extends Controller
         return view ('admin.index', compact('user'));
     }
 
-    public function users(Request $request){
+    public function usuarios(Request $request){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
@@ -36,7 +36,7 @@ class AdminController extends Controller
         return view('admin.users', compact('user', 'i'));
     }
 
-    public function blockedUsers(Request $request){
+    public function usuariosBloqueado(Request $request){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
@@ -45,7 +45,7 @@ class AdminController extends Controller
         return view('admin.blocked-users', compact('user'));
     }
 
-    public function blockUsers($id){
+    public function bloquearUsuario($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
@@ -53,10 +53,10 @@ class AdminController extends Controller
         $user->bloqueado = 1;
         $user->save();
 
-        return redirect()->route('admin.users')->with('success', 'Usuário bloqueado com sucesso!');
+        return redirect()->route('admin.usuarios')->with('success', 'Usuário bloqueado com sucesso!');
     }
 
-    public function deleteUsers($id){
+    public function deletarUsuario($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
@@ -65,10 +65,10 @@ class AdminController extends Controller
         $user->bloqueado = 0;
         $user->save();
 
-        return redirect()->route('admin.users')->with('success', 'Usuário excluido com sucesso!');
+        return redirect()->route('admin.usuarios')->with('success', 'Usuário excluido com sucesso!');
     }
 
-    public function unlockUsers($id){
+    public function desbloquearUsuario($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
@@ -76,10 +76,10 @@ class AdminController extends Controller
         $user->bloqueado = 0;
         $user->save();
 
-        return redirect()->route('admin.blockedUsers')->with('success', 'Usuário desbloqueado com sucesso!');
+        return redirect()->route('admin.usuariosBloqueado')->with('success', 'Usuário desbloqueado com sucesso!');
     }
 
-    public function listArts($id){
+    public function listaArte($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
@@ -108,7 +108,7 @@ class AdminController extends Controller
         return back()->with('success', 'Agora este usuário não é mais um administrador!');
     }
 
-    public function del(){
+    public function usuariosExcluido(){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         

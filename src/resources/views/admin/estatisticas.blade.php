@@ -65,20 +65,20 @@
                 <td>Total de usuários: </td>
                 <td>&nbsp{{$users->count()}}</td>
                 <td>&nbsp | &nbsp</td>
-                <td><a href="{{route('admin.users')}}">Verificar</a></td>
+                <td><a href="{{route('admin.usuarios')}}">Verificar</a></td>
               </tr>
               <tr>
                 <td>Total de usuários bloqueados: </td>
                 <td>&nbsp{{$block->count()}}</td>
                 <td>&nbsp | &nbsp</td>
-                <td><a href="{{route('admin.blockedUsers')}}">Verificar</a></td>
+                <td><a href="{{route('admin.usuariosBloqueado')}}">Verificar</a></td>
               </tr>
               
               <tr>
                 <td>Total de usuários excluidos: </td>
                 <td>&nbsp{{$exclu->count()}}</td>
                 <td>&nbsp | &nbsp</td>
-                <td><a href="{{route('admin.del')}}">Verificar</a></td>
+                <td><a href="{{route('admin.usuariosExcluido')}}">Verificar</a></td>
               </tr>
             </table>
           </div>

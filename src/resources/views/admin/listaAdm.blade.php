@@ -40,9 +40,9 @@
                     <td>{{$item->nome}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->produto->count()}}</td>
-                    <td><a href="{{route('admin.blockUsers', $item->id)}}" class="btn btn-warning btn-sm">Bloquear</a>&nbsp
-                    <a href="{{route('admin.list-arts', $item->id)}}" class="btn btn-primary btn-sm">Artes</a>&nbsp
-                    <a href="{{route('admin.deleteUsers', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
+                    <td><a href="{{route('admin.bloquearUsuario', $item->id)}}" class="btn btn-warning btn-sm">Bloquear</a>&nbsp
+                    <a href="{{route('admin.listaArte', $item->id)}}" class="btn btn-primary btn-sm">Artes</a>&nbsp
+                    <a href="{{route('admin.deletarUsuario', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
                     <form action="{{route('admin.admin', $item->id)}}" method="GET">
                         @csrf
                         @method('get')

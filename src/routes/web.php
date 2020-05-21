@@ -62,14 +62,14 @@ Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\Pro
  /* Rotas do ADMINISTRADOR */
 Route::prefix('dashboard-admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
-    Route::get('/users', 'Admin\AdminController@users')->name('admin.users');
-    Route::get('/users/blocked', 'Admin\AdminController@blockedUsers')->name('admin.blockedUsers');
-    Route::get('/users/block/{id}', 'Admin\AdminController@blockUsers')->name('admin.blockUsers');
-    Route::get('/users/delete/{id}', 'Admin\AdminController@deleteUsers')->name('admin.deleteUsers');
-    Route::get('/users/unlock/{id}', 'Admin\AdminController@unlockUsers')->name('admin.unlockUsers');
-    Route::get('/users/arts/{id}', 'Admin\AdminController@listArts')->name('admin.list-arts');
+    Route::get('/users', 'Admin\AdminController@usuarios')->name('admin.usuarios');
+    Route::get('/users/blocked', 'Admin\AdminController@usuariosBloqueado')->name('admin.usuariosBloqueado');
+    Route::get('/users/block/{id}', 'Admin\AdminController@bloquearUsuario')->name('admin.bloquearUsuario');
+    Route::get('/users/delete/{id}', 'Admin\AdminController@deletarUsuario')->name('admin.deletarUsuario');
+    Route::get('/users/unlock/{id}', 'Admin\AdminController@desbloquearUsuario')->name('admin.desbloquearUsuario');
+    Route::get('/users/arts/{id}', 'Admin\AdminController@listaArte')->name('admin.listaArte');
     Route::get('/users/admin/{id}', 'Admin\AdminController@admin')->name('admin.admin');
-    Route::get('/users/del', 'Admin\AdminController@del')->name('admin.del');
+    Route::get('/users/del', 'Admin\AdminController@usuariosExcluido')->name('admin.usuariosExcluido');
     Route::get('/users/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
     Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
     Route::get('/luvarts/estatisticas', 'Admin\AdminController@estatisticas')->name('admin.estatisticas');

@@ -231,13 +231,13 @@ class ProdutoController extends Controller
     public function listaArteColecao(Request $request, $cod_colecoes){
        /* Pega os produtos pelo id da coleção */
         $prod     = Produto::where('cod_colecoes', $cod_colecoes)->paginate(6);
-        $text     = " por coleção";
+        $texto    = " por coleção";
         $semDados = "Ops, esta coleção não possui artes!";
         $user     = $request->user();
 
         /* Se não achar produtos retorna para a view com a mensagem */
         if($prod->count() == 0 )
-            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados'));
+            return view('produtos.lista-produtos', compact('prod', 'texto', 'semDados'));
 
         /*
          * Se o usuario não estiver logado ou o id do usuario logado for diferente do user_id do produto
@@ -248,21 +248,21 @@ class ProdutoController extends Controller
         else 
             $seeArtsCol = true;
 
-        return view('produtos.lista-produtos', compact('prod', 'text', 'seeArtsCol'));
+        return view('produtos.lista-produtos', compact('prod', 'texto', 'seeArtsCol'));
     }
 
     public function listaArteUsuario(Request $request, $id){
         /* Pega os produtos pelo id do usuario */
         $prod     = Produto::where('user_id', $id)->paginate(6);
-        $text     = " por usuário";
+        $texto    = " por usuário";
         $semDados = 'Ops, este usuário não possui artes!';
         $seeArts  = Gate::allows('ver-dados-edit');
 
         /* Se não achar produtos retorna para a view com a mensagem */
         if($prod->count() == 0)
-            return view('produtos.lista-produtos', compact('prod', 'text', 'semDados'));
+            return view('produtos.lista-produtos', compact('prod', 'texto', 'semDados'));
         else
-            return view('produtos.lista-produtos', compact('prod', 'text', 'seeArts'));
+            return view('produtos.lista-produtos', compact('prod', 'texto', 'seeArts'));
 
     }
 
