@@ -27,7 +27,7 @@ class PerfilController extends Controller
             return redirect()->route("home");
         }
         else {
-            return usuario/perfil',compact('user','colecoes', 'see', 'verAdm','categorias','carrinho'));
+            return view('usuario/perfil',compact('user','colecoes', 'see', 'verAdm','categorias','carrinho'));
         }
     }  
 
