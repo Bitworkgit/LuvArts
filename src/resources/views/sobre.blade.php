@@ -32,7 +32,7 @@
     <div class="col-md-8">
       <ul class="navbar-nav mr-auto">
 @if(Auth::check())
-          <?php $carrinho = App\Carrinho::where("comprador_id",Auth::User()->id)->get(); ?>
+          <?php $carrinho = App\Model\Carrinho::where("comprador_id",Auth::User()->id)->get(); ?>
           <li class="nav-item dropdown">
               <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">

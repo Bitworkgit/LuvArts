@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Carrinho;
-use App\User;
+use App\Model\Carrinho;
+use App\Model\User;
 use App\Model\Produto;
 
 class CarrinhoSeeder extends Seeder

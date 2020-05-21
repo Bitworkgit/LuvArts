@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Doacoes;
+use App\Model\Doacao;
 
 class DoacaoSeeder extends Seeder
 {

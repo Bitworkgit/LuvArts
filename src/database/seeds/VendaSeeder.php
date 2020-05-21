@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Venda;
-use App\User;
+use App\Model\Venda;
+use App\Model\User;
 use App\Model\Produto;
 
 class VendaSeeder extends Seeder
