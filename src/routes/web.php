@@ -18,15 +18,15 @@ Route::get('/', 'Home\HomeController@index')->name("home");
 Route::redirect('/home', '/');
 
 Route::get("/login", function(){
-    return view("user/login");
+    return view("usuario/login");
 })->name("user.login");
 
 Route::get("/register", function(){
-    return view("user/register");
+    return view("usuario/cadastro");
 })->name("user.register");
 
 Route::get('/sobreNos', function(){
-    return view('sobre');
+    return view('inicio/sobre');
 });
 
 Route::get("/profile/{user_id}",['uses' =>'Perfil\PerfilController@index', 'as'=>'perfil.index']);
@@ -78,7 +78,7 @@ Route::prefix('dashboard-admin')->group(function(){
 
 
 Route::get('menu', function(){
-    return view("menu");
+    return usuario/perfil");
 });
 
  /* Caso não exista a rota, joga para a pagina de 404 */

@@ -20,6 +20,6 @@ class HomeController extends Controller
                                         ->limit(20)
                                         ->get();
 
-        return view('welcome',compact('maisComprados','alternativas'));
+        return view('inicio/index',compact('maisComprados','alternativas'));
     }
 }
