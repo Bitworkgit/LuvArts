@@ -5,10 +5,10 @@
 
 // Variables
 @import 'variables';
-@import url('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css');
 
 // Bootstrap
-@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css';
+@import '~bootstrap/scss/bootstrap';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css');
 
 // Framework de notificações
 @import '~izitoast/dist/css/iziToast.css'
