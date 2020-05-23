@@ -75,7 +75,7 @@ class ProdutosController extends Controller
             'Descricao' => 'required|string|max:250',
             'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => 'required|image|mimes:jpeg,jpg,png||dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
+            'imagem'    => 'required|image|mimes:jpeg,jpg,png|dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
         ],[
 
         ],[
