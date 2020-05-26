@@ -114,7 +114,7 @@ class ProdutoController extends Controller
         
         $pro->save();
 
-        return redirect()->route('perfil.index',['user_id' => Auth::User()->id])->with('success', 'Arte cadastrada com sucesso');
+        return redirect()->route('perfil.index',['usuario_id' => Auth::User()->id])->with('success', 'Arte cadastrada com sucesso');
     }
 
     /**
@@ -141,10 +141,10 @@ class ProdutoController extends Controller
 
         $user      = $request->user();
         $atu       = Produto::find($id);
-        $colecao   = Colecao::where('user_id', $user['id'])->get();
+        $colecao   = Colecao::where('usuario_id', $user['id'])->get();
         $categoria = Categoria::all();
 
-        if($user['id'] <> $atu->user_id && $user['administrador'] <> 1)
+        if($user['id'] <> $atu->usuario_id && $user['administrador'] <> 1)
             return redirect()->route('perfil.index', $user['id'])->with('error', 'Você não tem permissão para editar este item!');
 
         return view('produtos.atu-produtos', compact('atu', 'colecao', 'categoria'));
@@ -190,7 +190,7 @@ class ProdutoController extends Controller
 
         if(!empty($request->input('colecaoNome'))){
             $col->nome_colecao_col = $request->input('colecaoNome');
-            $col->user_id = $user['id'];
+            $col->usuario_id = $user['id'];
             $col->save();
             $pro->cod_colecoes = Colecao::max('id');
         }elseif($request->input('colecao') <> 0){
@@ -204,11 +204,11 @@ class ProdutoController extends Controller
             $pro->ende_foto_pro = $request->file('imagem')->store('public');
         }
 
-        $pro->user_id = $user['id'];
+        $pro->usuario_id = $user['id'];
         
         $pro->save();
 
-        return redirect()->route('perfil.index',['user_id' => Auth::User()->id])->with('success', 'Arte alterada com sucesso');
+        return redirect()->route('perfil.index',['usuario_id' => Auth::User()->id])->with('success', 'Arte alterada com sucesso');
     }
 
     /**
