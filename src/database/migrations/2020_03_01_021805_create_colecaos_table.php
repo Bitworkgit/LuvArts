@@ -16,7 +16,7 @@ class CreateColecaosTable extends Migration
         Schema::create('colecoes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome_colecao_col', 100);
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('usuario_id');
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
