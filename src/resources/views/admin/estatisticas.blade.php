@@ -194,8 +194,8 @@
               </tr>
               @foreach ($top5 as $item)
                 <tr>
-                  <td>{{$item->user->nome}}</td>
-                  <td>&nbsp{{$item->user->email}}</td>
+                  <td>{{$item->usuario->nome}}</td>
+                  <td>&nbsp{{$item->usuario->email}}</td>
                   <td>&nbsp {{$item->vendas}}</td>
                   <td>&nbsp {{$item->nome_pro}}</td>
                 </tr>

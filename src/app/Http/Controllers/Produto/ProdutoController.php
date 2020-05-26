@@ -11,7 +11,7 @@ use App\Model\Carrinho;
 use App\Model\Produto;
 use App\Model\Categoria;
 use App\Model\Colecao;
-use App\Model\User;
+use App\Model\Usuario;
 
 
 class ProdutoController extends Controller
@@ -288,7 +288,7 @@ class ProdutoController extends Controller
                                         ->get();
 
 
-        $artista = User::find($produto->usuario_id);
+        $artista = Usuario::find($produto->usuario_id);
                                         
         return view('produtos.comprar',compact('produto','alternativas','artista'));
     }

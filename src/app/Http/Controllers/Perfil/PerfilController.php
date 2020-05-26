@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Gate;
-use App\Model\User;
+use App\Model\Usuario;
 use App\Model\Carrinho;
 use App\Model\Colecao;
 use App\Model\Categoria;
@@ -17,7 +17,7 @@ class PerfilController extends Controller
 {
 
     protected function index($user_id){
-        $user = User::find($user_id);
+        $user = Usuario::find($user_id);
         $colecoes = Colecao::where('usuario_id',$user_id)->get();
         $see = Gate::allows('ver-dados');
         $verAdm = Gate::allows('admin');

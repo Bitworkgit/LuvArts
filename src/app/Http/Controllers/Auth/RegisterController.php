@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use App\Model\User;
+use App\Model\Usuario;
 
 class RegisterController extends Controller
 {
@@ -67,7 +67,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Model\User
+     * @return \App\Model\Usuario
      */
     protected function create(array $data)
     {
@@ -77,7 +77,7 @@ class RegisterController extends Controller
 
         $sobrenome = $data['sobrenome'];
 
-        return User::create([
+        return Usuario::create([
             'nome' => $data['nome']." ".$sobrenome,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

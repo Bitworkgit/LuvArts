@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use App\Model\User;
+use App\Model\Usuario;
 use App\Model\Produto;
 use App\Model\SaldoEquipe;
 use App\Model\Doacao;
@@ -30,7 +30,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $user = Usuario::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
         $i = 1;
 
         return view('admin.usuarios', compact('user', 'i'));
@@ -40,7 +40,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = User::where('bloqueado',1)->where('excluido',0)->paginate(15);
+        $user = Usuario::where('bloqueado',1)->where('excluido',0)->paginate(15);
 
         return view('admin.usuarios-bloqueados', compact('user'));
     }
@@ -49,7 +49,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = User::find($id);
+        $user = Usuario::find($id);
         $user->bloqueado = 1;
         $user->save();
 
@@ -60,7 +60,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = User::find($id);
+        $user = Usuario::find($id);
         $user->excluido = 1;
         $user->bloqueado = 0;
         $user->save();
@@ -72,7 +72,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = User::find($id);
+        $user = Usuario::find($id);
         $user->bloqueado = 0;
         $user->save();
 
@@ -93,8 +93,8 @@ class AdminController extends Controller
             return redirect()->route('home');
 
         $value = $request->input('admin');
-        $admin = User::find($id);
-        $user  = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $admin = Usuario::find($id);
+        $user  = Usuario::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
         $i     = 0;
 
         if($value == 1){
@@ -112,7 +112,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user  = User::where('excluido', 1)->paginate(15);
+        $user  = Usuario::where('excluido', 1)->paginate(15);
 
         return view('admin.del', compact('user'));
     }
@@ -121,7 +121,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user  = User::where('administrador', 1)->paginate(15);
+        $user  = Usuario::where('administrador', 1)->paginate(15);
         $i     = 0;
 
         return view('admin.listaAdm', compact('user', 'i'));
@@ -130,7 +130,7 @@ class AdminController extends Controller
     public function capitalLuvArts(){
         
         $dados = SaldoEquipe::orderBy('ano','ASC')->get();
-        $dadosDivisao = User::where('administrador',1)->get();
+        $dadosDivisao = Usuario::where('administrador',1)->get();
 
         $capital = $dados->last()->capital;
         $crescimento = 100/$dados->first()->capital*$dados->last()->capital-100;
@@ -152,12 +152,12 @@ class AdminController extends Controller
     }
 
     public function estatisticas(){
-        $users = User::all();
-        $block = User::where('bloqueado', 1)->get();
-        $exclu = User::where('excluido', 1)->get();
+        $users = Usuario::all();
+        $block = Usuario::where('bloqueado', 1)->get();
+        $exclu = Usuario::where('excluido', 1)->get();
         $dados = SaldoEquipe::orderBy('ano','ASC')->get();
         $dados = $dados->last()->capital;
-        $ativo = User::where('excluido', 0)->where('bloqueado', 0)->get();
+        $ativo = Usuario::where('excluido', 0)->where('bloqueado', 0)->get();
         $liqui = $users->sum('capital'); 
         $liqui = $liqui - $block->sum('capital') - $exclu->sum('capital');
         $venda = Produto::all();

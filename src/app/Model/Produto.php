@@ -27,8 +27,8 @@ class Produto extends Model
         return $this->belongsTo('App\Model\Categoria', 'cod_categoria');
     }
 
-    public function user(){
-        return $this->belongsTo('App\Model\User');
+    public function usuario(){
+        return $this->belongsTo('App\Model\Usuario');
     }
 
     public function venda(){

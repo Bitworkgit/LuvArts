@@ -17,6 +17,6 @@ class Colecao extends Model
     }
 
     public function usuario(){
-        $this->belongsTo('App\Model\User');
+        $this->belongsTo('App\Model\Usuario');
     }
 }

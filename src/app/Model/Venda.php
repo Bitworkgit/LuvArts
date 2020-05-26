@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\User;
+use App\Model\Usuario;
 
 class Venda extends Model
 {
@@ -11,7 +11,7 @@ class Venda extends Model
     protected $table = "vendas";
 
     public function user($id){
-        return User::find($id);
+        return Usuario::find($id);
     }
     
     public function produto(){
