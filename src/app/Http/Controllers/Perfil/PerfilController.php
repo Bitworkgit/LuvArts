@@ -18,7 +18,7 @@ class PerfilController extends Controller
 
     protected function index($user_id){
         $user = User::find($user_id);
-        $colecoes = Colecao::where('user_id',$user_id)->get();
+        $colecoes = Colecao::where('usuario_id',$user_id)->get();
         $see = Gate::allows('ver-dados');
         $verAdm = Gate::allows('admin');
         $categorias = Categoria::all();

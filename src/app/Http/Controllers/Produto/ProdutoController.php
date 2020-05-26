@@ -44,7 +44,7 @@ class ProdutoController extends Controller
         $user = $request->user();
 
         $dado = [
-            'colecao'   => Colecao::where('user_id', $user['id'])->get(),
+            'colecao'   => Colecao::where('usuario_id', $user['id'])->get(),
             'categoria' => Categoria::all(),
         ];
        
@@ -97,7 +97,7 @@ class ProdutoController extends Controller
 
         if(!empty($request->input('colecaoNome'))){
             $col->nome_colecao_col = $request->input('colecaoNome');
-            $col->user_id = $user['id'];
+            $col->usuario_id = $user['id'];
             $col->save();
             $pro->cod_colecoes = Colecao::max('id');
         }elseif($request->input('colecao') <> 0){
@@ -110,7 +110,7 @@ class ProdutoController extends Controller
             $pro->ende_foto_pro = $request->file('imagem')->store('public');
         }
 
-        $pro->user_id = $user['id'];
+        $pro->usuario_id = $user['id'];
         
         $pro->save();
 
@@ -243,7 +243,7 @@ class ProdutoController extends Controller
          * Se o usuario não estiver logado ou o id do usuario logado for diferente do user_id do produto
          * atribui falso a variavel para mandar a view se pode ou não ver os botões de edição e exclusão
          */
-        if(empty($user['id']) || $user['id'] <> $prod[0]->user_id)
+        if(empty($user['id']) || $user['id'] <> $prod[0]->usuario_id)
             $seeArtsCol = false;
         else 
             $seeArtsCol = true;
@@ -253,7 +253,7 @@ class ProdutoController extends Controller
 
     public function listaArteUsuario(Request $request, $id){
         /* Pega os produtos pelo id do usuario */
-        $prod     = Produto::where('user_id', $id)->paginate(6);
+        $prod     = Produto::where('usuario_id', $id)->paginate(6);
         $texto    = " por usuário";
         $semDados = 'Ops, este usuário não possui artes!';
         $seeArts  = Gate::allows('ver-dados-edit');
@@ -288,7 +288,7 @@ class ProdutoController extends Controller
                                         ->get();
 
 
-        $artista = User::find($produto->user_id);
+        $artista = User::find($produto->usuario_id);
                                         
         return view('produtos.comprar',compact('produto','alternativas','artista'));
     }

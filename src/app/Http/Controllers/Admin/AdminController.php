@@ -83,7 +83,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = Produto::where('user_id', $id)->get();
+        $user = Produto::where('usuario_id', $id)->get();
 
         return view('admin.lista-artes', compact('user'));
     }

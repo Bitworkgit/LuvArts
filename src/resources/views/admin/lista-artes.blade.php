@@ -36,7 +36,7 @@
                 @foreach ($user as $item)
                     <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{$item->user_id == 1 ? asset($item->ende_foto_pro) : Storage::url($item->ende_foto_pro)}}" data-holder-rendered="true">
+                    <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{$item->usuario_id == 1 ? asset($item->ende_foto_pro) : Storage::url($item->ende_foto_pro)}}" data-holder-rendered="true">
                     <div class="card-body">
                         <p class="card-text">
                         <font style="vertical-align: inherit;">

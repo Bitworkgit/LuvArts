@@ -19,7 +19,7 @@ class CreateColecaosTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
-            $table->foreign('user_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
         });
     }

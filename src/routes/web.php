@@ -58,8 +58,6 @@ Route::get('produto/comprar/{id}','Produto\ProdutoController@comprarProduto')->n
 Route::get('produto/remover/carrinho/{id}','Produto\ProdutoController@removerDoCarrinho')->name("produto.removerDoCarrinho");
 Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
 
-//----------------------------------------------------------REPADRONIZADOS A CIMA
-
  /* Rotas do ADMINISTRADOR */
 Route::prefix('painel-admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
