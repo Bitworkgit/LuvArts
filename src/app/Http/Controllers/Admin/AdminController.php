@@ -33,7 +33,7 @@ class AdminController extends Controller
         $user = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
         $i = 1;
 
-        return view('admin.users', compact('user', 'i'));
+        return view('admin.usuarios', compact('user', 'i'));
     }
 
     public function usuariosBloqueado(Request $request){
@@ -42,7 +42,7 @@ class AdminController extends Controller
         
         $user = User::where('bloqueado',1)->where('excluido',0)->paginate(15);
 
-        return view('admin.blocked-users', compact('user'));
+        return view('admin.usuarios-bloqueados', compact('user'));
     }
 
     public function bloquearUsuario($id){
@@ -85,7 +85,7 @@ class AdminController extends Controller
 
         $user = Produto::where('user_id', $id)->get();
 
-        return view('admin.list-arts', compact('user'));
+        return view('admin.lista-artes', compact('user'));
     }
 
     public function admin(Request $request, $id){
