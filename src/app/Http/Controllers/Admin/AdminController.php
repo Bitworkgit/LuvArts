@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use App\User;
+use App\Model\Usuario;
 use App\Model\Produto;
 use App\Model\SaldoEquipe;
-use App\Doacoes;
-use App\Venda;
+use App\Model\Doacao;
+use App\Model\Venda;
 
 class AdminController extends Controller
 {
@@ -26,66 +26,66 @@ class AdminController extends Controller
         return view ('admin.index', compact('user'));
     }
 
-    public function users(Request $request){
+    public function usuarios(Request $request){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $user = Usuario::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
         $i = 1;
 
-        return view('admin.users', compact('user', 'i'));
+        return view('admin.usuarios', compact('user', 'i'));
     }
 
-    public function blockedUsers(Request $request){
+    public function usuariosBloqueado(Request $request){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = User::where('bloqueado',1)->where('excluido',0)->paginate(15);
+        $user = Usuario::where('bloqueado',1)->where('excluido',0)->paginate(15);
 
-        return view('admin.blocked-users', compact('user'));
+        return view('admin.usuarios-bloqueados', compact('user'));
     }
 
-    public function blockUsers($id){
+    public function bloquearUsuario($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = User::find($id);
+        $user = Usuario::find($id);
         $user->bloqueado = 1;
         $user->save();
 
-        return redirect()->route('admin.users')->with('success', 'Usuário bloqueado com sucesso!');
+        return redirect()->route('admin.usuarios')->with('success', 'Usuário bloqueado com sucesso!');
     }
 
-    public function deleteUsers($id){
+    public function deletarUsuario($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = User::find($id);
+        $user = Usuario::find($id);
         $user->excluido = 1;
         $user->bloqueado = 0;
         $user->save();
 
-        return redirect()->route('admin.users')->with('success', 'Usuário excluido com sucesso!');
+        return redirect()->route('admin.usuarios')->with('success', 'Usuário excluido com sucesso!');
     }
 
-    public function unlockUsers($id){
+    public function desbloquearUsuario($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = User::find($id);
+        $user = Usuario::find($id);
         $user->bloqueado = 0;
         $user->save();
 
-        return redirect()->route('admin.blockedUsers')->with('success', 'Usuário desbloqueado com sucesso!');
+        return redirect()->route('admin.usuariosBloqueado')->with('success', 'Usuário desbloqueado com sucesso!');
     }
 
-    public function listArts($id){
+    public function listaArte($id){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
 
-        $user = Produto::where('user_id', $id)->get();
+        $user = Produto::where('usuario_id', $id)->get();
 
-        return view('admin.list-arts', compact('user'));
+        return view('admin.lista-artes', compact('user'));
     }
 
     public function admin(Request $request, $id){
@@ -93,8 +93,8 @@ class AdminController extends Controller
             return redirect()->route('home');
 
         $value = $request->input('admin');
-        $admin = User::find($id);
-        $user  = User::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $admin = Usuario::find($id);
+        $user  = Usuario::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
         $i     = 0;
 
         if($value == 1){
@@ -108,11 +108,11 @@ class AdminController extends Controller
         return back()->with('success', 'Agora este usuário não é mais um administrador!');
     }
 
-    public function del(){
+    public function usuariosExcluido(){
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user  = User::where('excluido', 1)->paginate(15);
+        $user  = Usuario::where('excluido', 1)->paginate(15);
 
         return view('admin.del', compact('user'));
     }
@@ -121,7 +121,7 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user  = User::where('administrador', 1)->paginate(15);
+        $user  = Usuario::where('administrador', 1)->paginate(15);
         $i     = 0;
 
         return view('admin.listaAdm', compact('user', 'i'));
@@ -130,7 +130,7 @@ class AdminController extends Controller
     public function capitalLuvArts(){
         
         $dados = SaldoEquipe::orderBy('ano','ASC')->get();
-        $dadosDivisao = User::where('administrador',1)->get();
+        $dadosDivisao = Usuario::where('administrador',1)->get();
 
         $capital = $dados->last()->capital;
         $crescimento = 100/$dados->first()->capital*$dados->last()->capital-100;
@@ -152,17 +152,17 @@ class AdminController extends Controller
     }
 
     public function estatisticas(){
-        $users = User::all();
-        $block = User::where('bloqueado', 1)->get();
-        $exclu = User::where('excluido', 1)->get();
+        $users = Usuario::all();
+        $block = Usuario::where('bloqueado', 1)->get();
+        $exclu = Usuario::where('excluido', 1)->get();
         $dados = SaldoEquipe::orderBy('ano','ASC')->get();
         $dados = $dados->last()->capital;
-        $ativo = User::where('excluido', 0)->where('bloqueado', 0)->get();
+        $ativo = Usuario::where('excluido', 0)->where('bloqueado', 0)->get();
         $liqui = $users->sum('capital'); 
         $liqui = $liqui - $block->sum('capital') - $exclu->sum('capital');
         $venda = Produto::all();
         $top5  = Produto::orderBy('vendas', 'DESC')->limit(5)->get();
-        $doacoes = Doacoes::all()->last();
+        $doacoes = Doacao::all()->last();
         $doacoes = $doacoes['capital'];
         $vendas = Venda::where('status','<',3)->paginate(7);
         //dd($top5);

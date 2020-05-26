@@ -65,20 +65,20 @@
                 <td>Total de usuários: </td>
                 <td>&nbsp{{$users->count()}}</td>
                 <td>&nbsp | &nbsp</td>
-                <td><a href="{{route('admin.users')}}">Verificar</a></td>
+                <td><a href="{{route('admin.usuarios')}}">Verificar</a></td>
               </tr>
               <tr>
                 <td>Total de usuários bloqueados: </td>
                 <td>&nbsp{{$block->count()}}</td>
                 <td>&nbsp | &nbsp</td>
-                <td><a href="{{route('admin.blockedUsers')}}">Verificar</a></td>
+                <td><a href="{{route('admin.usuariosBloqueado')}}">Verificar</a></td>
               </tr>
               
               <tr>
                 <td>Total de usuários excluidos: </td>
                 <td>&nbsp{{$exclu->count()}}</td>
                 <td>&nbsp | &nbsp</td>
-                <td><a href="{{route('admin.del')}}">Verificar</a></td>
+                <td><a href="{{route('admin.usuariosExcluido')}}">Verificar</a></td>
               </tr>
             </table>
           </div>
@@ -194,8 +194,8 @@
               </tr>
               @foreach ($top5 as $item)
                 <tr>
-                  <td>{{$item->user->nome}}</td>
-                  <td>&nbsp{{$item->user->email}}</td>
+                  <td>{{$item->usuario->nome}}</td>
+                  <td>&nbsp{{$item->usuario->email}}</td>
                   <td>&nbsp {{$item->vendas}}</td>
                   <td>&nbsp {{$item->nome_pro}}</td>
                 </tr>
@@ -237,17 +237,17 @@
                 <td>{{ $venda->id }}</td>
                 <td><a href="{{ route("produto.comprar", ['id' => $venda->produto()->get()->first()->id]) }}">{{ $venda->produto()->get()->first()->nome_pro }}</a></td>
                 @if($venda->status == 1)
-                  <td><a href="{{ route("vendas.incrementar",['id' => $venda->id]) }}"><span class="badge badge-warning">Pendente</span></a></td>
+                  <td><a href="{{ route("venda.incrementar",['id' => $venda->id]) }}"><span class="badge badge-warning">Pendente</span></a></td>
                 @else($venda->status == 2)
-                  <td><a href="{{ route("vendas.incrementar",['id' => $venda->id]) }}"><span class="badge badge-primary">Processando</span></a></td>
+                  <td><a href="{{ route("venda.incrementar",['id' => $venda->id]) }}"><span class="badge badge-primary">Processando</span></a></td>
                 @endif
                 <td>
-                  <a href="{{ route('profile.index',['user_id' => $venda->vendedor_id]) }}">
+                  <a href="{{ route('perfil.index',['usuario_id' => $venda->vendedor_id]) }}">
                     {{ $venda->user($venda->vendedor_id)->nome }}
                   </a>
                 </td>
                 <td>
-                  <a href="{{ route('profile.index',['user_id' => $venda->comprador_id]) }}">
+                  <a href="{{ route('perfil.index',['usuario_id' => $venda->comprador_id]) }}">
                     {{ $venda->user($venda->comprador_id)->nome }}
                   </a>
                 </td>

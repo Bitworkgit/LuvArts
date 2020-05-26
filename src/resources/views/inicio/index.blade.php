@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt">
-
-<head>
+<html>
+    <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Comprar {{ $produto->nome_pro }}</title>
+  <title>LuvArt's</title>
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset("/pages/produtos/comprar/style.css") }}">
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
   <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
   <style>
@@ -57,11 +53,11 @@
                             <th></th>
                             <th class="text-center"></th>
                             <th class="text-center">Preço</th>
-                            <th> </th>
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($carrinho as $item)
+                       @foreach($carrinho as $item)
                             <tr>
                                 <td class="col-sm-8 col-md-6">
                                 <div class="media">
@@ -87,9 +83,9 @@
                         @endforeach
                         
                         <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
                             <td>
                         </td>
                             <td>
@@ -114,7 +110,7 @@
               </li>
 			    
               <li class="nav-item">
-                <a class="nav-link menu" href="{{ route('sobre') }}">Sobre nós</a>
+                <a class="nav-link menu" href="#">Sobre nós</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -167,121 +163,121 @@
           </form>
         </div>
       </nav>
+      <script>
+          var entrada = document.getElementById('pesquisa');
+          entrada.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
+                window.open(url,"_blank");
+            }
+          });
+      </script>
 
-   <div class="container">
-
-    <div class="row">
-        <div class="col-md-5">
-			<div class="row" >
-				
-					<img src="{{$produto->usuario_id == 1 ? asset($produto->ende_foto_pro) : Storage::url($produto->ende_foto_pro)}}" class="product d-block w-100" alt="First slide">
-				
-			</div>
-            
-
-      </div>
-      <div class=" col-md-7">
-        <h2 class ="titulo"> {{ $produto->nome_pro}} </h2>
-        <p class="preco">R$ {{ $produto->preco_pro }}</p>
-		
-		
-       
-		<input type="checkbox" id="btn-a">
-
-  <label for= "btn-a" >
-    <p><i class="fa fa-arrow-circle-down"></i><strong> Descrição </strong></p>
-  </label>
-
-  <div class="hide">
-    <p>
-      {{ $produto->descricao_pro }}
-    </p>
+  <div class="row">
+    <div class="col-md-12 ">
+      <p align="center" class="titulo">Top Mais Vendidos</p>
+    </div>
   </div>
 
-		<div class="row artist">
-    <div class="textoCentro"><a class="prof" href="{{ route('perfil.index',["usuario_id" => $artista->id]) }}">{{ $artista->nome }}</a></div>
-		</div>
-        <label>Quantidade: </label>
-        <input type="text" value="1"><br>
-        <button type="button" class=" btn btn-default waves-effect waves-light comprar"><a style="color:white; text-decoration: none;">Comprar</a></button>
-        @if(Auth::check())
-          <button type="button" class=" btn btn-default waves-effect waves-light comprar">
-            <a  href="{{route('produto.adicionarAoCarrinho',['comprador_id' => Auth::User()->id, 'produto_id' => $produto->id])}}" style="color:white; text-decoration: none;">
-              Adicionar ao carrinho
-            </a>
-          </button>
-        @endif
+  <div id="carouselExampleControls" class="carousel slide bgpi" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+	  <div class="text-center">
+        <a href="{{ route('produto.comprar', ['id' => $maisComprados[0]->id]) }}">
+		<img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[0]->usuario_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide"></a>
       </div>
+	  </div>
+      <div class="carousel-item">
+	  <div class="text-center">
+	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[1]->id]) }}">
+        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[1]->usuario_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
+     </a>
+	 </div>
+	  </div>
+      <div class="carousel-item">
+	  <div class="text-center">
+	  {{--<a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
+        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[2]->usuario_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
+      </a>--}}
+	  </div>
+	  </div>
     </div>
-	<br>
-
-	<h1 class="font-weight-light text-center titulo mt-4 mb-0">você também pode gostar dessas artes</h1>
-
-  <hr class="mt-2 mb-5">
-
-   
-  
-  
-
-  <div class="gallery" id="gallery">
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[0]->id]) }}"><img class="img-fluid" src="{{$alternativas[0]->usuario_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap"></a></a>
-    </div>
-    <!-- Grid column -->
-  
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[1]->id]) }}"><img class="img-fluid" src="{{$alternativas[1]->usuario_id == 1 ? asset($alternativas[1]->ende_foto_pro) : Storage::url($alternativas[1]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-    <!-- Grid column -->
-  
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[2]->id]) }}"><img class="img-fluid" src="{{$alternativas[2]->usuario_id == 1 ? asset($alternativas[2]->ende_foto_pro) : Storage::url($alternativas[2]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-    <!-- Grid column -->
-  
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[3]->id]) }}"><img class="img-fluid" src="{{$alternativas[3]->usuario_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-    <!-- Grid column -->
-  
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[4]->id]) }}"><img class="img-fluid" src="{{$alternativas[4]->usuario_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-    <!-- Grid column -->
-  
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[5]->id]) }}"><img class="img-fluid" src="{{$alternativas[5]->usuario_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-   <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[6]->id]) }}"><img class="img-fluid" src="{{$alternativas[6]->usuario_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[7]->id]) }}"><img class="img-fluid" src="{{$alternativas[7]->usuario_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-  <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[8]->id]) }}"><img class="img-fluid" src="{{$alternativas[8]->usuario_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-  <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[9]->id]) }}"><img class="img-fluid" src="{{$alternativas[9]->usuario_id == 1 ? asset($alternativas[9]->ende_foto_pro) : Storage::url($alternativas[9]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-  <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <a href="{{ route('produto.comprar', ['id' => $alternativas[10]->id]) }}"><img class="img-fluid" src="{{$alternativas[10]->usuario_id == 1 ? asset($alternativas[10]->ende_foto_pro) : Storage::url($alternativas[10]->ende_foto_pro)}}" alt="Card image cap"></a>
-    </div>
-  
-  
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
+
+
+    <p align="center" class="titulo">Você tambem pode gostar destas artes!</p>
+<!--------------------------------------------------------------------------------------------------->
+
+
+
+<!-- Grid row -->
+<div class="gallery" id="gallery">
+
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 2">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[0]->id]) }}"><img class="img-fluid" src="{{$alternativas[0]->usuario_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap"></a></a>
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[1]->id]) }}"><img class="img-fluid" src="{{$alternativas[1]->usuario_id == 1 ? asset($alternativas[1]->ende_foto_pro) : Storage::url($alternativas[1]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[2]->id]) }}"><img class="img-fluid" src="{{$alternativas[2]->usuario_id == 1 ? asset($alternativas[2]->ende_foto_pro) : Storage::url($alternativas[2]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 2">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[3]->id]) }}"><img class="img-fluid" src="{{$alternativas[3]->usuario_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 2">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[4]->id]) }}"><img class="img-fluid" src="{{$alternativas[4]->usuario_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[5]->id]) }}"><img class="img-fluid" src="{{$alternativas[5]->usuario_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+ <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[6]->id]) }}"><img class="img-fluid" src="{{$alternativas[6]->usuario_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+  <!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[7]->id]) }}"><img class="img-fluid" src="{{$alternativas[7]->usuario_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+<!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[8]->id]) }}"><img class="img-fluid" src="{{$alternativas[8]->usuario_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}" alt="Card image cap"></a>
+  </div>
+<!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    {{--<a href="{{ route('produto.comprar', ['id' => $alternativas[9]->id]) }}"><img class="img-fluid" src="{{$alternativas[9]->usuario_id == 1 ? asset($alternativas[9]->ende_foto_pro) : Storage::url($alternativas[9]->ende_foto_pro)}}" alt="Card image cap"></a>--}}
+  </div>
+<!-- Grid column -->
+  <div class="mb-3 pics animation all 1">
+    {{--<a href="{{ route('produto.comprar', ['id' => $alternativas[10]->id]) }}"><img class="img-fluid" src="{{$alternativas[10]->usuario_id == 1 ? asset($alternativas[10]->ende_foto_pro) : Storage::url($alternativas[10]->ende_foto_pro)}}" alt="Card image cap"></a>--}}
+  </div>
+
+
+</div>
 <!-- Grid row -->
 <script>$(function() {
 var selectedClass = "";
@@ -295,8 +291,6 @@ $("#gallery").fadeTo(300, 1);
 }, 300);
 });
 }); </script>
-  <script src="{{ asset("js/app.js") }}"></script>
-
-</body>
-
+    <script src="{{ asset("js/app.js") }}"></script>
+	</body>
 </html>

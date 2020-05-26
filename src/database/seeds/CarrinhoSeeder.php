@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Carrinho;
-use App\User;
+use App\Model\Carrinho;
+use App\Model\Usuario;
 use App\Model\Produto;
 
 class CarrinhoSeeder extends Seeder
@@ -14,7 +14,7 @@ class CarrinhoSeeder extends Seeder
      */
     public function run()
     {
-        $adms = User::where('administrador',1)->get();
+        $adms = Usuario::where('administrador',1)->get();
         foreach($adms as $adm){
             for($a = 0; $a < rand(2, 5); $a++){
                 Carrinho::create([

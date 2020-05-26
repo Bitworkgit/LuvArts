@@ -19,7 +19,7 @@ Repositório de desenvolvimento da plataforma LuvArt's
 rodar o seguinte comando dentro da pasta src:
 
 ```sh
-php install.php
+php install
 ```
 
 ## Modo de uso
@@ -36,21 +36,7 @@ git pull
 ```
 
 ```sh
-php update.php
-```
-
-## Como publicar suas alterações
-
-```sh
-git add .
-```
-
-```sh
-git commit -m "descrição da alteração feita"
-```
-
-```sh
-git push origin master
+php update
 ```
 
 ## Desenvolvimento

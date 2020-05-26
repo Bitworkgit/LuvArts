@@ -27,15 +27,15 @@ class Produto extends Model
         return $this->belongsTo('App\Model\Categoria', 'cod_categoria');
     }
 
-    public function user(){
-        return $this->belongsTo('App\User');
+    public function usuario(){
+        return $this->belongsTo('App\Model\Usuario');
     }
 
     public function venda(){
-        return $this->hasMany('App\Venda');
+        return $this->hasMany('App\Model\Venda');
     }
 
     public function carrinho(){
-        return $this->hasMany('App\Carrinho');
+        return $this->hasMany('App\Model\Carrinho');
     }
 }

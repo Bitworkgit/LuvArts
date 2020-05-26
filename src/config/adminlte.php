@@ -228,33 +228,33 @@ return [
         ['header' => 'Configurações de usuários'],
         [
             'text' => 'Gerenciar usuários',
-            'url'  => 'dashboard-admin/users',
+            'url'  => 'painel-admin/usuarios',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Usuários bloqueados',
-            'url' => 'dashboard-admin/users/blocked',
+            'url' => 'painel-admin/usuarios/bloqueados',
             'icon' => 'fas fa-user-lock',
         ],
         [
             'text' => 'Usuários excluidos',
-            'url' => 'dashboard-admin/users/del',
+            'url' => 'painel-admin/usuarios/del',
             'icon' => 'fas fa-user-times',
         ],
         [
             'text' => 'Lista administradores',
-            'url' => 'dashboard-admin/users/lista-adm',
+            'url' => 'painel-admin/usuarios/lista-adm',
             'icon' => 'fas fa-crown',
         ],
         ['header' => 'Estatísticas'],
         [
             'text' => 'Total capital LuvArts',
-            'url'  => 'dashboard-admin/luvarts/capital',
+            'url'  => 'painel-admin/luvarts/capital',
             'icon' => 'fas fa-fw fa-dollar-sign',
         ],
         [
             'text' => 'Estatísiticas gerais',
-            'url'  => 'dashboard-admin/luvarts/estatisticas',
+            'url'  => 'painel-admin/luvarts/estatisticas',
             'icon' => 'fas fa-fw fa-hand-holding-usd',
         ],
         /*[

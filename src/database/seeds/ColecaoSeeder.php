@@ -14,7 +14,7 @@ class ColecaoSeeder extends Seeder
     {
         Colecao::create([
             "nome_colecao_col" => "Coleção Demonstrativa",
-            "user_id" => 1
+            "usuario_id" => 1
         ]);
     }
 }

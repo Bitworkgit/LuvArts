@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Model\Usuario;
 
 class RegisterController extends Controller
 {
@@ -67,7 +67,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Model\Usuario
      */
     protected function create(array $data)
     {
@@ -77,7 +77,7 @@ class RegisterController extends Controller
 
         $sobrenome = $data['sobrenome'];
 
-        return User::create([
+        return Usuario::create([
             'nome' => $data['nome']." ".$sobrenome,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -94,11 +94,11 @@ class RegisterController extends Controller
         $validator = $this->validator($dados);
 
         if($validator->fails()):
-            return redirect()->route('user.register')->withErrors($validator)->withInput();
+            return redirect()->route('usuario.registrar')->withErrors($validator)->withInput();
         endif;
 
         $user = $this->create($dados);
-        return redirect()->route('user.login')->with('success', 'Usuário cadastrado com sucesso');
+        return redirect()->route('usuario.login')->with('success', 'Usuário cadastrado com sucesso');
 
     }
 }

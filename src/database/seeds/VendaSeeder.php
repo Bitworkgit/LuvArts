@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Venda;
-use App\User;
+use App\Model\Venda;
+use App\Model\Usuario;
 use App\Model\Produto;
 
 class VendaSeeder extends Seeder
@@ -16,8 +16,8 @@ class VendaSeeder extends Seeder
     {
         for($a = 0; $a < 10; $a++){
             Venda::create([
-                'vendedor_id' => User::inRandomOrder()->first()->id,
-                'comprador_id' => User::inRandomOrder()->first()->id,
+                'vendedor_id' => Usuario::inRandomOrder()->first()->id,
+                'comprador_id' => Usuario::inRandomOrder()->first()->id,
                 'produto_id' => Produto::inRandomOrder()->first()->id,
                 'quantidade' => rand(1,10),
                 'status' => rand(1,3)

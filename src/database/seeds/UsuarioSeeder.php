@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Model\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
@@ -16,7 +16,7 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         //-------------------------------Usuário
-        User::create([
+        Usuario::create([
             'nome' => "Alex Figueiro",
             'email' => "user@gmail.com",
             'password' => Hash::make("1234abcd"),
@@ -27,7 +27,7 @@ class UsuarioSeeder extends Seeder
             "bloqueado" => 0
         ]);
         //-------------------------------ADM
-        User::create([
+        Usuario::create([
             'nome' => "Thiago Piassi Bonfogo",
             'email' => "thiagopiassi@gmail.com",
             'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
@@ -38,7 +38,7 @@ class UsuarioSeeder extends Seeder
             "bloqueado" => 0
         ]);
 
-        User::create([
+        Usuario::create([
             'nome' => "Bruna Timoteo",
             'email' => "brunatimoteo@gmail.com",
             'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
@@ -49,7 +49,7 @@ class UsuarioSeeder extends Seeder
             "bloqueado" => 0
         ]);
 
-        User::create([
+        Usuario::create([
             'nome' => "Mateus Meira",
             'email' => "mateusmeira@gmail.com",
             'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
@@ -60,7 +60,7 @@ class UsuarioSeeder extends Seeder
             "bloqueado" => 0
         ]);
 
-        User::create([
+        Usuario::create([
             'nome' => "Bruno Cesar",
             'email' => "brunocesar@gmail.com",
             'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
@@ -71,7 +71,7 @@ class UsuarioSeeder extends Seeder
             "bloqueado" => 0
         ]);
 
-        User::create([
+        Usuario::create([
             'nome' => "Higor Freitas",
             'email' => "pudim@gmail.com",
             'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),

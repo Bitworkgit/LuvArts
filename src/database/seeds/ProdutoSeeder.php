@@ -42,7 +42,7 @@ class ProdutoSeeder extends Seeder
                 "descricao_pro" => "......",
                 "preco_pro" => rand(12,100),
                 "ende_foto_pro" => $dado[0],
-                "user_id" => 1,
+                "usuario_id" => 1,
                 "cod_categoria" => rand(1,Categoria::all()->count()),
                 "cod_colecoes" => 1,
                 "vendas" => $dado[1]
