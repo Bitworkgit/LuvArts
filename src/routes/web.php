@@ -27,7 +27,7 @@ Route::get("/registrar", function(){
 
 Route::get('/sobreNos', function(){
     return view('inicio/sobre');
-});
+})->name('sobre');
 
 Route::get("/perfil/{usuario_id}",['uses' =>'Perfil\PerfilController@index', 'as'=>'perfil.index']);
 Route::post("/perfil/atualizar",'Perfil\PerfilController@atualizar')->name("perfil.atualizar");
