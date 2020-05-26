@@ -242,12 +242,12 @@
                   <td><a href="{{ route("venda.incrementar",['id' => $venda->id]) }}"><span class="badge badge-primary">Processando</span></a></td>
                 @endif
                 <td>
-                  <a href="{{ route('perfil.index',['user_id' => $venda->vendedor_id]) }}">
+                  <a href="{{ route('perfil.index',['usuario_id' => $venda->vendedor_id]) }}">
                     {{ $venda->user($venda->vendedor_id)->nome }}
                   </a>
                 </td>
                 <td>
-                  <a href="{{ route('perfil.index',['user_id' => $venda->comprador_id]) }}">
+                  <a href="{{ route('perfil.index',['usuario_id' => $venda->comprador_id]) }}">
                     {{ $venda->user($venda->comprador_id)->nome }}
                   </a>
                 </td>

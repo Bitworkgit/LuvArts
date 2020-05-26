@@ -19,28 +19,28 @@ Route::redirect('/home', '/');
 
 Route::get("/login", function(){
     return view("usuario/login");
-})->name("user.login");
+})->name("usuario.login");
 
-Route::get("/register", function(){
+Route::get("/registrar", function(){
     return view("usuario/cadastro");
-})->name("user.register");
+})->name("usuario.registrar");
 
 Route::get('/sobreNos', function(){
     return view('inicio/sobre');
 });
 
-Route::get("/profile/{user_id}",['uses' =>'Perfil\PerfilController@index', 'as'=>'perfil.index']);
-Route::post("/profile/update",'Perfil\PerfilController@atualizar')->name("perfil.atualizar");
+Route::get("/perfil/{usuario_id}",['uses' =>'Perfil\PerfilController@index', 'as'=>'perfil.index']);
+Route::post("/perfil/atualizar",'Perfil\PerfilController@atualizar')->name("perfil.atualizar");
 
 /* Existe duas rotas de logout GET e POST pois o ADMIN LTE usa o metodo POST para fazer logout */
-Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("user.sair");
-Route::post("/register/user",'Auth\RegisterController@salvar')->name("user.salvar");
-Route::post("/login/user",'Auth\LoginController@logar')->name("user.logar");
+Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("usuario.sair");
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name("usuario.sair");
+Route::post("/registrar/usuario",'Auth\RegisterController@salvar')->name("usuario.salvar");
+Route::post("/login/usuario",'Auth\LoginController@logar')->name("usuario.logar");
 
 /* Rota para deletar coleção */
-Route::get("/colecao/delete/{id}",['uses' =>'Produto\ProdutoController@excluirColecao', 'as'=>'produto.excluirColecao']);
-Route::post("/colecao/edit/{id}",['uses' =>'Produto\ProdutoController@editarColecao', 'as'=>'produto.editarColecao']);
+Route::get("/colecao/deletar/{id}",['uses' =>'Produto\ProdutoController@excluirColecao', 'as'=>'produto.excluirColecao']);
+Route::post("/colecao/editar/{id}",['uses' =>'Produto\ProdutoController@editarColecao', 'as'=>'produto.editarColecao']);
 
 /*  Rota para Registro, Alteração e Exclusão de Produtos */
 Route::resource('/item','Produto\ProdutoController');
@@ -58,6 +58,7 @@ Route::get('produto/comprar/{id}','Produto\ProdutoController@comprarProduto')->n
 Route::get('produto/remover/carrinho/{id}','Produto\ProdutoController@removerDoCarrinho')->name("produto.removerDoCarrinho");
 Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
 
+//----------------------------------------------------------REPADRONIZADOS A CIMA
 
  /* Rotas do ADMINISTRADOR */
 Route::prefix('dashboard-admin')->group(function(){

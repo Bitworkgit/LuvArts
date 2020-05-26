@@ -94,11 +94,11 @@ class RegisterController extends Controller
         $validator = $this->validator($dados);
 
         if($validator->fails()):
-            return redirect()->route('user.register')->withErrors($validator)->withInput();
+            return redirect()->route('usuario.registrar')->withErrors($validator)->withInput();
         endif;
 
         $user = $this->create($dados);
-        return redirect()->route('user.login')->with('success', 'Usuário cadastrado com sucesso');
+        return redirect()->route('usuario.login')->with('success', 'Usuário cadastrado com sucesso');
 
     }
 }

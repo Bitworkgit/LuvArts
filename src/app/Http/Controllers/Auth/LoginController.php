@@ -50,7 +50,7 @@ class LoginController extends Controller
 
             return redirect()->route('home');
         } else { 
-            return redirect()->route('user.login')->with('error','Dados de login não encontrados!');
+            return redirect()->route('usuario.login')->with('error','Dados de login não encontrados!');
         }
     }
 
@@ -60,6 +60,6 @@ class LoginController extends Controller
 
         Auth::logout();
 
-        return redirect()->route("user.login");
+        return redirect()->route("usuario.login");
     }
 }

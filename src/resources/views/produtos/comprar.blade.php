@@ -123,13 +123,13 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   @if(!Auth::check())
-                  <a class="dropdown-item" href="{{ route('user.login') }}">Entrar</a>
-                  <a class="dropdown-item" href="{{ route('user.register') }}">Cadastrar-se</a>
+                  <a class="dropdown-item" href="{{ route('usuario.login') }}">Entrar</a>
+                  <a class="dropdown-item" href="{{ route('usuario.registrar') }}">Cadastrar-se</a>
                     <div class="dropdown-divider"></div>
                   @endif
                   @if(Auth::check())
-                    <a class="dropdown-item" href="{{ route('perfil.index',['user_id' => Auth::User()->id]) }}">Meu Perfil</a>
-                    <a class="dropdown-item" href="{{ route('user.sair') }}">Sair</a>
+                    <a class="dropdown-item" href="{{ route('perfil.index',['usuario_id' => Auth::User()->id]) }}">Meu Perfil</a>
+                    <a class="dropdown-item" href="{{ route('usuario.sair') }}">Sair</a>
                   @endif
                 </div>
               </li>
@@ -199,7 +199,7 @@
   </div>
 
 		<div class="row artist">
-    <div class="textoCentro"><a class="prof" href="{{ route('perfil.index',["user_id" => $artista->id]) }}">{{ $artista->nome }}</a></div>
+    <div class="textoCentro"><a class="prof" href="{{ route('perfil.index',["usuario_id" => $artista->id]) }}">{{ $artista->nome }}</a></div>
 		</div>
         <label>Quantidade: </label>
         <input type="text" value="1"><br>

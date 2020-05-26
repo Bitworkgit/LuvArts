@@ -39,7 +39,7 @@ class ProdutoController extends Controller
     public function create(Request $request)
     {
         if(!Auth::check())
-            return redirect()->route('user.login');
+            return redirect()->route('usuario.login');
 
         $user = $request->user();
 
@@ -137,7 +137,7 @@ class ProdutoController extends Controller
     public function edit(Request $request, $id)
     {
         if(!Auth::check())
-            return redirect()->route('user.login');
+            return redirect()->route('usuario.login');
 
         $user      = $request->user();
         $atu       = Produto::find($id);
