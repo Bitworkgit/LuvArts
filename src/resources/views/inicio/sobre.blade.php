@@ -105,7 +105,7 @@
         </li>
     
         <li class="nav-item">
-          <a class="nav-link menu" href="#">Sobre nós</a>
+          <a class="nav-link menu" href="{{ route('sobre') }}">Sobre nós</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
