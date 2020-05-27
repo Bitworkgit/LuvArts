@@ -105,7 +105,7 @@
         </li>
     
         <li class="nav-item">
-          <a class="nav-link menu" href="#">Sobre nós</a>
+          <a class="nav-link menu" href="{{ route('sobre') }}">Sobre nós</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -159,13 +159,13 @@
   </div>
 </nav>
 <script>
-    var entrada = document.getElementById('pesquisa');
-    entrada.addEventListener("keyup", function(event) {
-      if (event.keyCode === 13) {
-          var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
-          window.open(url,"_blank");
-      }
-    });
+  var entrada = document.getElementById('pesquisa');
+  entrada.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
+        window.location.href = url;
+    }
+  });
 
 </script>
 

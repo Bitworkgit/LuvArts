@@ -110,7 +110,7 @@
               </li>
 			    
               <li class="nav-item">
-                <a class="nav-link menu" href="#">Sobre nós</a>
+                <a class="nav-link menu" href="{{ route('sobre') }}">Sobre nós</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -164,14 +164,15 @@
         </div>
       </nav>
       <script>
-          var entrada = document.getElementById('pesquisa');
-          entrada.addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
-                var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
-                window.open(url,"_blank");
-            }
-          });
-      </script>
+        var entrada = document.getElementById('pesquisa');
+        entrada.addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+              var url = '{{ route('pesquisar') }}/' + $("#pesquisa").val();
+              window.location.href = url;
+          }
+        });
+
+    </script>
 
   <div class="row">
     <div class="col-md-12 ">
@@ -196,9 +197,9 @@
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
-	  {{--<a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
+	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
         <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[2]->usuario_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
-      </a>--}}
+      </a>
 	  </div>
 	  </div>
     </div>
