@@ -69,6 +69,7 @@
           </div>
         </div>
       </div>
+	  
     </main>
     {{ $prod->links() }}
 
