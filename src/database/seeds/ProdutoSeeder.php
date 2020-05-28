@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Model\Produto;
 use App\Model\Categoria;
+use App\Model\Usuario;
+use App\Model\Colecao;
 
 class ProdutoSeeder extends Seeder
 {
@@ -14,26 +16,26 @@ class ProdutoSeeder extends Seeder
     public function run()
     {
         $dados = [
-            ["images/ph1.png",30],
-            ["images/ph2.png",20],
-            ["images/ph3.png",10],
-            ["images/ph4.png",0],
-            ["images/ph5.png",0],
-            ["images/ph6.png",0],
-            ["images/ph7.png",0],
-            ["images/ph8.png",0],
-            ["images/ph9.png",0],
-            ["images/ph10.png",0],
-            ["images/ph11.png",0],
-            ["images/ph12.png",0],
-            ["images/ph13.png",0],
-            ["images/ph14.png",0],
-            ["images/ph15.png",0],
-            ["images/ph16.png",0],
-            ["images/ph17.png",0],
-            ["images/ph18.png",0],
-            ["images/ph19.png",0],
-            ["images/ph20.png",0],
+            ["images/ph1.png",rand(0,100)],
+            ["images/ph2.png",rand(0,100)],
+            ["images/ph3.png",rand(0,100)],
+            ["images/ph4.png",rand(0,100)],
+            ["images/ph5.png",rand(0,100)],
+            ["images/ph6.png",rand(0,100)],
+            ["images/ph7.png",rand(0,100)],
+            ["images/ph8.png",rand(0,100)],
+            ["images/ph9.png",rand(0,100)],
+            ["images/ph10.png",rand(0,100)],
+            ["images/ph11.png",rand(0,100)],
+            ["images/ph12.png",rand(0,100)],
+            ["images/ph13.png",rand(0,100)],
+            ["images/ph14.png",rand(0,100)],
+            ["images/ph15.png",rand(0,100)],
+            ["images/ph16.png",rand(0,100)],
+            ["images/ph17.png",rand(0,100)],
+            ["images/ph18.png",rand(0,100)],
+            ["images/ph19.png",rand(0,100)],
+            ["images/ph20.png",rand(0,100)],
         ];
 
         foreach($dados as $dado){
@@ -42,9 +44,9 @@ class ProdutoSeeder extends Seeder
                 "descricao_pro" => "......",
                 "preco_pro" => rand(12,100),
                 "ende_foto_pro" => $dado[0],
-                "usuario_id" => 1,
+                "usuario_id" => rand(1,Usuario::all()->count()),
                 "cod_categoria" => rand(1,Categoria::all()->count()),
-                "cod_colecoes" => 1,
+                "cod_colecoes" => rand(1,Colecao::all()->count()),
                 "vendas" => $dado[1]
             ]);
         }

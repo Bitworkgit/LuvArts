@@ -60,7 +60,7 @@
                             <tr>
                                 <td class="col-sm-8 col-md-6">
                                 <div class="media">
-                                    <img class="media-object" src="{{$item->produto()->get()->first()->usuario_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                                    <img class="media-object" src="{{Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
                                     </div>
@@ -183,20 +183,20 @@
       <div class="carousel-item active">
 	  <div class="text-center">
         <a href="{{ route('produto.comprar', ['id' => $maisComprados[0]->id]) }}">
-		<img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[0]->usuario_id == 1 ? asset($maisComprados[0]->ende_foto_pro) : Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide"></a>
+		<img class="mx-auto d-block" style="max-height: 700px;" src="{{Storage::url($maisComprados[0]->ende_foto_pro)}}" alt="First slide"></a>
       </div>
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
 	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[1]->id]) }}">
-        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[1]->usuario_id == 1 ? asset($maisComprados[1]->ende_foto_pro) : Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
+        <img class="mx-auto d-block" style="max-height: 700px;" src="{{Storage::url($maisComprados[1]->ende_foto_pro)}}" alt="Second slide">
      </a>
 	 </div>
 	  </div>
       <div class="carousel-item">
 	  <div class="text-center">
 	  <a href="{{ route('produto.comprar', ['id' => $maisComprados[2]->id]) }}">
-        <img class="mx-auto d-block" style="max-height: 700px;" src="{{$maisComprados[2]->usuario_id == 1 ? asset($maisComprados[2]->ende_foto_pro) : Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
+        <img class="mx-auto d-block" style="max-height: 700px;" src="{{Storage::url($maisComprados[2]->ende_foto_pro)}}" alt="Third slide">
       </a>
 	  </div>
 	  </div>
@@ -222,49 +222,49 @@
 
   <!-- Grid column -->
   <div class="mb-3 pics animation all 2">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[0]->id]) }}"><img class="img-fluid" src="{{$alternativas[0]->usuario_id == 1 ? asset($alternativas[0]->ende_foto_pro) : Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap"></a></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[0]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[0]->ende_foto_pro)}}" alt="Card image cap"></a></a>
   </div>
   <!-- Grid column -->
 
   <!-- Grid column -->
   <div class="mb-3 pics animation all 1">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[1]->id]) }}"><img class="img-fluid" src="{{$alternativas[1]->usuario_id == 1 ? asset($alternativas[1]->ende_foto_pro) : Storage::url($alternativas[1]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[1]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[1]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
   <!-- Grid column -->
 
   <!-- Grid column -->
   <div class="mb-3 pics animation all 1">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[2]->id]) }}"><img class="img-fluid" src="{{$alternativas[2]->usuario_id == 1 ? asset($alternativas[2]->ende_foto_pro) : Storage::url($alternativas[2]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[2]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[2]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
   <!-- Grid column -->
 
   <!-- Grid column -->
   <div class="mb-3 pics animation all 2">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[3]->id]) }}"><img class="img-fluid" src="{{$alternativas[3]->usuario_id == 1 ? asset($alternativas[3]->ende_foto_pro) : Storage::url($alternativas[3]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[3]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[3]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
   <!-- Grid column -->
 
   <!-- Grid column -->
   <div class="mb-3 pics animation all 2">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[4]->id]) }}"><img class="img-fluid" src="{{$alternativas[4]->usuario_id == 1 ? asset($alternativas[4]->ende_foto_pro) : Storage::url($alternativas[4]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[4]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[4]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
   <!-- Grid column -->
 
   <!-- Grid column -->
   <div class="mb-3 pics animation all 1">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[5]->id]) }}"><img class="img-fluid" src="{{$alternativas[5]->usuario_id == 1 ? asset($alternativas[5]->ende_foto_pro) : Storage::url($alternativas[5]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[5]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[5]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
  <!-- Grid column -->
   <div class="mb-3 pics animation all 1">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[6]->id]) }}"><img class="img-fluid" src="{{$alternativas[6]->usuario_id == 1 ? asset($alternativas[6]->ende_foto_pro) : Storage::url($alternativas[6]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[6]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[6]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
   <!-- Grid column -->
   <div class="mb-3 pics animation all 1">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[7]->id]) }}"><img class="img-fluid" src="{{$alternativas[7]->usuario_id == 1 ? asset($alternativas[7]->ende_foto_pro) : Storage::url($alternativas[7]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[7]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[7]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
 <!-- Grid column -->
   <div class="mb-3 pics animation all 1">
-    <a href="{{ route('produto.comprar', ['id' => $alternativas[8]->id]) }}"><img class="img-fluid" src="{{$alternativas[8]->usuario_id == 1 ? asset($alternativas[8]->ende_foto_pro) : Storage::url($alternativas[8]->ende_foto_pro)}}" alt="Card image cap"></a>
+    <a href="{{ route('produto.comprar', ['id' => $alternativas[8]->id]) }}"><img class="img-fluid" src="{{Storage::url($alternativas[8]->ende_foto_pro)}}" alt="Card image cap"></a>
   </div>
 <!-- Grid column -->
   <div class="mb-3 pics animation all 1">

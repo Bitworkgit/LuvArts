@@ -58,7 +58,7 @@
                       <tr>
                           <td class="col-sm-8 col-md-6">
                           <div class="media">
-                              <img class="media-object" src="{{$item->produto()->get()->first()->usuario_id == 1 ? asset($item->produto()->get()->first()->ende_foto_pro) : Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                              <img class="media-object" src="{{Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
                               <div class="media-body">
                                   <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
                               </div>
@@ -275,7 +275,7 @@
                     <table class="table table-hover">
                       <tbody>
                           <tr>
-                            <td class="image"><img style="max-width: 247px;" src="{{$produto->usuario_id == 1 ? asset($produto->ende_foto_pro) : Storage::url($produto->ende_foto_pro)}}" alt=""></td>
+                            <td class="image"><img style="max-width: 247px;" src="{{Storage::url($produto->ende_foto_pro)}}" alt=""></td>
                             <td class="product"><a href="{{ route('produto.comprar',['id' => $produto->id]) }}"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong></a><br>{{ $produto->descricao_pro }}</td>
                             <td class="price text-right"><b style="color: black; font-size: 20px;">R$ {{number_format($produto->preco_pro, 2, ',', '.') }}</b></td>
                           </tr>
