@@ -27,7 +27,6 @@ class ProdutoController extends Controller
         $prod = Produto::all();
         $user = $request->user();
 
-        //return view('produtos.lista-produtos', compact('prod'));
         return view('layPadrao.layout', compact('prod'));
     }
 

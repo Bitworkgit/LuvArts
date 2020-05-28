@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Model\Usuario;
 
 class Produto extends Model
 {
@@ -18,6 +19,8 @@ class Produto extends Model
         'cod_colecoes',
         'cod_categoria'
     ];
+
+
 
     public function colecao(){
         return $this->belongsTo('App\Model\Colecoes', 'cod_colecoes');
@@ -37,5 +40,15 @@ class Produto extends Model
 
     public function carrinho(){
         return $this->hasMany('App\Model\Carrinho');
+    }
+
+    public static function registrosValidos(){
+        $ids = Usuario::select('id')
+                      ->where('bloqueado',1)
+                      ->orWhere('excluido',1);
+
+        $registros = Produto::whereNotIn('usuario_id',$ids);
+
+        return $registros;
     }
 }
