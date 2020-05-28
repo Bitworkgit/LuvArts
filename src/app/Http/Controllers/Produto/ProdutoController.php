@@ -229,7 +229,7 @@ class ProdutoController extends Controller
 
     public function listaArteColecao(Request $request, $cod_colecoes){
        /* Pega os produtos pelo id da coleção */
-        $prod     = Produto::where('cod_colecoes', $cod_colecoes)->paginate(6);
+        $prod     = Produto::registrosValidos()->where('cod_colecoes', $cod_colecoes)->paginate(6);
         $texto    = " por coleção";
         $semDados = "Ops, esta coleção não possui artes!";
         $user     = $request->user();
@@ -252,7 +252,7 @@ class ProdutoController extends Controller
 
     public function listaArteUsuario(Request $request, $id){
         /* Pega os produtos pelo id do usuario */
-        $prod     = Produto::where('usuario_id', $id)->paginate(6);
+        $prod     = Produto::registrosValidos()->where('usuario_id', $id)->paginate(6);
         $texto    = " por usuário";
         $semDados = 'Ops, este usuário não possui artes!';
         $seeArts  = Gate::allows('ver-dados-edit');
@@ -279,9 +279,10 @@ class ProdutoController extends Controller
     }
 
     public function comprarProduto($id){
-        $produto = Produto::find($id);
+        $produto = Produto::registrosValidos()->find($id);
 
-        $alternativas = Produto::where('id','!=',$id)
+        $alternativas = Produto::registrosValidos()
+                                        ->where('id','!=',$id)
                                         ->inRandomOrder()
                                         ->limit(20)
                                         ->get();
@@ -299,7 +300,8 @@ class ProdutoController extends Controller
             $status = 1;
         }
         else {
-            $produtos = Produto::where('nome_pro','like','%'.$pesquisa.'%')->orderBy('preco_pro',$ordem)->paginate(7);
+            $produtos = Produto::registrosValidos()
+                        ->where('nome_pro','like','%'.$pesquisa.'%')->orderBy('preco_pro',$ordem)->paginate(7);
         }
 
         if(!isset($produtos) || count($produtos) == 0){
@@ -317,13 +319,14 @@ class ProdutoController extends Controller
     public function categoria($categoria_id, $ordem = "DESC", $pesquisa = NULL){
 
         if($pesquisa != NULL && $pesquisa != " "){
-            $produtos = Produto::where('cod_categoria',$categoria_id)
+            $produtos = Produto::registrosValidos()
+                                ->where('cod_categoria',$categoria_id)
                                 ->where('nome_pro','like','%'.$pesquisa."%")
                                 ->orderBy('preco_pro',$ordem)
                                 ->paginate(7);
         }
         else {
-            $produtos = Produto::where('cod_categoria',$categoria_id)->orderBy('preco_pro',$ordem)->paginate(7);
+            $produtos = Produto::registrosValidos()->where('cod_categoria',$categoria_id)->orderBy('preco_pro',$ordem)->paginate(7);
             $pesquisa = " ";
         }
 
