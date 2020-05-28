@@ -18,6 +18,11 @@ class PerfilController extends Controller
 
     protected function index($user_id){
         $user = Usuario::find($user_id);
+
+        if($user->bloqueado == 1 || $user->excluido == 1){
+            return back();
+        }
+
         $colecoes = Colecao::where('usuario_id',$user_id)->get();
         $see = Gate::allows('ver-dados');
         $verAdm = Gate::allows('admin');
