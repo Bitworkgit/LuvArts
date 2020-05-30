@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use App\Model\Carrinho;
 use App\Model\Produto;
 use App\Model\Categoria;
@@ -74,7 +75,7 @@ class ProdutoController extends Controller
             'Descricao' => 'required|string|max:250',
             'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => 'required|image|mimes:jpeg,jpg,png||dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
+            'imagem'    => 'required|image|mimes:jpeg,jpg,png'
         ],[
 
         ],[
@@ -106,7 +107,49 @@ class ProdutoController extends Controller
         }
 
         if($request->hasFile('imagem')){
-            $pro->ende_foto_pro = $request->file('imagem')->store('public');
+            /* Define a altura e largura padrão */
+            $altura = 2480;
+            $largura = 3508;
+            
+            /* Pega o hash da imagem para salvar o nome */
+            $nome = $request->file('imagem')->store('public');
+            
+            /* Deleta a imagem criada acima */
+            Storage::delete($nome);
+
+            $imagem = $request->file('imagem');
+
+            /* Pega o tamanho da imagem original e salva nas var $largura_original, $altura_original */
+            list($largura_original, $altura_original) = getimagesize($imagem);
+
+            /* Calcula o ponto para imagem não ficar desproporcional */
+            $proporcao = $largura_original / $altura_original;
+
+            /* Faz o teste para definir o tamanho ideal da imagem de acordo com o definido na altura e largura */
+            if($largura / $altura > $proporcao){
+                $largura = $altura * $proporcao;
+            }else{
+                $altura = $largura / $proporcao;
+            }
+
+            /* Cria nova imagem em branco */
+            $imagem_final = imagecreatetruecolor($largura, $altura);
+
+            /* Salva o nome da imagem no banco */
+            $pro->ende_foto_pro = $nome;
+
+            $nome = explode("/", $nome);
+
+            /* Se dependendo da extensão da img, ele cria a imagem nova e salva no diretório */
+            if($request->file('imagem')->getClientOriginalExtension() == 'png'){
+                $imagem_original = imagecreatefrompng($imagem);
+                imagecopyresampled($imagem_final, $imagem_original, 0, 0, 0, 0, $largura, $altura, $largura_original, $altura_original);
+                imagepng($imagem_final, $_SERVER['DOCUMENT_ROOT']. "\storage/" . $nome[1]);
+            }else{
+                $imagem_original = imagecreatefromjpeg($imagem);
+                imagecopyresampled($imagem_final, $imagem_original, 0, 0, 0, 0, $largura, $altura, $largura_original, $altura_original);
+                imagejpeg($imagem_final, $_SERVER['DOCUMENT_ROOT']. "\storage/" . $nome[1]);
+            }            
         }
 
         $pro->usuario_id = $user['id'];
