@@ -74,7 +74,7 @@ class ProdutoController extends Controller
             'Descricao' => 'required|string|max:250',
             'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => 'required|image|mimes:jpeg,jpg,png||dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
+            'imagem'    => ['required','image','mimes:jpeg,jpg,png', new Dimensao(2480,3507,3508,2480)]
         ],[
 
         ],[
@@ -167,7 +167,7 @@ class ProdutoController extends Controller
             'Descricao' => 'required|string',
             'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => 'image|mimes:jpeg,png,jpg|dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
+            'imagem'    => ['required','image','mimes:jpeg,jpg,png', new Dimensao(2480,3507,3508,2480)]
         ],[
 
         ],[
