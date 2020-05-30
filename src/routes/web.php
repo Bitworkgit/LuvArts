@@ -40,7 +40,7 @@ Route::post("/registrar/usuario",'Auth\RegisterController@salvar')->name("usuari
 Route::post("/login/usuario",'Auth\LoginController@logar')->name("usuario.logar");
 
 /* Rota para deletar coleção */
-Route::get("/colecao/deletar/{id}",['uses' =>'Produto\ProdutoController@excluirColecao', 'as'=>'produto.excluirColecao']);
+Route::delete("/colecao/deletar",['uses' =>'Produto\ProdutoController@excluirColecao', 'as'=>'produto.excluirColecao']);
 Route::post("/colecao/editar/{id}",['uses' =>'Produto\ProdutoController@editarColecao', 'as'=>'produto.editarColecao']);
 
 /*  Rota para Registro, Alteração e Exclusão de Produtos */
@@ -56,7 +56,7 @@ Route::prefix('item-perfil')->group(function(){
 });
 
 Route::get('produto/comprar/{id}','Produto\ProdutoController@comprarProduto')->name("produto.comprar");
-Route::get('produto/remover/carrinho/{id}','Produto\ProdutoController@removerDoCarrinho')->name("produto.removerDoCarrinho");
+Route::delete('produto/remover/carrinho/{id}','Produto\ProdutoController@removerDoCarrinho')->name("produto.removerDoCarrinho");
 Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
 
  /* Rotas do ADMINISTRADOR */

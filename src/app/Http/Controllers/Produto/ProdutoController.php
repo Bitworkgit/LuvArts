@@ -12,6 +12,7 @@ use App\Model\Produto;
 use App\Model\Categoria;
 use App\Model\Colecao;
 use App\Model\Usuario;
+use App\Rules\Dimensao;
 
 
 class ProdutoController extends Controller
@@ -167,7 +168,7 @@ class ProdutoController extends Controller
             'Descricao' => 'required|string',
             'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => ['required','image','mimes:jpeg,jpg,png', new Dimensao(2480,3507,3508,2480)]
+            'imagem'    => ['image','mimes:jpeg,jpg,png', new Dimensao(2480,3507,3508,2480)]
         ],[
 
         ],[
@@ -265,10 +266,12 @@ class ProdutoController extends Controller
 
     }
 
-    public function excluirColecao($id){
-        $colecao = Colecao::find($id);
+    public function excluirColecao(Request $request){
+        $colecao = Colecao::find($request->id);
         $colecao->delete();
-        return back()->with('success','Coleção excluida!');
+        return response()->json([
+            'sucesso' => 'Coleção excluida!',
+        ]);
     }
 
     public function editarColecao(Request $req ,$id){
@@ -341,7 +344,7 @@ class ProdutoController extends Controller
     public function removerDoCarrinho($id){
         $produto = Carrinho::find($id);
         $produto->delete();
-        return back()->with('success',"Produto removido!");
+        return back();
     }
 
     public function adicionarAoCarrinho($produto_id,$comprador_id){

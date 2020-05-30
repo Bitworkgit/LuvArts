@@ -2,7 +2,8 @@
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale = 1">
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-		<link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">        
 		<link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
@@ -232,7 +233,7 @@
                                                 <td><a href="{{route('item-perfil.listaArte', $item->id)}}">{{ $item->nome_colecao_col }}</a></td>
                                                 @if($see)
                                                     <td>
-                                                            <a href="{{ route('produto.excluirColecao',["id" => $item->id]) }}">
+                                                            <a id="{{ $item->nome_colecao_col }}">
                                                                 <svg class="bi bi-trash trash-color" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"/>
                                                                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" clip-rule="evenodd"/>
@@ -390,6 +391,40 @@
 		</div>
     </div>
     <script src="{{ asset("js/app.js") }}"></script>
+
+    @if(!empty($colecoes))
+        @foreach ($colecoes as $item) 
+                @if($see)
+                    <script>
+                        $("#{{$item->nome_colecao_col}}").click(function(){
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
+                            $.ajax(
+                            {
+                                url: "/colecao/deletar/",
+                                type: 'DELETE', // replaced from put
+                                data: {
+                                    "id": "{{$item->id}}" // method and token not needed in data
+                                },
+                                success: function (response)
+                                {
+                                    iziToast.success({title: 'Sucesso', message: response['sucesso']});
+                                    location.reload();  
+
+                                },
+                                error: function(xhr) {
+                                    iziToast.error({title: 'Erro', message: 'Erro ao excluir Coleção'});
+                                    location.reload();  
+                                }
+                            });
+                        });
+                    </script>
+                @endif                                       
+        @endforeach
+    @endif
 
     <script>
         var bar = new progressBar.Line('.upload', {
