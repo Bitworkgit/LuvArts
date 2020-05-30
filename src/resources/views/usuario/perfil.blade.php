@@ -335,7 +335,7 @@
 								<hr width:60%="">
 
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil</label>
+                                    <label class="col-md-4 control-label" for="uploadPic">Suba sua imagem de perfil (tamanho médio ideal 200x200)</label>
                                     <div class="col-md-4">
                                             <input id="foto_perfil" type="file" name="foto_perfil" class="input-file">
                                     </div>

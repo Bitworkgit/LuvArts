@@ -26,7 +26,7 @@ Route::get("/registrar", function(){
     return view("usuario/cadastro");
 })->name("usuario.registrar");
 
-Route::get('/sobre-nos', function(){
+Route::get('/sobreNos', function(){
     return view('inicio/sobre');
 })->name('sobre');
 

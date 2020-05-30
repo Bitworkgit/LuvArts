@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 use App\Model\Usuario;
 use App\Model\Carrinho;
 use App\Model\Colecao;
@@ -52,7 +51,7 @@ class PerfilController extends Controller
             'cidade' => 'nullable|string|max:30',
             'bairro' => 'nullable|string|max:60',
             'estado' => 'nullable|string|max:19',
-            'foto_perfil' => 'nullable|file|mimes:jpeg,png,jpg',
+            'foto_perfil' => 'nullable|file|mimes:jpeg,png,jpg|dimensions:min_width=200,max_width=400,min_height=200,max_height=400',
             'foto_capa' => 'nullable|file|mimes:jpeg,png,jpg'
         ]);
     }
@@ -76,62 +75,13 @@ class PerfilController extends Controller
         $user->cidade = $dados['cidade'];
         $user->estado = $dados['estado'];
         $user->bairro = $dados['bairro'];
-
         if($requisicao->hasFile('foto_perfil')){
-            //$user->foto_perfil = $requisicao->file('foto_perfil')->store('public');
-
-            /* Define a altura e largura padrão */
-            $altura = 200;
-            $largura = 200;
-            
-            /* Pega o hash da imagem para salvar o nome */
-            $nome = $requisicao->file('foto_perfil')->store('public');
-            
-            /* Deleta a imagem criada acima */
-            Storage::delete($nome);
-
-            $imagem = $requisicao->file('foto_perfil');
-
-            /* Pega o tamanho da imagem original e salva nas var $largura_original, $altura_original */
-            list($largura_original, $altura_original) = getimagesize($imagem);
-
-            /* Calcula o ponto para imagem não ficar desproporcional */
-            $proporcao = $largura_original / $altura_original;
-
-            /* Faz o teste para definir o tamanho ideal da imagem de acordo com o definido na altura e largura */
-            if($largura / $altura > $proporcao){
-                $largura = $altura * $proporcao;
-            }else{
-                $altura = $largura / $proporcao;
-            }
-
-            /* Cria nova imagem em branco */
-            $imagem_final = imagecreatetruecolor($largura, $altura);
-
-            /* Salva o nome da imagem no banco */
-            $user->foto_perfil = $nome;
-
-            $nome = explode("/", $nome);
-
-            /* Se dependendo da extensão da img, ele cria a imagem nova e salva no diretório */
-            if($requisicao->file('foto_perfil')->getClientOriginalExtension() == 'png'){
-                $imagem_original = imagecreatefrompng($imagem);
-                imagecopyresampled($imagem_final, $imagem_original, 0, 0, 0, 0, $largura, $altura, $largura_original, $altura_original);
-                imagepng($imagem_final, $_SERVER['DOCUMENT_ROOT']. "\storage/" . $nome[1]);
-            }else{
-                $imagem_original = imagecreatefromjpeg($imagem);
-                imagecopyresampled($imagem_final, $imagem_original, 0, 0, 0, 0, $largura, $altura, $largura_original, $altura_original);
-                imagejpeg($imagem_final, $_SERVER['DOCUMENT_ROOT']. "\storage/" . $nome[1]);
-            }  
-
+            $user->foto_perfil = $requisicao->file('foto_perfil')->store('public');
         }
-
         if($requisicao->hasFile('foto_capa')){
             $user->foto_capa = $requisicao->file('foto_capa')->store('public');
         }
-
         $user->save();
-        
         return response()->json(['sucesso'=>'Atualizações salvas!']);
     }
 }
