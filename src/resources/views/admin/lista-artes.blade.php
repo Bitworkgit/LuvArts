@@ -44,13 +44,17 @@
                             <font style="vertical-align: inherit;">{{$item->descricao_pro}}</font>
                         </font></p>
                         <div class="d-flex justify-content-between align-items-center">
-                        <form action="{{route('item.destroy', $item['id'])}}" method="POST">
+                        <form action="{{route('item.destroy', $item['id'])}}" method="DELETE">
                             @csrf
                             @method('DELETE')
                             <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-primary">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Visualizar</font>
+                                        <font style="vertical-align: inherit;">
+                                            <a style="color: white; text-decoration: none;" href="{{ route('produto.comprar',['id' => $item->id]) }}">
+                                                Visualizar
+                                            </a>
+                                        </font>
                                     </font>
                                 </button>
                                     
