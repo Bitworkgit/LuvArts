@@ -44,7 +44,7 @@
                             <font style="vertical-align: inherit;">{{$item->descricao_pro}}</font>
                         </font></p>
                         <div class="d-flex justify-content-between align-items-center">
-                        <form action="{{route('item.destroy', $item['id'])}}" method="DELETE">
+                        <form action="{{route('item.destroy', $item['id'])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="btn-group">

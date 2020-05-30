@@ -224,7 +224,7 @@ class ProdutoController extends Controller
         \Storage::delete($pro->ende_foto_pro);
         $pro->delete();
         
-        return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
+        return back();
     }
 
     public function listaArteColecao(Request $request, $cod_colecoes){
