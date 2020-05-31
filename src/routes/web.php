@@ -57,7 +57,7 @@ Route::prefix('item-perfil')->group(function(){
 
 Route::get('produto/comprar/{id}','Produto\ProdutoController@comprarProduto')->name("produto.comprar");
 Route::delete('produto/remover/carrinho/{id}','Produto\ProdutoController@removerDoCarrinho')->name("produto.removerDoCarrinho");
-Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho"); //----PUT
+Route::put('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
 
  /* Rotas do ADMINISTRADOR */
 Route::prefix('painel-admin')->group(function(){
