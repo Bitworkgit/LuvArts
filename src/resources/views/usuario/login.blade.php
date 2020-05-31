@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css")}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/fonts/iconic/css/material-design-iconic-font.min.css")}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/animate.css") }}">
-    <x-global-css/>
+    <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/css/util.css") }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/css/main.css") }}">
 </head>
@@ -63,7 +63,7 @@
 	</div>
 	
 	<div id="dropDownSelect1"></div>
-    <x-global-js/>
+    <script src="{{ asset("js/app.js") }}"></script>
 	<script src="{{ asset("/pages/login/js/main.js")}}"></script>
 	@if(session('success'))
 		<script>

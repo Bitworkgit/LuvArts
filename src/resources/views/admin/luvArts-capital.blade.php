@@ -20,5 +20,5 @@
     <br>
     Capital total: R$ {{ $capital }}<br>
     Crescimento da empresa: {{ number_format($crescimento,2) }}%
-    <x-global-js/>
+    <script src="{{ asset("js/app.js") }}"></script>
 @endsection

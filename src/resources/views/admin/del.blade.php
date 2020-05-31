@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('css')
-    <x-global-css/>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @endsection
 
 @section('title', 'Usuários excluidos')

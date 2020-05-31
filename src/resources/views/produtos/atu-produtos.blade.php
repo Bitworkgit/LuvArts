@@ -122,7 +122,7 @@
     </div>
 
   </div>
-  <x-global-js/>
+  <script src="{{ asset("js/app.js") }}"></script>
 
    @if(session('success'))
       <script>

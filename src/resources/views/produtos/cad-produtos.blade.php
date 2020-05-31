@@ -83,7 +83,7 @@
                       </div>
 
                       <hr>
-                      <x-global-js/>
+                      <script src="{{ asset("js/app.js") }}"></script>
 
                       <script> $(':radio').change(function (event) {
                         var id = $(this).data('id');

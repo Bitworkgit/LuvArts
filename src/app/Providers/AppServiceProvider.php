@@ -29,10 +29,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('components.menu', 'menu');
-        Blade::component('components.globaljs', 'global-js');
-        Blade::component('components.globalcss', 'global-css');
-        Blade::component('components.globalcode', 'global-code');
-
         Blade::component('components.requisicao', Requisicao::class);
 
         View::composer([

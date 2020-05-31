@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
 @section('css')
-    <x-global-css/>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @endsection
 
 @section('js')
-    <x-global-js/>
+    <script src="{{ asset("js/app.js") }}"></script>
 
     @if(session('success'))
         <script>

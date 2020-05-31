@@ -1,10 +1,10 @@
 <html>
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale = 1">
-		<x-global-css/>
+		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <x-global-css/>        
+        <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">        
 		<link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
     </head>
@@ -382,7 +382,7 @@
         </div>
 		</div>
     </div>
-    <x-global-js/>
+    <script src="{{ asset("js/app.js") }}"></script>
 
     @if(Auth::check())
         @foreach($carrinho as $item)
