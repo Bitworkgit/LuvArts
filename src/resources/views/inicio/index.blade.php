@@ -5,7 +5,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>LuvArt's</title>
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
+  <x-global-css/>
   <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
   <style>
   
@@ -135,6 +135,6 @@ $("#gallery").fadeTo(300, 1);
 }, 300);
 });
 }); </script>
-    <script src="{{ asset("js/app.js") }}"></script>
+    <x-global-js/>
 	</body>
 </html>

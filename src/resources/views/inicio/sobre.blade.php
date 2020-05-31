@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Sobre nós</title>
-  <script src="{{ asset("js/app.js") }}"></script>
+  <x-global-js/>
   <link rel="stylesheet" href="{{ asset('pages/sobre/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <x-global-css/>
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 </head>
 

@@ -5,8 +5,8 @@
 @section('content_header')
     <center><h1>Usuários bloqueados</h1></center> <br><br>
 
-    <script src="{{ asset("js/app.js") }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <x-global-js/>
+    <x-global-css/>
 
     @if(session('success'))
         <script>
