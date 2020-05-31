@@ -62,17 +62,7 @@
                                 </td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{$item->produto()->get()->first()->preco_pro}}</strong></td>
-                                <td class="col-sm-1 col-md-1">
-                                    <form action="{{route('produto.removerDoCarrinho', $item->id)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">
-                                                <span class="glyphicon glyphicon-remove">
-                                                    Remover
-                                                </span>
-                                            </button>
-                                      </form>
-                                </td>
+                                <td class="col-sm-1 col-md-1"><button type="submit" id="{{$item->id}}"class="btn btn-danger"><span class="glyphicon glyphicon-remove">Remover</span></button></td>
                             </tr>
                         @endforeach
                         
@@ -393,6 +383,35 @@
 		</div>
     </div>
     <script src="{{ asset("js/app.js") }}"></script>
+
+    @if(Auth::check())
+        @foreach($carrinho as $item)
+        <script>
+            $("#{{$item->id}}").click(function(){
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax(
+                {
+                    url: "/produto/remover/carrinho/{{$item->id}}",
+                    type: 'DELETE', // replaced from put
+                    data: {
+                        "id": "{{$item->id}}" // method and token not needed in data
+                    },
+                    success: function (response)
+                    {
+                        location.reload();  
+                    },
+                    error: function(xhr) {
+                        location.reload();    
+                    }
+                });
+            });
+        </script>
+        @endforeach
+    @endif
 
     @if(!empty($colecoes))
         @foreach ($colecoes as $item) 

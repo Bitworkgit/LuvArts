@@ -341,10 +341,15 @@ class ProdutoController extends Controller
         return view('produtos.pesquisa', compact('produtos','pesquisa','categorias','categoria_id'));
     }
 
-    public function removerDoCarrinho($id){
-        $produto = Carrinho::find($id);
-        $produto->delete();
-        return back();
+    public function removerDoCarrinho(Request $request, $id){
+            if(isset($id)){
+                $id = $id;
+            } else {
+                $id = $request->id;
+            }
+            $produto = Carrinho::find($id);
+            $produto->delete();
+            return back();
     }
 
     public function adicionarAoCarrinho($produto_id,$comprador_id){
