@@ -28,14 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::component('component.alert', 'alert');
+        Blade::component('components.menu', 'menu');
 
         View::composer([
-            'inicio.index',
-            'inicio.sobre',
-            'usuario.perfil',
-            'produtos.pesquisa',
-            'produtos.comprar'
+            'components.menu'
         ], function ($view) {
             $categorias = Categoria::all();
             $carrinho = NULL;
