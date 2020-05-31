@@ -57,23 +57,23 @@ Route::prefix('item-perfil')->group(function(){
 
 Route::get('produto/comprar/{id}','Produto\ProdutoController@comprarProduto')->name("produto.comprar");
 Route::delete('produto/remover/carrinho/{id}','Produto\ProdutoController@removerDoCarrinho')->name("produto.removerDoCarrinho");
-Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho");
+Route::get('produto/adicionar/carrinho/{produto_id}/{comprador_id}','Produto\ProdutoController@adicionarAoCarrinho')->name("produto.adicionarAoCarrinho"); //----PUT
 
  /* Rotas do ADMINISTRADOR */
 Route::prefix('painel-admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
     Route::get('usuarios', 'Admin\AdminController@usuarios')->name('admin.usuarios');
     Route::get('usuarios/bloqueados', 'Admin\AdminController@usuariosBloqueado')->name('admin.usuariosBloqueado');
-    Route::get('usuarios/bloquear/{id}', 'Admin\AdminController@bloquearUsuario')->name('admin.bloquearUsuario');
-    Route::get('usuarios/deletar/{id}', 'Admin\AdminController@deletarUsuario')->name('admin.deletarUsuario');
-    Route::get('usuarios/desbloquear/{id}', 'Admin\AdminController@desbloquearUsuario')->name('admin.desbloquearUsuario');
+    Route::put('usuarios/bloquear/{id}', 'Admin\AdminController@bloquearUsuario')->name('admin.bloquearUsuario');
+    Route::put('usuarios/deletar/{id}', 'Admin\AdminController@deletarUsuario')->name('admin.deletarUsuario');
+    Route::get('usuarios/desbloquear/{id}', 'Admin\AdminController@desbloquearUsuario')->name('admin.desbloquearUsuario'); //-PUT
     Route::get('usuarios/artes/{id}', 'Admin\AdminController@listaArte')->name('admin.listaArte');
     Route::get('usuarios/admin/{id}', 'Admin\AdminController@admin')->name('admin.admin');
     Route::get('usuarios/del', 'Admin\AdminController@usuariosExcluido')->name('admin.usuariosExcluido');
     Route::get('usuarios/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
     Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
     Route::get('/luvarts/estatisticas', 'Admin\AdminController@estatisticas')->name('admin.estatisticas');
-    Route::get('/incrementar/{id}', 'Venda\VendaController@incrementar')->name("venda.incrementar");
+    Route::get('/incrementar/{id}', 'Venda\VendaController@incrementar')->name("venda.incrementar");//-PUT
 });
 
  /* Caso não exista a rota, joga para a pagina de 404 */
