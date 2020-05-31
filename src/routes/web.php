@@ -66,7 +66,7 @@ Route::prefix('painel-admin')->group(function(){
     Route::get('usuarios/bloqueados', 'Admin\AdminController@usuariosBloqueado')->name('admin.usuariosBloqueado');
     Route::put('usuarios/bloquear/{id}', 'Admin\AdminController@bloquearUsuario')->name('admin.bloquearUsuario');
     Route::put('usuarios/deletar/{id}', 'Admin\AdminController@deletarUsuario')->name('admin.deletarUsuario');
-    Route::get('usuarios/desbloquear/{id}', 'Admin\AdminController@desbloquearUsuario')->name('admin.desbloquearUsuario'); //-PUT
+    Route::put('usuarios/desbloquear/{id}', 'Admin\AdminController@desbloquearUsuario')->name('admin.desbloquearUsuario');
     Route::get('usuarios/artes/{id}', 'Admin\AdminController@listaArte')->name('admin.listaArte');
     Route::get('usuarios/admin/{id}', 'Admin\AdminController@admin')->name('admin.admin');
     Route::get('usuarios/del', 'Admin\AdminController@usuariosExcluido')->name('admin.usuariosExcluido');

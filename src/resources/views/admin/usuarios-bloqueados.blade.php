@@ -28,13 +28,15 @@
             </thead>
             <tbody>
                 @foreach ($user as $item)
+                <form id="{{$item->nome}}-excluir" action="{{route('admin.deletarUsuario', $item->id)}}" method="POST"> @csrf @method('PUT') </form>
+                <form id="{{$item->nome}}-desbloquear" action="{{route('admin.desbloquearUsuario', $item->id)}}" method="POST"> @csrf @method('PUT') </form>
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{$item->nome}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->produto->count()}}</td>
-                    <td><a href="{{route('admin.deletarUsuario', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
-                        <a href="{{route('admin.desbloquearUsuario', $item->id)}}" class="btn btn-success btn-sm">Desbloquear</a></td>
+                    <td><button style="color: white;" type="submit" form="{{$item->nome}}-excluir" class="btn btn-danger btn-sm">Excluir</button>&nbsp
+                        <button style="color: white;" type="submit" form="{{$item->nome}}-desbloquear" class="btn btn-success btn-sm">Desbloquear</button></td>
                 </tr>
                 @endforeach
             </tbody>
