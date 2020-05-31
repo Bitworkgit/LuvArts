@@ -73,7 +73,7 @@ Route::prefix('painel-admin')->group(function(){
     Route::get('usuarios/lista-adm', 'Admin\AdminController@listaAdm')->name('admin.listaAdm');
     Route::get('/luvarts/capital', 'Admin\AdminController@capitalLuvArts')->name('admin.capitalLuvArts');
     Route::get('/luvarts/estatisticas', 'Admin\AdminController@estatisticas')->name('admin.estatisticas');
-    Route::get('/incrementar/{id}', 'Venda\VendaController@incrementar')->name("venda.incrementar");//-PUT
+    Route::put('/incrementar/{id}', 'Venda\VendaController@incrementar')->name("venda.incrementar");
 });
 
  /* Caso não exista a rota, joga para a pagina de 404 */
