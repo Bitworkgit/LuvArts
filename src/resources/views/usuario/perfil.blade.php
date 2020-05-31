@@ -63,13 +63,15 @@
                                 <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{$item->produto()->get()->first()->preco_pro}}</strong></td>
                                 <td class="col-sm-1 col-md-1">
-                                    <a style="color: black; text-decoration: none;" href="{{route('produto.removerDoCarrinho',['id' => $item->id])}}">
-                                        <button type="button" class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                                Remover
-                                            
-                                        </button>
-                                    </a>
+                                    <form action="{{route('produto.removerDoCarrinho', $item->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">
+                                                <span class="glyphicon glyphicon-remove">
+                                                    Remover
+                                                </span>
+                                            </button>
+                                      </form>
                                 </td>
                             </tr>
                         @endforeach

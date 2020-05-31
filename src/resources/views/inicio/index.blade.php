@@ -78,7 +78,6 @@
                                                 Remover
                                             </span>
                                         </button>
-                                    </a>
                                   </form>
                                 </td>
                             </tr>
