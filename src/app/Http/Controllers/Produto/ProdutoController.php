@@ -222,8 +222,8 @@ class ProdutoController extends Controller
         $user = $request->user();
         $pro  = Produto::find($id);
 
-        \Storage::delete($pro->ende_foto_pro);
-        $pro->delete();
+        $pro->excluido = 1;
+        $pro->save();
         
         return back();
     }
