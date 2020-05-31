@@ -7,7 +7,7 @@
             @method('DELETE')
         @endif
         <div class="btn-group">
-            <button type="submit" class="{{ $classe }}">
+            <button type="submit" style="{{ $estilo }}" class="{{ $classe }}">
                 {{ $slot }}
             </button>
         </div>

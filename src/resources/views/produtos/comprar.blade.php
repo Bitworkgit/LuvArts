@@ -59,10 +59,11 @@
         <input type="text" value="1"><br>
         <button type="button" class=" btn btn-default waves-effect waves-light comprar"><a style="color:white; text-decoration: none;">Comprar</a></button>
         @if(Auth::check())
-        <form id="formulario" action="{{route('produto.adicionarAoCarrinho',['comprador_id' => Auth::User()->id, 'produto_id' => $produto->id])}}" method="POST"> @csrf @method('PUT') </form>
-          <button style="color: white;" type="submit" form="formulario" class=" btn btn-default waves-effect waves-light comprar">
-              Adicionar ao carrinho
-          </button>
+          <x-requisicao
+          :action="route('produto.adicionarAoCarrinho',['comprador_id' => Auth::User()->id, 'produto_id' => $produto->id])" 
+          classe="btn btn-default waves-effect waves-light comprar">
+            Adicionar ao carrinho
+          </x-requisicao>
         @endif
       </div>
     </div>
