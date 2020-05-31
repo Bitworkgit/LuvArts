@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('components.menu', 'menu');
+        Blade::component('components.requisicao', Requisicao::class);
 
         View::composer([
             'components.menu'

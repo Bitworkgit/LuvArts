@@ -208,7 +208,6 @@
         </div>
       </div>
     </div>
-    </form>
   </div>
 
   <br>
@@ -233,18 +232,20 @@
           </thead>
           <tbody>
             @foreach($vendas as $venda)
-            <form id="{{$venda->id}}" action="{{ route("venda.incrementar",['id' => $venda->id]) }}" method="POST"> @csrf @method('PUT') </form>
               <tr>
                 <td>{{ $venda->id }}</td>
                 <td><a href="{{ route("produto.comprar", ['id' => $venda->produto()->get()->first()->id]) }}">{{ $venda->produto()->get()->first()->nome_pro }}</a></td>
                 @if($venda->status == 1)
                   <td>
-                      <button type="submit" form="{{$venda->id}}" class="btn btn-warning">Pendente</button>
+                    <x-requisicao :action="route('venda.incrementar',['id' => $venda->id])" classe="btn btn-warning">
+                       Pendente
+                    </x-requisicao>
                   </td>
                 @else
                   <td>
-                      <button type="submit" form="{{$venda->id}}" class="btn btn-primary">Processando</button>
-                  </td>
+                    <x-requisicao :action="route('venda.incrementar',['id' => $venda->id])">
+                      Processando
+                   </x-requisicao>                  </td>
                 @endif
                 <td>
                   <a href="{{ route('perfil.index',['usuario_id' => $venda->vendedor_id]) }}">
