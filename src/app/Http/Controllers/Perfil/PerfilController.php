@@ -40,7 +40,7 @@ class PerfilController extends Controller
     {
         return Validator::make($data, [
             'nome' => 'required|string|max:146',
-            'website' => 'required|string',
+            'website' => 'required|string|max:60',
             'celular' => 'nullable|string|max:14',
             'cpf' => 'nullable|string|max:14',
             'biografia' => 'required|string',
