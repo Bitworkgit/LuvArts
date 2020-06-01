@@ -21,6 +21,7 @@ class UsuarioSeeder extends Seeder
             'email' => "user@gmail.com",
             'password' => Hash::make("1234abcd"),
             'sexo' => 1,
+            'capital' => 2000,
             'data_de_nascimento' => Carbon::parse('2000-01-01'),
             'excluido' => 0,
             "administrador" => 0,
