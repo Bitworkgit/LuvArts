@@ -19,7 +19,7 @@
 				  <br>
 				  <label>  Resoluçao indicada 2480x3507 ou 3508x2480, Aviso: Não confie em editores, use as propriedades do windows para verificar o tamanho da sua imagem.</label>
                   <div class="col-md-4">
-                    <input type="file" name="imagem">
+                    <input style="max-width: 125px;" type="file" name="imagem">
                   </div>
                 </div>
               </div>

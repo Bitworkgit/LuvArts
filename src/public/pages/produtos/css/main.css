@@ -104,7 +104,7 @@ body {
 	padding-top:100px
 }
 .form-group{
-	width:120%;
+	max-width:120%;
 }
 .form-Center{
  font-weight:bold;
