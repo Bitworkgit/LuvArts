@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component('components.menu', 'menu');
         Blade::component('components.requisicao', Requisicao::class);
+        Blade::component('components.requisicao', QuebraCabeca::class);
 
         View::composer([
             'components.menu'
