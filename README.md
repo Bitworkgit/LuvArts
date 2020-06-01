@@ -26,7 +26,7 @@ rodar o seguinte comando dentro da pasta src:
 ```sh
 php install
 ```
-E por fim mover a pasta src/images para src/storage/app/public isso se faz necessário para que você possa ver o site funcionar com exemplos de produtos já cadastrados. O processo de instalação pode demorar um pouco.
+E por fim copiar a pasta src/images para src/storage/app/public isso se faz necessário para que você possa ver o site funcionar com exemplos de produtos já cadastrados. O processo de instalação pode demorar um pouco.
 
 ## Modo de uso
 
