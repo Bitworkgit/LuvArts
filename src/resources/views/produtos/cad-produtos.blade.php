@@ -63,12 +63,6 @@
                   <label class="col-md-4 control-label" for="Tcolecao">Tem uma coleção para colocar sua obra?</label>
                   <div class="col-md-6">
 
-                      @if(session('error'))
-                        <script>
-                          iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
-                        </script>
-                      @endif
-
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="thing" id="exampleRadios1" value="valuable" data-id="teste1">
                         <label class="form-check-label" for="exampleRadios1">
@@ -156,6 +150,13 @@
           iziToast.error({title: 'Erro', message: '{{$error}}'});
         </script>
       @endforeach
+    @endif
+
+    
+    @if(session('error'))
+      <script>
+        iziToast.error({title: 'Erro', message: '{{ session('error') }}'});
+      </script>
     @endif
 
 @endsection
