@@ -30,7 +30,10 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = Usuario::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $user = Usuario::where('bloqueado', 0)
+                        ->where('excluido', 0)
+                        ->where('administrador',0)
+                        ->paginate(15);
         $i = 1;
 
         return view('admin.usuarios', compact('user', 'i'));
