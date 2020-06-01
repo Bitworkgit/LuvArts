@@ -1,4 +1,11 @@
-
+.titulo {
+    color: #7d82a9;
+    text-shadow: 1px 1px #000000;
+    font-family: 'Inconsolata', monospace;
+    font-weight: bolder;
+    font-size: 30px;
+    padding-top: 40px;
+}
 .imgp{
 	  /* margin-top: 77px; */
         z-index:  99999;
