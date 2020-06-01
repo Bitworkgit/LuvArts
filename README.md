@@ -44,7 +44,7 @@ Informações tecnicas:
 * As rotas ficam em src/routes/web.php
 * As migrations ficam em src/database/migrations
 
-para mais informções contate: +55 19 99848-9607
+para mais informações contate: +55 19 99848-9607
 
 ## Considerações
 * O projeto pode ter um peso médio de 300 mb, isso ocorre pela necessidade de portar imagens para os produtos de exemplo, porém sem elas o projeto pesa muito menos.
