@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer("sexo");
             $table->dateTime("data_de_nascimento");
             $table->integer("endereco")->nullable();
-            $table->string("site")->nullable()->default(".......");
+            $table->string("site",60)->nullable()->default(".......");
             $table->string("estado",19)->nullable();
             $table->string("cidade",30)->nullable();
             $table->string("rua",60)->nullable();
