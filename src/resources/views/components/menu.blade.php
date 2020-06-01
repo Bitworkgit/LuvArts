@@ -1,6 +1,6 @@
 <div>
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
-    <a class="" href="{{ route('home') }}" style="
+    <a class="navimg" href="{{ route('home') }}" style="
         /* margin-top: 77px; */
         z-index:  99999;
         padding: 10px;

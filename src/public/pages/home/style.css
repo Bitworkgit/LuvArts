@@ -35,9 +35,6 @@ transition: all 350ms ease; }
 -ms-transform: scale(1);
 transform: scale(1); }
 
-<<<<<<< Updated upstream
-@media (max-width: 350px) {
-=======
 @media (max-width: 950px) {
 	.d-block {
     display: block !important;
@@ -74,7 +71,6 @@ transform: scale(1); }
 	
 	
 @media (max-width: 650px) {
->>>>>>> Stashed changes
 .gallery {
 -webkit-column-count: 1;
 -moz-column-count: 1;
@@ -83,15 +79,10 @@ column-count: 1;
 -moz-column-width: 100%;
 column-width: 100%;
 }
+.d-block {
+    display: block !important;
+    max-width: 650px;
 }
-
-@media (max-width: 300px) {
-.btn.filter {
-padding-left: 1.1rem;
-padding-right: 1.1rem;
-}
-}
-
 
 
 @media screen and (max-width:991px){
