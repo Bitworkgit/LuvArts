@@ -10,7 +10,6 @@
     </head>
 
    <body>
-    <x-menu/>
     <style>
         .trash-color {color: red;}
         .bt {
