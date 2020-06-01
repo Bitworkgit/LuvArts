@@ -8,7 +8,7 @@
     "><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
       <nav class="navbar navbar-expand-lg navbar-dark ">
 
-        <a class="navbar-brand" href="{{ route('home') }}"><img src="http://127.0.0.1:8000/images/dark.png" height="10px" width="140" class="nav-img  "></a>
+        <a class="navbar-brand"  href="{{ route('home') }}"><img style="opacity: 0;" src="http://127.0.0.1:8000/images/dark.png" height="10px" width="140" class="nav-img  "></a>
 
         
 
