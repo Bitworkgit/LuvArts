@@ -35,7 +35,46 @@ transition: all 350ms ease; }
 -ms-transform: scale(1);
 transform: scale(1); }
 
+<<<<<<< Updated upstream
 @media (max-width: 350px) {
+=======
+@media (max-width: 950px) {
+	.d-block {
+    display: block !important;
+    max-width: 850px;
+}	
+}
+
+@media (max-width: 750px) {
+	.d-block {
+    display: block !important;
+    max-width: 550px;
+}
+	
+}
+@media (max-width: 550px) {
+	.d-block {
+    display: block !important;
+    max-width: 450px!important;
+}
+	
+}
+@media (max-width: 400px) {
+	.d-block {
+    display: block !important;
+    max-width: 310px!important;
+}
+	
+}
+@media (max-width: 990px) {
+.navimg{
+	opacity: 0;
+}	
+}
+	
+	
+@media (max-width: 650px) {
+>>>>>>> Stashed changes
 .gallery {
 -webkit-column-count: 1;
 -moz-column-count: 1;
