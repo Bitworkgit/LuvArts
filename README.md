@@ -1,5 +1,5 @@
 # LuvArts
-Branch para presentação...
+Branch para presentação e avaliação por parte dos professores...
 
 ## Ferramentas necessárias
 
