@@ -19,7 +19,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nome' => "Alex Figueiro",
             'email' => "user@gmail.com",
-            'password' => Hash::make("1234abcd"),
+            'password' => Hash::make("vbfdf323Af#"),
             'sexo' => 1,
             'capital' => 2000,
             'data_de_nascimento' => Carbon::parse('2000-01-01'),
