@@ -40,17 +40,6 @@ class UsuarioSeeder extends Seeder
         ]);
 
         Usuario::create([
-            'nome' => "Bruna Timoteo",
-            'email' => "brunatimoteo@gmail.com",
-            'password' => Hash::make("#$&%#$@uythgrf$%¨&*A"),
-            'sexo' => 1,
-            'data_de_nascimento' => Carbon::parse('2000-01-01'),
-            'excluido' => 0,
-            "administrador" => 1,
-            "bloqueado" => 0
-        ]);
-
-        Usuario::create([
             'nome' => "Mateus Meira",
             'email' => "mateusmeira@gmail.com",
             'password' => Hash::make("#$&%#$@SDFGHJ##@%$#"),
