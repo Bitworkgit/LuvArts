@@ -1,3 +1,31 @@
+body{ 
+color: #ffff;
+background-color: #1e1f29;
+}
+p{
+color: #ffff;
+}
+strong{
+	color: #ffff!important;
+}
+b{
+	color: #ffff!important;
+}
+a{
+	color: #ffff!important;
+}
+.dropdown-menu {
+    background-color: #2b2d3c73!important;
+}
+
+.titulo {
+    color: #7d82a9;
+    text-shadow: 1px 1px #000000;
+    font-family: 'Inconsolata', monospace;
+    font-weight: bolder;
+    font-size: 30px;
+    padding-top: 40px;
+}
 
 .trash-color {color: red;}
         .bt {

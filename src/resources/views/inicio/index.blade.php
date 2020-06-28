@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
   <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+  
   <style>
   
     .menu {
@@ -17,6 +18,7 @@
   </style>
   </head>
 <body>
+
   <a class="" href="{{ route('home') }}" style="
         /* margin-top: 77px; */
         z-index:  99999;
@@ -140,6 +142,7 @@
                     @endforeach
                 </div>
               </li>
+			  <input id="night-mode" class="lamp" type="checkbox" aria-label="night-mode" />
 			  
 			
 			  <!------------------------------------------------------------------------------------------------------->
