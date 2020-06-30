@@ -108,8 +108,8 @@ class ProdutoController extends Controller
 
         if($request->hasFile('imagem')){
             /* Define a altura e largura padrão */
-            $altura = 2480;
-            $largura = 3508;
+            $altura = 1240;
+            $largura = 1754;
             
             /* Pega o hash da imagem para salvar o nome */
             $nome = $request->file('imagem')->store('public');
