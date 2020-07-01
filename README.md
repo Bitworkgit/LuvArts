@@ -1,9 +1,4 @@
-# AVISO
-Se você é professor entre na branch 'Apresentação' e boa avaliação :)
-
-## LuvArts
-Repositório de desenvolvimento da plataforma LuvArt's
-
+# LuvArts
 ## Ferramentas necessárias
 
 * Node.js: https://nodejs.org/en/
