@@ -1,9 +1,4 @@
-# AVISO
-Se você é professor entre na branch 'Apresentação' e boa avaliação :)
-
-## LuvArts
-Repositório de desenvolvimento da plataforma LuvArt's
-
+# LuvArts
 ## Ferramentas necessárias
 
 * Node.js: https://nodejs.org/en/
@@ -51,8 +46,7 @@ Regras e dicas:
 * O local de trabalho com css deve ser escolhido pelo Front-End podendo ser em src/resources/sass ou src/public
 
 ## Créditos
-* Bruna Timoteo  73389
-* Higor Freitas 104481
-* Thiago P. Bonfogo 103750 
-* Mateus Meira 103849 
-* Bruno César  102473
+* Higor Freitas
+* Thiago P. Bonfogo 
+* Mateus Meira 
+* Bruno César
