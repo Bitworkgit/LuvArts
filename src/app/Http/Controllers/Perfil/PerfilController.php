@@ -127,7 +127,25 @@ class PerfilController extends Controller
         }
 
         if($requisicao->hasFile('foto_capa')){
-            $user->foto_capa = $requisicao->file('foto_capa')->store('public');
+            //$user->foto_capa = $requisicao->file('foto_capa')->store('public');
+            $nome = $requisicao->file('foto_capa')->store('public');
+            $user->foto_capa = $nome;
+            /* Deleta a imagem criada acima */
+            Storage::delete($nome);
+
+            $imagem = $requisicao->file('foto_capa');
+
+            $nome = explode("/", $nome);
+
+            if($requisicao->file('foto_capa')->getClientOriginalExtension() == 'png'){
+                $imagem_original = imagecreatefrompng($imagem);
+                imagepng($imagem_original, $_SERVER['DOCUMENT_ROOT']. "\storage/" . $nome[1]);
+            }else{
+                $imagem_original = imagecreatefromjpeg($imagem);
+                imagejpeg($imagem_original, $_SERVER['DOCUMENT_ROOT']. "\storage/" . $nome[1]);
+            }  
+
+
         }
 
         $user->save();
