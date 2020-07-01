@@ -30,7 +30,6 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Login</th>
                 <th scope="col">Total artes</th>
-                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -40,26 +39,6 @@
                     <td>{{$item->nome}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->produto->count()}}</td>
-                    <td><a href="{{route('admin.bloquearUsuario', $item->id)}}" class="btn btn-warning btn-sm">Bloquear</a>&nbsp
-                    <a href="{{route('admin.listaArte', $item->id)}}" class="btn btn-primary btn-sm">Artes</a>&nbsp
-                    <a href="{{route('admin.deletarUsuario', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
-                    <form action="{{route('admin.admin', $item->id)}}" method="GET">
-                        @csrf
-                        @method('get')
-                        <br>
-                        <b>Administrador</b><br>                
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="admin" id="inlineRadio{{++$i}}" value="1" @if($item->administrador == 1 ) checked @endif  onClick="this.form.submit()">
-                            <label class="form-check-label" for="inlineRadio{{$i}}"><b>Sim</b></label>
-                        </div>
-                          
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="admin" id="inlineRadio{{++$i}}" value="0" @if($item->administrador == 0 ) checked @endif  onClick="this.form.submit()">
-                            <label class="form-check-label" for="inlineRadio{{$i}}"><b>Não</b></label>
-                        </div>
-                    </form>
-                    
-                    </td>
                 </tr>
             @endforeach
             </tbody>

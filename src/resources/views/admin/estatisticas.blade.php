@@ -208,7 +208,6 @@
         </div>
       </div>
     </div>
-    </form>
   </div>
 
   <br>
@@ -237,9 +236,16 @@
                 <td>{{ $venda->id }}</td>
                 <td><a href="{{ route("produto.comprar", ['id' => $venda->produto()->get()->first()->id]) }}">{{ $venda->produto()->get()->first()->nome_pro }}</a></td>
                 @if($venda->status == 1)
-                  <td><a href="{{ route("venda.incrementar",['id' => $venda->id]) }}"><span class="badge badge-warning">Pendente</span></a></td>
-                @else($venda->status == 2)
-                  <td><a href="{{ route("venda.incrementar",['id' => $venda->id]) }}"><span class="badge badge-primary">Processando</span></a></td>
+                  <td>
+                    <x-requisicao :action="route('venda.incrementar',['id' => $venda->id])" classe="btn btn-warning">
+                       Pendente
+                    </x-requisicao>
+                  </td>
+                @else
+                  <td>
+                    <x-requisicao :action="route('venda.incrementar',['id' => $venda->id])">
+                      Processando
+                   </x-requisicao>                  </td>
                 @endif
                 <td>
                   <a href="{{ route('perfil.index',['usuario_id' => $venda->vendedor_id]) }}">

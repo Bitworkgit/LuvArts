@@ -30,7 +30,10 @@ class AdminController extends Controller
         if(!Gate::allows('admin'))
             return redirect()->route('home');
         
-        $user = Usuario::where('bloqueado', 0)->where('excluido', 0)->paginate(15);
+        $user = Usuario::where('bloqueado', 0)
+                        ->where('excluido', 0)
+                        ->where('administrador',0)
+                        ->paginate(15);
         $i = 1;
 
         return view('admin.usuarios', compact('user', 'i'));
@@ -152,14 +155,16 @@ class AdminController extends Controller
     }
 
     public function estatisticas(){
-        $users = Usuario::all();
+        $users = Usuario::where('bloqueado',0)
+                        ->where('administrador',0)
+                        ->where('excluido',0);
+        
         $block = Usuario::where('bloqueado', 1)->get();
         $exclu = Usuario::where('excluido', 1)->get();
         $dados = SaldoEquipe::orderBy('ano','ASC')->get();
         $dados = $dados->last()->capital;
         $ativo = Usuario::where('excluido', 0)->where('bloqueado', 0)->get();
         $liqui = $users->sum('capital'); 
-        $liqui = $liqui - $block->sum('capital') - $exclu->sum('capital');
         $venda = Produto::all();
         $top5  = Produto::orderBy('vendas', 'DESC')->limit(5)->get();
         $doacoes = Doacao::all()->last();

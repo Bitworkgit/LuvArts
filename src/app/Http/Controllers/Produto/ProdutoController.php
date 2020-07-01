@@ -7,12 +7,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 use App\Model\Carrinho;
 use App\Model\Produto;
 use App\Model\Categoria;
 use App\Model\Colecao;
 use App\Model\Usuario;
+use App\Rules\Dimensao;
 
 
 class ProdutoController extends Controller
@@ -75,7 +75,7 @@ class ProdutoController extends Controller
             'Descricao' => 'required|string|max:250',
             'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => 'required|image|mimes:jpeg,jpg,png'
+            'imagem'    => ['required','image','mimes:jpeg,jpg,png', new Dimensao(2480,3507,3508,2480)]
         ],[
 
         ],[
@@ -150,6 +150,7 @@ class ProdutoController extends Controller
                 imagecopyresampled($imagem_final, $imagem_original, 0, 0, 0, 0, $largura, $altura, $largura_original, $altura_original);
                 imagejpeg($imagem_final, $_SERVER['DOCUMENT_ROOT']. "\storage/" . $nome[1]);
             }            
+            $pro->ende_foto_pro = $request->file('imagem')->store('public');
         }
 
         $pro->usuario_id = $user['id'];
@@ -210,7 +211,7 @@ class ProdutoController extends Controller
             'Descricao' => 'required|string',
             'preco'     => 'required|numeric|min:10',
             'categoria' => 'required',
-            'imagem'    => 'image|mimes:jpeg,png,jpg|dimensions:min_width=2480,max_width=3508,min_height=2480,max_height=3508'
+            'imagem'    => ['image','mimes:jpeg,jpg,png', new Dimensao(2480,3507,3508,2480)]
         ],[
 
         ],[
@@ -264,10 +265,10 @@ class ProdutoController extends Controller
         $user = $request->user();
         $pro  = Produto::find($id);
 
-        \Storage::delete($pro->ende_foto_pro);
-        $pro->delete();
+        $pro->excluido = 1;
+        $pro->save();
         
-        return redirect()->route('item-perfil.listaArteUsu', $user['id'])->with('success', 'Arte excluida com sucesso');
+        return back();
     }
 
     public function listaArteColecao(Request $request, $cod_colecoes){
@@ -308,10 +309,12 @@ class ProdutoController extends Controller
 
     }
 
-    public function excluirColecao($id){
-        $colecao = Colecao::find($id);
+    public function excluirColecao(Request $request){
+        $colecao = Colecao::find($request->id);
         $colecao->delete();
-        return back()->with('success','Coleção excluida!');
+        return response()->json([
+            'sucesso' => 'Coleção excluida!',
+        ]);
     }
 
     public function editarColecao(Request $req ,$id){
@@ -381,10 +384,39 @@ class ProdutoController extends Controller
         return view('produtos.pesquisa', compact('produtos','pesquisa','categorias','categoria_id'));
     }
 
-    public function removerDoCarrinho($id){
-        $produto = Carrinho::find($id);
-        $produto->delete();
-        return back()->with('success',"Produto removido!");
+    public function categoriaMultiplas(Request $req, $ordem = "DESC", $pesquisa = NULL){
+
+        $categoria_ids = $req->input("ids");
+        if($pesquisa != NULL && $pesquisa != " "){
+            $produtos = Produto::registrosValidos()
+                                ->whereIn('cod_categoria',$categoria_ids)
+                                ->where('nome_pro','like','%'.$pesquisa."%")
+                                ->orderBy('preco_pro',$ordem)
+                                ->paginate(7);
+        }
+
+        else {
+            $produtos = Produto::registrosValidos()->whereIn('cod_categoria',$categoria_ids)->orderBy('preco_pro',$ordem)->paginate(7);
+            $pesquisa = " ";
+        }
+
+        if(count($produtos) == 0){
+            $produtos = "Nada encontrado...";
+        }
+
+        $categorias = Categoria::all();
+        return view('produtos.pesquisa', compact('produtos','pesquisa','categorias'));
+    }
+
+    public function removerDoCarrinho(Request $request, $id){
+            if(isset($id)){
+                $id = $id;
+            } else {
+                $id = $request->id;
+            }
+            $produto = Carrinho::find($id);
+            $produto->delete();
+            return back();
     }
 
     public function adicionarAoCarrinho($produto_id,$comprador_id){

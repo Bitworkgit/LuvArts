@@ -19,8 +19,9 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nome' => "Alex Figueiro",
             'email' => "user@gmail.com",
-            'password' => Hash::make("1234abcd"),
+            'password' => Hash::make("vbfdf323Af#"),
             'sexo' => 1,
+            'capital' => 2000,
             'data_de_nascimento' => Carbon::parse('2000-01-01'),
             'excluido' => 0,
             "administrador" => 0,
@@ -30,18 +31,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nome' => "Thiago Piassi Bonfogo",
             'email' => "thiagopiassi@gmail.com",
-            'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
-            'sexo' => 1,
-            'data_de_nascimento' => Carbon::parse('2000-01-01'),
-            'excluido' => 0,
-            "administrador" => 1,
-            "bloqueado" => 0
-        ]);
-
-        Usuario::create([
-            'nome' => "Bruna Timoteo",
-            'email' => "brunatimoteo@gmail.com",
-            'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
+            'password' => Hash::make("#$&%#$@dsfsfgfRTY#$@"),
             'sexo' => 1,
             'data_de_nascimento' => Carbon::parse('2000-01-01'),
             'excluido' => 0,
@@ -52,7 +42,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nome' => "Mateus Meira",
             'email' => "mateusmeira@gmail.com",
-            'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
+            'password' => Hash::make("#$&%#$@SDFGHJ##@%$#"),
             'sexo' => 1,
             'data_de_nascimento' => Carbon::parse('2000-01-01'),
             'excluido' => 0,
@@ -63,7 +53,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nome' => "Bruno Cesar",
             'email' => "brunocesar@gmail.com",
-            'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
+            'password' => Hash::make("#$&%#$@ghdfdsgf%¨$##@"),
             'sexo' => 1,
             'data_de_nascimento' => Carbon::parse('2000-01-01'),
             'excluido' => 0,
@@ -74,7 +64,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nome' => "Higor Freitas",
             'email' => "pudim@gmail.com",
-            'password' => Hash::make("#$&%#$@54678dfghgRGHJsghaadF"),
+            'password' => Hash::make("#$&%#$@%¨#$@!ghgvbcd"),
             'sexo' => 1,
             'data_de_nascimento' => Carbon::parse('2000-01-01'),
             'excluido' => 0,

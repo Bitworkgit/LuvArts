@@ -35,14 +35,16 @@
             </thead>
             <tbody>
             @foreach ($user as $item)
+            <form id="{{$item->nome}}-bloquear" action="{{route('admin.bloquearUsuario', $item->id)}}" method="POST"> @csrf @method('PUT') </form>
+            <form id="{{$item->nome}}-excluir" action="{{route('admin.deletarUsuario', $item->id)}}" method="POST"> @csrf @method('PUT') </form>
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{$item->nome}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->produto->count()}}</td>
-                    <td><a href="{{route('admin.bloquearUsuario', $item->id)}}" class="btn btn-warning btn-sm">Bloquear</a>&nbsp
+                    <td><button style="color: white;" type="submit" form="{{$item->nome}}-bloquear" class="btn btn-warning btn-sm">Bloquear</button>&nbsp
                     <a href="{{route('admin.listaArte', $item->id)}}" class="btn btn-primary btn-sm">Artes</a>&nbsp
-                    <a href="{{route('admin.deletarUsuario', $item->id)}}" class="btn btn-danger btn-sm">Excluir</a>&nbsp
+                    <button style="color: white;" type="submit" form="{{$item->nome}}-excluir" class="btn btn-danger btn-sm">Excluir</button>&nbsp
                     <form action="{{route('admin.admin', $item->id)}}" method="GET">
                         @csrf
                         @method('get')
@@ -58,7 +60,6 @@
                             <label class="form-check-label" for="inlineRadio{{$i}}"><b>Não</b></label>
                         </div>
                     </form>
-                    
                     </td>
                 </tr>
             @endforeach

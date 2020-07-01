@@ -39,14 +39,15 @@ class ProdutoSeeder extends Seeder
         ];
 
         foreach($dados as $dado){
+            $id = rand(1,Usuario::all()->count()); //id da colecao e do usuario
             Produto::create([
                 "nome_pro" => "Produto de amostra",
                 "descricao_pro" => "......",
                 "preco_pro" => rand(12,100),
                 "ende_foto_pro" => $dado[0],
-                "usuario_id" => rand(1,Usuario::all()->count()),
+                "usuario_id" => $id,
                 "cod_categoria" => rand(1,Categoria::all()->count()),
-                "cod_colecoes" => rand(1,Colecao::all()->count()),
+                "cod_colecoes" => $id,
                 "vendas" => $dado[1]
             ]);
         }

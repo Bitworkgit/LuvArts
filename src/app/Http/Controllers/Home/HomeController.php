@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $mensagem = "";
         $maisComprados = Produto::registrosValidos()
                                        ->where('vendas','>',0)
                                        ->orderBy('vendas','desc')
@@ -21,8 +22,9 @@ class HomeController extends Controller
                                         ->inRandomOrder()
                                         ->limit(20)
                                         ->get();
-        
-
-        return view('inicio/index',compact('maisComprados','alternativas'));
+        if($maisComprados->count() < 3 || $alternativas->count() < 8){
+            $mensagem = "Não temos a quantidade necessária de artes para exibir essa pagina!";
+        }
+        return view('inicio/index',compact('maisComprados','alternativas','mensagem'));
     }
 }

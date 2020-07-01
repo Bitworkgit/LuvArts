@@ -51,12 +51,12 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Confirme Sua Senha">
+				<div class="wrap-input100 m-b-25" data-validate = "Confirme Sua Senha">
 					<input class="input100" type="password" name="cofirmação_de_senha" placeholder="Confirme Sua Senha">
 					<span class="focus-input100"></span>
 				</div>
 				
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Selecione um Sexo">
+				<div class="wrap-input100 m-b-20" data-validate="Selecione um Sexo">
 					<select class="input100 selectf" name="sexo">
 						<option value="" disabled selected>Selecione seu Sexo</option>
 						<option value="1">Masculino</option>
@@ -65,8 +65,8 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Escolha sua data de nascimento">
-					<input class="input100" type="date" id="date" name="data" placeholder="Escolha sua data de nascimento">
+				<div class="wrap-input100 m-b-25" data-validate = "Escolha sua data de nascimento">
+					<input class="input100" type="date" id="date" name="data">
 					<span class="focus-input100"></span>
 				</div>
 

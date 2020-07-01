@@ -177,3 +177,7 @@ a{
   height: auto;
   overflow-x: hidden;
 }
+
+.large-select {
+    width: 200px;
+}

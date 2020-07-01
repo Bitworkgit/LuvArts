@@ -50,7 +50,11 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-primary">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Visualizar</font>
+                                        <font style="vertical-align: inherit;">
+                                            <a style="color: white; text-decoration: none;" href="{{ route('produto.comprar',['id' => $item->id]) }}">
+                                                Visualizar
+                                            </a>
+                                        </font>
                                     </font>
                                 </button>
                                     

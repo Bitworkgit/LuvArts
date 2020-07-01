@@ -22,7 +22,7 @@ class DoacaoSeeder extends Seeder
         }
         Doacao::create([
             "ano" => 2030,
-            "capital" => 95200
+            "capital" => 22000
         ]);
     }
 }

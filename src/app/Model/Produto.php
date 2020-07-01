@@ -47,7 +47,8 @@ class Produto extends Model
                       ->where('bloqueado',1)
                       ->orWhere('excluido',1);
 
-        $registros = Produto::whereNotIn('usuario_id',$ids);
+        $registros = Produto::whereNotIn('usuario_id',$ids)
+                            ->where('excluido',0);
 
         return $registros;
     }

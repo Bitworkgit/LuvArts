@@ -23,6 +23,7 @@ class CreateProdutosTable extends Migration
             $table->unsignedInteger('cod_colecoes')->nullable();
             $table->unsignedInteger('cod_categoria')->nullable();
             $table->integer('vendas')->default(0);
+            $table->integer('excluido')->default(0);
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
 
