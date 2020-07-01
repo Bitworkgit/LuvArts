@@ -341,6 +341,30 @@ class ProdutoController extends Controller
         return view('produtos.pesquisa', compact('produtos','pesquisa','categorias','categoria_id'));
     }
 
+    public function categoriaMultiplas(Request $req, $ordem = "DESC", $pesquisa = NULL){
+
+        $categoria_ids = $req->input("ids");
+        if($pesquisa != NULL && $pesquisa != " "){
+            $produtos = Produto::registrosValidos()
+                                ->whereIn('cod_categoria',$categoria_ids)
+                                ->where('nome_pro','like','%'.$pesquisa."%")
+                                ->orderBy('preco_pro',$ordem)
+                                ->paginate(7);
+        }
+
+        else {
+            $produtos = Produto::registrosValidos()->whereIn('cod_categoria',$categoria_ids)->orderBy('preco_pro',$ordem)->paginate(7);
+            $pesquisa = " ";
+        }
+
+        if(count($produtos) == 0){
+            $produtos = "Nada encontrado...";
+        }
+
+        $categorias = Categoria::all();
+        return view('produtos.pesquisa', compact('produtos','pesquisa','categorias'));
+    }
+
     public function removerDoCarrinho(Request $request, $id){
             if(isset($id)){
                 $id = $id;

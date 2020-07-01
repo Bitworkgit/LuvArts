@@ -69,45 +69,6 @@
             <!-- END SEARCH INPUT -->
             
             <div class="padding"></div>
-            
-            <div class="row">
-              <!-- BEGIN ORDER RESULT -->
-              @if($produtos != "Nada encontrado...")
-                <div class="col-sm-6">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                      Ordenar por <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      @if($pesquisa != " ")
-                        <li><a href="{{ route('pesquisar',[
-                          'pesquisa' => $pesquisa,
-                          'ordem' => 'asc'
-                          ])}}">Menor preço</a></li>
-                        <li><a href="{{ route('pesquisar',[
-                          'pesquisa' => $pesquisa,
-                          'ordem' => 'desc'
-                          ])}}">Maior preço</a></li>
-                      </ul>
-                    @else
-                      <li><a href="{{ route('pesquisar.categoria',[
-                        'categoria_id' => $categoria_id,
-                        'ordem' => 'asc',
-                        'pesquisa' => $pesquisa
-                        ])}}">Menor preço</a></li>
-                      <li><a href="{{ route('pesquisar.categoria',[
-                        'categoria_id' => $categoria_id,
-                        'ordem' => 'desc',
-                        'pesquisa' => $pesquisa
-                        ])}}">Maior preço</a></li>
-                    </ul>
-                    @endif
-                  </div>
-                </div>
-                <!-- END ORDER RESULT -->
-              @endif
-           
-            </div>
             @if($produtos == "Nada encontrado...")
               <br><br>
               <center>

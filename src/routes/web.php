@@ -48,6 +48,7 @@ Route::resource('/item','Produto\ProdutoController');
 Route::get('/pesquisa/{pesquisa?}/{ordem?}', 'Produto\ProdutoController@pesquisa')->name('pesquisar');
 
 Route::get('/categoria/{categoria_id}/{ordem?}/{pesquisa?}', 'Produto\ProdutoController@categoria')->name('pesquisar.categoria');
+Route::post('/categoria/multi', 'Produto\ProdutoController@categoriaMultiplas')->name('pesquisar.categoriaMultiplas');
 
  /* Rota para mostrar os itens de cada Usuario por coleção e todos os itens de cada usuario */
 Route::prefix('item-perfil')->group(function(){

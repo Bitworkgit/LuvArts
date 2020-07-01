@@ -1,5 +1,5 @@
 <div>
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">   
     <a class="navimg" href="{{ route('home') }}" style="
         /* margin-top: 77px; */
         z-index:  99999;
@@ -115,17 +115,35 @@
                 </div>
               </li>
 			  <!----------------------------------------------------------------------------------------------->
-              <li class="nav-item dropdown">
-                <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Categorias
-                </a>
-                <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                    @foreach($categorias as $categoria)
-                        <a class="dropdown-item" href="{{ route('pesquisar.categoria', ['categoria_id' => $categoria->id]) }}">{{ $categoria->nome_categoria }}</a>
-                    @endforeach
-                </div>
+              <li class="nav-item">
+                <a class="nav-link menu" data-toggle="modal" data-target="#exampleModal">Pesquisa por categias multiplas</a>
               </li>
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Pesquisa por categorias multiplas</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="{{route('pesquisar.categoriaMultiplas')}}" method="POST" id="form-multi">
+                        @csrf
+                        <select class="js-example-basic-multiple large-select" name="ids[]" multiple="multiple">
+                          @foreach($categorias as $categoria)
+                              <option value="{{$categoria->id}}">{{$categoria->nome_categoria}}</option>
+                          @endforeach
+                        </select>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary" form="form-multi">Pesquisar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 			  
 			
 			  <!------------------------------------------------------------------------------------------------------->
@@ -147,6 +165,7 @@
           </form>
         </div>
       </nav>
+      <script src="{{ asset('js/app.js') }}"></script>
       <script>
         var entrada = document.getElementById('pesquisa');
         entrada.addEventListener("keyup", function(event) {
@@ -156,5 +175,8 @@
           }
         });
 
+        $(document).ready(function() {
+          $('.js-example-basic-multiple').select2();
+        });
     </script>
 </div>
