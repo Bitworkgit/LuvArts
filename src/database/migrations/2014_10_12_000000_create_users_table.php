@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string("cpf",14)->nullable();
-            $table->longText("biografia")->nullable()->default(".......");
+            $table->longText("biografia")->default(".......");
             $table->string('nome',146);
             $table->float('capital', 7, 2)->nullable()->default(0.00);
             $table->string("foto_perfil")->nullable()->default("images/empty-avatar.png");
