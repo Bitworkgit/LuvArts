@@ -1,3 +1,31 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2b2d3c;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.select2-dropdown{
+	background: #2b2d3c!important;
+}
+.dark{
+	background: #1e1f29!important;
+}
+.ldark{
+	background: #2b2d3c!important;
+}
+
 body{ 
 color: #ffff;
 background-color: #1e1f29;
@@ -165,6 +193,7 @@ a{
 
 .menu {
     font-size: 15px;
+	
 }
 .scrollable-menu {
   height: auto;	

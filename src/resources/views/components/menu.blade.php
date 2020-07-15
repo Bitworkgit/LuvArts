@@ -97,13 +97,14 @@
               <li class="nav-item">
                 <a class="nav-link menu" href="{{ route('sobre') }}">Sobre nós</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Usuário
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  @if(!Auth::check())
+
+<div class="dropdown nav-link menu">
+  <li class="dropdown nav-item">
+                <a class="nav-link menu" style="
+    padding-top: 1px;">Usuário</a>
+			</li>
+  <div class="dropdown-content">
+     @if(!Auth::check())
                   <a class="dropdown-item" href="{{ route('usuario.login') }}">Entrar</a>
                   <a class="dropdown-item" href="{{ route('usuario.registrar') }}">Cadastrar-se</a>
                     <div class="dropdown-divider"></div>
@@ -112,16 +113,18 @@
                     <a class="dropdown-item" href="{{ route('perfil.index',['usuario_id' => Auth::User()->id]) }}">Meu Perfil</a>
                     <a class="dropdown-item" href="{{ route('usuario.sair') }}">Sair</a>
                   @endif
-                </div>
-              </li>
+  </div>
+</div>
+
+              
 			  <!----------------------------------------------------------------------------------------------->
               <li class="nav-item">
                 <a class="nav-link menu" data-toggle="modal" data-target="#exampleModal">Pesquisa por categias multiplas</a>
               </li>
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
+              <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog dark">
+                  <div class="modal-content dark">
+                    <div class="modal-header dark">
                       <h5 class="modal-title" id="exampleModalLabel">Pesquisa por categorias multiplas</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -138,8 +141,8 @@
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn btn-primary" form="form-multi">Pesquisar</button>
+                      <button type="button" class="btn btn-secondary  dark" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary  ldark" form="form-multi">Pesquisar</button>
                     </div>
                   </div>
                 </div>
