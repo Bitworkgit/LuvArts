@@ -15,11 +15,8 @@ class DatabaseSeeder extends Seeder
             UsuarioSeeder::class,
             CategoriaSeeder::class,
             ColecaoSeeder::class,
-            ProdutoSeeder::class,
             DoacaoSeeder::class,
             SaldoEquipeSeeder::class,
-            VendaSeeder::class,
-            CarrinhoSeeder::class
         ]);
     }
 }
