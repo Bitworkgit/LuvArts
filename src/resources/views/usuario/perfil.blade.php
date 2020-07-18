@@ -23,7 +23,7 @@
             position: relative;
         }
         .pad {
-            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : Storage::url($user->foto_capa))}}");
+            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : asset($user->foto_capa))}}");
         }
     </style>
 
@@ -33,7 +33,7 @@
             
         <div class="pad">
             <div class="text-right relative image-border"">
-                <img src="{{($user->foto_perfil == 'images/empty-avatar.png' ? asset($user->foto_perfil) : Storage::url($user->foto_perfil))}}" alt="avatar">
+                <img src="{{($user->foto_perfil == 'images/empty-avatar.png' ? asset($user->foto_perfil) : asset($user->foto_perfil))}}" alt="avatar">
             </div>
         </div>
         <div class="container">

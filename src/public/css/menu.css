@@ -66,7 +66,7 @@ a{
             position: relative;
         }
         .pad {
-            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : Storage::url($user->foto_capa))}}");
+            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : asset($user->foto_capa))}}");
         }
 .inline{
     float:left

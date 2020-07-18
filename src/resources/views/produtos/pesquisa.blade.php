@@ -82,7 +82,7 @@
                     <table class="table table-hover">
                       <tbody>
                           <tr>
-                            <td class="image"><img style="max-width: 247px;" src="{{Storage::url($produto->ende_foto_pro)}}" alt=""></td>
+                            <td class="image"><img style="max-width: 247px;" src="{{asset($produto->ende_foto_pro)}}" alt=""></td>
                             <td class="product"><a href="{{ route('produto.comprar',['id' => $produto->id]) }}"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong></a><br>{{ $produto->descricao_pro }}</td>
                             <td class="price text-right"><b style="color: black; font-size: 20px;">R$ {{number_format($produto->preco_pro, 2, ',', '.') }}</b></td>
                           </tr>

@@ -43,7 +43,7 @@
                               <tr>
                                   <td class="col-sm-8 col-md-6">
                                   <div class="media">
-                                      <img class="media-object" src="{{Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                                      <img class="media-object" src="{{asset($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
                                       <div class="media-body">
                                           <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
                                       </div>

@@ -28,7 +28,7 @@
         <div class="col-md-5">
 			<div class="row" >
 				
-					<img src="{{Storage::url($produto->ende_foto_pro)}}" class="product d-block w-100" alt="First slide">
+					<img src="{{asset($produto->ende_foto_pro)}}" class="product d-block w-100" alt="First slide">
 				
 			</div>
             
