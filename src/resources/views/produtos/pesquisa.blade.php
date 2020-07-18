@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>pesquisando por {{$pesquisa}}</title>
-  <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
-  <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset("public/css/app.css") }}">
+  <link rel="stylesheet" href="{{ asset('public/pages/home/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/pages/home/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">
 
 
 </head>
@@ -110,7 +110,7 @@
    
   </div>
       
-    <script src="{{ asset("js/app.js") }}"></script>
+    <script src="{{ asset("public/js/app.js") }}"></script>
 
 </body>
 

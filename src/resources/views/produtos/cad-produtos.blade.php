@@ -4,7 +4,7 @@
 
 @section('conteudo')
 
-   <div class="bg" style="background-image: url('{{asset('pages/produtos/images/bg-01.jpg')}}');">
+   <div class="bg" style="background-image: url('{{asset('public/pages/produtos/images/bg-01.jpg')}}');">
     <div class="container">
 
       <div class="box">
@@ -77,7 +77,7 @@
                       </div>
 
                       <hr>
-                      <script src="{{ asset("js/app.js") }}"></script>
+                      <script src="{{ asset("public/js/app.js") }}"></script>
 
                       <script> $(':radio').change(function (event) {
                         var id = $(this).data('id');

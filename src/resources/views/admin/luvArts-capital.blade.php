@@ -3,7 +3,7 @@
 @section('title', 'Total capital LuvArts')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('pages/admin/equipeCapital.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/pages/admin/equipeCapital.css') }}">
 @endsection
 
 @section('content_header')
@@ -20,5 +20,5 @@
     <br>
     Capital total: R$ {{ $capital }}<br>
     Crescimento da empresa: {{ number_format($crescimento,2) }}%
-    <script src="{{ asset("js/app.js") }}"></script>
+    <script src="{{ asset("public/js/app.js") }}"></script>
 @endsection

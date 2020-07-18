@@ -4,12 +4,12 @@
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css")}}">
-	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/fonts/iconic/css/material-design-iconic-font.min.css")}}">
-	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/animate.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/css/util.css") }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset("/pages/login/css/main.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset("public/pages/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset("public/pages/login/fonts/iconic/css/material-design-iconic-font.min.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset("public/pages/login/animate.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("public/css/app.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset("public/pages/login/css/util.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset("public/pages/login/css/main.css") }}">
 
 	<style>
 		.selectf {
@@ -85,8 +85,8 @@
 	</div>
 	
 	<div id="dropDownSelect1"></div>
-	<script src="{{ asset("js/app.js") }}"></script>
-	<script src="{{ asset("/pages/login/js/main.js")}}"></script>
+	<script src="{{ asset(public/js/app.js") }}"></script>
+	<script src="{{ asset("public/pages/login/js/main.js")}}"></script>
 	@if($errors->any())
 		@foreach ($errors->all() as $error)
 			<script>

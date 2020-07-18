@@ -1,11 +1,11 @@
 <div>
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">   
+    <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">   
     <a class="navimg" href="{{ route('home') }}" style="
         /* margin-top: 77px; */
         z-index:  99999;
         padding: 10px;
         position: absolute;
-    "><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
+    "><img src="{{ asset('public/images/NAV.png')}}" width="140" class="nav-img  "></a>
       <nav class="navbar navbar-expand-lg navbar-dark ">
 
         <a class="navbar-brand"  href="{{ route('home') }}"><img style="opacity: 0;" src="http://127.0.0.1:8000/images/dark.png" height="10px" width="140" class="nav-img  "></a>
@@ -23,7 +23,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('images/cart.png')}}" width="30" class="nav-img  ">
+                    <img src="{{ asset('public/images/cart.png')}}" width="30" class="nav-img  ">
                     
                     </a>
                     <div class="dropdown-menu cart" aria-labelledby="navbarDropdown">
@@ -168,7 +168,7 @@
           </form>
         </div>
       </nav>
-      <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ asset('public/js/app.js') }}"></script>
       <script>
         var entrada = document.getElementById('pesquisa');
         entrada.addEventListener("keyup", function(event) {
