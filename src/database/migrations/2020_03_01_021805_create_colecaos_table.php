@@ -14,7 +14,7 @@ class CreateColecaosTable extends Migration
     public function up()
     {
         Schema::create('colecoes', function (Blueprint $table) {
-            $table->tinyIncrements('id',1);
+            $table->tinyIncrements('id');
             $table->string('nome_colecao_col', 100);
             $table->unsignedTinyInteger('usuario_id');
             $table->charset = 'utf8';

@@ -14,7 +14,7 @@ class CreateCarrinhosTable extends Migration
     public function up()
     {
         Schema::create('carrinhos', function (Blueprint $table) {
-            $table->tinyIncrements('id',1);
+            $table->tinyIncrements('id');
             $table->unsignedTinyInteger('comprador_id');
             $table->unsignedTinyInteger('produto_id');
 

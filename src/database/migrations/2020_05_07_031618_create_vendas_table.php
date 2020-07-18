@@ -14,7 +14,7 @@ class CreateVendasTable extends Migration
     public function up()
     {
         Schema::create('vendas', function (Blueprint $table) {
-            $table->tinyIncrements('id',1);
+            $table->tinyIncrements('id');
             $table->unsignedTinyInteger('vendedor_id')->nullable();
             $table->unsignedTinyInteger('comprador_id')->nullable();
             $table->unsignedTinyInteger('produto_id')->nullable();

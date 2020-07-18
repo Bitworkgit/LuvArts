@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->tinyIncrements('id',1);
+            $table->tinyIncrements('id');
             $table->string("cpf",14)->nullable();
             $table->string("biografia")->nullable()->default(".......");
             $table->string('nome',146);
