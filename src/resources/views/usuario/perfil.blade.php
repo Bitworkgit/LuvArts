@@ -1,12 +1,12 @@
 <html>
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale = 1">
-		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('pages/profile/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/pages/profile/style.css') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">        
-		<link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset("public/css/app.css") }}">        
+		<link rel="stylesheet" href="{{ asset('public/pages/home/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">
     </head>
 
    <body>
@@ -23,7 +23,7 @@
             position: relative;
         }
         .pad {
-            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : Storage::url($user->foto_capa))}}");
+            background-image: url("{{($user->foto_capa == 'images/empty-background.jpg' ? asset($user->foto_capa) : asset($user->foto_capa))}}");
         }
     </style>
 
@@ -33,7 +33,7 @@
             
         <div class="pad">
             <div class="text-right relative image-border"">
-                <img src="{{($user->foto_perfil == 'images/empty-avatar.png' ? asset($user->foto_perfil) : Storage::url($user->foto_perfil))}}" alt="avatar">
+                <img src="{{($user->foto_perfil == 'images/empty-avatar.png' ? asset($user->foto_perfil) : asset($user->foto_perfil))}}" alt="avatar">
             </div>
         </div>
         <div class="container">
@@ -236,7 +236,7 @@
         </div>
 		</div>
     </div>
-    <script src="{{ asset("js/app.js") }}"></script>
+    <script src="{{ asset("public/js/app.js") }}"></script>
 
     @if(Auth::check())
         @foreach($carrinho as $item)

@@ -14,7 +14,7 @@ class CreateSaldoEquipesTable extends Migration
     public function up()
     {
         Schema::create('saldo_equipes', function (Blueprint $table) {
-            $table->id();
+            $table->tinyIncrements('id');
             $table->integer("ano");
             $table->float('capital', 7, 2)->default(0.00);
             $table->timestamps();

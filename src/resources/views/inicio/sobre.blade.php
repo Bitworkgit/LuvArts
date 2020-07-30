@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Sobre nós</title>
-  <script src="{{ asset("js/app.js") }}"></script>
-  <link rel="stylesheet" href="{{ asset('pages/sobre/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+  <script src="{{ asset("public/js/app.js") }}"></script>
+  <link rel="stylesheet" href="{{ asset('public/pages/sobre/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
       <br><br>
       <center>
         <div>
-          <img src="{{asset('/images/NAV.png')}}" class="img-fluid" >
+          <img src="{{asset('public/images/NAV.png')}}" class="img-fluid" >
         </div>
         <br><br>
 				 

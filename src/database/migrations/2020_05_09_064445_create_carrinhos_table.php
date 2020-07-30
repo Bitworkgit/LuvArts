@@ -14,9 +14,9 @@ class CreateCarrinhosTable extends Migration
     public function up()
     {
         Schema::create('carrinhos', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('comprador_id');
-            $table->unsignedInteger('produto_id');
+            $table->tinyIncrements('id');
+            $table->unsignedTinyInteger('comprador_id');
+            $table->unsignedTinyInteger('produto_id');
 
             $table->foreign('comprador_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');

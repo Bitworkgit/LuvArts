@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if(config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
+
         Blade::component('components.menu', 'menu');
         Blade::component('components.requisicao', Requisicao::class);
         Blade::component('components.requisicao', QuebraCabeca::class);

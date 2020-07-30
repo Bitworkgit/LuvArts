@@ -14,14 +14,14 @@ class CreateProdutosTable extends Migration
     public function up()
     {
         Schema::create('produtos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->tinyIncrements('id');
             $table->string('nome_pro', 100);
             $table->string('descricao_pro',250);
             $table->decimal('preco_pro', 8,2);
             $table->string('ende_foto_pro', 80);
-            $table->unsignedBigInteger('usuario_id')->nullable();
-            $table->unsignedInteger('cod_colecoes')->nullable();
-            $table->unsignedInteger('cod_categoria')->nullable();
+            $table->unsignedTinyInteger('usuario_id')->nullable();
+            $table->unsignedTinyInteger('cod_colecoes')->nullable();
+            $table->unsignedTinyInteger('cod_categoria')->nullable();
             $table->integer('vendas')->default(0);
             $table->integer('excluido')->default(0);
             $table->charset = 'utf8';

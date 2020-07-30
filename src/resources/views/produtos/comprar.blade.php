@@ -7,11 +7,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Comprar {{ $produto->nome_pro }}</title>
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset("/pages/produtos/comprar/style.css") }}">
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
-  <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset("public/css/app.css") }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset("public/pages/produtos/comprar/style.css") }}">
+  <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/pages/home/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">
   <style>
   
     .menu {
@@ -28,7 +28,7 @@
         <div class="col-md-5">
 			<div class="row" >
 				
-					<img src="{{Storage::url($produto->ende_foto_pro)}}" class="product d-block w-100" alt="First slide">
+					<img src="{{asset($produto->ende_foto_pro)}}" class="product d-block w-100" alt="First slide">
 				
 			</div>
             
@@ -75,7 +75,7 @@
 
   <x-quebra-cabeca/>
 
-  <script src="{{ asset("js/app.js") }}"></script>
+  <script src="{{ asset("public/js/app.js") }}"></script>
 
 </body>
 

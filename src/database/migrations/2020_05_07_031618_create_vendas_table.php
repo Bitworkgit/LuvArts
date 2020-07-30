@@ -14,10 +14,10 @@ class CreateVendasTable extends Migration
     public function up()
     {
         Schema::create('vendas', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('vendedor_id')->nullable();
-            $table->unsignedBigInteger('comprador_id')->nullable();
-            $table->unsignedInteger('produto_id')->nullable();
+            $table->tinyIncrements('id');
+            $table->unsignedTinyInteger('vendedor_id')->nullable();
+            $table->unsignedTinyInteger('comprador_id')->nullable();
+            $table->unsignedTinyInteger('produto_id')->nullable();
             $table->integer('quantidade');
             $table->integer('status');
 

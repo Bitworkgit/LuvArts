@@ -14,13 +14,13 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->id();
+            $table->tinyIncrements('id');
             $table->string("cpf",14)->nullable();
             $table->string("biografia")->nullable()->default(".......");
             $table->string('nome',146);
             $table->float('capital', 7, 2)->nullable()->default(0.00);
-            $table->string("foto_perfil")->nullable()->default("images/empty-avatar.png");
-            $table->string("foto_capa")->nullable()->default("images/empty-background.jpg");
+            $table->string("foto_perfil")->nullable()->default("public/images/empty-avatar.png");
+            $table->string("foto_capa")->nullable()->default("public/images/empty-background.jpg");
             $table->integer("sexo");
             $table->dateTime("data_de_nascimento");
             $table->integer("endereco")->nullable();
@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->integer("excluido");
             $table->integer("administrador");
             $table->integer("bloqueado");
-            $table->string('email')->unique();
+            $table->string('email',500)->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

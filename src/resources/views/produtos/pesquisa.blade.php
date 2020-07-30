@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>pesquisando por {{$pesquisa}}</title>
-  <link rel="stylesheet" type="text/css" href="{{ asset("/css/app.css") }}">
-  <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('pages/home/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset("public/css/app.css") }}">
+  <link rel="stylesheet" href="{{ asset('public/pages/home/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/pages/home/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">
 
 
 </head>
@@ -82,7 +82,7 @@
                     <table class="table table-hover">
                       <tbody>
                           <tr>
-                            <td class="image"><img style="max-width: 247px;" src="{{Storage::url($produto->ende_foto_pro)}}" alt=""></td>
+                            <td class="image"><img style="max-width: 247px;" src="{{asset($produto->ende_foto_pro)}}" alt=""></td>
                             <td class="product"><a href="{{ route('produto.comprar',['id' => $produto->id]) }}"><strong style="color: black; font-size: 20px;">{{ $produto->nome_pro }}</strong></a><br>{{ $produto->descricao_pro }}</td>
                             <td class="price text-right"><b style="color: black; font-size: 20px;">R$ {{number_format($produto->preco_pro, 2, ',', '.') }}</b></td>
                           </tr>
@@ -110,7 +110,7 @@
    
   </div>
       
-    <script src="{{ asset("js/app.js") }}"></script>
+    <script src="{{ asset("public/js/app.js") }}"></script>
 
 </body>
 

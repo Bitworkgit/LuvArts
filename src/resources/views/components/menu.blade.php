@@ -1,11 +1,11 @@
 <div>
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">   
+    <link rel="stylesheet" href="{{ asset('public/css/menu.css') }}">   
     <a class="navimg" href="{{ route('home') }}" style="
         /* margin-top: 77px; */
         z-index:  99999;
         padding: 10px;
         position: absolute;
-    "><img src="{{ asset('images/NAV.png')}}" width="140" class="nav-img  "></a>
+    "><img src="{{ asset('public/images/NAV.png')}}" width="140" class="nav-img  "></a>
       <nav class="navbar navbar-expand-lg navbar-dark ">
 
         <a class="navbar-brand"  href="{{ route('home') }}"><img style="opacity: 0;" src="http://127.0.0.1:8000/images/dark.png" height="10px" width="140" class="nav-img  "></a>
@@ -23,7 +23,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('images/cart.png')}}" width="30" class="nav-img  ">
+                    <img src="{{ asset('public/images/cart.png')}}" width="30" class="nav-img  ">
                     
                     </a>
                     <div class="dropdown-menu cart" aria-labelledby="navbarDropdown">
@@ -43,7 +43,7 @@
                               <tr>
                                   <td class="col-sm-8 col-md-6">
                                   <div class="media">
-                                      <img class="media-object" src="{{Storage::url($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
+                                      <img class="media-object" src="{{asset($item->produto()->get()->first()->ende_foto_pro)}}" style="width: 72px; height: 72px;">
                                       <div class="media-body">
                                           <h4 class="media-heading"><a href="{{route('produto.comprar',['id' => $item->produto()->get()->first()->id])}}">{{$item->produto()->get()->first()->nome_pro}}</a></h4>
                                       </div>
@@ -168,7 +168,7 @@
           </form>
         </div>
       </nav>
-      <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ asset('public/js/app.js') }}"></script>
       <script>
         var entrada = document.getElementById('pesquisa');
         entrada.addEventListener("keyup", function(event) {

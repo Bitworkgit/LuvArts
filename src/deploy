@@ -1,0 +1,8 @@
+<?php 
+    system('npm run compile');
+    system('heroku login');
+    system('git add .');
+    system('git commit -m update');
+    system('git push heroku master');
+    system('heroku open');
+?>
