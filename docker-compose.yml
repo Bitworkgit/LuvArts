@@ -1,18 +1,57 @@
-version: "3"
-
+version: "3.7"
 services:
-
-    db-mssql:
-        image: "microsoft/mssql-server-linux"
-        environment:
-            SA_PASSWORD: "ef66b58b-6ff2-4c78-bcec-6b279312b625"
-            ACCEPT_EULA: "Y"
-        ports:
-            - "1433:1433"
-
-    db-mysql:
-        image: "mysql"
-        environment:
-            MYSQL_ROOT_PASSWORD: "ef66b58b-6ff2-4c78-bcec-6b279312b625"
-        ports:
+    app_luvart:
+        container_name: app_luvart
+        build:
+            args:
+                user: sopao
+                uid: 1000
+            context: ./src
+        ports: 
+            - "8080:80"
+        links:
+            - mysql
+            - phpmyadmin
+        networks:
+            - luvarts_network
+        depends_on: 
+            - mysql
+            - phpmyadmin
+    mysql:
+        container_name: servidor
+        image: mysql:8.0
+        ports: 
             - "3306:3306"
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_PASSWORD}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_USERNAME}
+        volumes:
+            - dbdata:/var/lib/mysql/
+        networks:
+            - luvarts_network
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        links: 
+            - mysql:mysql
+        ports:
+            - 8000:80
+        environment:
+            MYSQL_USER: ${DB_PASSWORD}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_USERNAME}
+        depends_on:
+            - mysql 
+        networks:
+            - luvarts_network
+#Docker Networks
+networks:
+    luvarts_network:
+        driver: bridge
+#Volumes
+volumes:
+    dbdata:
+        driver: local

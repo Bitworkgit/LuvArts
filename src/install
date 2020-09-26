@@ -19,5 +19,5 @@
     }
 
     echo "instalação finalizada\n";
-    system("php artisan serve");
+    #system("php artisan serve");
 ?>
