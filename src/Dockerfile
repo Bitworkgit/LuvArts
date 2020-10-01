@@ -1,34 +1,48 @@
-FROM php:7.4-apache
-
+FROM alpine
 # set user
-ARG user
-ARG uid
-#! ./ é oq esta mandando para o apache
-COPY ./ /usr/local/apache2/htdocs/
 
-RUN apt-get update && \
-    a2enmod rewrite && \
-    apt-get install -y --no-install-recommends gnupg unzip && \
-    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-    apt-get install -y --no-install-recommends nodejs && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer; \
-    echo "America/Sao_Paulo" > /etc/timezone; \
-    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false gnupg; \
-    # Uma versão mínima será gerada na criação do container
-    rm -f /etc/apache2/sites-enabled/000-default.conf
-RUN docker-php-ext-install mysqli
-RUN apt-get update \
-    && apt-get install -y libzip-dev \
-    && apt-get install -y zlib1g-dev \
-    && rm -rf /var/lib/apt/lists/* \
-    && docker-php-ext-install zip \
-    && apt upgrade -y
+RUN mkdir -p /home/${user}/Luvarts
+COPY ./ /home/${user}/Luvarts
+#php
+RUN apk --update add \
+    curl \
+    git \
+    php7 \
+    php7-dev \
+    php7-openssl \
+    php7-mbstring \
+    php7-phar \
+    php7-gd \
+    php7-pdo\
+    php7-mcrypt \
+    php7-mysqli \
+    php7-zlib \
+    php7-ctype \
+    php7-fileinfo \
+    php7-ftp \
+    php7-iconv \
+    php7-json \
+    php7-mysqlnd \
+    php7-pdo_sqlite \
+    php7-pdo_mysql \
+    php7-pear \
+    php7-posix \
+    php7-session \
+    php7-simplexml \
+    php7-sqlite3 \
+    php7-tokenizer \
+    php7-xml \
+    php7-xmlreader \
+    php7-xmlwriter \
+    php7-dom --repository http://nl.alpinelinux.org/alpine/edge/testing/ \
+    nodejs npm \
+    libmcrypt-dev \
+    mysql-client \
+    && rm /var/cache/apk/*
 
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
+#composer
+# da pra instalar via apk add composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-WORKDIR /usr/local/apache2/htdocs/
-RUN ln -s /usr/local/apache2/htdocs/public/* /var/www/html
-RUN php install
-EXPOSE 80
+WORKDIR /home/${user}/Luvarts
+

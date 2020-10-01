@@ -1,50 +1,36 @@
 version: "3.7"
 services:
-    app_luvart:
-        container_name: app_luvart
+    app_luvarts:
+        container_name: app_luvarts
         build:
-            args:
-                user: sopao
-                uid: 1000
             context: ./src
+        command: "php install"
         ports: 
-            - "8080:80"
+            - "8000:8000"
         links:
             - mysql
-            - phpmyadmin
         networks:
             - luvarts_network
         depends_on: 
             - mysql
-            - phpmyadmin
     mysql:
         container_name: servidor
-        image: mysql:8.0
+        image: mysql:5.7
+        restart: always
         ports: 
             - "3306:3306"
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_USER: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USERNAME}
             MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${DB_USERNAME}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            TZ: America/Sao_Paulo
         volumes:
             - dbdata:/var/lib/mysql/
-        networks:
-            - luvarts_network
-    phpmyadmin:
-        container_name: phpmyadmin
-        image: phpmyadmin/phpmyadmin
-        links: 
-            - mysql:mysql
-        ports:
-            - 8000:80
-        environment:
-            MYSQL_USER: ${DB_PASSWORD}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${DB_USERNAME}
-        depends_on:
-            - mysql 
+            - ./my.cnf:/etc/mysql/conf.d/my.cnf
+        security_opt:
+            - seccomp:unconfined
         networks:
             - luvarts_network
 #Docker Networks
